@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+		
+		<context:property-placeholder location="classpath:dbconfig/data.txt"/>
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean class="com.zaxxer.hikari.HikariConfig" id="hikariConfig" >
+		<property name="driverClassName" value="${db.driverClassName}"/>
+		<property name="jdbcUrl" value="${db.jdbcUrl}"/>
+		<property name="username" value="${db.username}"/>
+		<property name="password" value="${db.password}"/>
+	</bean>
+	
+	<bean class="com.zaxxer.hikari.HikariDataSource" id="dataSource" destroy-method="close">
+		<constructor-arg ref="hikariConfig"/>
+	</bean>
+	
+	<!-- <bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate">
+		<constructor-arg ref="dataSource"/>
+	</bean>  대신 mybatis를 사용한다./-->
+	
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:mybatisConfig/mybatisConfig.xml"/>
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:mybatisMapper/memberMapper.xml</value>
+				<value>classpath:mybatisMapper/boardMapper.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+		<constructor-arg ref="sqlSessionFactoryBean"></constructor-arg>
+	</bean>
+	
+	<context:component-scan base-package="kr.co.yangdoll"/>
+
+	<bean class="kr.co.yangdoll.aop.xml.PerformanceAdvice" id="PerformanceAdvice"></bean>
+	<aop:config>
+		<aop:aspect id="traceAspect" ref="performanceAdvice">
+			<aop:around method="trace" pointcut="execution(public * kr.co.yangdoll.service..*.*(..))"/>
+		</aop:aspect>
+	</aop:config>
+	
+</beans>
