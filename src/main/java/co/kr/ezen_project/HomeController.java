@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,6 +35,21 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+		}
+	@RequestMapping(value="/member/{pageName}")
+	public String getMemberPage(@PathVariable("pageName")String pageName) {
+		return "/member/"+pageName;
 	}
-	
+	@RequestMapping(value="/admin/{pageName}")
+	public String getAdminPage(@PathVariable("pageName")String pageName) {
+		return "/admin/"+pageName;
+	}
+	@RequestMapping(value="/sangpum/{pageName}")
+	public String getSangpumPage(@PathVariable("pageName")String pageName) {
+		return "/sangpum/"+pageName;
+	}
+	@RequestMapping(value="/{pageName}")
+	public String getHomePage(@PathVariable("pageName")String pageName) {
+		return "/"+pageName;
+	}
 }
