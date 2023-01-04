@@ -8,7 +8,6 @@
 <script src="https://kit.fontawesome.com/9af1085f00.js" crossorigin="anonymous"></script>
 <title>Insert title here</title>
 </head>
-<body>
 <style>
 
  
@@ -80,7 +79,6 @@ li {
 /* ==================================footer==========================  */
 }
 </style>
-</head>
 <body>
 	<div class="Header">Header 영역</div>
 	<div class="Nav">
