@@ -5,18 +5,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://kit.fontawesome.com/9af1085f00.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/9af1085f00.js"
+	crossorigin="anonymous"></script>
 <title>Insert title here</title>
 </head>
 <style>
-
- 
-.btnLeft{
-	float : left;
+.btnLeft {
+	float: left;
 }
 
-.btnRight{
-	float : right;
+.btnRight {
+	float: right;
 }
 
 .Header {
@@ -40,41 +39,38 @@ ul img {
 /* =========================== nav ============================== */
 .Content {
 	border: 1px solid purple;
-	padding : 20px 40px 10px 200px;
+	padding: 20px 40px 10px 200px;
 }
 
-.Cheader{
+.Cheader {
 	text-align: center;
 	margin-bottom: 100px;
 }
 
-
 li {
-	margin-bottom : 40px;
+	margin-bottom: 40px;
 	margin-left: 10px;
 	border: 1px solid black;
 	list-style: none;
-	height : 300px;
+	height: 300px;
 	width: 300px;
-	display : inline-block;
+	display: inline-block;
 }
 
-.Cside{
-	position: absolute;
-	right:1.5%;
-	top:70%;
+.Cside {
+	position: fixed;
+	right: 1.5%;
+	top: 70%;
 	cursor: pointer;
 	font-size: 50px;
 	width: 100px;
 }
 
-
 /* ===========================content=============================  */
-.Footer{
+.Footer {
 	border: 2px solid skyblue;
 	text-align: center;
 }
-
 
 /* ==================================footer==========================  */
 }
@@ -97,17 +93,13 @@ li {
 	<div class="Content">
 		<div class="Cheader">
 			<h1>분류 메뉴</h1>
-			<a href="">전체</a>
-			<a href="">어쩌구</a>
-			<a href="">저쩌구</a>
-			<a href="">전체</a>
+			<a href="">전체</a> <a href="">어쩌구</a> <a href="">저쩌구</a> <a href="">전체</a>
 		</div>
-		<span class="btnLeft"> <i class="fa-solid fa-arrow-left"></i>
-			</span>
-			<span class="btnRight"> <i class="fa-solid fa-arrow-right"></i>
+			<span class="btnLeft"> <i class="fa-solid fa-arrow-left"></i>
+			</span> <span class="btnRight"> <i class="fa-solid fa-arrow-right"></i>
 			</span>
 		<ul>
-			
+
 			<li>상품1</li>
 			<li>상품2</li>
 			<li>상품3</li>
@@ -125,14 +117,24 @@ li {
 			<li>상품15</li>
 		</ul>
 		<div class="Cside">
-			<i class="fa-regular fa-circle-up" style=""></i>
-			<i class="fa-regular fa-circle-down"></i>
+			<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
+			<i class="fa-regular fa-circle-down" value="Last"
+				onclick="clickLast()"></i>
 		</div>
-		
+
 	</div>
 	<div class="Footer">
 		<img src="image/footer.png" alt="" />
 		<p>푸터입니다</p>
 	</div>
+	<script>
+		function clickTop() {
+			window.scrollTo(0, 0);
+		}
+
+		function clickLast() {
+			window.scrollTo(99999, 99999);
+		}
+	</script>
 </body>
 </html>
