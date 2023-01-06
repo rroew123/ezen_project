@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="kr.co.yangdoll.vo.CardInfoVO" alias="CardInfoVO"/>
+		<typeAlias type="kr.co.yangdoll.vo.CouponVO" alias="CouponVO"/>
+		<typeAlias type="kr.co.yangdoll.vo.FAQVO" alias="FAQVO"/>
+		<typeAlias type="kr.co.yangdoll.vo.MemberVO" alias="MemberVO"/>
+		<typeAlias type="kr.co.yangdoll.vo.NtcBoardVO" alias="NtcBoardVO"/>
+		<typeAlias type="kr.co.yangdoll.vo.PaymentVO" alias="PaymentVO"/>
+		<typeAlias type="kr.co.yangdoll.vo.QnAboardVO" alias="QnAboardVO"/>
+		<typeAlias type="kr.co.yangdoll.vo.ReviewVO" alias="ReviewVO"/>
+		<typeAlias type="kr.co.yangdoll.vo.SangCodeSpecVO" alias="SangCodeSpecVO"/>
+		<typeAlias type="kr.co.yangdoll.vo.SangMemVO" alias="SangMemVO"/>
+		<typeAlias type="kr.co.yangdoll.vo.SangpumVO" alias="SangpumVO"/>
+		<typeAlias type="kr.co.yangdoll.vo.VisitorVO" alias="VisitorVO"/>
+	</typeAliases>
+</configuration>
