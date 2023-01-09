@@ -44,10 +44,10 @@
 	</bean>
 	<context:component-scan	base-package="co.kr.ezen_project"/>
 	
-	<bean id="PerformanceAdvice" class="co.kr.ezen_project.aop.xml.PerformanceAdvice" />
+	<!-- <bean id="PerformanceAdvice" class="co.kr.ezen_project.aop.xml.PerformanceAdvice" />
 	<aop:config>
 		<aop:aspect id="traceAspect" ref="performanceAdvice">
 			<aop:around pointcut="execution(public * co.kr.ezen_project.service..*.*(..))"	method="trace" />
 		</aop:aspect>
-	</aop:config>
+	</aop:config> -->
 </beans>

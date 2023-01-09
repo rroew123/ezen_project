@@ -8,15 +8,15 @@
 		select sysdate from dual
 	</select>
 	
-	<select id="getList" resultType="MemberVO">	
+	<select id="getList" resultType="FAQVO">	
 		select * from members
 	</select>
 	
-	<select id="getMember" resultType="MemberVO" parameterType="String">	
+	<select id="getMember" resultType="FAQVO" parameterType="String">	
 		select * from members where memId = #{memId}
 	</select>
 	
-	<insert id="addMember" parameterType="MemberVO">
+	<insert id="addMember" parameterType="FAQVO">
 		insert into members values(#{memId}, #{memName}, #{memPwd}, #{phone}, sysdate)
 	</insert>
 	
@@ -24,7 +24,7 @@
 		delete from members where memId = #{memId}
 	</delete>
 	
-	<update id="updateMem" parameterType="MemberVO">
+	<update id="updateMem" parameterType="FAQVO">
 		update members set memName=#{memName}, memPwd=#{memPwd}, phone=#{phone} where memId=#{memId}
 	</update>
 </mapper>

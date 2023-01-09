@@ -4,15 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.kr.ezen_project.dao.SangpumDAO"> 
 	
-	<select id="getBoardList" resultType="BoardVO">	
+	<select id="getBoardList" resultType="FAQVO">	
 		select * from tbl_board
 	</select>
 	
-	<select id="getBoard" resultType="BoardVO" parameterType="String">	
+	<select id="getBoard" resultType="FAQVO" parameterType="String">	
 		select * from tbl_board where memId = #{memId}
 	</select>
 	
-	<insert id="addBoard" parameterType="BoardVO">
+	<insert id="addBoard" parameterType="FAQVO">
 		insert into tbl_board values(bd_seq.nextval, #{title}, #{content}, #{writer}, sysdate, sysdate)
 	</insert>
 	
@@ -20,7 +20,7 @@
 		delete from tbl_board where title = #{title}
 	</delete>
 	
-	<update id="updateBoa" parameterType="BoardVO">
+	<update id="updateBoa" parameterType="FAQVO">
 		update tbl_board set title=#{title}, content=#{content}, writer=#{writer}, updatedate=sysdate where bno=#{bno}
 	</update>
 </mapper>
