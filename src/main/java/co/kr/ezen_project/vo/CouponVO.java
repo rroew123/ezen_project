@@ -15,7 +15,7 @@ public class CouponVO {
 	private String memId;
 	@NonNull
 	private String coupName;
-	private int couptype;
+	private int coupType;
 	private String expirDate;
 	private int workCond;
 }

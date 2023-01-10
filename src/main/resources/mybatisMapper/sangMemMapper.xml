@@ -4,23 +4,43 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.kr.ezen_project.dao.SangMemDAO"> 
 	
-	<select id="getBoardList" resultType="FAQVO">	
-		select * from tbl_board
+	<select id="getSangMemList" resultType="SangMemVO">	
+		select * from SangMem
 	</select>
 	
-	<select id="getBoard" resultType="FAQVO" parameterType="String">	
-		select * from tbl_board where memId = #{memId}
+	<select id="getSangMem" resultType="SangMemVO">	
+		select * from SangMem where orderNum = #{orderNum}
 	</select>
 	
-	<insert id="addBoard" parameterType="FAQVO">
-		insert into tbl_board values(bd_seq.nextval, #{title}, #{content}, #{writer}, sysdate, sysdate)
+	<insert id="addSangMem" parameterType="SangMemVO">
+		insert into SangMem values(#{orderNum}, #{memId}, #{payNum}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, #{ordStat} )
 	</insert>
 	
-	<delete id="delBoard" parameterType="String">
-		delete from tbl_board where title = #{title}
+	<delete id="delSangMem" parameterType="SangMemVO">
+		delete from SangMem where orderNum = #{orderNum}
 	</delete>
 	
-	<update id="updateBoa" parameterType="FAQVO">
-		update tbl_board set title=#{title}, content=#{content}, writer=#{writer}, updatedate=sysdate where bno=#{bno}
+	<update id="updSangMem" parameterType="SangMemVO">
+		update SangMem set memId = #{memId}, payNum = #{payNum}, sangSize = #{sangSize}, sangColor = #{sangColor}, sangCode = #{sangCode}, sangCnt = #{sangCnt}, ordDate = sysdate, orderStat = #{ordStat} where orderNum = #{orderNum}
+	</update>
+	
+	<select id="getcoupon" resultType="couponVO" >
+		select * from Coupon where memId = #{memId}
+	</select>
+	
+	<insert id="addcoupon" parameterType="couponVO">
+		insert into Coupon values(#{coupNum}, #{memId}, #{coupName}, #{coupType}, #{expirDate}, #{workCond})
+	</insert>
+	
+	<update id="updcoupon" parameterType="couponVO" >
+		update SangMem set memId = #{memId}, coupName = #{coupName}, coupType = #{coupType}, expirDate = #{expirDate}, workCond = #{workCond} where coupNum = #{coupNum}
+	</update>
+	
+	<delete id="delcoupon" parameterType="couponVO">
+		delete from Coupon where memId = #{memId}
+	</delete>
+	
+	<update id="updMileage" parameterType="MemberVO">
+		update SangMem set mileage = #{mileage} where memId = #{memId}
 	</update>
 </mapper>

@@ -4,23 +4,49 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.kr.ezen_project.dao.SangpumDAO"> 
 	
-	<select id="getBoardList" resultType="FAQVO">	
-		select * from tbl_board
+	<select id="getSangList" resultType="SangpumVO">	
+		select * from Sangpum
 	</select>
 	
-	<select id="getBoard" resultType="FAQVO" parameterType="String">	
-		select * from tbl_board where memId = #{memId}
+	<select id="getSang" resultType="SangpumVO">	
+		select * from Sangpum where sangCode = #{sangCode}
 	</select>
 	
-	<insert id="addBoard" parameterType="FAQVO">
-		insert into tbl_board values(bd_seq.nextval, #{title}, #{content}, #{writer}, sysdate, sysdate)
+	<insert id="addSang" parameterType="SangpumVO">
+		insert into Sangpum (sangCode, price, sangName, typeOne, typeTwo, typeThree, iniStock, remStock, rating, totalRat, ratingCnt, saleRat)
+		values (#{sangCode}, #{price}, #{sangName}, #{typeOne}, #{typeTwo}, #{typeThree}, #{iniStock}, #{remStock}, #{rating}, #{totalRat}, #{ratingCnt}, #{saleRat})
 	</insert>
 	
-	<delete id="delBoard" parameterType="String">
-		delete from tbl_board where title = #{title}
+	<delete id="delSang" parameterType="SangpumVO">
+		delete from Sangpum where sangCode = #{sangCode}
 	</delete>
 	
-	<update id="updateBoa" parameterType="FAQVO">
-		update tbl_board set title=#{title}, content=#{content}, writer=#{writer}, updatedate=sysdate where bno=#{bno}
+	<update id="updSang" parameterType="SangpumVO">
+		update Sangpum set price = #{price}, sangName = #{sangName}, typeOne = #{typeOne}, typeTwo = #{typeTwo}, typeThree = #{typeThree}, iniStock = #{iniStock}, remStock = #{remStock}, rating = #{rating}, totalRat = #{totalRat}, ratingCnt = #{ratingCnt}, saleRat = #{saleRat} where sangCode = #{sangCode}
 	</update>
+	
+	<select id="getColor" resultType="SangpumVO">
+		select sangColor from Sangpum where sangCode = #{sangCode}
+	</select>
+	
+	<select id="getSize" resultType="SangpumVO">
+		select sangSize from Sangpum where sangCode = #{sangCode}, sangColor = #{sangColor}
+	</select>
+	
+	<select id="getSangRat" resultType="SangpumVO">
+		select rating from Sangpum where sangCode = #{sangCode}
+	</select>
+	
+	<select id="getSangRev" resultType="ReviewVO">
+		select review from Sangpum where sangCode = #{sangCode}
+	</select>
+	
+	<select id="getSoldout" resultType="SangpumVO">
+		select remStock from Sangpum where sangCode = #{sangCode}
+	</select>
+	
+	<select id="getSaleRat" resultType="SangpumVO">
+		select saleRat from Sangpum where sangCode = #{sangCode}
+	</select>
+	
 </mapper>
