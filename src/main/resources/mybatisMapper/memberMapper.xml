@@ -3,28 +3,49 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.kr.ezen_project.dao.MemberDAO"> 
-
+	<!-- 테스트용 -->
 	<select id="getTime" resultType="String">	
 		select sysdate from dual
 	</select>
-	
-	<select id="getList" resultType="FAQVO">	
-		select * from members
+	<select id="getMemCount" resultType="String">	
+		select count(*) from member
 	</select>
 	
-	<select id="getMember" resultType="FAQVO" parameterType="String">	
-		select * from members where memId = #{memId}
-	</select>
-	
-	<insert id="addMember" parameterType="FAQVO">
-		insert into members values(#{memId}, #{memName}, #{memPwd}, #{phone}, sysdate)
+	<insert id="addMember" parameterType="MemberVO" >
+		insert into member (memId, email, memName, memPwd, phone) 
+		values (#{memId}, #{email}, #{memName}, #{memPwd}, #{phone})
 	</insert>
 	
-	<delete id="delMember" parameterType="String">
-		delete from members where memId = #{memId}
+	<delete id="delMember" parameterType="String">	
+		delete from member Where memId = #{memId}
+	<!-- 	delete from Coupon Where memId = {memId}  		다른 매퍼에 적용해야함
+		delete from CardInfo Where memId = {memId}
+		delete from QnAboard Where memId = {memId}
+		delete from SangMem Where memId = {memId} -->
+	</delete>
+	<delete id="delMemberAll">	
+		delete from member
 	</delete>
 	
-	<update id="updateMem" parameterType="FAQVO">
-		update members set memName=#{memName}, memPwd=#{memPwd}, phone=#{phone} where memId=#{memId}
+	<update id="updateMem" parameterType="String">
+		UPDATE member SET (email, memName, memPwd, phone, birthday, gender, address)
+		WHERE memId = (#{email}, #{memName}, #{memPwd}, #{phone}, #{birthday}, #{gender}, #{address})
 	</update>
+	
+	<select id="getMemberOne" resultType="MemberVO" parameterType="String">	
+		select * from member where memId = #{memId}
+	</select>
+	<select id="getMemberAll" resultType="MemberVO" parameterType="String">	
+		select * from member
+	</select>
+	<select id="findID" resultType="String" parameterType="String">	
+		select memId from member where email ={email}
+	</select>
+	<select id="findPwd" resultType="String" parameterType="String">	
+		select memPwd from member where mamId ={mamId},email ={email}
+	</select>
+	
+	
+	
+	
 </mapper>
