@@ -13,6 +13,7 @@ public class QnAboardVO {
 	private int QnANum;
 	@NonNull
 	private String memId;
+	@NonNull
 	private int QnACat;
 	@NonNull
 	private String brdTitle;

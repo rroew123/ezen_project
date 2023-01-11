@@ -1,5 +1,7 @@
 package co.kr.ezen_project.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,17 +20,37 @@ public class MemberDAOImpl implements MemberDAO{
 
 	@Override
 	public int addMem(MemberVO vo) {
-		return session.insert("co.kr.ezen_project.dao.MemberDAO.addMember");
+		return session.insert("co.kr.ezen_project.dao.MemberDAO.addMember", vo);
 	}
 
 	@Override
 	public int getMemCount() {
-		return session.insert("co.kr.ezen_project.dao.MemberDAO.getMemCount");
+		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.getMemCount");
 	}
 
 	@Override
 	public int delMemAll() {
-		return session.insert("co.kr.ezen_project.dao.MemberDAO.delMemberAll");
+		return session.delete("co.kr.ezen_project.dao.MemberDAO.delMemberAll");
+	}
+
+	@Override
+	public int delMemAll(MemberVO vo) {
+		return session.delete("co.kr.ezen_project.dao.MemberDAO.delMember", vo);
+	}
+
+	@Override
+	public MemberVO getMemOne(String memId) {
+		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.getMemOne", memId);
+	}
+
+	@Override
+	public List<MemberVO> getMemAll() {
+		return session.selectList("co.kr.ezen_project.dao.MemberDAO.getMemAll");
+	}
+
+	@Override
+	public int udtMem(MemberVO vo) {
+		return session.update("co.kr.ezen_project.dao.MemberDAO.udtMem", vo);
 	}
 
 }
