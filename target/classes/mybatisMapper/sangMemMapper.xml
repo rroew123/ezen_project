@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.kr.ezen_project.dao.SangMemDAO"> 
 	
-	<select id="getSangMemList" resultType="SangMemVO">	
+	<select id="getSangMemAll" resultType="SangMemVO">	
 		select * from SangMem
 	</select>
 	
@@ -13,34 +13,53 @@
 	</select>
 	
 	<insert id="addSangMem" parameterType="SangMemVO">
-		insert into SangMem values(#{orderNum}, #{memId}, #{payNum}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, #{ordStat} )
+		insert into SangMem (orderNum, memId, payNum, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) values(#{orderNum}, #{memId}, #{payNum}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, #{ordStat} )
 	</insert>
 	
 	<delete id="delSangMem" parameterType="SangMemVO">
 		delete from SangMem where orderNum = #{orderNum}
 	</delete>
 	
+	<delete id="delSangMemAll">
+		delete from SangMem
+	</delete>
+	
 	<update id="updSangMem" parameterType="SangMemVO">
-		update SangMem set memId = #{memId}, payNum = #{payNum}, sangSize = #{sangSize}, sangColor = #{sangColor}, sangCode = #{sangCode}, sangCnt = #{sangCnt}, ordDate = sysdate, orderStat = #{ordStat} where orderNum = #{orderNum}
+		update SangMem set memId = #{memId}, payNum = #{payNum}, sangSize = #{sangSize}, sangColor = #{sangColor}, sangCode = #{sangCode}, sangCnt = #{sangCnt}, ordDate = sysdate, ordStat = #{ordStat} where orderNum = #{orderNum}
 	</update>
 	
-	<select id="getcoupon" resultType="couponVO" >
+	<select id="getCouponAll" resultType="CouponVO">	
+		select * from Coupon
+	</select>
+	
+	<select id="getCoupon" resultType="CouponVO" >
+		select * from Coupon where coupNum = #{coupNum}
+	</select>
+	
+	<select id="getCoupMemId" resultType="CouponVO" >
 		select * from Coupon where memId = #{memId}
 	</select>
 	
-	<insert id="addcoupon" parameterType="couponVO">
-		insert into Coupon values(#{coupNum}, #{memId}, #{coupName}, #{coupType}, #{expirDate}, #{workCond})
+	<select id="getCoupWorkCond" resultType="CouponVO" >
+		select * from Coupon where workCond = #{workCond}
+	</select>
+	
+	<insert id="addCoupon" parameterType="CouponVO">
+		insert into Coupon (coupNum, memId, coupName, coupType, expirDate, workCond, discount) values ( #{coupNum}, #{memId}, #{coupName}, #{coupType}, #{expirDate}, #{workCond}, #{discount})
 	</insert>
 	
-	<update id="updcoupon" parameterType="couponVO" >
-		update SangMem set memId = #{memId}, coupName = #{coupName}, coupType = #{coupType}, expirDate = #{expirDate}, workCond = #{workCond} where coupNum = #{coupNum}
-	</update>
-	
-	<delete id="delcoupon" parameterType="couponVO">
-		delete from Coupon where memId = #{memId}
+	<delete id="delCoupon" parameterType="CouponVO">
+		delete from Coupon where coupNum = #{coupNum}
 	</delete>
 	
-	<update id="updMileage" parameterType="MemberVO">
-		update SangMem set mileage = #{mileage} where memId = #{memId}
+	<delete id="delCouponAll">
+		delete from Coupon
+	</delete>
+	
+	<update id="updCoupon" parameterType="CouponVO" >
+		update Coupon set memId = #{memId}, coupName = #{coupName}, coupType = #{coupType}, expirDate = #{expirDate}, workCond = #{workCond}, discount = #{discount} where coupNum = #{coupNum}
 	</update>
+	
+	
+	
 </mapper>

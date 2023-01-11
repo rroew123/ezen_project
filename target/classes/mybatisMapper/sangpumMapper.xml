@@ -4,7 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.kr.ezen_project.dao.SangpumDAO"> 
 	
-	<select id="getSangList" resultType="SangpumVO">	
+	
+	
+	<select id="getSangAll" resultType="SangpumVO">	
 		select * from Sangpum
 	</select>
 	
@@ -21,32 +23,62 @@
 		delete from Sangpum where sangCode = #{sangCode}
 	</delete>
 	
+	<delete id="delSangAll">
+		delete from Sangpum
+	</delete>
+	
 	<update id="updSang" parameterType="SangpumVO">
 		update Sangpum set price = #{price}, sangName = #{sangName}, typeOne = #{typeOne}, typeTwo = #{typeTwo}, typeThree = #{typeThree}, iniStock = #{iniStock}, remStock = #{remStock}, rating = #{rating}, totalRat = #{totalRat}, ratingCnt = #{ratingCnt}, saleRat = #{saleRat} where sangCode = #{sangCode}
 	</update>
 	
-	<select id="getColor" resultType="SangpumVO">
-		select sangColor from Sangpum where sangCode = #{sangCode}
+	
+	
+	
+	<select id="getSCSAll" resultType="SangCodeSpecVO">	
+		select * from SangCodeSpec
 	</select>
 	
-	<select id="getSize" resultType="SangpumVO">
-		select sangSize from Sangpum where sangCode = #{sangCode}, sangColor = #{sangColor}
+	<select id="getSCS" resultType="SangCodeSpecVO">	
+		select * from SangCodeSpec where sangCode = #{sangCode}
+	</select>
+	
+	<insert id="addSCS" parameterType="SangCodeSpecVO">
+		insert into SangCodeSpec (sangSize, sangColor, sangCode, remStock) values (#{sangSize}, #{sangColor}, #{sangCode}, #{remStock})
+	</insert>
+	
+	<delete id="delSCS" parameterType="SangCodeSpecVO">
+		delete from SangCodeSpec where sangCode = #{sangCode}
+	</delete>
+	
+	<delete id="delSCSAll">
+		delete from SangCodeSpec
+	</delete>
+	
+	<update id="updSCS" parameterType="SangCodeSpecVO">
+		update SangCodeSpec set sangSize = #{sangSize}, sangColor = #{sangColor}, remStock = #{remStock} where sangCode = #{sangCode}
+	</update>
+	
+
+
+	
+	<select id="getColor" resultType="SangCodeSpecVO">
+		select sangColor from SangCodeSpec where sangCode = #{sangCode}
+	</select>
+	
+	<select id="getSize" resultType="SangCodeSpecVO">
+		select sangSize from SangCodeSpec where sangCode = #{sangCode} and sangColor = #{sangColor}
 	</select>
 	
 	<select id="getSangRat" resultType="SangpumVO">
 		select rating from Sangpum where sangCode = #{sangCode}
 	</select>
 	
-	<select id="getSangRev" resultType="ReviewVO">
-		select review from Sangpum where sangCode = #{sangCode}
-	</select>
-	
-	<select id="getSoldout" resultType="SangpumVO">
-		select remStock from Sangpum where sangCode = #{sangCode}
-	</select>
-	
 	<select id="getSaleRat" resultType="SangpumVO">
 		select saleRat from Sangpum where sangCode = #{sangCode}
+	</select>
+	
+	<select id="getSoldOut" resultType="SangpumVO">
+		select remStock from Sangpum where sangCode = #{sangCode}
 	</select>
 	
 </mapper>
