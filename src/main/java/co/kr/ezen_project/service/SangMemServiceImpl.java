@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import co.kr.ezen_project.dao.SangMemDAO;
 import co.kr.ezen_project.vo.CouponVO;
+import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.SangMemVO;
 
 @Repository 
@@ -82,5 +83,45 @@ public class SangMemServiceImpl implements SangMemService {
 	@Override
 	public int updCoupon(CouponVO vo) {
 		return dao.updCoupon(vo);
+	}
+	
+	@Override
+	public List<ReviewVO> getReviewAll() {
+		return dao.getReviewAll();
+	}
+	
+	@Override
+	public ReviewVO getReviewON(int orderNum) {
+		return dao.getReviewON(orderNum);
+	}
+	
+	@Override
+	public List<ReviewVO> getReviewSC(String sangCode) {
+		return dao.getReviewSC(sangCode);
+	}
+	
+	@Override
+	public List<ReviewVO> getReviewMI(String memId) {
+		return dao.getReviewMI(memId);
+	}
+	
+	@Override
+	public int addReview(ReviewVO vo) {
+		return dao.addReview(vo);
+	}
+	
+	@Override
+	public int delReview(ReviewVO vo) {
+		return dao.delReview(vo);
+	}
+	
+	@Override
+	public int delReviewAll() {
+		return dao.delReviewAll();
+	}
+
+	@Override
+	public int updReview(ReviewVO vo) {
+		return dao.updReview(vo);
 	}
 }

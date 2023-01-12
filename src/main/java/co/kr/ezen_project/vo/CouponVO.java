@@ -1,5 +1,8 @@
 package co.kr.ezen_project.vo;
 
+
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,14 +14,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class CouponVO {
-	@NonNull
 	private int coupNum;
 	@NonNull
 	private String memId;
 	@NonNull
 	private String coupName;
 	private int coupType;
-	private String expirDate;
+	private Date expirDate;
 	private int workCond;
 	private int discount;
 }

@@ -62,4 +62,39 @@
 	
 	
 	
+	<select id="getReviewAll" resultType="ReviewVO">	
+		select * from Review
+	</select>
+	
+	<select id="getReviewON" resultType="ReviewVO">
+		select * from Review where orderNum = #{orderNum}
+	</select>
+	
+	<select id="getReviewSC" resultType="ReviewVO" parameterType="String">	
+		select RV.orderNum, RV.indiRat, RV.revCntxt from SangMem SM right OUTER JOIN Review RV ON SM.orderNum = RV.orderNum
+    	where SM.sangCode = #{sangCode}
+	</select>
+	
+	<select id="getReviewMI" resultType="ReviewVO" parameterType="String">
+		select * from SangMem SM right OUTER JOIN Review RV ON SM.orderNum = RV.orderNum
+    	where SM.memId = #{memId}
+	</select>
+	
+	<insert id="addReview" parameterType="ReviewVO">
+		insert into Review (orderNum, indiRat, revCntxt) values (#{orderNum}, #{indiRat}, #{revCntxt})
+	</insert>
+	
+	<delete id="delReview" parameterType="ReviewVO">
+		delete from Review where orderNum = #{orderNum}
+	</delete>
+	
+	<delete id="delReviewAll">
+		delete from Review
+	</delete>
+	
+	<update id="updReview" parameterType="ReviewVO">
+		update Review set  indiRat = #{indiRat}, revCntxt = #{revCntxt} where orderNum = #{orderNum}
+	</update>
+	
+	
 </mapper>

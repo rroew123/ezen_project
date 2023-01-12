@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.kr.ezen_project.vo.CouponVO;
+import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.SangMemVO;
 
 @Repository
@@ -83,5 +84,45 @@ public class SangMemDAOImpl implements SangMemDAO {
 	@Override
 	public int updCoupon(CouponVO vo) {
 		return session.update("co.kr.ezen_project.dao.SangMemDAO.updCoupon", vo);
+	}
+	
+	@Override
+	public List<ReviewVO> getReviewAll() {
+		return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getReviewAll");
+	}
+
+	@Override
+	public ReviewVO getReviewON(int orderNum) {
+		return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getReviewON", orderNum);
+	}
+	
+	@Override
+	public List<ReviewVO> getReviewSC(String sangCode) {
+		return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getReviewSC", sangCode);
+	}
+	
+	@Override
+	public List<ReviewVO> getReviewMI(String memId) {
+		return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getReviewMI", memId);
+	}
+
+	@Override
+	public int addReview(ReviewVO vo) {
+		return session.insert("co.kr.ezen_project.dao.SangMemDAO.addReview", vo);
+	}
+
+	@Override
+	public int delReview(ReviewVO vo) {
+		return session.delete("co.kr.ezen_project.dao.SangMemDAO.delReview", vo);
+	}
+	
+	@Override
+	public int delReviewAll() {
+		return session.delete("co.kr.ezen_project.dao.SangMemDAO.delReviewAll");
+	}
+	
+	@Override
+	public int updReview(ReviewVO vo) {
+		return session.update("co.kr.ezen_project.dao.SangMemDAO.updReview", vo);
 	}
 }
