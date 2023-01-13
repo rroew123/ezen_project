@@ -73,4 +73,9 @@ public class MemberDAOImpl implements MemberDAO{
 		return session.update("co.kr.ezen_project.dao.MemberDAO.udtMemPwd", vo);
 	}
 
+	@Override
+	public MemberVO loginCheck(MemberVO vo) {
+		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.loginCheck", vo);
+	}
+
 }

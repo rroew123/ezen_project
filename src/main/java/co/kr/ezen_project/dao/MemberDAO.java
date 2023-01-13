@@ -30,4 +30,6 @@ public interface MemberDAO {
 
 	int udtMemPwd(MemberVO vo);
 
+	MemberVO loginCheck(MemberVO vo);
+
 }

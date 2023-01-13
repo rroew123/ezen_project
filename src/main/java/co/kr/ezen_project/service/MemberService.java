@@ -27,6 +27,8 @@ public interface MemberService {
 	String findPwd(MemberVO vo);
 
 	int udtMemPwd(MemberVO vo);
+
+	MemberVO loginCheck(MemberVO vo6);
 	
 
 }

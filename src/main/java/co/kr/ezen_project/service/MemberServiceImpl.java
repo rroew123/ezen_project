@@ -58,5 +58,9 @@ public class MemberServiceImpl implements MemberService {
 	public int udtMemPwd(MemberVO vo) {
 		return dao.udtMemPwd(vo);
 	}
+	@Override
+	public MemberVO loginCheck(MemberVO vo) {
+		return dao.loginCheck(vo);
+	}
 
 }
