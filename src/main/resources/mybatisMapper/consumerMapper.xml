@@ -4,23 +4,102 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.kr.ezen_project.dao.ConsumerDAO"> 
 	
-	<select id="getBoardList" resultType="FAQVO">	
-		select * from tbl_board
-	</select>
-	
-	<select id="getBoard" resultType="FAQVO" parameterType="String">	
-		select * from tbl_board where memId = #{memId}
-	</select>
-	
-	<insert id="addBoard" parameterType="FAQVO">
-		insert into tbl_board values(bd_seq.nextval, #{title}, #{content}, #{writer}, sysdate, sysdate)
-	</insert>
-	
-	<delete id="delBoard" parameterType="FAQVO">
-		delete from tbl_board where title = #{title}
+	<delete id="delFAQAll">
+		delete from FAQ
 	</delete>
 	
-	<update id="updateBoa" parameterType="FAQVO">
-		update tbl_board set title=#{title}, content=#{content}, writer=#{writer}, updatedate=sysdate where bno=#{bno}
+	<delete id="delFAQ" parameterType="FAQVO">
+		delete from FAQ where FAQTitle = #{FAQTitle}
+	</delete>
+	
+	<insert id="addFAQ" parameterType="FAQVO">
+		insert into FAQ (FAQCat, FAQTitle, FAQCntxt)
+		values(#{FAQCat}, #{FAQTitle}, #{FAQCntxt})
+	</insert>
+	
+	<update id="udtFAQ" parameterType="FAQVO">
+		update FAQ set FAQCat=#{FAQCat}, FAQTitle=#{FAQTitle}, FAQCntxt=#{FAQCntxt} where FAQTitle=#{FAQTitle}
 	</update>
+	
+	<select id="getFAQCount" resultType="integer">	
+		select count(*) from FAQ
+	</select>
+	
+	<select id="getFAQOne" resultType="FAQVO" parameterType="String">	
+		select * from FAQ where FAQTitle = #{FAQTitle}
+	</select>
+	
+	<select id="getFAQAll" resultType="FAQVO">	
+		select * from FAQ
+	</select>
+	
+	
+	
+	<delete id="delNtcAll">
+		delete from NtcBoard
+	</delete>
+	
+	<delete id="delNtc" parameterType="NtcBoardVO">
+		delete from NtcBoard where ntcNum = #{ntcNum}
+	</delete>
+	
+	<insert id="addNtc" parameterType="NtcBoardVO">
+		insert into NtcBoard (ntcNum, ntcTitle, ntcCntxt)
+		values(#{ntcNum}, #{ntcTitle}, #{ntcCntxt})
+	</insert>
+	
+	<update id="udtNtc" parameterType="NtcBoardVO">
+		update NtcBoard set ntcTitle=#{ntcTitle}, ntcCntxt=#{ntcCntxt} where ntcNum=#{ntcNum}
+	</update>
+	
+	<select id="getNtcCount" resultType="integer">	
+		select count(*) from NtcBoard
+	</select>
+	
+	<select id="getNtcOne" resultType="NtcBoardVO" parameterType="String">	
+		select * from NtcBoard where NtcTitle = #{NtcTitle}
+	</select>
+	
+	<select id="getNtcAll" resultType="NtcBoardVO">	
+		select * from NtcBoard
+	</select>
+	
+	
+	
+	<delete id="delQnAAll">
+		delete from QnAboard
+	</delete>
+	
+	<delete id="delQnA" parameterType="QnAboardVO">
+		delete from QnAboard where QnANum = #{QnANum}
+	</delete>
+	
+	<insert id="addQnA" parameterType="QnAboardVO">
+		insert into QnAboard (QnANum, memId, QnACat, brdTitle, brdCntxt)
+		values(#{QnANum}, #{memId}, #{QnACat}, #{brdTitle}, #{brdCntxt})
+	</insert>
+	
+	<update id="udtQnA" parameterType="QnAboardVO">
+		update QnAboard set QnACat=#{QnACat}, brdTitle=#{brdTitle}, brdCntxt=#{brdCntxt} where QnANum=#{QnANum}
+	</update>
+	
+	<select id="getQnACount" resultType="integer">	
+		select count(*) from QnAboard
+	</select>
+	
+	<select id="getQnAOne" resultType="QnAboardVO" parameterType="integer">	
+		select * from QnAboard where QnANum = #{QnANum}
+	</select>
+	
+	<select id="getQnAAll" resultType="QnAboardVO">	
+		select * from QnAboard
+	</select>
+	
+	<select id="getQnAmemId" resultType="QnAboardVO" parameterType="String">	
+		select * from QnAboard where memId = #{memId}
+	</select>
+	
+	
+	
+	
 </mapper>

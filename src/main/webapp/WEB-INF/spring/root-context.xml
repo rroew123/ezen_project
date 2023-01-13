@@ -15,7 +15,7 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean class="com.zaxxer.hikari.HikariConfig" id="hikariConfig">
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
 		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.5.34:1521:xe" />
 		<property name="username" value="hyeon" />
 		<property name="password" value="hyeon" />

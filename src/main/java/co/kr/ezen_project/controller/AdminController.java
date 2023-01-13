@@ -5,41 +5,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping("/admin/")
 public class AdminController {
 	
 
-	@RequestMapping(value = "home")
-	public void home() {
-	}
-
-	@RequestMapping(path = "/member/회원가입", method = RequestMethod.POST)
+	@RequestMapping(path = "/admin", method = RequestMethod.POST)
 	public void signUp() {
-	} // 회원가입
+	} 
 
-	@RequestMapping(path = "/member/회원가입", method = RequestMethod.POST)
-	public String signUpGood() {
-		return "redirect:home";
-	} // 회원가입 성공
+	@RequestMapping({"/admin_QnA","/adminMem","/adminSan"})
+	public void signUpGood() {
+	} 
 
-	@RequestMapping(path = "login", method = RequestMethod.POST)
-	public void login() {
-	}
-	// 로그인
-
-//	@RequestMapping(path = "login", method = RequestMethod.POST) 
-//	public String loginTry() { 
-//		return vo = dao.멤버넣고 
-//				if db안에 아이디가 있으면 redirect:home; 
-//				else login;
-//	     } // 로그인
-
-	@RequestMapping(path = "/member/mypage_memUpdate/", method = RequestMethod.POST)
-	public void memUpdate() {
-	} // 아이디/비밀번호 수정
-	
-	@RequestMapping(path = "/member/mypage/", method = RequestMethod.POST)
-	public void mypage() {
-	} // 마이페이지
 	
 	
 	
