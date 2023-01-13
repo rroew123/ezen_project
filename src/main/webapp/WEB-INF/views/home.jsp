@@ -255,19 +255,46 @@ footer {
 
 	<header>
 		<div class="logo">
-			<a href="">쇼핑몰 이름</a>
+			<a href="/">쇼핑몰 이름</a>
 		</div>
 		<div class="Search">
 			<input type="text" class="SearchInput" placeholder="검색 기능" />
 			<button>검색</button>
 		</div>
 		<div class="Searchri">
-			<a href="./member/login">로그인</a> 
-			<a href="./member/memberjoin">회원가입</a> 
+<%-- 			<%
+	String memId = (String)session.getAttribute("memId");
+%>
+<%
+	if(memId!=null){
+		%>
+		<%=memId %> 님
+		<button onclick="location.href='home'">로그아웃</button>
+		} --%>
+		
+		
+			<!-- <a href="./member/memberjoin">회원가입</a> 
 			<a href="">고객센터</a> 
 			<a href="./member/shoppingcart">장바구니</a>
 			<a href="">추천</a>
-		</div>
+		</div> -->
+		<c:if test="${userInfo != null}">
+
+                     <li><a href="#">고객센터</a></li>
+                     <li><a href="/mem/wishPage">관심상품</a></li>
+                     <li><a href="/mem/myPage">마이페이지</a></li>
+                     <li><a href="/member/logout.do">로그아웃</a></li>
+                     <br />
+                      
+                     <span>${userInfo.memName} 님 환영합니다.<br/>
+                      
+                     </span> 
+                       
+                  </c:if> 
+                  <c:if test="${userInfo== null}">
+                     <li><a href="#">고객센터</a></li>
+                     <li><a href="/member/login">로그인</a></li> 
+                  </c:if>
 	</header>
 
 	<div id="menu1">
