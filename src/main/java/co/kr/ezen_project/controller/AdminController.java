@@ -9,7 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AdminController {
 	
 
-	@RequestMapping(path = "/admin", method = RequestMethod.POST)
+	/*		이후엔 이렇게 해야함
+	 * @RequestMapping(path = "/admin", method = RequestMethod.POST) public void
+	 * signUp() { }
+	 */
+	
+	@RequestMapping(path = "/admin")
 	public void signUp() {
 	} 
 
