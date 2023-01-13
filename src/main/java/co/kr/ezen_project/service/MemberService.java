@@ -20,4 +20,13 @@ public interface MemberService {
 
 	int udtMem(MemberVO vo);
 
+	int udtMemTP(MemberVO vo);
+
+	String findId(String email);
+
+	String findPwd(MemberVO vo);
+
+	int udtMemPwd(MemberVO vo);
+	
+
 }

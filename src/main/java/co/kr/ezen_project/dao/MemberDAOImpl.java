@@ -53,4 +53,24 @@ public class MemberDAOImpl implements MemberDAO{
 		return session.update("co.kr.ezen_project.dao.MemberDAO.udtMem", vo);
 	}
 
+	@Override
+	public int udtMemTP(MemberVO vo) {
+		return session.update("co.kr.ezen_project.dao.MemberDAO.udtMemTP", vo);
+	}
+
+	@Override
+	public String findId(String email) {
+		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.findId", email);
+	}
+
+	@Override
+	public String findPwd(MemberVO vo) {
+		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.findPwd", vo);
+	}
+	
+	@Override
+	public int udtMemPwd(MemberVO vo) {
+		return session.update("co.kr.ezen_project.dao.MemberDAO.udtMemPwd", vo);
+	}
+
 }

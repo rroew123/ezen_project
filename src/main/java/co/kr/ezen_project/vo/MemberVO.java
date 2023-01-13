@@ -15,11 +15,8 @@ public class MemberVO {
 	private String memId;
 	@NonNull
 	private String email;
-	@NonNull
 	private String memName;
-	@NonNull
 	private String memPwd;
-	@NonNull
 	private String phone;
 	private String birthday;
 	private int gender;
@@ -31,10 +28,24 @@ public class MemberVO {
 	private int markAgree;
 	private int totalPay;
 	
+	public MemberVO(@NonNull String memId, @NonNull String email, String memPwd) {
+		super();
+		this.memId = memId;
+		this.email = email;
+		this.memPwd = memPwd;
+	}
 	
+	public MemberVO(@NonNull String memId, @NonNull String email, String memName, String memPwd, String phone) {
+		super();
+		this.memId = memId;
+		this.email = email;
+		this.memName = memName;
+		this.memPwd = memPwd;
+		this.phone = phone;
+	}
 	
-	public MemberVO(@NonNull String memId, @NonNull String email, @NonNull String memName, @NonNull String memPwd,
-			@NonNull String phone, String birthday, int gender, String address) {
+	public MemberVO(@NonNull String memId, @NonNull String email, String memName, String memPwd,
+			String phone, String birthday, int gender, String address) {
 		super();
 		this.memId = memId;
 		this.email = email;
@@ -46,13 +57,19 @@ public class MemberVO {
 		this.address = address;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return "MemberVO [memId=" + memId + ", email=" + email + ", memName=" + memName + ", memPwd=" + memPwd
-				+ ", phone=" + phone + "]";
+		return "MemberVO [memId=" + memId + ", email=" + email + ", memName=" + memName + ", memPwd=" + memPwd + 
+				", phone=" + phone +", birthday=" + birthday +", gender=" + gender +
+				", address=" + address +", mileage=" + mileage +", totalPay=" + totalPay + "]";
 	}
+
+	
+
+	
+
+
+	
 
 	
 	

@@ -5,7 +5,7 @@
 <mapper namespace="co.kr.ezen_project.dao.MemberDAO"> 
 	<!-- 테스트용 -->
 	<select id="getTime" resultType="String">	
-		+
+		select sysdate from dual
 	</select>
 	<select id="getMemCount" resultType="integer">	
 		select count(*) from member
@@ -17,7 +17,7 @@
 	</insert>
 	
 	<delete id="delMember" parameterType="String">	
-		delete from member Where memId = #{memId}
+		delete from member Where memId=#{memId}
 	<!-- 	delete from Coupon Where memId = {memId}  		다른 매퍼에 적용해야함
 		delete from CardInfo Where memId = {memId}
 		delete from QnAboard Where memId = {memId}
@@ -28,23 +28,33 @@
 	</delete>
 	
 	<update id="udtMem" parameterType="MemberVO">
-		UPDATE member SET email = #{email}, memName = #{memName}, memPwd = #{memPwd}, phone = #{phone}
-		where memId = #{memId}
+		UPDATE member SET email=#{email}, memName=#{memName}, memPwd=#{memPwd}, phone=#{phone}
+		where memId=#{memId}
+	</update>
+	
+	<update id="udtMemTP" parameterType="MemberVO">
+		UPDATE member SET totalPay=#{totalPay}
+		where memId=#{memId}
+	</update>
+	
+	<update id="udtMemPwd" parameterType="MemberVO">
+		UPDATE member SET memPwd=#{memPwd} 
+		where email=#{email} and memId=#{memId} 
 	</update>
 	
 	<select id="getMemOne" resultType="MemberVO" parameterType="String">	
-		select * from member where memId = #{memId}
+		select * from member where memId=#{memId}
 	</select>
 	
 	<select id="getMemAll" resultType="MemberVO">	
 		select * from member
 	</select>
 	
-	<select id="findID" resultType="String" parameterType="String">	
-		select memId from member where email ={email}
+	<select id="findId" resultType="String" parameterType="String">	
+		select memId from member where email=#{email}
 	</select>
 	
-	<select id="findPwd" resultType="String" parameterType="String">	
-		select memPwd from member where mamId ={mamId},email ={email}
+	<select id="findPwd" resultType="String" parameterType="MemberVO">	
+		select memPwd from member where memId=#{memId} and email=#{email}
 	</select>
 </mapper>

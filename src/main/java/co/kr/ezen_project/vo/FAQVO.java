@@ -11,9 +11,18 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class FAQVO {
+	private int FAQNum;
 	private int FAQCat;
 	@NonNull
 	private String FAQTitle;
 	@NonNull
 	private String FAQCntxt;
+	public FAQVO(int fAQCat, @NonNull String fAQTitle, @NonNull String fAQCntxt) {
+		super();
+		FAQCat = fAQCat;
+		FAQTitle = fAQTitle;
+		FAQCntxt = fAQCntxt;
+	}
+	
+	
 }

@@ -42,5 +42,21 @@ public class MemberServiceImpl implements MemberService {
 	public int udtMem(MemberVO vo) {
 		return dao.udtMem(vo);
 	}
+	@Override
+	public int udtMemTP(MemberVO vo) {
+		return dao.udtMemTP(vo);
+	}
+	@Override
+	public String findId(String email) {
+		return dao.findId(email);
+	}
+	@Override
+	public String findPwd(MemberVO vo) {
+		return dao.findPwd(vo);
+	}
+	@Override
+	public int udtMemPwd(MemberVO vo) {
+		return dao.udtMemPwd(vo);
+	}
 
 }

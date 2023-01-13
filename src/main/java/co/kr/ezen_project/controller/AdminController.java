@@ -5,21 +5,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping(path = "/admin/", method = RequestMethod.POST)
 public class AdminController {
 	
 
-	@RequestMapping(value = "home")
-	public void home() {
-	}
-
-	@RequestMapping(path = "/member/회원가입", method = RequestMethod.POST)
+	@RequestMapping(path = "/", method = RequestMethod.POST)
 	public void signUp() {
-	} // 회원가입
+	} 
 
-	@RequestMapping(path = "/member/회원가입", method = RequestMethod.POST)
+	@RequestMapping(path = "/member/회원가입동작", method = RequestMethod.POST)
 	public String signUpGood() {
 		return "redirect:home";
-	} // 회원가입 성공
+	} 
 
 	@RequestMapping(path = "login", method = RequestMethod.POST)
 	public void login() {
