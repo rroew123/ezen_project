@@ -12,8 +12,12 @@
 		select * from SangMem where orderNum = #{orderNum}
 	</select>
 	
-	<insert id="addSangMem" parameterType="SangMemVO">
+	<insert id="addSangMemPay" parameterType="SangMemVO">
 		insert into SangMem (orderNum, memId, payNum, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) values(#{orderNum}, #{memId}, #{payNum}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, #{ordStat} )
+	</insert>
+	
+	<insert id="addSangMemCart" parameterType="SangMemVO">
+		insert into SangMem (orderNum, memId, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) values(#{orderNum}, #{memId}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, #{ordStat} )
 	</insert>
 	
 	<delete id="delSangMem" parameterType="SangMemVO">
@@ -96,5 +100,30 @@
 		update Review set  indiRat = #{indiRat}, revCntxt = #{revCntxt} where orderNum = #{orderNum}
 	</update>
 	
+	
+	
+	<select id="getPaymentAll" resultType="PaymentVO">	
+		select * from Payment
+	</select>
+	
+	<select id="getPayment" resultType="PaymentVO">	
+		select * from Payment where payNum = #{payNum}
+	</select>
+	
+	<insert id="addPayment" parameterType="PaymentVO">
+		insert into Payment (payNum, payment, coupNum, cardInfo, payType) values (#{payNum}, #{payment}, #{coupNum}, #{cardInfo}, #{payType})
+	</insert>
+	
+	<delete id="delPayment" parameterType="PaymentVO">
+		delete from Payment where payNum = #{payNum}
+	</delete>
+	
+	<delete id="delPaymentAll">
+		delete from Payment
+	</delete>
+	
+	<update id="updPayment" parameterType="PaymentVO">
+		update Payment set payment = #{payment}, coupNum = #{coupNum}, cardInfo = #{cardInfo}, payType = #{payType} where payNum = #{payNum}
+	</update>
 	
 </mapper>

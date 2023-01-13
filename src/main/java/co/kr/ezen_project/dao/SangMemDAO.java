@@ -4,6 +4,7 @@ import java.util.List;
 
 import co.kr.ezen_project.vo.CouponVO;
 import co.kr.ezen_project.vo.ReviewVO;
+import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.SangMemVO;
 
 public interface SangMemDAO {
@@ -12,7 +13,9 @@ public interface SangMemDAO {
 
 	SangMemVO getSangMem(int orderNum);
 
-	int addSangMem(SangMemVO vo);
+	int addSangMemPay(SangMemVO vo);
+	
+	int addSangMemCart(SangMemVO vo);
 
 	int delSangMem(SangMemVO vo);
 
@@ -51,4 +54,17 @@ public interface SangMemDAO {
 	int delReviewAll();
 	
 	int updReview(ReviewVO vo);
+	
+	List<PaymentVO> getPaymentAll();
+	
+	PaymentVO getPayment(int payNum);
+	
+	int addPayment(PaymentVO vo);
+	
+	int delPayment(PaymentVO vo);
+	
+	int delPaymentAll();
+	
+	int updPayment(PaymentVO vo);
+
 }

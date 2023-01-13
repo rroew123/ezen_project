@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+	#header{
+	
+	padding-top:1px;
+	color:white;
+	height:70px;
+	background:pink;
+	text-allign:center;
+	
+	}
+	
+	nav#index{
+	
+	padding-top:10px;
+	padding-left:30px;
+	height:30px;
+	color:white;
+	background: orange;
+	}
+	
+	#title{
+	text-allign:center;
+	}
+	#content{
+	height:350px;
+	background:pink;
+	}
+	footer{
+	padding-top:25px;
+	height:35px;
+	text-allgin:center;
+	color:white;
+	background: yellow;
+	}

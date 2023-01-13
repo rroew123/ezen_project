@@ -36,7 +36,7 @@ public class SanpumTest {
 	}
 	
 	@Before
-	public void Sangvobox() {
+	public void SangCodeSpecvobox() {
 		vo4 = new SangCodeSpecVO(100, 3, "abc1234", 30);
 	    vo5 = new SangCodeSpecVO(95, 1, "def1234", 3);
 	    vo6 = new SangCodeSpecVO(105, 5, "abc1234", 12);
@@ -94,12 +94,12 @@ public class SanpumTest {
 	
 	
 	@Test
-	public void getSCSAll() { 
+	public void getSCSAllTest() { 
 		System.out.println("총 sangcodespec 내역========================"+service.getSCSAll());
 	}
 	
 	@Test
-	public void getSCS() {
+	public void getSCSTest() {
 		String sangCode = vo5.getSangCode();
 		System.out.println(sangCode);
 		
@@ -134,10 +134,10 @@ public class SanpumTest {
 	@Test
 	public void updSCSTest() {
 		assertNotNull(service.addSCS(vo4));
-		String sangCode = vo3.getSangCode();
+		String sangCode = vo4.getSangCode();
 		System.out.println(service.getSCS(sangCode));
 		System.out.println("상품 업데이트=============" + service.updSCS(vo6));
-		System.out.println(service.getSang(sangCode));
+		System.out.println(service.getSCS(sangCode));
 	}
 	
 	

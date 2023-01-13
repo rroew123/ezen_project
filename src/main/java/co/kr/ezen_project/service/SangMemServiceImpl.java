@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import co.kr.ezen_project.dao.SangMemDAO;
 import co.kr.ezen_project.vo.CouponVO;
 import co.kr.ezen_project.vo.ReviewVO;
+import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.SangMemVO;
 
 @Repository 
@@ -26,8 +27,13 @@ public class SangMemServiceImpl implements SangMemService {
 	}
 
 	@Override
-	public int addSangMem(SangMemVO vo) {
-		return dao.addSangMem(vo);
+	public int addSangMemPay(SangMemVO vo) {
+		return dao.addSangMemPay(vo);
+	}
+	
+	@Override
+	public int addSangMemCart(SangMemVO vo) {
+		return dao.addSangMemCart(vo);
 	}
 
 	@Override
@@ -123,5 +129,35 @@ public class SangMemServiceImpl implements SangMemService {
 	@Override
 	public int updReview(ReviewVO vo) {
 		return dao.updReview(vo);
+	}
+	
+	@Override
+	public List<PaymentVO> getPaymentAll() {
+		return dao.getPaymentAll();
+	}
+	
+	@Override
+	public PaymentVO getPayment(int payNum) {
+		return dao.getPayment(payNum);
+	}
+	
+	@Override
+	public int addPayment(PaymentVO vo) {
+		return dao.addPayment(vo);
+	}
+	
+	@Override
+	public int delPayment(PaymentVO vo) {
+		return dao.delPayment(vo);
+	}
+	
+	@Override
+	public int delPaymentAll() {
+		return dao.delPaymentAll();
+	}
+
+	@Override
+	public int updPayment(PaymentVO vo) {
+		return dao.updPayment(vo);
 	}
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import co.kr.ezen_project.vo.CouponVO;
 import co.kr.ezen_project.vo.ReviewVO;
+import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.SangMemVO;
 
 @Repository
@@ -27,8 +28,13 @@ public class SangMemDAOImpl implements SangMemDAO {
 	}
 
 	@Override
-	public int addSangMem(SangMemVO vo) {
-		return session.insert("co.kr.ezen_project.dao.SangMemDAO.addSangMem", vo);
+	public int addSangMemPay(SangMemVO vo) {
+		return session.insert("co.kr.ezen_project.dao.SangMemDAO.addSangMemPay", vo);
+	}
+	
+	@Override
+	public int addSangMemCart(SangMemVO vo) {
+		return session.insert("co.kr.ezen_project.dao.SangMemDAO.addSangMemCart", vo);
 	}
 
 	@Override
@@ -124,5 +130,35 @@ public class SangMemDAOImpl implements SangMemDAO {
 	@Override
 	public int updReview(ReviewVO vo) {
 		return session.update("co.kr.ezen_project.dao.SangMemDAO.updReview", vo);
+	}
+	
+	@Override
+	public List<PaymentVO> getPaymentAll() {
+		return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getPaymentAll");
+	}
+
+	@Override
+	public PaymentVO getPayment(int payNum) {
+		return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getPayment", payNum);
+	}
+
+	@Override
+	public int addPayment(PaymentVO vo) {
+		return session.insert("co.kr.ezen_project.dao.SangMemDAO.addPayment", vo);
+	}
+
+	@Override
+	public int delPayment(PaymentVO vo) {
+		return session.delete("co.kr.ezen_project.dao.SangMemDAO.delPayment", vo);
+	}
+	
+	@Override
+	public int delPaymentAll() {
+		return session.delete("co.kr.ezen_project.dao.SangMemDAO.delPaymentAll");
+	}
+	
+	@Override
+	public int updPayment(PaymentVO vo) {
+		return session.update("co.kr.ezen_project.dao.SangMemDAO.updPayment", vo);
 	}
 }
