@@ -82,6 +82,11 @@ public class MemberDAOImpl implements MemberDAO{
 	public String findPwdEmail(String email) {
 		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.findPwdEmail", email);
 	}
+	
+	@Override
+	public List<MemberVO> getMemAdmin(MemberVO vo) {
+		return session.selectList("co.kr.ezen_project.dao.MemberDAO.getMemAdmin", vo);
+	}
 
 
 }

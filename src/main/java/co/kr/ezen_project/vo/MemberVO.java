@@ -26,6 +26,7 @@ public class MemberVO {
 	private String lastDate;
 	private int markAgree;
 	private int totalPay;
+	private String memCate;
 	
 	public MemberVO(@NonNull String memId, String memPwd) {
 		super();	//로그인용

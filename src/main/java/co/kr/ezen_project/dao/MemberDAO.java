@@ -34,4 +34,6 @@ public interface MemberDAO {
 
 	String findPwdEmail(String email);
 
+	List<MemberVO> getMemAdmin(MemberVO vo);
+
 }

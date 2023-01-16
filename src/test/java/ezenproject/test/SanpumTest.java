@@ -179,7 +179,9 @@ public class SanpumTest {
 	
 	@Test
 	public void getSangCateTest() {
-		System.out.println(service.getSangCate("abc%"));
+		vo1.setOrby("price(DESC)");
+		vo1.setSangCate("abc%");
+		System.out.println(service.getSangCate(vo1));
 	}
 
 	

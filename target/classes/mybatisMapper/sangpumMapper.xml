@@ -82,7 +82,7 @@
 	</select>
 	
 	<select id="getSangCate" parameterType="String" resultType="SangpumVO">
-		SELECT * FROM Sangpum WHERE sangCode LIKE #{sangCode}
+		SELECT * FROM Sangpum WHERE sangCode LIKE #{sangCode} order by #{orby}
 	</select>
 	
 </mapper>

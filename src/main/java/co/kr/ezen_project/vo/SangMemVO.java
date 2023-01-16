@@ -13,24 +13,20 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor 
 @AllArgsConstructor
 public class SangMemVO {
-	@NonNull
 	private int orderNum;
 	@NonNull
 	private String memId;
 	private int payNum;
-	@NonNull
 	private int sangSize;
-	@NonNull
 	private int sangColor;
 	@NonNull
 	private String sangCode;
-	@NonNull
 	private int sangCnt;
 	private Date ordDate;
 	private int ordStat;
 	
-	public SangMemVO(@NonNull int orderNum, @NonNull String memId, @NonNull int sangSize, @NonNull int sangColor,
-			@NonNull String sangCode, @NonNull int sangCnt, int ordStat) {
+	public SangMemVO(int orderNum, @NonNull String memId, int sangSize, int sangColor,
+			@NonNull String sangCode,  int sangCnt, int ordStat) {
 		super();
 		this.orderNum = orderNum;
 		this.memId = memId;
@@ -41,7 +37,7 @@ public class SangMemVO {
 		this.ordStat = ordStat;
 	}
 
-	public SangMemVO(@NonNull int sangSize, @NonNull int sangColor, @NonNull String sangCode) {
+	public SangMemVO(int sangSize, int sangColor, @NonNull String sangCode) {
 		super();
 		this.sangSize = sangSize;
 		this.sangColor = sangColor;

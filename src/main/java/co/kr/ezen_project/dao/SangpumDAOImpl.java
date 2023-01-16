@@ -110,8 +110,8 @@ public class SangpumDAOImpl implements SangpumDAO {
 	}
 
 	@Override
-	public List<SangpumVO> getSangCate(String sangCode) {
-		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSangCate", sangCode);
+	public List<SangpumVO> getSangCate(SangpumVO vo) {
+		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSangCate", vo);
 	}
 
 	

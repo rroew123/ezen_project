@@ -108,8 +108,8 @@ public class SangpumServiceImpl implements SangpumService {
 	}
 
 	@Override
-	public List<SangpumVO> getSangCate(String sangCode) {
-		return dao.getSangCate(sangCode);
+	public List<SangpumVO> getSangCate(SangpumVO vo) {
+		return dao.getSangCate(vo);
 	}
 
 	

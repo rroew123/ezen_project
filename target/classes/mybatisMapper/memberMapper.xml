@@ -65,4 +65,8 @@
 	<select id="loginCheck" resultType="MemberVO" parameterType="MemberVO">	
 		select * from member where memId=#{memId} and memPwd=#{memPwd}
 	</select>
+	
+	<select id="getMemAdmin" resultType="MemberVO" parameterType="MemberVO">	
+		select memId, email, memName, birthday, phone, membership from member order by #{memCate}
+	</select>
 </mapper>

@@ -24,7 +24,7 @@ public class MemberTest {
 	public void basicoption() {
 		vo1 = new MemberVO("kkkkk","y_sm0214@naver.com","유현태","tae","01056841234");
 		vo2 = new MemberVO("qqqqq","q_sm0214@naver.com","민","tae","01056841234");
-		vo3 = new MemberVO("kkkkk","rroew123@naver.com","승","asd","01056841234","980214", 1,"성남시", 1, 0,  null, null, 1, 0);
+		vo3 = new MemberVO("kkkkk","rroew123@naver.com","승","asd","01056841234","980214", 1,"성남시", 1, 0,  null, null, 1, 0, null);
 		vo4 = new MemberVO("kkkkk","rroew123@naver.com","최강","asd","01056841234","980214", 1,"성남시");
 		vo5 = new MemberVO("min","qweqwe@naver.com","유현태","asd","01056841234");
 		vo6 = new MemberVO("hyeon","hyeon");

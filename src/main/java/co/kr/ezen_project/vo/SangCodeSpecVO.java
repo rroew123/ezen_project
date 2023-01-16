@@ -11,9 +11,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class SangCodeSpecVO {
-	@NonNull
 	private int sangSize;
-	@NonNull
 	private int sangColor;
 	@NonNull
 	private String sangCode;

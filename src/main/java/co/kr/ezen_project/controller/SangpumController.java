@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.kr.ezen_project.service.SangpumService;
+import co.kr.ezen_project.vo.SangpumVO;
 
 @Controller
 @RequestMapping("/sangpum/")
@@ -14,12 +15,15 @@ public class SangpumController {
 	SangpumService sangpumService;
 	
 	@RequestMapping("/category")
-	public void category(String SangCode, Model model) {
+	public void category(String SangCode,String ordy, Model model) {
 		SangCode = SangCode + "%";
-		model.addAttribute("list", sangpumService.getSangCate(SangCode));
+		SangpumVO Svo = null;
+		Svo.setOrby(ordy);
+		Svo.setSangCode(SangCode);
+		model.addAttribute("list", sangpumService.getSangCate(Svo));
 	}
 	@RequestMapping({"/category_best","/category_new","/category_lowprice","/category_highprice"})
-	public void category_(Model model) {
+	public void category_(String SangCode, String cate, Model model) {
 		
 	}
 	@RequestMapping("/order")

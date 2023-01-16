@@ -9,11 +9,19 @@ import lombok.RequiredArgsConstructor;
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class NtcBoardVO {
-	@NonNull
 	private int ntcNum;
 	@NonNull
 	private String ntcTitle;
 	@NonNull
 	private String ntcCntxt;
 	private String relDate;
+	
+	public NtcBoardVO(int ntcNum, @NonNull String ntcTitle, @NonNull String ntcCntxt) {
+		super();
+		this.ntcNum = ntcNum;
+		this.ntcTitle = ntcTitle;
+		this.ntcCntxt = ntcCntxt;
+	}
+	
+	
 }

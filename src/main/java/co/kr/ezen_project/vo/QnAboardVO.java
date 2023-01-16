@@ -9,11 +9,9 @@ import lombok.RequiredArgsConstructor;
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class QnAboardVO {
-	@NonNull
 	private int QnANum;
 	@NonNull
 	private String memId;
-	@NonNull
 	private int QnACat;
 	@NonNull
 	private String brdTitle;
@@ -22,4 +20,16 @@ public class QnAboardVO {
 	private String writDate;
 	private String ansCntxt;
 	private String ansDate;
+	
+	public QnAboardVO(int qnANum, @NonNull String memId, int qnACat, @NonNull String brdTitle,
+			@NonNull String brdCntxt) {
+		super();
+		QnANum = qnANum;
+		this.memId = memId;
+		QnACat = qnACat;
+		this.brdTitle = brdTitle;
+		this.brdCntxt = brdCntxt;
+	}
+	
+	
 }
