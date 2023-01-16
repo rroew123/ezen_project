@@ -26,10 +26,12 @@ public interface MemberDAO {
 
 	String findId(String email);
 
-	String findPwd(MemberVO vo);
-
 	int udtMemPwd(MemberVO vo);
 
 	MemberVO loginCheck(MemberVO vo);
+
+	String findPwdmemId(String memId);
+
+	String findPwdEmail(String email);
 
 }

@@ -65,10 +65,10 @@ public class MemberController {
 //		return "redirect:home";
 //	}
 	
-	@RequestMapping(value= "/logout.do")
+	@RequestMapping(value= "/logout.do", method = RequestMethod.POST)
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "/";
+		return "home";
 	}
 	
 	/*

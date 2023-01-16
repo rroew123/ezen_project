@@ -41,6 +41,8 @@ public interface SangpumDAO {
 
 	List<SangpumVO> getSoldOut(String sangCode);
 
+	List<SangpumVO> getSangCate(String sangCode);
+
 	
 
 

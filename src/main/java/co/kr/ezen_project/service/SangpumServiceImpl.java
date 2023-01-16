@@ -107,6 +107,11 @@ public class SangpumServiceImpl implements SangpumService {
 		return dao.getSoldOut(sangCode);
 	}
 
+	@Override
+	public List<SangpumVO> getSangCate(String sangCode) {
+		return dao.getSangCate(sangCode);
+	}
+
 	
 
 	

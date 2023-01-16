@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	trimDirectiveWhitespaces="true" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head>
+<link rel="stylesheet" href="./test" type="text/css" />
 <title>home</title>
 <script src="https://kit.fontawesome.com/9af1085f00.js"
 	crossorigin="anonymous"></script>
 </head>
+
 <style>
+
 * {
 	text-align: center;
 }
@@ -283,7 +287,10 @@ footer {
                      <li><a href="#">고객센터</a></li>
                      <li><a href="/mem/wishPage">관심상품</a></li>
                      <li><a href="/mem/myPage">마이페이지</a></li>
-                     <li><a href="/member/logout.do">로그아웃</a></li>
+                     <li><a href="/member/logout.do" >로그아웃</a></li>
+                     <form action="/member/logout.do" method="post">
+                     	<input type="submit" value="로그아웃">
+                     </form>
                      <br />
                       
                      <span>${userInfo.memName} 님 환영합니다.<br/>

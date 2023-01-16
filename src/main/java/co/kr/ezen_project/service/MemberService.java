@@ -24,11 +24,11 @@ public interface MemberService {
 
 	String findId(String email);
 
-	String findPwd(MemberVO vo);
-
 	int udtMemPwd(MemberVO vo);
 
 	MemberVO loginCheck(MemberVO vo6);
+
+	String findPwd(String memId, String email);
 	
 
 }

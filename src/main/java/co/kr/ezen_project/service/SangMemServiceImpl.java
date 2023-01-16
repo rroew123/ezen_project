@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import co.kr.ezen_project.dao.SangMemDAO;
 import co.kr.ezen_project.vo.CouponVO;
@@ -11,7 +12,7 @@ import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.SangMemVO;
 
-@Repository 
+@Service
 public class SangMemServiceImpl implements SangMemService {
 	@Autowired
 	SangMemDAO dao;

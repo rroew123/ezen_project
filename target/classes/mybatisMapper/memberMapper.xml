@@ -54,8 +54,12 @@
 		select memId from member where email=#{email}
 	</select>
 	
-	<select id="findPwd" resultType="String" parameterType="MemberVO">	
-		select memPwd from member where memId=#{memId} and email=#{email}
+	<select id="findPwdmemId" resultType="String" parameterType="String">	
+		select memPwd from member where memId=#{memId}
+	</select>
+	
+	<select id="findPwdEmail" resultType="String" parameterType="String">	
+		select memPwd from member where email=#{email}
 	</select>
 	
 	<select id="loginCheck" resultType="MemberVO" parameterType="MemberVO">	

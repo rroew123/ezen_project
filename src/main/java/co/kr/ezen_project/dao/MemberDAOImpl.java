@@ -62,11 +62,6 @@ public class MemberDAOImpl implements MemberDAO{
 	public String findId(String email) {
 		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.findId", email);
 	}
-
-	@Override
-	public String findPwd(MemberVO vo) {
-		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.findPwd", vo);
-	}
 	
 	@Override
 	public int udtMemPwd(MemberVO vo) {
@@ -77,5 +72,16 @@ public class MemberDAOImpl implements MemberDAO{
 	public MemberVO loginCheck(MemberVO vo) {
 		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.loginCheck", vo);
 	}
+
+	@Override
+	public String findPwdmemId(String memId) {
+		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.findPwdmemId", memId);
+	}
+
+	@Override
+	public String findPwdEmail(String email) {
+		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.findPwdEmail", email);
+	}
+
 
 }

@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import co.kr.ezen_project.dao.MemberDAO;
 import co.kr.ezen_project.vo.MemberVO;
 
-@Repository
+@Service
 public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
@@ -51,8 +52,11 @@ public class MemberServiceImpl implements MemberService {
 		return dao.findId(email);
 	}
 	@Override
-	public String findPwd(MemberVO vo) {
-		return dao.findPwd(vo);
+	public String findPwd(String memId,String email) {
+		if(dao.findPwdmemId(memId).equals(dao.findPwdEmail(email))) {
+			return dao.findPwdmemId(memId);
+		}
+		return null;
 	}
 	@Override
 	public int udtMemPwd(MemberVO vo) {

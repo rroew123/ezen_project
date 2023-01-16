@@ -109,6 +109,11 @@ public class SangpumDAOImpl implements SangpumDAO {
 		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSoldOut", sangCode);
 	}
 
+	@Override
+	public List<SangpumVO> getSangCate(String sangCode) {
+		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSangCate", sangCode);
+	}
+
 	
 
 

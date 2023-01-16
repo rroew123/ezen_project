@@ -41,4 +41,6 @@ public interface SangpumService {
 	
 	List<SangpumVO> getSoldOut(String sangCode);
 
+	List<SangpumVO> getSangCate(String sangCode);
+
 }

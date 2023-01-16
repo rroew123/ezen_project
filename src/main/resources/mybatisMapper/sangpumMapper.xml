@@ -81,4 +81,8 @@
 		select remStock from Sangpum where sangCode = #{sangCode}
 	</select>
 	
+	<select id="getSangCate" parameterType="String" resultType="SangpumVO">
+		SELECT * FROM Sangpum WHERE sangCode LIKE #{sangCode}
+	</select>
+	
 </mapper>

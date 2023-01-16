@@ -26,7 +26,7 @@ public class MemberTest {
 		vo2 = new MemberVO("qqqqq","q_sm0214@naver.com","민","tae","01056841234");
 		vo3 = new MemberVO("kkkkk","rroew123@naver.com","승","asd","01056841234","980214", 1,"성남시", 1, 0,  null, null, 1, 0);
 		vo4 = new MemberVO("kkkkk","rroew123@naver.com","최강","asd","01056841234","980214", 1,"성남시");
-		vo5 = new MemberVO("hyeon","qweqwe@naver.com","유현태","asd","01056841234");
+		vo5 = new MemberVO("min","qweqwe@naver.com","유현태","asd","01056841234");
 		vo6 = new MemberVO("hyeon","hyeon");
 		
 	}
@@ -100,9 +100,9 @@ public class MemberTest {
 	@Test
 	public void findIdTest() {
 		service.addMem(vo5);
-		String eamil = vo5.getEmail();
-		System.out.println(eamil);
-		System.out.println(service.findId(eamil));
+		String email = vo5.getEmail();
+		System.out.println(email);
+		System.out.println(service.findId(email));
 		service.delMem(vo5);
 	}
 	
@@ -110,7 +110,9 @@ public class MemberTest {
 	@Test
 	public void findPwdTest() {
 		service.addMem(vo5);
-		System.out.println(service.findPwd(vo6));
+		String memId = vo5.getMemId();
+		String email = vo5.getEmail();
+		System.out.println(service.findPwd(memId,email));
 		service.delMem(vo5);
 	}
 	

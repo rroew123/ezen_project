@@ -176,6 +176,11 @@ public class SanpumTest {
 		assertNotNull(service.getSoldOut(sangCode));
 		System.out.println("평점확인========================"+service.getSoldOut(sangCode));
 	}
+	
+	@Test
+	public void getSangCateTest() {
+		System.out.println(service.getSangCate("abc%"));
+	}
 
 	
 }
