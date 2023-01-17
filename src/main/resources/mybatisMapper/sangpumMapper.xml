@@ -15,8 +15,8 @@
 	</select>
 	
 	<insert id="addSang" parameterType="SangpumVO">
-		insert into Sangpum (sangCode, price, sangName, typeOne, typeTwo, typeThree, iniStock, remStock, rating, totalRat, ratingCnt, saleRat)
-		values (#{sangCode}, #{price}, #{sangName}, #{typeOne}, #{typeTwo}, #{typeThree}, #{iniStock}, #{remStock}, #{rating}, #{totalRat}, #{ratingCnt}, #{saleRat})
+		insert into Sangpum (sangCode, price, sangName, typeOne, typeTwo, typeThree, remStock)
+		values (#{sangCode}, #{price}, #{sangName}, #{typeOne}, #{typeTwo}, #{typeThree}, #{remStock})
 	</insert>
 	
 	<delete id="delSang" parameterType="SangpumVO">
@@ -83,6 +83,10 @@
 	
 	<select id="getSangCate" parameterType="String" resultType="SangpumVO">
 		SELECT * FROM Sangpum WHERE sangCode LIKE #{sangCode} order by #{orby}
+	</select>
+	
+	<select id="getSangAdmin" parameterType="String" resultType="SangpumVO">
+		SELECT * FROM Sangpum where sangCode=#{sangCode}
 	</select>
 	
 </mapper>
