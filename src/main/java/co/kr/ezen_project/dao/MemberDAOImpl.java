@@ -74,13 +74,8 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public String findPwdmemId(String memId) {
-		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.findPwdmemId", memId);
-	}
-
-	@Override
-	public String findPwdEmail(String email) {
-		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.findPwdEmail", email);
+	public String findPwd(MemberVO vo) {
+		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.findPwd", vo);
 	}
 	
 	@Override

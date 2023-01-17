@@ -110,9 +110,7 @@ public class MemberTest {
 	@Test
 	public void findPwdTest() {
 		service.addMem(vo5);
-		String memId = vo5.getMemId();
-		String email = vo5.getEmail();
-		System.out.println(service.findPwd(memId,email));
+		System.out.println(service.findPwd(vo5));
 		service.delMem(vo5);
 	}
 	

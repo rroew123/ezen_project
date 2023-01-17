@@ -78,50 +78,42 @@ header {
 		</div>
 	</header>
 	<div id="join_input">
-		<form name="joinform" method="post" action="/member/joinpro.php"
+		<form name="joinform" method="post" action=""
 			onsubmit="return join_chk();" target="hi_fr">
 			<fieldset>
 				<legend class="hidden">기본정보입력(필수)</legend>
 				<div class="box">
 					<div>
 						<label for="join_name">이름 <span>*</span></label> <input
-							type="text" name="join_name" id="join_name"
+							type="text" name="memName" id="memName"
 							class="form_input form_name" maxlength="30">
 					</div>
 					<div class="addbtn">
 						<label for="join_id">아이디 <span>*</span></label> <input type="text"
-							name="join_id" id="join_id" class="form_input form_id"
+							name="memId" id=memId class="form_input form_id"
 							maxlength="20"> <span class="box_btn w95 h35 fs13 white2"><a
 							href="" onclick="id_chk();" data-id="" id="id_chk">중복확인</a></span>
 					</div>
 					<div>
 						<label for="join_pw">비밀번호 <span>*</span></label> <input
-							type="password" name="join_pw" id="join_pw"
+							type="password" name="memPwd" id="memPwd"
 							class="form_input form_name" maxlength="30">
 					</div>
 					<div>
 						<label for="join_pw1">비밀번호 확인 <span>*</span></label> <input
-							type="password" name="join_pw1" id="join_pw1"
+							type="password" name="memPwd" id="memPwd"
 							class="form_input form_name" maxlength="30">
 					</div>
 					<div class="mobile addbtn">
-						<label for="join_cell">휴대폰 번호 <span>*</span></label> <select
-							name="join_cell">
-							<option value="010">010</option>
-							<option value="011">011</option>
-							<option value="016">016</option>
-							<option value="017">017</option>
-						</select> <input type="text" name="join_cell1" id="join_cell1"
-							class="form_input form_cell1" maxlength="4"
-							onkeyup="autoFocus(4, this.id, 'join_cell2')"> <input
-							type="text" name="join_cell2" id="join_cell2"
-							class="form_input form_cell2" maxlength="4"> <span
-							class="box_btn w95 h35 fs13 white2"><a href=""
+						<label for="join_cell">휴대폰 번호 <span>*</span></label> 
+						 <input type="text" name="phone" id="phone"
+							class="form_input form_cell1" 
+							onkeyup="autoFocus(4, this.id, 'join_cell2')"><a href=""
 							onclick="phone_chk();" data-phone="" id="phone_chk">휴대폰 인증</a></span>
 					</div>
 					<div>
 						<label for="join_year">생년월일 <span>*</span></label> <select
-							name="join_year" class="join_year">
+							name="birthday" class="birthday">
 							<option value="2009">2009</option>
 							<option value="2008">2008</option>
 							<option value="2007">2007</option>
@@ -192,7 +184,7 @@ header {
 							<option value="1942">1942</option>
 							<option value="1941">1941</option>
 							<option value="1940">1940</option>
-						</select> <select name="join_month" class="join_month">
+						</select> <select name="birthday" class="birthday">
 							<option value="01">01</option>
 							<option value="02">02</option>
 							<option value="03">03</option>
@@ -205,7 +197,7 @@ header {
 							<option value="10">10</option>
 							<option value="11">11</option>
 							<option value="12">12</option>
-						</select> <select name="join_day" class="join_day">
+						</select> <select name="birthday" class="birthday">
 							<option value="01">01</option>
 							<option value="02">02</option>
 							<option value="03">03</option>
@@ -239,12 +231,7 @@ header {
 							<option value="31">31</option>
 						</select>
 					</div>
-					<div id="phone_chk_area" style="display: none;">
-						<label for="phone_code">핸드폰 인증번호<span>*</span></label> <input
-							type="text" name="phone_code" id="phone_code" class="form_input"
-							maxlength="6"> <span class="box_btn w95 h35 fs13 white2"><a
-							href="" onclick="code_chk();" data-code="" id="code_chk">인증확인</a></span>
-					</div>
+					
 					<div>
 						<label>sms수신여부 <span>*</span></label>
 						<p class="check">
@@ -256,11 +243,8 @@ header {
 					</div>
 					<div class="addbtn">
 						<label for="join_email0">이메일 <span>*</span></label> <input
-							type="text" name="join_email0" id="join_email0"
-							class="form_input form_email0"> <span class="bar">@</span>
-						<input type="text" name="join_email1" id="join_email1"
-							class="form_input form_email1">
-
+							type="text" name="email" id="email"
+							class="form_input form_email0"> 
 					</div>
 					<div>
 						<label>메일수신여부 <span>*</span></label>
@@ -278,8 +262,8 @@ header {
 				</div>
 			</fieldset>
 			<div class="btn tac">
-				<span class="box_btn w144 h45 fs15"><input type="submit"
-					value="저장"></span> <span class="box_btn w144 h45 fs15 gray4"><a
+				<input type="submit"
+					value="저장"> <span class="box_btn w144 h45 fs15 gray4"><a
 					href="">취소</a></span>
 			</div>
 

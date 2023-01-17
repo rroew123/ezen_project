@@ -13,11 +13,13 @@
 	</select>
 	
 	<insert id="addSangMemPay" parameterType="SangMemVO">
-		insert into SangMem (orderNum, memId, payNum, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) values(#{orderNum}, #{memId}, #{payNum}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, #{ordStat} )
+		insert into SangMem (orderNum, memId, payNum, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) 
+		values(#{orderNum}, #{memId}, #{payNum}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 2 )
 	</insert>
 	
 	<insert id="addSangMemCart" parameterType="SangMemVO">
-		insert into SangMem (orderNum, memId, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) values(#{orderNum}, #{memId}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, #{ordStat} )
+		insert into SangMem (orderNum, memId, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) 
+		values(#{orderNum}, #{memId}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 1 )
 	</insert>
 	
 	<delete id="delSangMem" parameterType="SangMemVO">
@@ -29,7 +31,8 @@
 	</delete>
 	
 	<update id="updSangMem" parameterType="SangMemVO">
-		update SangMem set memId = #{memId}, payNum = #{payNum}, sangSize = #{sangSize}, sangColor = #{sangColor}, sangCode = #{sangCode}, sangCnt = #{sangCnt}, ordDate = sysdate, ordStat = #{ordStat} where orderNum = #{orderNum}
+		update SangMem set memId = #{memId}, payNum = #{payNum}, sangSize = #{sangSize}, sangColor = #{sangColor}, 
+		sangCode = #{sangCode}, sangCnt = #{sangCnt}, ordDate = sysdate, ordStat = #{ordStat} where orderNum = #{orderNum}
 	</update>
 	
 	<select id="getCouponAll" resultType="CouponVO">	

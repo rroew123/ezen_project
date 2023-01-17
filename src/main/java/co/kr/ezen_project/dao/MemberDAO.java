@@ -30,9 +30,7 @@ public interface MemberDAO {
 
 	MemberVO loginCheck(MemberVO vo);
 
-	String findPwdmemId(String memId);
-
-	String findPwdEmail(String email);
+	String findPwd(MemberVO vo);
 
 	List<MemberVO> getMemAdmin(MemberVO vo);
 

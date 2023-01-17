@@ -3,14 +3,14 @@ package co.kr.ezen_project.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import co.kr.ezen_project.dao.ConsumerDAO;
 import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
 
-@Repository
+@Service
 public class ConsumerServiceImpl implements ConsumerService {
 	
 	@Autowired

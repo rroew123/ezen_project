@@ -39,7 +39,7 @@
 	
 	<update id="udtMemPwd" parameterType="MemberVO">
 		UPDATE member SET memPwd=#{memPwd} 
-		where email=#{email} and memId=#{memId} 
+		where email=#{email} and memId=#{memId}
 	</update>
 	
 	<select id="getMemOne" resultType="MemberVO" parameterType="String">	
@@ -54,12 +54,8 @@
 		select memId from member where email=#{email}
 	</select>
 	
-	<select id="findPwdmemId" resultType="String" parameterType="String">	
-		select memPwd from member where memId=#{memId}
-	</select>
-	
-	<select id="findPwdEmail" resultType="String" parameterType="String">	
-		select memPwd from member where email=#{email}
+	<select id="findPwd" resultType="String" parameterType="MemberVO">	
+		select memPwd from member where email=#{email} and memId=#{memId}
 	</select>
 	
 	<select id="loginCheck" resultType="MemberVO" parameterType="MemberVO">	

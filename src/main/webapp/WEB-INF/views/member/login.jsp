@@ -104,33 +104,18 @@ header {
 				class="form_input member" placeholder="비밀번호" autocomplete="off">
 		</div>
 		<div class="fld" style="margin-bottom: 17px;">
-			<!-- <input type="checkbox" name="saveid" value="Y" class="member">
-			<label
-				style="display: inline-block; vertical-align: middle; margin-right: 4px; margin-bottom: 1px;">아이디
-				저장</label> <input type="checkbox" name="autoLogin" value="1" class="member"
-				style="margin-right: 4px;"> <label
-				style="display: inline-block; vertical-align: middle; margin-right: 4px; margin-bottom: 1px;">자동로그인</label> -->
 		</div>
-	<!-- 	<span class="memberbtn"> -->
+
 			<input type="submit" name="Id" id="ID" value="로그인" class="form_input member" autocomplete="off">
-			<%-- <c:if test="${msg == 'failure'}">
-				<div style="color: red">
-					아이디 또는 비밀번호가 일치하지 않습니다
-				</div>
-			</c:if>
-			<c:if test="${msg == 'logout'}">
-				<div>
-					로그아웃되었습니다.
-				</div>
-			</c:if> --%>
-	<!-- 	</span> -->
+			
 		</form>
 		
 		
 		
 		<ul class="find_remove">
-			<li><a href="/member/findID">아이디/비밀번호 찾기</a></li>
-			<li><a href="/memberjoin">회원가입</a></li>
+			<li><a href="/member/findID">아이디 찾기</a></li>
+			<li><a href="/member/findPW">비밀번호 찾기</a></li>
+			<li><a href="/member/memberjoin">회원가입</a></li>
 		</ul>
 	</fieldset>
 

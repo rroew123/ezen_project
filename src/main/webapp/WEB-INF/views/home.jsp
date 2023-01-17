@@ -266,30 +266,15 @@ footer {
 			<button>검색</button>
 		</div>
 		<div class="Searchri">
-<%-- 			<%
-	String memId = (String)session.getAttribute("memId");
-%>
-<%
-	if(memId!=null){
-		%>
-		<%=memId %> 님
-		<button onclick="location.href='home'">로그아웃</button>
-		} --%>
+
 		
-		
-			<!-- <a href="./member/memberjoin">회원가입</a> 
-			<a href="">고객센터</a> 
-			<a href="./member/shoppingcart">장바구니</a>
-			<a href="">추천</a>
-		</div> -->
 		<c:if test="${userInfo != null}">
 
-                     <li><a href="#">고객센터</a></li>
-                     <li><a href="/mem/wishPage">관심상품</a></li>
-                     <li><a href="/mem/myPage">마이페이지</a></li>
+                     <li><a href="/member/customer">고객센터</a></li>
+                     <li><a href="/member/mypage_wishlist">관심상품</a></li>
+                     <li><a href="/member/mypage">마이페이지</a></li>
                      <li><a href="/member/logout.do" >로그아웃</a></li>
                      <form action="/member/logout.do" method="post">
-                     	<input type="submit" value="로그아웃">
                      </form>
                      <br />
                       
@@ -299,9 +284,14 @@ footer {
                        
                   </c:if> 
                   <c:if test="${userInfo== null}">
-                     <li><a href="#">고객센터</a></li>
-                     <li><a href="/member/login">로그인</a></li> 
+                     <li><a href="/member/customer">고객센터</a></li>
+                     <li><a href="/member/login">로그인</a></li>
+                     <li><a href="/member/memberjoin">회원가입</a></li>
+                     <li><a href="/member/shoppingcart">장바구니</a></li>
+                      
                   </c:if>
+		</div> 
+		
 	</header>
 
 	<div id="menu1">
@@ -430,9 +420,9 @@ footer {
 
 	<div class="Cside">
 		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
-		<a href="http://localhost/shoppingcart"><i
+		<a href="./member/shoppingcart"><i
 			class="fa-sharp fa-solid fa-cart-shopping"></i></a> <a
-			href="http://localhost/member/customer"><i
+			href="./member/customer"><i
 			class="fa-sharp fa-solid fa-user-tie"></i></a> <i
 			class="fa-regular fa-clock"></i> <i class="fa-regular fa-circle-down"
 			value="Last" onclick="clickLast()"></i>

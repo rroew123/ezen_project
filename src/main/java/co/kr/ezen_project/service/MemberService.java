@@ -28,7 +28,7 @@ public interface MemberService {
 
 	MemberVO loginCheck(MemberVO vo6);
 
-	String findPwd(String memId, String email);
+	String findPwd(MemberVO vo);
 
 	List<MemberVO> getMemAdmin(MemberVO vo);
 	

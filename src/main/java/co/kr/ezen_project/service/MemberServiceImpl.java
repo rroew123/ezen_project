@@ -51,11 +51,8 @@ public class MemberServiceImpl implements MemberService {
 		return dao.findId(email);
 	}
 	@Override
-	public String findPwd(String memId,String email) {
-		if(dao.findPwdmemId(memId).equals(dao.findPwdEmail(email))) {
-			return dao.findPwdmemId(memId);
-		}
-		return null;
+	public String findPwd(MemberVO vo) {
+			return dao.findPwd(vo);
 	}
 	@Override
 	public int udtMemPwd(MemberVO vo) {

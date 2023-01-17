@@ -99,6 +99,10 @@
 		select * from QnAboard where memId = #{memId}
 	</select>
 	
+	<select id="getQnAmemId" resultType="QnAboardVO" parameterType="String">	
+		select * from QnAboard where memId = #{memId}
+	</select>
+	
 	
 	
 	

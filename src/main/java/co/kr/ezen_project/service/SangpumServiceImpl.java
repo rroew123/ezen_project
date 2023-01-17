@@ -3,13 +3,13 @@ package co.kr.ezen_project.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import co.kr.ezen_project.dao.SangpumDAO;
 import co.kr.ezen_project.vo.SangCodeSpecVO;
 import co.kr.ezen_project.vo.SangpumVO;
 
-@Repository
+@Service
 public class SangpumServiceImpl implements SangpumService {
 	
 	@Autowired
@@ -111,6 +111,7 @@ public class SangpumServiceImpl implements SangpumService {
 	public List<SangpumVO> getSangCate(SangpumVO vo) {
 		return dao.getSangCate(vo);
 	}
+
 
 	
 
