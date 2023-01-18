@@ -15,6 +15,7 @@ public class NtcBoardVO {
 	@NonNull
 	private String ntcCntxt;
 	private String relDate;
+	private int viewCnt;
 	
 	public NtcBoardVO(int ntcNum, @NonNull String ntcTitle, @NonNull String ntcCntxt) {
 		super();

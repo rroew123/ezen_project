@@ -63,11 +63,11 @@
 
 	
 	<select id="getColor" resultType="SangCodeSpecVO">
-		select sangColor from SangCodeSpec where sangCode = #{sangCode}
+		select * from SangCodeSpec where sangCode = #{sangCode}
 	</select>
 	
 	<select id="getSize" resultType="SangCodeSpecVO">
-		select sangSize from SangCodeSpec where sangCode = #{sangCode} and sangColor = #{sangColor}
+		select * from SangCodeSpec where sangCode = #{sangCode} and sangColor = #{sangColor}
 	</select>
 	
 	<select id="getSangRat" resultType="SangpumVO">
