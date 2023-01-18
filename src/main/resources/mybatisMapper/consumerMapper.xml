@@ -45,7 +45,7 @@
 	
 	<insert id="addNtc" parameterType="NtcBoardVO">
 		insert into NtcBoard (ntcNum, ntcTitle, ntcCntxt)
-		values(#{ntcNum}, #{ntcTitle}, #{ntcCntxt})
+		values(ntc_seq.nextval, #{ntcTitle}, #{ntcCntxt})
 	</insert>
 	
 	<update id="udtNtc" parameterType="NtcBoardVO">

@@ -37,6 +37,7 @@ public class SangpumController {
 	public void sangpum(String SangCode, Model model) {		//상품페이지로 이동
 		model.addAttribute("SangpumInfo", sangpumService.getSang(SangCode));
 		model.addAttribute("SangCodeSpecVO", sangpumService.getColor(SangCode));
+		System.out.println(SangCode);
 		System.out.println(sangpumService.getSang(SangCode));
 	}
 	@RequestMapping("/sangpum_Info")
