@@ -26,7 +26,7 @@
 		values(#{orderNum}, #{memId}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 1 )
 	</insert>
 	
-	<delete id="delSangMem" parameterType="String">
+	<delete id="delSM_Mem" parameterType="String">
 		delete from SangMem where memId = #{memId}
 	</delete>
 	
