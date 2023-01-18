@@ -67,4 +67,14 @@ public interface SangMemDAO {
 	
 	int updPayment(PaymentVO vo);
 
+	void delCouponMem(String memId);
+
+	List<SangMemVO> getSM_Mem(String memId);
+
+	void delSM_Mem(String memId);
+
+	void delReview_Mem(String memId);
+
+	void delPayment_Mem(String memId);
+
 }

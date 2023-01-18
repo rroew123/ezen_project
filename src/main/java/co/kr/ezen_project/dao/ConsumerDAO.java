@@ -53,5 +53,7 @@ public interface ConsumerDAO {
 	List<QnAboardVO> getQnAmemId(String memid);
 
 	void increaseViewCnt(int ntcNum) throws Exception;
+
+	void delQnAMem(String memId);
 	
 }

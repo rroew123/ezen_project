@@ -74,6 +74,10 @@
 		delete from QnAboard where qnaNum = #{qnaNum}
 	</delete>
 	
+	<delete id="delQnAMem" parameterType="String">
+		delete from QnAboard where memId = #{memId}
+	</delete>
+	
 	<insert id="addQnA" parameterType="QnAboardVO">
 		insert into QnAboard (qnaNum, memId, qnaCat, brdTitle, brdCntxt)
 		values(#{qnaNum}, #{memId}, #{qnaCat}, #{brdTitle}, #{brdCntxt})

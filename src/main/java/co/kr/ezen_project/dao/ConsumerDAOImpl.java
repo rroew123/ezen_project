@@ -130,6 +130,12 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	public void increaseViewCnt(int ntcNum) throws Exception{
 		session.update("co.kr.ezen_project.dao.ConsumerDAO.increaseViewCnt", ntcNum);
 	}
+
+	@Override
+	public void delQnAMem(String memId) {
+		session.selectList("co.kr.ezen_project.dao.ConsumerDAO.delQnAMem", memId);
+		
+	}
 	
 	
 }
