@@ -15,8 +15,8 @@
 	</select>
 	
 	<insert id="addSang" parameterType="SangpumVO">
-		insert into Sangpum (sangCode, price, sangName, typeOne, typeTwo, typeThree, remStock)
-		values (#{sangCode}, #{price}, #{sangName}, #{typeOne}, #{typeTwo}, #{typeThree}, #{remStock})
+		insert into Sangpum (sangCode, price, sangName, typeOne, typeTwo, typeThree, remStock, saleRat)
+		values (#{sangCode}, #{price}, #{sangName}, #{typeOne}, #{typeTwo}, #{typeThree}, #{remStock}, #{saleRat})
 	</insert>
 	
 	<delete id="delSang" parameterType="String">

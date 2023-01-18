@@ -31,7 +31,6 @@
 				<c:forEach var="row" items="SangColor">
 					<p>색 : ${row}</p>
 				</c:forEach>
-				<p>색상 : </p>
 				
 				<p> </p>
 				<p> 개</p>	<!-- 갯수 -->
