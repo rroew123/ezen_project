@@ -67,7 +67,7 @@ public class MemberServiceImpl implements MemberService {
 		return dao.loginCheck(vo);
 	}
 	@Override
-	public List<MemberVO> getMemAdmin(MemberVO vo) {
-		return dao.getMemAdmin(vo);
+	public List<MemberVO> getMemAdmin(String memCate) {
+		return dao.getMemAdmin(memCate);
 	}
 }

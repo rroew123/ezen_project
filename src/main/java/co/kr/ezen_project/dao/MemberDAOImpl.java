@@ -82,8 +82,8 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 	
 	@Override
-	public List<MemberVO> getMemAdmin(MemberVO vo) {
-		return session.selectList("co.kr.ezen_project.dao.MemberDAO.getMemAdmin", vo);
+	public List<MemberVO> getMemAdmin(String memCate) {
+		return session.selectList("co.kr.ezen_project.dao.MemberDAO.getMemAdmin", memCate);
 	}
 
 

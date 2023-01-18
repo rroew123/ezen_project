@@ -68,7 +68,7 @@
 		select * from member where memId=#{memId} and memPwd=#{memPwd}
 	</select>
 	
-	<select id="getMemAdmin" resultType="MemberVO" parameterType="MemberVO">	
+	<select id="getMemAdmin" resultType="MemberVO" parameterType="String">	
 		select * from member order by #{memCate}
 	</select>
 </mapper>

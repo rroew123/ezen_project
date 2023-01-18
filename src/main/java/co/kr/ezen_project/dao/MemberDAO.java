@@ -34,6 +34,6 @@ public interface MemberDAO {
 
 	String findPwd(MemberVO vo);
 
-	List<MemberVO> getMemAdmin(MemberVO vo);
+	List<MemberVO> getMemAdmin(String memCate);
 
 }
