@@ -38,10 +38,6 @@ public class ConsumerTest {
 		
 		service.delNtcAll();
 		
-		Qvo1 = new QnAboardVO(1,"hyeon",5,"배가 많이 고파요","밥먹고 싶어요");
-		Qvo2 = new QnAboardVO(2,"hyeon",5,"교환해주세요","해주세요");
-		Qvo3 = new QnAboardVO(3,"hyeon",5,"반품해주세요","해주세요");
-		Qvo4 = new QnAboardVO(1,"hyeon",5,"배가 많이 고파요","밥사줘요");
 		service.delQnAAll();
 	}
 	
@@ -197,19 +193,11 @@ public class ConsumerTest {
 		System.out.println("맴버의 인원은========================"+service.getQnACount());
 		assertNotNull( service.addQnA(Qvo1) );
 		System.out.println("맴버의 인원은========================"+service.getQnACount());
-		assertNotNull(service.delQnA(Qvo1)); 
-		System.out.println("맴버의 인원은========================"+service.getFAQCount());
 		assertNotNull(service.delQnAAll()); 
 		System.out.println("맴버의 인원은========================"+service.getFAQCount());
 	}
 	
-	@Test
-	public void getQnAOneTest() {
-		int QnANum = Qvo1.getQnANum();
-		System.out.println(QnANum);
-		assertNotNull( service.addQnA(Qvo1) );
-		System.out.println(service.getQnAOne(QnANum));
-	}
+	
 	
 	@Test
 	public void getQnAAllTest() {

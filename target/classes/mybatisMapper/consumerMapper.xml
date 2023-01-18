@@ -70,17 +70,17 @@
 		delete from QnAboard
 	</delete>
 	
-	<delete id="delQnA" parameterType="QnAboardVO">
-		delete from QnAboard where QnANum = #{QnANum}
+	<delete id="delQnA" parameterType="Integer">
+		delete from QnAboard where qnaNum = #{qnaNum}
 	</delete>
 	
 	<insert id="addQnA" parameterType="QnAboardVO">
-		insert into QnAboard (QnANum, memId, QnACat, brdTitle, brdCntxt)
-		values(#{QnANum}, #{memId}, #{QnACat}, #{brdTitle}, #{brdCntxt})
+		insert into QnAboard (qnaNum, memId, qnaCat, brdTitle, brdCntxt)
+		values(#{qnaNum}, #{memId}, #{qnaCat}, #{brdTitle}, #{brdCntxt})
 	</insert>
 	
 	<update id="udtQnA" parameterType="QnAboardVO">
-		update QnAboard set QnACat=#{QnACat}, brdTitle=#{brdTitle}, brdCntxt=#{brdCntxt} where QnANum=#{QnANum}
+		update QnAboard set QnACat=#{qnaCat}, brdTitle=#{brdTitle}, brdCntxt=#{brdCntxt} where QnANum=#{qnaNum}
 	</update>
 	
 	<select id="getQnACount" resultType="integer">	
@@ -88,7 +88,7 @@
 	</select>
 	
 	<select id="getQnAOne" resultType="QnAboardVO" parameterType="integer">	
-		select * from QnAboard where QnANum = #{QnANum}
+		select * from QnAboard where QnANum = #{qnaNum}
 	</select>
 	
 	<select id="getQnAAll" resultType="QnAboardVO">	
@@ -99,7 +99,10 @@
 		select * from QnAboard where memId = #{memId}
 	</select>
 	
-	
+<!-- 	<select id="getQnAmemId" resultType="QnAboardVO" parameterType="String">	
+		select * from QnAboard where memId = #{memId}
+	</select>
+	 -->
 	
 	
 	

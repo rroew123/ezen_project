@@ -42,7 +42,7 @@ public interface ConsumerDAO {
 
 	int addQnA(QnAboardVO qvo1);
 
-	int delQnA(QnAboardVO qvo1);
+	int delQnA(int qnaNum);
 
 	int udtQnA(QnAboardVO qvo3);
 

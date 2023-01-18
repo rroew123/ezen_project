@@ -92,8 +92,8 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	}
 	
 	@Override
-	public int delQnA(QnAboardVO qvo1) {
-		return session.delete("co.kr.ezen_project.dao.ConsumerDAO.delQnA", qvo1);
+	public int delQnA(int qnaNum) {
+		return session.delete("co.kr.ezen_project.dao.ConsumerDAO.delQnA", qnaNum);
 	}
 
 	@Override

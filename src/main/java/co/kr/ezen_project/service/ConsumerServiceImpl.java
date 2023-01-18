@@ -102,8 +102,8 @@ public class ConsumerServiceImpl implements ConsumerService {
 	}
 
 	@Override
-	public int delQnA(QnAboardVO qvo1) {
-		return dao.delQnA(qvo1);
+	public int delQnA(int qnaNum) {
+		return dao.delQnA(qnaNum);
 	}
 
 	@Override
