@@ -31,8 +31,8 @@ public class SangpumDAOImpl implements SangpumDAO {
 	}
 
 	@Override
-	public int delSang(SangpumVO vo) {
-		return session.delete("co.kr.ezen_project.dao.SangpumDAO.delSang", vo);
+	public int delSang(String sangCode) {
+		return session.delete("co.kr.ezen_project.dao.SangpumDAO.delSang", sangCode);
 	}
 	
 	@Override
@@ -112,6 +112,11 @@ public class SangpumDAOImpl implements SangpumDAO {
 	@Override
 	public List<SangpumVO> getSangCate(SangpumVO vo) {
 		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSangCate", vo);
+	}
+
+	@Override
+	public List<SangpumVO> getSangAdmin(String sangCode) {
+		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSangAdmin", sangCode);
 	}
 
 	

@@ -16,7 +16,7 @@
 		values (#{memId}, #{email}, #{memName}, #{memPwd}, #{phone})
 	</insert>
 	
-	<delete id="delMember" parameterType="String">	
+	<delete id="delMem" parameterType="String">	
 		delete from member Where memId=#{memId}
 	<!-- 	delete from Coupon Where memId = {memId}  		다른 매퍼에 적용해야함
 		delete from CardInfo Where memId = {memId}
@@ -42,6 +42,12 @@
 		where email=#{email} and memId=#{memId}
 	</update>
 	
+		<update id="udtMemAdmin" parameterType="MemberVO">
+		UPDATE member SET email=#{email}, membership=#{membership}, memName=#{memName}, gender=#{gender},
+		address=#{address}, mileage=#{mileage}, markAgree=#{markAgree}, totalPay=#{totalPay}
+		where  and memId=#{memId}
+	</update>
+	
 	<select id="getMemOne" resultType="MemberVO" parameterType="String">	
 		select * from member where memId=#{memId}
 	</select>
@@ -63,6 +69,6 @@
 	</select>
 	
 	<select id="getMemAdmin" resultType="MemberVO" parameterType="MemberVO">	
-		select memId, email, memName, birthday, phone, membership from member order by #{memCate}
+		select * from member order by #{memCate}
 	</select>
 </mapper>

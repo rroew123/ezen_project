@@ -14,7 +14,7 @@ public interface MemberDAO {
 
 	int delMemAll();
 
-	int delMemAll(MemberVO vo);
+	int delMem(String memId);
 
 	MemberVO getMemOne(String memId);
 
@@ -23,6 +23,8 @@ public interface MemberDAO {
 	int udtMem(MemberVO vo);
 
 	int udtMemTP(MemberVO vo);
+	
+	int udtMemAdmin(MemberVO vo);
 
 	String findId(String email);
 

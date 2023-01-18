@@ -19,7 +19,7 @@
 		values (#{sangCode}, #{price}, #{sangName}, #{typeOne}, #{typeTwo}, #{typeThree}, #{remStock})
 	</insert>
 	
-	<delete id="delSang" parameterType="SangpumVO">
+	<delete id="delSang" parameterType="String">
 		delete from Sangpum where sangCode = #{sangCode}
 	</delete>
 	
@@ -28,7 +28,8 @@
 	</delete>
 	
 	<update id="updSang" parameterType="SangpumVO">
-		update Sangpum set price = #{price}, sangName = #{sangName}, typeOne = #{typeOne}, typeTwo = #{typeTwo}, typeThree = #{typeThree}, iniStock = #{iniStock}, remStock = #{remStock}, rating = #{rating}, totalRat = #{totalRat}, ratingCnt = #{ratingCnt}, saleRat = #{saleRat} where sangCode = #{sangCode}
+		update Sangpum set price = #{price}, sangName = #{sangName}, typeOne = #{typeOne}, typeTwo = #{typeTwo}, typeThree = #{typeThree}, 
+		remStock = #{remStock}, saleRat = #{saleRat} where sangCode = #{sangCode}
 	</update>
 	
 	

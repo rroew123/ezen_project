@@ -12,7 +12,7 @@ public interface MemberService {
 
 	int delMemAll();
 
-	int delMem(MemberVO vo);
+	int delMem(String memId);
 
 	MemberVO getMemOne(String memid);
 
@@ -21,6 +21,8 @@ public interface MemberService {
 	int udtMem(MemberVO vo);
 
 	int udtMemTP(MemberVO vo);
+	
+	int udtMemAdmin(MemberVO vo);
 
 	String findId(String email);
 

@@ -36,7 +36,7 @@ public class SangpumController {
 	@RequestMapping("/sangpum")
 	public void sangpum(String SangCode, Model model) {		//상품페이지로 이동
 		model.addAttribute("SangpumInfo", sangpumService.getSang(SangCode));
-		model.addAttribute("SCSInfo", sangpumService.getSCS(SangCode));
+		model.addAttribute("SangColor", sangpumService.getColor(SangCode));
 	}
 	@RequestMapping("/sangpum_Info")
 	public void sangpum_Info() {	//상품 상세정보
@@ -57,7 +57,7 @@ public class SangpumController {
 	
 	@SuppressWarnings("null")
 	@RequestMapping("/sangmemInsertProc")		//장바구니에 추가
-	public String sangmemInsert(SangCodeSpecVO SCSvo, int sangCnt,Model model,HttpSession session) {
+	public String sangmemInsert(SangCodeSpecVO SCSvo, int sangCnt, Model model, HttpSession session) {
 		if(		session.getAttribute("memId") == null		) {	//아이디가 없을때
 			session.setAttribute(null, session);
 		}else {													//아이디가 있을때

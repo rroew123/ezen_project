@@ -34,8 +34,8 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public int delMemAll(MemberVO vo) {
-		return session.delete("co.kr.ezen_project.dao.MemberDAO.delMember", vo);
+	public int delMem(String memId) {
+		return session.delete("co.kr.ezen_project.dao.MemberDAO.delMem", memId);
 	}
 
 	@Override
@@ -52,12 +52,15 @@ public class MemberDAOImpl implements MemberDAO{
 	public int udtMem(MemberVO vo) {
 		return session.update("co.kr.ezen_project.dao.MemberDAO.udtMem", vo);
 	}
-
 	@Override
 	public int udtMemTP(MemberVO vo) {
 		return session.update("co.kr.ezen_project.dao.MemberDAO.udtMemTP", vo);
 	}
-
+	@Override
+	public int udtMemAdmin(MemberVO vo) {
+		return session.update("co.kr.ezen_project.dao.MemberDAO.udtMemAdmin", vo);
+	}
+	
 	@Override
 	public String findId(String email) {
 		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.findId", email);

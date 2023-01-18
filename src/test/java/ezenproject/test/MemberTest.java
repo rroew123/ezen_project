@@ -17,6 +17,7 @@ import co.kr.ezen_project.vo.MemberVO;
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/root-context.xml")
 public class MemberTest {
 	MemberVO vo1, vo2, vo3, vo4, vo5, vo6;
+	String memId1, memId2, memId3, memId4, memId5;
 	@Autowired
 	MemberService service;
 	
@@ -28,7 +29,7 @@ public class MemberTest {
 		vo4 = new MemberVO("kkkkk","rroew123@naver.com","최강","asd","01056841234","980214", 1,"성남시");
 		vo5 = new MemberVO("min","qweqwe@naver.com","유현태","asd","01056841234");
 		vo6 = new MemberVO("hyeon","hyeon");
-		
+		memId1 = vo1.getMemId();memId2 = vo2.getMemId();memId3 = vo3.getMemId();memId4 = vo4.getMemId();memId5 = vo5.getMemId();
 	}
 	
 	@Test
@@ -51,8 +52,8 @@ public class MemberTest {
 		assertNotNull( service.addMem(vo1) );
 		assertNotNull( service.addMem(vo2) );
 		System.out.println("맴버의 인원은========================"+service.getMemCount());
-		service.delMem(vo1);
-		service.delMem(vo2);
+		service.delMem(memId1);
+		service.delMem(memId2);
 		System.out.println("맴버의 인원은========================"+service.getMemCount());
 	}
 	
@@ -62,7 +63,7 @@ public class MemberTest {
 		System.out.println(memid);
 		assertNotNull( service.addMem(vo1) );
 		System.out.println(service.getMemOne(memid));
-		service.delMem(vo1);
+		service.delMem(memId1);
 	}
 	
 	@Test
@@ -71,8 +72,8 @@ public class MemberTest {
 		System.out.println(service.getMemAll());
 		assertNotNull( service.addMem(vo2) );
 		System.out.println(service.getMemAll());
-		service.delMem(vo1);
-		service.delMem(vo2);
+		service.delMem(memId1);
+		service.delMem(memId2);
 	}
 	
 	@Test
@@ -83,7 +84,7 @@ public class MemberTest {
 		System.out.println("===============================" + service.getMemAll());
 		assertNotNull( service.udtMem(vo4) );
 		System.out.println("===============================" + service.getMemAll());
-		service.delMem(vo1);
+		service.delMem(memId1);
 	}
 	
 	@Test
@@ -94,7 +95,7 @@ public class MemberTest {
 		service.udtMemTP(vo5);
 		vo5 = service.getMemOne("hyeon");
 		System.out.println(vo5);
-		service.delMem(vo5);
+		service.delMem(memId5);
 	}
 	
 	@Test
@@ -103,7 +104,7 @@ public class MemberTest {
 		String email = vo5.getEmail();
 		System.out.println(email);
 		System.out.println(service.findId(email));
-		service.delMem(vo5);
+		service.delMem(memId5);
 	}
 	
 	
@@ -111,7 +112,7 @@ public class MemberTest {
 	public void findPwdTest() {
 		service.addMem(vo5);
 		System.out.println(service.findPwd(vo5));
-		service.delMem(vo5);
+		service.delMem(memId5);
 	}
 	
 	@Test
@@ -123,7 +124,7 @@ public class MemberTest {
 		System.out.println(service.getMemOne("hyeon"));
 		assertNotNull(service.udtMemPwd(vo6));
 		System.out.println(service.getMemOne("hyeon"));
-		service.delMem(vo5);
+		service.delMem(memId5);
 	}
 	
 	@Test

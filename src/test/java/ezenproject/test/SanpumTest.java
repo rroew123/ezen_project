@@ -70,8 +70,8 @@ public class SanpumTest {
 	
 	@Test
 	public void delSangTest() {
-		assertNotNull(service.delSang(vo1));
-		System.out.println(service.delSang(vo1));
+		String Code = vo1.getSangCode();
+		assertNotNull(service.delSang(Code));
 	}
 	
 	@Test

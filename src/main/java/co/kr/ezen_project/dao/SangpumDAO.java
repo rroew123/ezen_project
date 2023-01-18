@@ -13,7 +13,7 @@ public interface SangpumDAO {
 
 	int addSang(SangpumVO vo);
 
-	int delSang(SangpumVO vo);
+	int delSang(String sangCode);
 
 	int delSangAll();
 
@@ -42,6 +42,9 @@ public interface SangpumDAO {
 	List<SangpumVO> getSoldOut(String sangCode);
 
 	List<SangpumVO> getSangCate(SangpumVO vo);
+
+	List<SangpumVO> getSangAdmin(String sangCode);
+	
 
 	
 

@@ -27,8 +27,8 @@ public class MemberServiceImpl implements MemberService {
 		return dao.delMemAll();
 	}
 	@Override
-	public int delMem(MemberVO vo) {
-		return dao.delMemAll(vo);
+	public int delMem(String memId) {
+		return dao.delMem(memId);
 	}
 	@Override
 	public MemberVO getMemOne(String memId) {
@@ -45,6 +45,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int udtMemTP(MemberVO vo) {
 		return dao.udtMemTP(vo);
+	}
+	@Override
+	public int udtMemAdmin(MemberVO vo) {
+		return dao.udtMemAdmin(vo);
 	}
 	@Override
 	public String findId(String email) {

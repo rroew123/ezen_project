@@ -35,11 +35,6 @@ public class HomeController {
 
 		return "home";
 	}
-	
-	@RequestMapping({"/home_new","/home_best", "home_sale"})
-	public void webmove() { 
-		
-	}
 		
 		
 }

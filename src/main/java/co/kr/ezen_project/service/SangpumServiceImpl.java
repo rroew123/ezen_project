@@ -31,8 +31,8 @@ public class SangpumServiceImpl implements SangpumService {
 	}
 
 	@Override
-	public int delSang(SangpumVO vo) {
-		return dao.delSang(vo);
+	public int delSang(String sangCode) {
+		return dao.delSang(sangCode);
 	}
 	
 	@Override
@@ -110,6 +110,11 @@ public class SangpumServiceImpl implements SangpumService {
 	@Override
 	public List<SangpumVO> getSangCate(SangpumVO vo) {
 		return dao.getSangCate(vo);
+	}
+
+	@Override
+	public List<SangpumVO> getSangAdmin(String sangCode) {
+		return dao.getSangAdmin(sangCode);
 	}
 
 
