@@ -103,7 +103,9 @@
 		select * from QnAboard where memId = #{memId}
 	</select>
 	 -->
-	
+	<update id="increaseViewCnt" parameterType="integer">
+      update NtcBoard set viewCnt = viewCnt + 1 where ntcNum=#{ntcNum}
+   </update>
 	
 	
 </mapper>

@@ -125,6 +125,11 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	public List<QnAboardVO> getQnAmemId(String memid) {
 		return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getQnAmemId", memid);
 	}
+
+	@Override
+	public void increaseViewCnt(int ntcNum) throws Exception{
+		session.update("co.kr.ezen_project.dao.ConsumerDAO.increaseViewCnt", ntcNum);
+	}
 	
 	
 }

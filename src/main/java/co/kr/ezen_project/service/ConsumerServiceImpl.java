@@ -2,6 +2,8 @@ package co.kr.ezen_project.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -125,5 +127,18 @@ public class ConsumerServiceImpl implements ConsumerService {
 	public List<QnAboardVO> getQnAmemId(String memid) {
 		return dao.getQnAmemId(memid);
 	}
+	
+	@Override
+	public void increaseViewCnt(int ntcNum, HttpSession session) throws Exception{
+	   long update_time = 0;
+	   if(session.getAttribute("update_time_"+ntcNum) !=null){
+	      update_time = (long)session.getAttribute("update_time_"+ntcNum);
+	   }
+	   long current_time = System.currentTimeMillis();
+	   if(current_time - update_time > 5*1000){
+		   dao.increaseViewCnt(ntcNum);
+	   session.setAttribute("update_time_"+ntcNum, current_time);
+	}}
+
 
 }

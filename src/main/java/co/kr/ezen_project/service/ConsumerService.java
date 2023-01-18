@@ -2,6 +2,8 @@ package co.kr.ezen_project.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
@@ -55,7 +57,7 @@ public interface ConsumerService {
 
 	List<QnAboardVO> getQnAmemId(String memid);
 
-
+	void increaseViewCnt(int ntcNum, HttpSession session) throws Exception;
 	
 
 }
