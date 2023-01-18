@@ -28,11 +28,11 @@ public interface ConsumerDAO {
 
 	int addNtc(NtcBoardVO nvo1);
 
-	int delNtc(NtcBoardVO nvo1);
+	int delNtc(int ntcnum);
 
 	int udtNtc(NtcBoardVO nvo3);
 
-	NtcBoardVO getNtcOne(String ntcTitle);
+	NtcBoardVO getNtcOne(int ntcnum);
 
 	List<NtcBoardVO> getNtcAll();
 
@@ -51,5 +51,7 @@ public interface ConsumerDAO {
 	List<QnAboardVO> getQnAAll();
 
 	List<QnAboardVO> getQnAmemId(String memid);
+
+	void increaseViewCnt(int ntcNum) throws Exception;
 	
 }

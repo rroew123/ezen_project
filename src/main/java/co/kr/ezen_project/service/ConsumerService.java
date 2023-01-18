@@ -2,6 +2,8 @@ package co.kr.ezen_project.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
@@ -30,11 +32,11 @@ public interface ConsumerService {
 
 	int addNtc(NtcBoardVO nvo1);
 
-	int delNtc(NtcBoardVO nvo1);
+	int delNtc(int ntcnum);
 	
 	int udtNtc(NtcBoardVO nvo3);
 
-	NtcBoardVO getNtcOne(String ntcTitle);
+	NtcBoardVO getNtcOne(int ntcnum);
 
 	List<NtcBoardVO> getNtcAll();
 	
@@ -55,7 +57,7 @@ public interface ConsumerService {
 
 	List<QnAboardVO> getQnAmemId(String memid);
 
-
+	void increaseViewCnt(int ntcNum, HttpSession session) throws Exception;
 	
 
 }

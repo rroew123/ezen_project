@@ -2,6 +2,8 @@ package co.kr.ezen_project.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -67,8 +69,8 @@ public class ConsumerServiceImpl implements ConsumerService {
 	}
 
 	@Override
-	public int delNtc(NtcBoardVO nvo1) {
-		return dao.delNtc(nvo1);
+	public int delNtc(int ntcnum) {
+		return dao.delNtc(ntcnum);
 	}
 
 	@Override
@@ -77,8 +79,8 @@ public class ConsumerServiceImpl implements ConsumerService {
 	}
 
 	@Override
-	public NtcBoardVO getNtcOne(String ntcTitle) {
-		return dao.getNtcOne(ntcTitle);
+	public NtcBoardVO getNtcOne(int ntcnum) {
+		return dao.getNtcOne(ntcnum);
 	}
 
 	@Override
@@ -125,5 +127,18 @@ public class ConsumerServiceImpl implements ConsumerService {
 	public List<QnAboardVO> getQnAmemId(String memid) {
 		return dao.getQnAmemId(memid);
 	}
+	
+	@Override
+	public void increaseViewCnt(int ntcNum, HttpSession session) throws Exception{
+	   long update_time = 0;
+	   if(session.getAttribute("update_time_"+ntcNum) !=null){
+	      update_time = (long)session.getAttribute("update_time_"+ntcNum);
+	   }
+	   long current_time = System.currentTimeMillis();
+	   if(current_time - update_time > 5*1000){
+		   dao.increaseViewCnt(ntcNum);
+	   session.setAttribute("update_time_"+ntcNum, current_time);
+	}}
+
 
 }
