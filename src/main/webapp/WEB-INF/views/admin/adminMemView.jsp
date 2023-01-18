@@ -70,6 +70,7 @@
 			<td colspan="2" align="center">
 				<input type="button" value="수정" id="btnUpdate">
 				<input type="button" value="삭제" id="btnDelete">
+				<input type="button" value="목록" id="btnHome">
 			</td>
 		</tr>
 	</table>
@@ -86,6 +87,13 @@
 	$(document).ready(function(){
 		$("#btnDelete").click(function(){
 			document.form1.action="${path}/admin/adminMemDeleteProc";
+			document.form1.submit();
+		});
+	});
+	
+	$(document).ready(function(){
+		$("#btnHome").click(function(){
+			document.form1.action="${path}/admin/adminMember";
 			document.form1.submit();
 		});
 	});

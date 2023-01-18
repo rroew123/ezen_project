@@ -22,6 +22,10 @@
 			<td><input type="file" name="attach"/></td>
 		</tr>
 		<tr>
+			<td>가격</td>
+			<td><input name="price"></td>
+		</tr>
+		<tr>
 			<td>상품이름</td>
 			<td><input name="sangName"></td>
 		</tr>

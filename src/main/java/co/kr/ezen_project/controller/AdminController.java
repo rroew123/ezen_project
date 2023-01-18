@@ -3,6 +3,7 @@ package co.kr.ezen_project.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,12 +13,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import co.kr.ezen_project.service.ConsumerService;
 import co.kr.ezen_project.service.MemberService;
 import co.kr.ezen_project.service.SangpumService;
 import co.kr.ezen_project.vo.MemberVO;
+import co.kr.ezen_project.vo.NtcBoardVO;
+import co.kr.ezen_project.vo.QnAboardVO;
 import co.kr.ezen_project.vo.SangpumVO;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
@@ -33,14 +39,16 @@ public class AdminController {
 	@Inject
 	SangpumService sangpumService;
 	
+	@Inject
+	ConsumerService consumerService;
 	 
 	
 	
 	@RequestMapping(path = "/admin")
-	public void signUp() {
+	public void admin() {
 	} 
 	
-	@RequestMapping({"/adminQnA","/adminFinance","/adminNotice","/bottom","/top"})
+	@RequestMapping({"/adminFinance","/bottom","/top","/adminFAQ"})
 	public void signUpGood() {
 		
 	} 
@@ -106,7 +114,67 @@ public class AdminController {
 		return "redirect:/admin/adminSang";
 	}
 	
+	@RequestMapping("/adminNotice")
+	public ModelAndView adminNotice() throws Exception{
+		List<NtcBoardVO> list = consumerService.getNtcAll();
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("admin/adminNotice");
+		mav.addObject("list", list);
+		return mav;
+	}
 	
+	@RequestMapping(value="adminNtcAdd", method=RequestMethod.GET)
+	public void adminNtcAdd() {
+	}
 	
-
+	@RequestMapping(value="adminInsertProc", method=RequestMethod.POST)
+	public String adminInsert(@ModelAttribute NtcBoardVO vo){
+		consumerService.addNtc(vo);
+		return "redirect:/admin/adminNotice";
+	}
+	
+	@RequestMapping(value="adminNtcViewProc", method=RequestMethod.GET)
+	public ModelAndView ntcView(@RequestParam int ntcNum, HttpSession session) throws Exception {
+		consumerService.increaseViewCnt(ntcNum, session);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("admin/adminNtcView");
+		mav.addObject("dto", consumerService.getNtcOne(ntcNum));
+		return mav;
+	}
+	
+	@RequestMapping(value="adminUpdateProc", method=RequestMethod.POST)
+	public String adminUpdate(@ModelAttribute NtcBoardVO vo){
+		consumerService.udtNtc(vo);
+		return "redirect:/admin/adminNotice";
+	}
+	
+	@RequestMapping(value="adminDeleteProc")
+	public String adminDelete(@RequestParam int ntcNum) {
+		consumerService.delNtc(ntcNum);
+		return "redirect:/admin/adminNotice";
+	}
+	
+	@RequestMapping("/adminQnA")
+	public ModelAndView adminQnA() throws Exception{
+		List<QnAboardVO> list = consumerService.getQnAAll();
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("admin/adminQnA");
+		mav.addObject("list", list);
+		return mav;
+	}
+	
+	@RequestMapping(value="adminQnAViewProc", method=RequestMethod.GET)
+	public ModelAndView qnaView(int qnaNum){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("admin/adminQnAView");
+		mav.addObject("dto", consumerService.getQnAOne(qnaNum));
+		return mav;
+	}
+	
+	@RequestMapping(value="adminQnADeleteProc")
+	public String adminQnADelete(@RequestParam int qnaNum){
+		consumerService.delQnA(qnaNum);
+		return "redirect:/admin/adminQnA";
+	}
+	
 }

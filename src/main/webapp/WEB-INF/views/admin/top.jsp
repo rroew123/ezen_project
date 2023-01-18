@@ -10,6 +10,7 @@
 	<a href="adminFinance">재무제표</a> &nbsp;&nbsp;&nbsp;
 	<a href="adminSang">상품관리</a> &nbsp;&nbsp;&nbsp;
 	<a href="adminQnA">QnA</a> &nbsp;&nbsp;&nbsp;
+	<a href="adminFAQ">FAQ</a> &nbsp;&nbsp;&nbsp;
 	<a href="adminNotice">공지사항</a> &nbsp;&nbsp;&nbsp;
 </nav>
 

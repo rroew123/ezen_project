@@ -5,27 +5,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>QnA 목록페이지</title>
+<title>FAQ 페이지</title>
 <link rel="stylesheet" href="/resources/basic.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
 <%@ include file="top.jsp" %>
-<h1>QnA 목록 페이지</h1>
+<h1>FAQ 목록 페이지</h1>
 <table border="1" width="600px">
 	<tr>
 		<th>번호</th>
 		<th>카테고리</th>
 		<th>제목</th>
-		<th>작성자</th>
-		<th>작성일</th>
 	</tr>
 	<c:forEach var="row" items="${list}">
 	<tr>
-		<td>${row.qnaNum}</td>
-		<td>${row.qnaCat}</td>
-		<td><a href="${path}/admin/adminQnAViewProc?qnaNum=${row.qnaNum}">${row.brdTitle}</a></td>
-		<td>${row.memId}</td>
-		<td>${row.writDate}</td>
+		<td>${row.faqNum}</td>
+		<td>${row.faqCat}</td>
+		<td><a href="${path}/admin/adminFAQViewProc?faqNum=${row.faqNum}">${row.faqTitle}</a></td>
 	</tr>
 	</c:forEach>
 </table>

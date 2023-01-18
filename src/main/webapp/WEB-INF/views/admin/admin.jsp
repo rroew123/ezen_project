@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>관리자 메인 페이지</title>
 <link rel="stylesheet" href="/resources/basic.css"/>
 </head>
 <body>
