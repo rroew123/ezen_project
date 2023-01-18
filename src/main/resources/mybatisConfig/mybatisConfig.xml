@@ -3,9 +3,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
         
 <configuration>
-<!-- 	<settings>
+ 	<settings>
 		<setting name="jdbcTypeForNull" value="NULL"/>
-	</settings> -->
+	</settings> 
 	<typeAliases>
 		<typeAlias type="co.kr.ezen_project.vo.CardInfoVO" 		alias="CardInfoVO"/>
 		<typeAlias type="co.kr.ezen_project.vo.CouponVO"	 	alias="CouponVO"/>
@@ -19,5 +19,5 @@
 		<typeAlias type="co.kr.ezen_project.vo.SangMemVO" 		alias="SangMemVO"/>
 		<typeAlias type="co.kr.ezen_project.vo.SangpumVO" 		alias="SangpumVO"/>
 		<typeAlias type="co.kr.ezen_project.vo.VisitorVO" 		alias="VisitorVO"/>
-	</typeAliases>
+	</typeAliases> 
 </configuration>

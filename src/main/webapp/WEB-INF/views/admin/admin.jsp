@@ -1,23 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    trimDirectiveWhitespaces="true" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>관리자 페이지</title>
-	<link rel="stylesheet" href="/ezen_project/src/main/webapp/WEB-INF/views/admin/basic.css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/resources/basic.css"/>
 </head>
-
 <body>
-<header id = "header">
-	<h1>쇼핑몰 관리자 페이지</h1>
-</header>
-<nav id="index">
-	<a href=adminMember.jsp>회원관리</a> &nbsp;&nbsp;&nbsp;
-	<a href=adminFinance.jsp>재무제표</a> &nbsp;&nbsp;&nbsp;
-	<a href=adminSang.jsp>상품관리</a> &nbsp;&nbsp;&nbsp;
-	<a href=adminQnA.jsp>QnA</a> &nbsp;&nbsp;&nbsp;
-	<a href=adminNotice.jsp>공지사항</a> &nbsp;&nbsp;&nbsp;
-</nav>
-
+<%@ include file="top.jsp" %>
+<section id=content>
+	<div id=content>&nbsp;
+		<div id=title>
+		<h3>재무제표</h3>
+		</div>
+		&nbsp;&nbsp; 1. <br>
+		&nbsp;&nbsp; 2. <br>
+		&nbsp;&nbsp; 3. <br>
+	</div>
+</section>
+<%@ include file="bottom.jsp" %>
 </body>
 </html>

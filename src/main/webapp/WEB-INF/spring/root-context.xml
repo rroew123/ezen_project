@@ -27,13 +27,15 @@
 
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+		
 		<property value="classpath:mybatisConfig/mybatisConfig.xml"	name="configLocation" />
+		
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:mybatisMapper/memberMapper.xml</value>
-				<value>classpath:mybatisMapper/consumerMapper.xml</value>
+  				<value>classpath:mybatisMapper/consumerMapper.xml</value>
 				<value>classpath:mybatisMapper/sangpumMapper.xml</value>
-				<value>classpath:mybatisMapper/sangMemMapper.xml</value>
+				<value>classpath:mybatisMapper/sangMemMapper.xml</value> 
 			</list>
 		</property>
 	</bean>
