@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
- 
+ <p>진짜 삭제하시겠습니까?</p>
+ <p>다신 되돌릴수 없습니다</p>
+
+ <a href="/member/myPage_deleteProc?del=${qnavo.qnaNum}">삭제</a>
 </body>
 </html>
