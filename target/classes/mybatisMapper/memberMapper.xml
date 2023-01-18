@@ -12,8 +12,8 @@
 	</select>
 	
 	<insert id="addMember" parameterType="MemberVO" >
-		insert into member (memId, email, memName, memPwd, phone) 
-		values (#{memId}, #{email}, #{memName}, #{memPwd}, #{phone})
+		insert into member (memId, email, memName, memPwd, phone, birthday, gender) 
+		values (#{memId}, #{email}, #{memName}, #{memPwd}, #{phone},#{birthday},#{gender})
 	</insert>
 	
 	<delete id="delMem" parameterType="String">	
