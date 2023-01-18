@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	trimDirectiveWhitespaces="true" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -274,8 +274,8 @@ footer {
                      <li><a href="/member/mypage_wishlist">관심상품</a></li>
                      <li><a href="/member/mypage">마이페이지</a></li>
                      <li><a href="/member/logout.do" >로그아웃</a></li>
-                     <form action="/member/logout.do" method="post">
-                     </form>
+                     <li><a href="/QnA/QnABoard" >QnA</a></li>
+                  
                      <br />
                       
                      <span>${userInfo.memName} 님 환영합니다.<br/>
