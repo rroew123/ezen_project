@@ -57,8 +57,8 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	}
 	
 	@Override
-	public int delNtc(NtcBoardVO nvo1) {
-		return session.delete("co.kr.ezen_project.dao.ConsumerDAO.delNtc", nvo1);
+	public int delNtc(int ntcnum) {
+		return session.delete("co.kr.ezen_project.dao.ConsumerDAO.delNtc", ntcnum);
 	}
 
 	@Override
@@ -77,8 +77,8 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	}
 	
 	@Override
-	public NtcBoardVO getNtcOne(String ntcTitle) {
-		return session.selectOne("co.kr.ezen_project.dao.ConsumerDAO.getNtcOne", ntcTitle);
+	public NtcBoardVO getNtcOne(int ntcnum) {
+		return session.selectOne("co.kr.ezen_project.dao.ConsumerDAO.getNtcOne", ntcnum);
 	}
 
 	@Override

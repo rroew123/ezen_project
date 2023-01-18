@@ -28,11 +28,11 @@ public interface ConsumerDAO {
 
 	int addNtc(NtcBoardVO nvo1);
 
-	int delNtc(NtcBoardVO nvo1);
+	int delNtc(int ntcnum);
 
 	int udtNtc(NtcBoardVO nvo3);
 
-	NtcBoardVO getNtcOne(String ntcTitle);
+	NtcBoardVO getNtcOne(int ntcnum);
 
 	List<NtcBoardVO> getNtcAll();
 

@@ -69,8 +69,8 @@ public class ConsumerServiceImpl implements ConsumerService {
 	}
 
 	@Override
-	public int delNtc(NtcBoardVO nvo1) {
-		return dao.delNtc(nvo1);
+	public int delNtc(int ntcnum) {
+		return dao.delNtc(ntcnum);
 	}
 
 	@Override
@@ -79,8 +79,8 @@ public class ConsumerServiceImpl implements ConsumerService {
 	}
 
 	@Override
-	public NtcBoardVO getNtcOne(String ntcTitle) {
-		return dao.getNtcOne(ntcTitle);
+	public NtcBoardVO getNtcOne(int ntcnum) {
+		return dao.getNtcOne(ntcnum);
 	}
 
 	@Override

@@ -39,7 +39,7 @@
 		delete from NtcBoard
 	</delete>
 	
-	<delete id="delNtc" parameterType="NtcBoardVO">
+	<delete id="delNtc" parameterType="integer">
 		delete from NtcBoard where ntcNum = #{ntcNum}
 	</delete>
 	
@@ -56,8 +56,8 @@
 		select count(*) from NtcBoard
 	</select>
 	
-	<select id="getNtcOne" resultType="NtcBoardVO" parameterType="String">	
-		select * from NtcBoard where NtcTitle = #{NtcTitle}
+	<select id="getNtcOne" resultType="NtcBoardVO" parameterType="integer">	
+		select * from NtcBoard where ntcNum = #{ntcNum}
 	</select>
 	
 	<select id="getNtcAll" resultType="NtcBoardVO">	

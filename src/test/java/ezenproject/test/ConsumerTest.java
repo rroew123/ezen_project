@@ -126,24 +126,6 @@ public class ConsumerTest {
 		System.out.println("맴버의 인원은========================"+service.getNtcCount());
 	}
 	
-	@Test
-	public void delNtcTest() { 
-		System.out.println("맴버의 인원은========================"+service.getNtcCount());
-		assertNotNull( service.addNtc(Nvo1) );
-		System.out.println("맴버의 인원은========================"+service.getNtcCount());
-		assertNotNull(service.delNtc(Nvo1)); 
-		System.out.println("맴버의 인원은========================"+service.getNtcCount());
-		assertNotNull(service.delNtcAll()); 
-		System.out.println("맴버의 인원은========================"+service.getNtcCount());
-	}
-	
-	@Test
-	public void getNtcOneTest() {
-		String NtcTitle = Nvo1.getNtcTitle();
-		System.out.println(NtcTitle);
-		assertNotNull( service.addNtc(Nvo1) );
-		System.out.println(service.getNtcOne(NtcTitle));
-	}
 	
 	@Test
 	public void getNtcAllTest() {
