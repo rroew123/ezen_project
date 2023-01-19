@@ -169,8 +169,8 @@ public class SangMemDAOImpl implements SangMemDAO {
 	}
 
 	@Override
-	public List<SangMemVO> getSM_Mem(MemberVO vo) {
-		return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getSM_Mem", vo);
+	public List<SangMemVO> getSM_Mem(MemberVO Mvo) {
+		return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getSM_Mem", Mvo);
 	}
 
 	@Override
