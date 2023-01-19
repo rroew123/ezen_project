@@ -64,24 +64,6 @@ public class ConsumerTest {
 		System.out.println("맴버의 인원은========================"+service.getFAQCount());
 	}
 	
-	@Test
-	public void delFAQTest() { 
-		System.out.println("맴버의 인원은========================"+service.getFAQCount());
-		assertNotNull( service.addFAQ(Fvo1) );
-		System.out.println("맴버의 인원은========================"+service.getFAQCount());
-		assertNotNull(service.delFAQ(Fvo1)); 
-		System.out.println("맴버의 인원은========================"+service.getFAQCount());
-		assertNotNull(service.delFAQAll()); 
-		System.out.println("맴버의 인원은========================"+service.getFAQCount());
-	}
-	
-	@Test
-	public void getFAQOneTest() {
-		String FAQTitle = Fvo1.getFAQTitle();
-		System.out.println(FAQTitle);
-		assertNotNull( service.addFAQ(Fvo1) );
-		System.out.println(service.getFAQOne(FAQTitle));
-	}
 	
 	@Test
 	public void getFAQAllTest() {

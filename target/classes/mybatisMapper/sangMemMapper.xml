@@ -108,7 +108,7 @@
 	</delete>
 	
 	<delete id="delReview_Mem" parameterType="String">
-		delete from Review R join sangMem M on R.orderNum = M.orderNum where M.memId = #{memId}
+		delete from review where ordernum = (select ordernum from sangmem where memId = #{memId})
 	</delete>
 	
 	<delete id="delReviewAll">
@@ -116,7 +116,7 @@
 	</delete>
 	
 	<update id="updReview" parameterType="ReviewVO">
-		update Review set  indiRat = #{indiRat}, revCntxt = #{revCntxt} where orderNum = #{orderNum}
+		update Review set indiRat = #{indiRat}, revCntxt = #{revCntxt} where orderNum = #{orderNum}
 	</update>
 	
 	
@@ -139,7 +139,7 @@
 	</delete>
 	
 	<delete id="delPayment_Mem" parameterType="String">
-		delete from Payment P join sangMem M on P.payNum = M.payNum where M.memId = #{memId}
+		delete from payment where paynum = (select paynum from sangmem where memId = #{memId})
 	</delete>
 	
 	<delete id="delPaymentAll">

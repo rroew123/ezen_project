@@ -11,17 +11,18 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class FAQVO {
-	private int FAQNum;
-	private int FAQCat;
+	private int faqNum;
+	private int faqCat;
 	@NonNull
-	private String FAQTitle;
+	private String faqTitle;
 	@NonNull
-	private String FAQCntxt;
-	public FAQVO(int fAQCat, @NonNull String fAQTitle, @NonNull String fAQCntxt) {
+	private String faqCntxt;
+	
+	public FAQVO(int fAQCat, @NonNull String faqTitle, @NonNull String faqCntxt) {
 		super();
-		FAQCat = fAQCat;
-		FAQTitle = fAQTitle;
-		FAQCntxt = fAQCntxt;
+		this.faqCat = faqCat;
+		this.faqTitle = faqTitle;
+		this.faqCntxt = faqCntxt;
 	}
 	
 	

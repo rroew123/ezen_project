@@ -10,7 +10,7 @@ public interface ConsumerDAO {
 
 	int delFAQAll();
 
-	int delFAQ(FAQVO fvo);
+	int delFAQ(int faqNum);
 
 	int getFAQCount();
 
@@ -18,7 +18,7 @@ public interface ConsumerDAO {
 
 	int udtFAQ(FAQVO fvo);
 
-	FAQVO getFAQOne(String fAQCat);
+	FAQVO getFAQOne(int faqNum);
 
 	List<FAQVO> getFAQAll();
 
@@ -55,5 +55,9 @@ public interface ConsumerDAO {
 	void increaseViewCnt(int ntcNum) throws Exception;
 
 	void delQnAMem(String memId);
+
+	List<QnAboardVO> getQnA_Admin();
+
+	void udtQnAAns(QnAboardVO qvo1);
 	
 }
