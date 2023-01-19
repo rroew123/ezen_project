@@ -143,8 +143,8 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	}
 
 	@Override
-	public void udtQnAAns(QnAboardVO qvo1) {
-		session.update("co.kr.ezen_project.dao.ConsumerDAO.udtQnAAns", qvo1);
+	public void udtQnA_Ans(QnAboardVO qvo1) {
+		session.update("co.kr.ezen_project.dao.ConsumerDAO.udtQnA_Ans", qvo1);
 		
 	}
 	
