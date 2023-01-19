@@ -166,4 +166,9 @@ public class SangMemServiceImpl implements SangMemService {
 	public List<SangMemVO> getSM_Mem(MemberVO vo) {
 		return dao.getSM_Mem(vo);
 	}
+
+	@Override
+	public List<SangMemVO> getSM_MemId(String memId) {
+		return dao.getSM_MemId(memId);
+	}
 }
