@@ -112,22 +112,37 @@ public class MemberController {
 		return "/member/mypage";
 	}
 	
-	@RequestMapping("/mypage")
+/*	@RequestMapping("/mypage")
 	public void mypage(HttpSession session, Model model) {
 		System.out.println("=============first");
 		System.out.println((MemberVO)session.getAttribute("userInfo"));
 		MemberVO vo = (MemberVO)session.getAttribute("userInfo");
 		System.out.println(sangService.getSM_Mem(vo));
-		System.out.println(vo.getMemId());
-		model.addAttribute("His", sangService.getSM_Mem(vo));
+		System.out.println(sangService.getSM_MemId(vo.getMemId()));
+		model.addAttribute("His", sangService.getSM_MemId(vo.getMemId()));
+	}
+	*/
+	
+	@RequestMapping("/mypage")
+	public void mypage(HttpSession session,Model model) {
+		MemberVO vo = (MemberVO) session.getAttribute("userInfo");
+	System.out.println(session.getAttribute("userInfo"));
+	System.out.println(vo);
+	System.out.println(vo.getMemId());
+	String memid = vo.getMemId();
+	System.out.println(memid);
+	System.out.println(sangService.getSM_MemId(memid));
+	model.addAttribute("his", sangService.getSM_MemId(memid));
+	
 	}
 	
-	
-	
-	@RequestMapping("/mypage_board")
+@RequestMapping("/mypage_board")
 	public void mypage_board(HttpSession session) {
-		conService.getQnA_Mem((MemberVO)session.getAttribute("userInfo"));
+	/*	conService.getQnA_Mem((MemberVO)session.getAttribute("userInfo"));*/
 	}
+	
+	
+	
 	
 	
 

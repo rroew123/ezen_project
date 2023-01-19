@@ -8,11 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-			<a href="mypage_orderHis">주문내역</a>
-			<a href="mypage_board?myBoard=${userInfo.memId}">내 게시물보기</a>
-			<a href="/member/mypage_memUpdate">회원수정</a> 
-			<a href="/member/mypage_memDelete">회원탈퇴</a>
-			<a href="/QnA/QnABoard">QnA</a>
+		<a href="mypage_orderHis">주문내역</a>
+		<a href="mypage_board?myBoard=${userInfo.memId}">내 게시물보기</a>
+		<a href="/member/mypage_memUpdate">회원수정</a> 
+		<a href="/member/mypage_memDelete">회원탈퇴</a>
+		<a href="/QnA/QnABoard">QnA</a>
 			
 			<table>
 		<tr>
