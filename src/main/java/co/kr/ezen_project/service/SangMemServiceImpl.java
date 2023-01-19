@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import co.kr.ezen_project.dao.SangMemDAO;
 import co.kr.ezen_project.vo.CouponVO;
+import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.SangMemVO;
@@ -159,5 +160,10 @@ public class SangMemServiceImpl implements SangMemService {
 	@Override
 	public int updPayment(PaymentVO vo) {
 		return dao.updPayment(vo);
+	}
+
+	@Override
+	public List<SangMemVO> getSM_Mem(MemberVO vo) {
+		return dao.getSM_Mem(vo);
 	}
 }

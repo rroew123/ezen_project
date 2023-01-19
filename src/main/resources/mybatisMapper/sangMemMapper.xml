@@ -12,7 +12,7 @@
 		select * from SangMem where orderNum = #{orderNum}
 	</select>
 	
-	<select id="getSM_Mem" resultType="SangMemVO" parameterType="String">	
+	<select id="getSM_Mem" resultType="SangMemVO" parameterType="MemberVO">	
 		select * from SangMem where memId = #{memId}
 	</select>
 	

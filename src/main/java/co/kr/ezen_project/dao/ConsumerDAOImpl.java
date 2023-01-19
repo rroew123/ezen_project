@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.kr.ezen_project.vo.FAQVO;
+import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
 
@@ -122,8 +123,8 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	}
 
 	@Override
-	public List<QnAboardVO> getQnAmemId(String memid) {
-		return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getQnAmemId", memid);
+	public List<QnAboardVO> getQnA_Mem(MemberVO vo) {
+		return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getQnAmemId", vo);
 	}
 
 	@Override
