@@ -13,8 +13,8 @@
 	</delete>
 	
 	<insert id="addFAQ" parameterType="FAQVO">
-		insert into faq (faqCat, faqTitle, faqCntxt)
-		values(faq_seq.nextval, #{faqTitle}, #{faqCntxt})
+		insert into faq (faqNum, faqCat, faqTitle, faqCntxt)
+		values(faq_seq.nextval, #{faqCat}, #{faqTitle}, #{faqCntxt})
 	</insert>
 	
 	<update id="udtFAQ" parameterType="FAQVO">
