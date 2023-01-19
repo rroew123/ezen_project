@@ -147,7 +147,7 @@ public class ConsumerServiceImpl implements ConsumerService {
 
 	@Override
 	public void udtQnA_Ans(QnAboardVO qvo1) {
-		dao.udtQnAAns(qvo1);
+		dao.udtQnA_Ans(qvo1);
 	}
 
 

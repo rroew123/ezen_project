@@ -87,7 +87,7 @@
 		update QnAboard set QnACat=#{qnaCat}, brdTitle=#{brdTitle}, brdCntxt=#{brdCntxt} where QnANum=#{qnaNum}
 	</update>
 	
-	<update id="udtQnA" parameterType="QnAboardVO">
+	<update id="udtQnA_Ans" parameterType="QnAboardVO">
 		update QnAboard set ansCntxt=#{ansCntxt}, ansDate=sysdate where QnANum=#{qnaNum}
 	</update>
 	

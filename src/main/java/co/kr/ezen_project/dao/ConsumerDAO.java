@@ -58,6 +58,6 @@ public interface ConsumerDAO {
 
 	List<QnAboardVO> getQnA_Admin();
 
-	void udtQnAAns(QnAboardVO qvo1);
+	void udtQnA_Ans(QnAboardVO qvo1);
 	
 }
