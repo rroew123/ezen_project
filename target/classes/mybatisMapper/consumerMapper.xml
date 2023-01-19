@@ -107,6 +107,10 @@
 		select * from qnAboard where memId = #{memId}
 	</select>
 	
+	<select id="getQnA_MemId" resultType="QnAboardVO" parameterType="String">	
+		select * from qnAboard where memId = #{memId}
+	</select>
+	
 	<select id="getQnA_Admin" resultType="QnAboardVO">	
 		select * from qnAboard where ansCntxt = null
 	</select>

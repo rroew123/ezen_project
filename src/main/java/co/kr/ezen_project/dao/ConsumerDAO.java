@@ -52,6 +52,8 @@ public interface ConsumerDAO {
 	List<QnAboardVO> getQnAAll();
 
 	List<QnAboardVO> getQnA_Mem(MemberVO vo);
+	
+	List<QnAboardVO> getQnA_MemId(String memId);
 
 	void increaseViewCnt(int ntcNum) throws Exception;
 

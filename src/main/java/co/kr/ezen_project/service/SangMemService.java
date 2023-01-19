@@ -14,6 +14,8 @@ public interface SangMemService {
 	
 	List<SangMemVO> getSM_Mem(MemberVO vo);
 	
+	List<SangMemVO> getSM_MemId(String memId);
+	
 	SangMemVO getSangMem(int orderNum);
 	
 	int addSangMemPay(SangMemVO vo);

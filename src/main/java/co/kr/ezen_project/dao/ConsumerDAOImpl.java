@@ -124,7 +124,11 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 
 	@Override
 	public List<QnAboardVO> getQnA_Mem(MemberVO vo) {
-		return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getQnAmemId", vo);
+		return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getQnA_Mem", vo);
+	}
+	@Override
+	public List<QnAboardVO> getQnA_MemId(String memId) {
+		return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getQnA_MemId", memId);
 	}
 
 	@Override
