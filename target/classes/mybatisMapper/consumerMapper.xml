@@ -71,24 +71,24 @@
 	</delete>
 	
 	<delete id="delQnA" parameterType="Integer">
-		delete from qnAboard where qnaNum = #{qnaNum}
+		delete from qnaboard where qnaNum = #{qnaNum}
 	</delete>
 	
 	<delete id="delQnAMem" parameterType="String">
-		delete from qnAboard where memId = #{memId}
+		delete from qnaboard where memId = #{memId}
 	</delete>
 	
 	<insert id="addQnA" parameterType="QnAboardVO">
-		insert into qnAboard (qnaNum, memId, qnaCat, brdTitle, brdCntxt)
+		insert into qnaboard (qnaNum, memId, qnaCat, brdTitle, brdCntxt)
 		values(qna_seq.nextval, #{memId}, #{qnaCat}, #{brdTitle}, #{brdCntxt})
 	</insert>
 	
 	<update id="udtQnA" parameterType="QnAboardVO">
-		update qnAboard set QnACat=#{qnaCat}, brdTitle=#{brdTitle}, brdCntxt=#{brdCntxt} where QnANum=#{qnaNum}
+		update qnaboard set qnaCat=#{qnaCat}, brdTitle=#{brdTitle}, brdCntxt=#{brdCntxt} where qnaNum=#{qnaNum}
 	</update>
 	
 	<update id="udtQnA_Ans" parameterType="QnAboardVO">
-		update qnAboard set ansCntxt=#{ansCntxt}, ansDate=sysdate where QnANum=#{qnaNum}
+		update qnaboard set ansCntxt=#{ansCntxt}, ansDate=sysdate where qnaNum=#{qnaNum}
 	</update>
 	
 	<select id="getQnACount" resultType="integer">	
@@ -96,19 +96,26 @@
 	</select>
 	
 	<select id="getQnAOne" resultType="QnAboardVO" parameterType="integer">	
-		select * from qnAboard where QnANum = #{qnaNum}
+		select * from qnaboard where QnANum = #{qnaNum}
 	</select>
 	
 	<select id="getQnAAll" resultType="QnAboardVO">	
-		select * from qnAboard
+		select * from qnaboard
 	</select>
 	
 	<select id="getQnA_Mem" resultType="QnAboardVO" parameterType="MemberVO">	
 		select * from qnAboard where memId = #{memId}
 	</select>
 	
+<<<<<<< HEAD
+=======
+	<select id="getQnA_MemId" resultType="QnAboardVO" parameterType="String">	
+		select * from qnaboard where memId = #{memId}
+	</select>
+	
+>>>>>>> branch 'main' of https://github.com/rroew123/ezenproject.git
 	<select id="getQnA_Admin" resultType="QnAboardVO">	
-		select * from qnAboard where ansCntxt = null
+		select * from qnaboard where ansCntxt = null
 	</select>
 	
 <!-- 	<select id="getQnAmemId" resultType="QnAboardVO" parameterType="String">	
