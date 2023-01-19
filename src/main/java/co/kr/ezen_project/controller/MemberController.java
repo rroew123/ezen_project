@@ -132,13 +132,13 @@ public class MemberController {
 	String memid = vo.getMemId();
 	System.out.println(memid);
 	System.out.println(sangService.getSM_MemId(memid));
-	model.addAttribute("his", sangService.getSM_MemId(memid));
+	model.addAttribute("His", sangService.getSM_MemId(memid));
 	
 	}
 	
 @RequestMapping("/mypage_board")
-	public void mypage_board(HttpSession session) {
-	/*	conService.getQnA_Mem((MemberVO)session.getAttribute("userInfo"));*/
+	public void mypage_board(HttpSession session, Model model) {
+	model.addAttribute("row", conService.getQnA_Mem((MemberVO)session.getAttribute("userInfo")));
 	}
 	
 	
