@@ -23,7 +23,7 @@ public class SangMemVO {
 	private String sangCode;
 	private int sangCnt;
 	private Date ordDate;
-	private int ordStat;
+	private int ordStat;	
 	
 	public SangMemVO(int orderNum, @NonNull String memId, int sangSize, int sangColor,
 			@NonNull String sangCode,  int sangCnt, int ordStat) {
