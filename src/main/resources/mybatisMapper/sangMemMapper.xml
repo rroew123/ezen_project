@@ -16,6 +16,10 @@
 		select * from SangMem where memId = #{memId}
 	</select>
 	
+	<select id="getSM_MemId" resultType="SangMemVO" parameterType="String">	
+		select * from SangMem where memId = #{memId}
+	</select>
+	
 	<insert id="addSangMemPay" parameterType="SangMemVO">
 		insert into SangMem (orderNum, memId, payNum, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) 
 		values(#{orderNum}, #{memId}, #{payNum}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 2 )

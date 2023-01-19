@@ -78,4 +78,6 @@ public interface SangMemDAO {
 
 	void delPayment_Mem(String memId);
 
+	List<SangMemVO> getSM_MemId(String memId);
+
 }

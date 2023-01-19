@@ -59,6 +59,8 @@ public interface ConsumerService {
 	List<QnAboardVO> getQnA_Admin();
 
 	List<QnAboardVO> getQnA_Mem(MemberVO vo);
+	
+	List<QnAboardVO> getQnA_MemId(String memId);
 
 	void increaseViewCnt(int ntcNum, HttpSession session) throws Exception;
 	

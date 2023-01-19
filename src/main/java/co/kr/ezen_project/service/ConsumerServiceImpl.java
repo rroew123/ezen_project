@@ -130,6 +130,11 @@ public class ConsumerServiceImpl implements ConsumerService {
 	}
 	
 	@Override
+	public List<QnAboardVO> getQnA_MemId(String memId) {
+		return dao.getQnA_MemId(memId);
+	}
+	
+	@Override
 	public void increaseViewCnt(int ntcNum, HttpSession session) throws Exception{
 	   long update_time = 0;
 	   if(session.getAttribute("update_time_"+ntcNum) !=null){
