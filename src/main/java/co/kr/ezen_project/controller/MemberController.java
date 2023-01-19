@@ -19,7 +19,7 @@ public class MemberController {
 	@Autowired
 	MemberService MemService;
 
-	@RequestMapping({ "/customer", "/mypage", "/QnA_Board" })
+	@RequestMapping({ "/customer", "/mypage" , "/mypage_memDelete"})
 	public void webmovepost() { // findId, findPw, memberJoin 페이지가 오류 => 원인 불명
 	}
 
@@ -47,19 +47,19 @@ public class MemberController {
 	}
 
 	// 회원가입 get
-	@RequestMapping(value = "/memberjoin", method = RequestMethod.GET)
+	@RequestMapping(value = "/memberjoin" , method = RequestMethod.GET)
 	public void getRegister() throws Exception {
 		System.out.println("get register");
 	}
 
 	// 회원가입 post
-	@RequestMapping(value = "/memberjoin", method = RequestMethod.POST)
+	@RequestMapping(value = "/joinformProc")
 	public String postRegister(MemberVO vo) throws Exception {
-		System.out.println("post register");
+		System.out.println(vo);
 
 		MemService.addMem(vo);
 
-		return "home";
+		return "/member/login";
 	}
 
 	@RequestMapping("/findIDProc")
@@ -92,6 +92,14 @@ public class MemberController {
    
      return "/member/findPW"; 
      } 
+	 
+	 @RequestMapping(value = "/myPage_deleteProc", method = RequestMethod.GET)
+		public String QnA_deleteProc(String memId) {
+		 MemService.delMem(memId);
+		 System.out.println("==============");
+			
+			return "redirect:/";
+	 }
 	 
 	/*
 	 * mypage 연결 마이페이지

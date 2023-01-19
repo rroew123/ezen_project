@@ -12,6 +12,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $.ajax({
+      type: "GET",
+      url: "http://localhost/sangpum/sangpum?SangCode=abc1234&sangColor=3",
+      dataType: "text",
+      contentType : "application/x-www-form-urlencoded;charset=UTF-8"
+      error: function() {
+        console.log('통신실패!!');
+      },
+      success: function(data) {
+        console.log("통신데이터 값 : " + data);
+      }
+    });
+  });
+</script>
 </head>
 
 <body>
@@ -28,12 +46,16 @@
 				<h3>${SangpumInfo.sangName}</h3>
 				<p>가격 : ${SangpumInfo.price}</p>
 				<p>상품코드 : ${SangpumInfo.sangCode}</p>
-				<c:forEach var="vo" items="${SangCodeSpecVO}">
-					<span>${vo.sangColor}</span>&nbsp
-				</c:forEach>
-				<c:forEach var="vo" items="${SangCodeSpecVO}">
-					<span>${vo.sangSize}</span>&nbsp
-				</c:forEach>
+				<p>
+					<c:forEach var="vo" items="${SangCodeSpecVO}">
+						<a href="http://localhost/sangpum/sangpum?SangCode=abc1234&sangColor=${vo.sangColor}">${vo.sangColor}</a>&nbsp
+					</c:forEach> 
+				</p>
+				<p>
+					<c:forEach var="vo" items="${SangCodeSpecVO}">
+						<span>${vo.sangSize}</span>&nbsp
+					</c:forEach>
+				</p>
 				<p> </p>
 				<p> 개</p>	<!-- 갯수 -->
 				<h4>총  원</h4>	<!-- 총 가격 -->

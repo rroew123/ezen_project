@@ -12,7 +12,7 @@ public interface ConsumerService {
 
 	int delFAQAll();
 	
-	int delFAQ(FAQVO fvo);
+	int delFAQ(int faqNum);
 
 	int getFAQCount();
 
@@ -20,7 +20,7 @@ public interface ConsumerService {
 
 	int udtFAQ(FAQVO fvo);
 
-	FAQVO getFAQOne(String fAQTitle);
+	FAQVO getFAQOne(int faqNum);
 
 	List<FAQVO> getFAQAll();
 	
@@ -54,10 +54,14 @@ public interface ConsumerService {
 	QnAboardVO getQnAOne(int QnANum);
 
 	List<QnAboardVO> getQnAAll();
+	
+	List<QnAboardVO> getQnA_Admin();
 
 	List<QnAboardVO> getQnAmemId(String memid);
 
 	void increaseViewCnt(int ntcNum, HttpSession session) throws Exception;
+	
+	void udtQnA_Ans(QnAboardVO qvo1);
 	
 
 }

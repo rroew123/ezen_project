@@ -24,8 +24,8 @@ public class ConsumerServiceImpl implements ConsumerService {
 	}
 
 	@Override
-	public int delFAQ(FAQVO fvo) {
-		return dao.delFAQ(fvo);
+	public int delFAQ(int faqNum) {
+		return dao.delFAQ(faqNum);
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public class ConsumerServiceImpl implements ConsumerService {
 	}
 
 	@Override
-	public FAQVO getFAQOne(String fAQCat) {
-		return dao.getFAQOne(fAQCat);
+	public FAQVO getFAQOne(int faqNum) {
+		return dao.getFAQOne(faqNum);
 	}
 
 	@Override
@@ -139,6 +139,16 @@ public class ConsumerServiceImpl implements ConsumerService {
 		   dao.increaseViewCnt(ntcNum);
 	   session.setAttribute("update_time_"+ntcNum, current_time);
 	}}
+
+	@Override
+	public List<QnAboardVO> getQnA_Admin() {
+		return dao.getQnA_Admin();
+	}
+
+	@Override
+	public void udtQnA_Ans(QnAboardVO qvo1) {
+		dao.udtQnAAns(qvo1);
+	}
 
 
 }

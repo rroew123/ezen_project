@@ -22,12 +22,11 @@ public class SangpumController {
 	SangMemService sangmemService;
 	
 	@RequestMapping({"/category","/category_best","/category_new","/category_lowprice","/category_highprice"})
-	public void category(String SangCode,String ordy, Model model) {	//분류페이지로 이동
-		SangCode = SangCode + "%";
+	public void category(String SangCode, Model model) {	//분류페이지로 이동
+		/*SangCode = SangCode + "%";
 		SangpumVO Svo = null;
-		Svo.setOrby(ordy);
 		Svo.setSangCode(SangCode);
-		model.addAttribute("list", sangpumService.getSangCate(Svo));
+		model.addAttribute("list", sangpumService.getSangCate(Svo));*/
 	}
 	@RequestMapping("/order")
 	public void order(SangCodeSpecVO vo, Model model) {		//결제페이지로 이동

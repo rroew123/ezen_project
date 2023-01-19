@@ -12,6 +12,10 @@
 		select * from SangMem where orderNum = #{orderNum}
 	</select>
 	
+	<select id="getSM_Mem" resultType="SangMemVO" parameterType="String">	
+		select * from SangMem where memId = #{memId}
+	</select>
+	
 	<insert id="addSangMemPay" parameterType="SangMemVO">
 		insert into SangMem (orderNum, memId, payNum, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) 
 		values(#{orderNum}, #{memId}, #{payNum}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 2 )
@@ -21,6 +25,10 @@
 		insert into SangMem (orderNum, memId, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) 
 		values(#{orderNum}, #{memId}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 1 )
 	</insert>
+	
+	<delete id="delSM_Mem" parameterType="String">
+		delete from SangMem where memId = #{memId}
+	</delete>
 	
 	<delete id="delSangMem" parameterType="SangMemVO">
 		delete from SangMem where orderNum = #{orderNum}
@@ -59,6 +67,10 @@
 		delete from Coupon where coupNum = #{coupNum}
 	</delete>
 	
+	<delete id="delCouponMem" parameterType="String">
+		delete from Coupon where memId = #{memId}
+	</delete>
+	
 	<delete id="delCouponAll">
 		delete from Coupon
 	</delete>
@@ -95,12 +107,16 @@
 		delete from Review where orderNum = #{orderNum}
 	</delete>
 	
+	<delete id="delReview_Mem" parameterType="String">
+		delete from review where ordernum = (select ordernum from sangmem where memId = #{memId})
+	</delete>
+	
 	<delete id="delReviewAll">
 		delete from Review
 	</delete>
 	
 	<update id="updReview" parameterType="ReviewVO">
-		update Review set  indiRat = #{indiRat}, revCntxt = #{revCntxt} where orderNum = #{orderNum}
+		update Review set indiRat = #{indiRat}, revCntxt = #{revCntxt} where orderNum = #{orderNum}
 	</update>
 	
 	
@@ -119,6 +135,11 @@
 	
 	<delete id="delPayment" parameterType="PaymentVO">
 		delete from Payment where payNum = #{payNum}
+		
+	</delete>
+	
+	<delete id="delPayment_Mem" parameterType="String">
+		delete from payment where paynum = (select paynum from sangmem where memId = #{memId})
 	</delete>
 	
 	<delete id="delPaymentAll">

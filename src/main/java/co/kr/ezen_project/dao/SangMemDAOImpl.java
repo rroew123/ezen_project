@@ -161,4 +161,29 @@ public class SangMemDAOImpl implements SangMemDAO {
 	public int updPayment(PaymentVO vo) {
 		return session.update("co.kr.ezen_project.dao.SangMemDAO.updPayment", vo);
 	}
+
+	@Override
+	public void delCouponMem(String memId) {
+		session.delete("co.kr.ezen_project.dao.SangMemDAO.delCouponMem", memId);
+	}
+
+	@Override
+	public List<SangMemVO> getSM_Mem(String memId) {
+		return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getSM_Mem", memId);
+	}
+
+	@Override
+	public void delSM_Mem(String memId) {
+		session.delete("co.kr.ezen_project.dao.SangMemDAO.delSM_Mem", memId);
+	}
+
+	@Override
+	public void delReview_Mem(String memId) {
+		session.delete("co.kr.ezen_project.dao.SangMemDAO.delReview_Mem", memId);
+	}
+
+	@Override
+	public void delPayment_Mem(String memId) {
+		session.delete("co.kr.ezen_project.dao.SangMemDAO.delPayment_Mem", memId);
+	}
 }

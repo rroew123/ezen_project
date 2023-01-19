@@ -18,10 +18,6 @@
 	
 	<delete id="delMem" parameterType="String">	
 		delete from member Where memId=#{memId}
-	<!-- 	delete from Coupon Where memId = {memId}  		다른 매퍼에 적용해야함
-		delete from CardInfo Where memId = {memId}
-		delete from QnAboard Where memId = {memId}
-		delete from SangMem Where memId = {memId} -->
 	</delete>
 	<delete id="delMemberAll">	
 		delete from member

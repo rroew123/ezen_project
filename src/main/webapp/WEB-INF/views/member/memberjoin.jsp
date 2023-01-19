@@ -78,7 +78,7 @@ header {
 		</div>
 	</header>
 	<div id="join_input">
-		<form name="joinform" method="post" action=""
+		<form name="" action="/member/joinformProc"
 			onsubmit="return join_chk();" target="hi_fr">
 			<fieldset>
 				<legend class="hidden">기본정보입력(필수)</legend>
@@ -99,11 +99,7 @@ header {
 							type="password" name="memPwd" id="memPwd"
 							class="form_input form_name" maxlength="30">
 					</div>
-					<div>
-						<label for="join_pw1">비밀번호 확인 <span>*</span></label> <input
-							type="password" name="memPwd" id="memPwd"
-							class="form_input form_name" maxlength="30">
-					</div>
+					
 					<div class="mobile addbtn">
 						<label for="join_cell">휴대폰 번호 <span>*</span></label> 
 						 <input type="text" name="phone" id="phone"
@@ -231,6 +227,8 @@ header {
 							<option value="31">31</option>
 						</select>
 					</div>
+					성별 : <input type="radio" name="gender" value="1" > 남자
+					<input type="radio" name="gender" value="2"> 여자 <br>
 					
 					<div>
 						<label>sms수신여부 <span>*</span></label>

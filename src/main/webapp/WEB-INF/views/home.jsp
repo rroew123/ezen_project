@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	trimDirectiveWhitespaces="true" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -11,7 +12,6 @@
 </head>
 
 <style>
-
 * {
 	text-align: center;
 }
@@ -24,7 +24,7 @@ header {
 	top: 10px;
 	left: 30px;
 	background: linear-gradient(to bottom, #FFC6B8, #FFDBDD);
-	z-index: 1;
+	z-index: 3;
 }
 
 .logo {
@@ -49,7 +49,7 @@ header {
 
 .Searchri {
 	text-align: right;
-	margin-right: 200px;
+	margin-left: 500px;
 	line-height: 10px;
 }
 
@@ -69,28 +69,74 @@ ul {
 	padding-left: 0px;
 }
 
-#menu1 ul li {
-	float: left;
-	width: 10%;
-	height: 40px;
-	line-height: 40px;
-	text-align: center;
+#menu {
+	height: 100px;
 	background: white;
+	outline: 1px dotted red;
+	z-index: 2;
 }
 
-#menu1 {
-	line-height: 55px;
-	height: 55px;
-	outline: 1px dotted blue;
-	margin: 5px;
+.main1 {
+	width: 700px;
+	height: 300px;;
+	margin: 0 auto;
 }
 
-#menu1 ul li a {
+.main1>li {
+	float: left;
+	width: 25%;
+	line-height: 50px;
+	text-align: center;
+	position: relative;
+}
+
+.main1>li:hover .main2 {
+	left: 0;
+}
+
+.main1>li a {
 	display: block;
 }
 
-#menu1 ul li a:hover {
-	background: pink;
+.main1>li a:hover {
+	background: #B21016;
+	color: #fff;
+	font-weight: bold;
+}
+
+.main2 {
+	position: absolute;
+	top: 50px;
+	left: -9999px;
+	background: #ccc;
+	width: 120%;
+	z-index: 2;
+}
+
+.main2>li {
+	position: relative;
+	z-index: 2;
+}
+
+.main2>li:hover .main3 {
+	left: 100%;
+}
+
+.main2>li a, .main3>li a {
+	border-radius: 10px;
+	margin: 10px;
+}
+
+.main3 {
+	position: absolute;
+	top: 0;
+	background: #6BD089;
+	width: 80%;
+	left: -9999px;
+}
+
+.main3>li a:hover {
+	background: #085820;
 	color: #fff;
 }
 
@@ -251,7 +297,8 @@ input#img-1:checked ~ .nav-dots label#img-dot-1, input#img-2:checked ~
 ===========================
 footer {
 	border: 2px solid skyblue;
-	text-align: center;
+	text-align: center; . dropdown { position : relative;
+	display: inline-block;
 }
 </style>
 </head>
@@ -267,45 +314,111 @@ footer {
 		</div>
 		<div class="Searchri">
 
-		
-		<c:if test="${userInfo != null}">
 
-                     <li><a href="/member/customer">고객센터</a></li>
-                     <li><a href="/member/mypage_wishlist">관심상품</a></li>
-                     <li><a href="/member/mypage">마이페이지</a></li>
-                     <li><a href="/member/logout.do" >로그아웃</a></li>
-                     <form action="/member/logout.do" method="post">
-                     </form>
-                     <br />
-                      
-                     <span>${userInfo.memName} 님 환영합니다.<br/>
-                      
-                     </span> 
-                       
-                  </c:if> 
-                  <c:if test="${userInfo== null}">
-                     <li><a href="/member/customer">고객센터</a></li>
-                     <li><a href="/member/login">로그인</a></li>
-                     <li><a href="/member/memberjoin">회원가입</a></li>
-                     <li><a href="/member/shoppingcart">장바구니</a></li>
-                      
-                  </c:if>
-		</div> 
-		
+			<c:if test="${userInfo != null}">
+
+				<li><a href="/member/customer">고객센터</a></li>
+				<li><a href="/member/mypage_wishlist">관심상품</a></li>
+				<li><a href="/member/mypage">마이페이지</a></li>
+				<li><a href="/member/logout.do">로그아웃</a></li>
+				<li><a href="/QnA/QnABoard">QnA</a></li>
+
+				<br />
+
+				<span>${userInfo.memName} 님 환영합니다.<br />
+
+				</span>
+
+			</c:if>
+			<c:if test="${userInfo== null}">
+				<li><a href="/member/customer">고객센터</a></li>
+				<li><a href="/member/login">로그인</a></li>
+				<li><a href="/member/memberjoin">회원가입</a></li>
+				<li><a href="/member/shoppingcart">장바구니</a></li>
+
+			</c:if>
+		</div>
+
 	</header>
 
-	<div id="menu1">
-		<ul>
-			<li><a href="#">메뉴</a></li>
-			<li><a href="#">베스트</a></li>
-			<li><a href="#">신상</a></li>
-			<li><a href="#">1+1</a></li>
-			<li><a href="#">할인</a></li>
-			<li><a href="#">남성</a></li>
-			<li><a href="#">여성</a></li>
-			<li><a href="#">아우터</a></li>
-			<li><a href="#">니트</a></li>
-			<li><a href="#">블라우스</a></li>
+	<div id="menu">
+
+		<ul class="main1">
+			<li><a href="#">메뉴</a>
+				<ul class="main2">
+					<li><a href="#">여성</a>
+						<ul class="main3">
+							<li><a href="#">아우터</a></li>
+							<li><a href="#">상의</a></li>
+							<li><a href="#">하의</a></li>
+							<li><a href="#">원피스</a></li>
+							<li><a href="#">스커트</a></li>
+							<li><a href="#">신발</a></li>
+						</ul></li>
+
+					<li><a href="#">남성</a>
+						<ul class="main3">
+							<li><a href="#">상의</a></li>
+							<li><a href="#">하의</a></li>
+							<li><a href="#">신발</a></li>
+							<li><a href="#">니트</a></li>
+							<li><a href="#">부츠</a></li>
+							<li><a href="#">팬츠</a></li>
+						</ul></li>
+				</ul></li>
+			<li><a href="#">아우터</a>
+				<ul class="main2">
+					<li><a href="#">코트</a></li>
+					<li><a href="#">라이더자켓</a></li>
+					<li><a href="#">가디건</a></li>
+					<li><a href="#">아노락</a></li>
+					<li><a href="#">무스탕</a></li>
+					<li><a href="#">트레이닝자켓</a></li>
+				</ul></li>
+			<li><a href="#">상의</a>
+				<ul class="main2">
+					<li><a href="#">니트</a></li>
+					<li><a href="#">셔츠</a></li>
+					<li><a href="#">맨투맨</a></li>
+					<li><a href="#">티셔츠</a></li>
+					<li><a href="#">후드티</a></li>
+					<li><a href="#">블라우스</a></li>
+				</ul></li>
+			<li><a href="#">하의</a>
+				<ul class="main2">
+					<li><a href="#">숏팬츠</a></li>
+					<li><a href="#">레깅스</a></li>
+					<li><a href="#">슬랙스</a></li>
+					<li><a href="#">코튼팬츠</a></li>
+					<li><a href="#">청바지</a></li>
+					<li><a href="#">점프슈트</a></li>
+				</ul></li>
+
+			<li><a href="#">원피스</a>
+				<ul class="main2">
+					<li><a href="#">미니원피스</a></li>
+					<li><a href="#">맥시원피스</a></li>
+					<li><a href="#">롱원피스</a></li>
+					<li><a href="#">미디원피스</a></li>
+				</ul></li>
+
+			<li><a href="#">스커트</a>
+				<ul class="main2">
+					<li><a href="#">미니스커트</a></li>
+					<li><a href="#">미디스커트</a></li>
+					<li><a href="#">롱스커트</a></li>
+				</ul></li>
+
+			<li><a href="#">신발</a>
+				<ul class="main2">
+					<li><a href="#">구두</a></li>
+					<li><a href="#">로퍼</a></li>
+					<li><a href="#">샌들</a></li>
+					<li><a href="#">슬리퍼</a></li>
+					<li><a href="#">힐</a></li>
+					<li><a href="#">플랫슈즈</a></li>
+					<li><a href="#">부츠</a></li>
+				</ul></li>
 		</ul>
 	</div>
 
@@ -422,10 +535,9 @@ footer {
 		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
 		<a href="./member/shoppingcart"><i
 			class="fa-sharp fa-solid fa-cart-shopping"></i></a> <a
-			href="./member/customer"><i
-			class="fa-sharp fa-solid fa-user-tie"></i></a> <i
-			class="fa-regular fa-clock"></i> <i class="fa-regular fa-circle-down"
-			value="Last" onclick="clickLast()"></i>
+			href="./member/customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
+		<i class="fa-regular fa-clock"></i> <i
+			class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
 	</div>
 	<footer> Footer 영역 </footer>
 

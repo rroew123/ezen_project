@@ -22,8 +22,8 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	}
 
 	@Override
-	public int delFAQ(FAQVO fvo) {
-		return session.delete("co.kr.ezen_project.dao.ConsumerDAO.delFAQ", fvo);
+	public int delFAQ(int faqNum) {
+		return session.delete("co.kr.ezen_project.dao.ConsumerDAO.delFAQ", faqNum);
 	}
 
 	@Override
@@ -42,8 +42,8 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	}
 	
 	@Override
-	public FAQVO getFAQOne(String fAQTitle) {
-		return session.selectOne("co.kr.ezen_project.dao.ConsumerDAO.getFAQOne", fAQTitle);
+	public FAQVO getFAQOne(int faqNum) {
+		return session.selectOne("co.kr.ezen_project.dao.ConsumerDAO.getFAQOne", faqNum);
 	}
 
 	@Override
@@ -129,6 +129,23 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	@Override
 	public void increaseViewCnt(int ntcNum) throws Exception{
 		session.update("co.kr.ezen_project.dao.ConsumerDAO.increaseViewCnt", ntcNum);
+	}
+
+	@Override
+	public void delQnAMem(String memId) {
+		session.selectList("co.kr.ezen_project.dao.ConsumerDAO.delQnAMem", memId);
+		
+	}
+
+	@Override
+	public List<QnAboardVO> getQnA_Admin() {
+		return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getQnA_Admin");
+	}
+
+	@Override
+	public void udtQnAAns(QnAboardVO qvo1) {
+		session.update("co.kr.ezen_project.dao.ConsumerDAO.udtQnAAns", qvo1);
+		
 	}
 	
 	

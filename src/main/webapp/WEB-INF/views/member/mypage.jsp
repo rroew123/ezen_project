@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<label>마이페이지</label>
+<a href="/member/mypage_memDelete">회원탈퇴</a>
 
 </body>
 </html> 

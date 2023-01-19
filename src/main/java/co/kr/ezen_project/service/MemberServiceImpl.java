@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import co.kr.ezen_project.dao.ConsumerDAO;
 import co.kr.ezen_project.dao.MemberDAO;
+import co.kr.ezen_project.dao.SangMemDAO;
 import co.kr.ezen_project.vo.MemberVO;
 
 @Service
@@ -13,6 +15,10 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
 	MemberDAO dao;
+	@Autowired
+	ConsumerDAO Cdao;
+	@Autowired
+	SangMemDAO Sdao;
 	
 	@Override
 	public int addMem(MemberVO vo) {
@@ -28,6 +34,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 	@Override
 	public int delMem(String memId) {
+		Sdao.delPayment_Mem(memId);
+		Sdao.delReview_Mem(memId);
+		Sdao.delSM_Mem(memId);
+		Sdao.delCouponMem(memId);
+		Cdao.delQnAMem(memId);
 		return dao.delMem(memId);
 	}
 	@Override
