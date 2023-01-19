@@ -5,110 +5,110 @@
 <mapper namespace="co.kr.ezen_project.dao.ConsumerDAO"> 
 	
 	<delete id="delFAQAll">
-		delete from FAQ
+		delete from faq
 	</delete>
 	
 	<delete id="delFAQ" parameterType="integer">
-		delete from FAQ where FAQTitle = #{FAQTitle}
+		delete from faq where faqTitle = #{faqTitle}
 	</delete>
 	
 	<insert id="addFAQ" parameterType="FAQVO">
-		insert into FAQ (FAQCat, FAQTitle, FAQCntxt)
-		values(faq_seq.nextval, #{FAQTitle}, #{FAQCntxt})
+		insert into faq (faqCat, faqTitle, faqCntxt)
+		values(faq_seq.nextval, #{faqTitle}, #{faqCntxt})
 	</insert>
 	
 	<update id="udtFAQ" parameterType="FAQVO">
-		update FAQ set FAQCat=#{FAQCat}, FAQTitle=#{FAQTitle}, FAQCntxt=#{FAQCntxt} where FAQTitle=#{FAQTitle}
+		update faq set faqCat=#{faqCat}, faqTitle=#{faqTitle}, faqCntxt=#{faqCntxt} where faqTitle=#{faqTitle}
 	</update>
 	
 	<select id="getFAQCount" resultType="integer">	
-		select count(*) from FAQ
+		select count(*) from faq
 	</select>
 	
 	<select id="getFAQOne" resultType="FAQVO" parameterType="String">	
-		select * from FAQ where FAQTitle = #{FAQTitle}
+		select * from faq where faqTitle = #{faqTitle}
 	</select>
 	
 	<select id="getFAQAll" resultType="FAQVO">	
-		select * from FAQ
+		select * from faq
 	</select>
 	
 	
 	
 	<delete id="delNtcAll">
-		delete from NtcBoard
+		delete from ntcBoard
 	</delete>
 	
 	<delete id="delNtc" parameterType="integer">
-		delete from NtcBoard where ntcNum = #{ntcNum}
+		delete from ntcBoard where ntcNum = #{ntcNum}
 	</delete>
 	
 	<insert id="addNtc" parameterType="NtcBoardVO">
-		insert into NtcBoard (ntcNum, ntcTitle, ntcCntxt)
+		insert into ntcBoard (ntcNum, ntcTitle, ntcCntxt)
 		values(ntc_seq.nextval, #{ntcTitle}, #{ntcCntxt})
 	</insert>
 	
 	<update id="udtNtc" parameterType="NtcBoardVO">
-		update NtcBoard set ntcTitle=#{ntcTitle}, ntcCntxt=#{ntcCntxt} where ntcNum=#{ntcNum}
+		update ntcBoard set ntcTitle=#{ntcTitle}, ntcCntxt=#{ntcCntxt} where ntcNum=#{ntcNum}
 	</update>
 	
 	<select id="getNtcCount" resultType="integer">	
-		select count(*) from NtcBoard
+		select count(*) from ntcBoard
 	</select>
 	
 	<select id="getNtcOne" resultType="NtcBoardVO" parameterType="integer">	
-		select * from NtcBoard where ntcNum = #{ntcNum}
+		select * from ntcBoard where ntcNum = #{ntcNum}
 	</select>
 	
 	<select id="getNtcAll" resultType="NtcBoardVO">	
-		select * from NtcBoard
+		select * from ntcBoard
 	</select>
 	
 	
 	
 	<delete id="delQnAAll">
-		delete from QnAboard
+		delete from qnAboard
 	</delete>
 	
 	<delete id="delQnA" parameterType="Integer">
-		delete from QnAboard where qnaNum = #{qnaNum}
+		delete from qnAboard where qnaNum = #{qnaNum}
 	</delete>
 	
 	<delete id="delQnAMem" parameterType="String">
-		delete from QnAboard where memId = #{memId}
+		delete from qnAboard where memId = #{memId}
 	</delete>
 	
 	<insert id="addQnA" parameterType="QnAboardVO">
-		insert into QnAboard (qnaNum, memId, qnaCat, brdTitle, brdCntxt)
+		insert into qnAboard (qnaNum, memId, qnaCat, brdTitle, brdCntxt)
 		values(qna_seq.nextval, #{memId}, #{qnaCat}, #{brdTitle}, #{brdCntxt})
 	</insert>
 	
 	<update id="udtQnA" parameterType="QnAboardVO">
-		update QnAboard set QnACat=#{qnaCat}, brdTitle=#{brdTitle}, brdCntxt=#{brdCntxt} where QnANum=#{qnaNum}
+		update qnAboard set QnACat=#{qnaCat}, brdTitle=#{brdTitle}, brdCntxt=#{brdCntxt} where QnANum=#{qnaNum}
 	</update>
 	
 	<update id="udtQnA_Ans" parameterType="QnAboardVO">
-		update QnAboard set ansCntxt=#{ansCntxt}, ansDate=sysdate where QnANum=#{qnaNum}
+		update qnAboard set ansCntxt=#{ansCntxt}, ansDate=sysdate where QnANum=#{qnaNum}
 	</update>
 	
 	<select id="getQnACount" resultType="integer">	
-		select count(*) from QnAboard
+		select count(*) from qnAboard
 	</select>
 	
 	<select id="getQnAOne" resultType="QnAboardVO" parameterType="integer">	
-		select * from QnAboard where QnANum = #{qnaNum}
+		select * from qnAboard where QnANum = #{qnaNum}
 	</select>
 	
 	<select id="getQnAAll" resultType="QnAboardVO">	
-		select * from QnAboard
+		select * from qnAboard
 	</select>
 	
 	<select id="getQnAmemId" resultType="QnAboardVO" parameterType="String">	
-		select * from QnAboard where memId = #{memId}
+		select * from qnAboard where memId = #{memId}
 	</select>
 	
 	<select id="getQnA_Admin" resultType="QnAboardVO">	
-		select * from QnAboard where ansCntxt = null
+		select * from qnAboard where ansCntxt = null
 	</select>
 	
 <!-- 	<select id="getQnAmemId" resultType="QnAboardVO" parameterType="String">	
@@ -116,7 +116,7 @@
 	</select>
 	 -->
 	<update id="increaseViewCnt" parameterType="integer">
-      update NtcBoard set viewCnt = viewCnt + 1 where ntcNum=#{ntcNum}
+      update ntcBoard set viewCnt = viewCnt + 1 where ntcNum=#{ntcNum}
    </update>
 	
 	
