@@ -107,13 +107,11 @@
 		select * from qnAboard where memId = #{memId}
 	</select>
 	
-<<<<<<< HEAD
-=======
+
 	<select id="getQnA_MemId" resultType="QnAboardVO" parameterType="String">	
 		select * from qnaboard where memId = #{memId}
 	</select>
 	
->>>>>>> branch 'main' of https://github.com/rroew123/ezenproject.git
 	<select id="getQnA_Admin" resultType="QnAboardVO">	
 		select * from qnaboard where ansCntxt = null
 	</select>
