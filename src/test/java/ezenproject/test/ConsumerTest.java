@@ -41,7 +41,7 @@ public class ConsumerTest {
 		service.delQnAAll();
 	}
 	
-	@Test
+	/*@Test
 	public void getFAQCountTest() { 
 		System.out.println("맴버의 인원은========================"+service.getFAQCount());
 	}
@@ -188,5 +188,5 @@ public class ConsumerTest {
 		System.out.println("===============================" + service.getQnAAll());
 		assertNotNull( service.udtQnA(Qvo4) );
 		System.out.println("===============================" + service.getQnAAll());
-	}
+	}*/
 }

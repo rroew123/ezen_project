@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.kr.ezen_project.vo.CouponVO;
+import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.SangMemVO;
@@ -168,8 +169,8 @@ public class SangMemDAOImpl implements SangMemDAO {
 	}
 
 	@Override
-	public List<SangMemVO> getSM_Mem(String memId) {
-		return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getSM_Mem", memId);
+	public List<SangMemVO> getSM_Mem(MemberVO vo) {
+		return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getSM_Mem", vo);
 	}
 
 	@Override

@@ -103,7 +103,7 @@
 		select * from qnAboard
 	</select>
 	
-	<select id="getQnAmemId" resultType="QnAboardVO" parameterType="String">	
+	<select id="getQnA_Mem" resultType="QnAboardVO" parameterType="MemberVO">	
 		select * from qnAboard where memId = #{memId}
 	</select>
 	

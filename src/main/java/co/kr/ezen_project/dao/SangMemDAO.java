@@ -3,6 +3,7 @@ package co.kr.ezen_project.dao;
 import java.util.List;
 
 import co.kr.ezen_project.vo.CouponVO;
+import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.SangMemVO;
@@ -69,7 +70,7 @@ public interface SangMemDAO {
 
 	void delCouponMem(String memId);
 
-	List<SangMemVO> getSM_Mem(String memId);
+	List<SangMemVO> getSM_Mem(MemberVO vo);
 
 	void delSM_Mem(String memId);
 

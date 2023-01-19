@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import co.kr.ezen_project.dao.ConsumerDAO;
 import co.kr.ezen_project.vo.FAQVO;
+import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
 
@@ -124,8 +125,8 @@ public class ConsumerServiceImpl implements ConsumerService {
 	}
 
 	@Override
-	public List<QnAboardVO> getQnAmemId(String memid) {
-		return dao.getQnAmemId(memid);
+	public List<QnAboardVO> getQnA_Mem(MemberVO vo) {
+		return dao.getQnA_Mem(vo);
 	}
 	
 	@Override
