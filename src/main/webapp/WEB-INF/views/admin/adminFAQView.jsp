@@ -14,7 +14,8 @@
 <h1>FAQ 상세페이지</h1>
 <form name="form1" method="post">
 	<div>
-	카테고리<select name="faqCat" id="faqCat" value="">
+	카테고리<select name="faqCat" id="faqCat">
+	
 		<option value="1">배송</option>
 		<option value="2">교환</option>
 		<option value="3">반품</option>

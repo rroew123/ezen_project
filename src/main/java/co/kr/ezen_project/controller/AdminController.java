@@ -1,4 +1,4 @@
-/*package co.kr.ezen_project.controller;
+package co.kr.ezen_project.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -60,10 +60,10 @@ public class AdminController {
 	public void adminMember(Model model) {
 		String memCate = "memId";
 		model.addAttribute("list", memberService.getMemAdmin(memCate));
-		
+	
 	}
 
-	@RequestMapping("adminMember")
+	@RequestMapping("/adminMemsearchProc")
 	public ModelAndView searchAll(@RequestParam(defaultValue="memName") String searchOption,
 									@RequestParam(defaultValue="") String keyword) {
 		List<MemberVO> list = memberService.searchAll(searchOption, keyword);
@@ -245,4 +245,4 @@ public class AdminController {
 		return "redirect:/admin/adminFAQ";
 	}
 	
-}*/
+}

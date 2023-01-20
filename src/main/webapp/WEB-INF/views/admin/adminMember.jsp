@@ -34,8 +34,8 @@ ${map.count}개의 정보가 있습니다.
         </tr>
         </c:forEach>
 	</table>
-	<form name="form1", method="post" action="${path}/admin/adminMember">
-		<select name="ch1">
+	<form name="form1", method="post" action="${path}/admin/adminMemsearchProc">
+		<select name="searchOption">
 			<option value="memName" <c:out value="${map.searchOption == 'memName'?'selected':''}"/> >이름</option>
 			<option value="memId" <c:out value="${map.searchOption == 'memId'?'selected':''}"/> >아이디</option>
 		</select>
