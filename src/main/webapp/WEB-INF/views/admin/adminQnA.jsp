@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>QnA 목록페이지</title>
 <link rel="stylesheet" href="/resources/basic.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 <%@ include file="top.jsp" %>

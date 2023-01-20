@@ -15,13 +15,13 @@
 <form name="form1" method="post">
 	<div>
 	카테고리<select name="faqCat" id="faqCat">
-	
-		<option value="1">배송</option>
-		<option value="2">교환</option>
-		<option value="3">반품</option>
-		<option value="4">마일리지</option>
-		<option value="5">쿠폰</option></select>
-	</div>
+			<option value="1">배송</option>
+			<option value="2">교환</option>
+			<option value="3">반품</option>
+			<option value="4">마일리지</option>
+			<option value="5">쿠폰</option>
+		</select>
+		</div>
 	<div>
 		<input name="faqTitle" id="faqTitle" size="80" value="${dto.faqTitle}" placeholder="제목을 입력해주세요">
 	</div>
@@ -45,7 +45,7 @@
 		});
 		
 		$("#btnUpdate").click(function(){
-			var faqCat = $("#faqCat").val();
+			int faqCat = $("#faqCat").val();
 			var faqTitle = $("#faqTitle").val();
 			var faqCntxt = $("#faqCntxt").val();
 			if(faqTitle == ""){

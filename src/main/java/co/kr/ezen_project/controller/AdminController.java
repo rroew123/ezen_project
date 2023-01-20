@@ -72,12 +72,13 @@ public class AdminController {
 		
 		ModelAndView mav = new ModelAndView();
 		
+		System.out.println(list);
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("list", list);
 		map.put("count", count);
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 		mav.addObject("map", map);
+		mav.addObject("list", list);
 		mav.setViewName("/admin/adminMember");
 		return mav;
 	}
@@ -104,6 +105,26 @@ public class AdminController {
 	@RequestMapping("/adminSang")
 	public void adminSang(Model model) {
 		model.addAttribute("list", sangpumService.getSangAll());
+	}
+	
+	@RequestMapping("/adminSangsearchProc")
+	public ModelAndView searchSangAll(@RequestParam(defaultValue="sangCode") String searchOption,
+									@RequestParam(defaultValue="") String keyword) {
+		List<SangpumVO> list = sangpumService.searchAll(searchOption, keyword);
+		
+		int count = sangpumService.countArticle(searchOption, keyword);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		System.out.println(list);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("count", count);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		mav.addObject("map", map);
+		mav.addObject("list", list);
+		mav.setViewName("/admin/adminSang");
+		return mav;
 	}
 	
 	@RequestMapping("/adminSangAdd")

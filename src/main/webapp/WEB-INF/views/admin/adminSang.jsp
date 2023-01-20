@@ -11,6 +11,7 @@
 <body>
 <%@ include file="top.jsp" %>
 <h1>상품 목록</h1>
+${map.count}개의 정보가 있습니다.
 	<input type="button" value="상품등록" onclick="location.href='${path}/admin/adminSangAdd'">
     <table border="1" width="700px">
         <tr>
@@ -39,6 +40,14 @@
         </tr>
         </c:forEach>
 </table>
+<form name="form1" method="post" action="${path}/admin/adminSangsearchProc">
+		<select name="searchOption">
+			<option value="sangName" <c:out value="${map.searchOption == 'sangName'?'selected':''}"/> >상품이름</option>
+			<option value="sangCode" <c:out value="${map.searchOption == 'sangCode'?'selected':''}"/> >상품코드</option>
+		</select>
+		<input type="text" name="keyword">
+		<input type="submit" value="검색하기">
+	</form>
 <%@ include file="bottom.jsp" %>
 </body>
 </html>
