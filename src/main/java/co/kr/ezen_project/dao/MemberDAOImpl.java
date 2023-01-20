@@ -92,17 +92,19 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public List<MemberVO> searchAll(String searchOption, String keyword){
 		SearchVO vo = new SearchVO();
+		keyword = "%"+keyword+"%";
 		vo.setSearchOption(searchOption);
 		vo.setKeyword(keyword);
-		return session.selectList("co.kr.ezen_project.dao.MemberDAO.getMemAdmin.searchAll", vo);
+		return session.selectList("co.kr.ezen_project.dao.MemberDAO.searchAll", vo);
 	}
 
 	@Override
 	public int countArticle(String searchOption, String keyword) {
 		SearchVO vo = new SearchVO();
+		keyword = "%"+keyword+"%";
 		vo.setSearchOption(searchOption);
 		vo.setKeyword(keyword);
-	    return session.selectOne("co.kr.ezen_project.dao.MemberDAO.getMemAdmin.countArticle", vo);
+	    return session.selectOne("co.kr.ezen_project.dao.MemberDAO.countArticle", vo);
 	}
 
 
