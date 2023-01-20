@@ -64,6 +64,12 @@ public class SangMemTest {
 	}
 	
 	@Test
+	public void getSangmem() {
+		
+		System.out.println(service.getSM_MemId("hyeon"));
+	}
+	
+	@Test
 	public void getSangMemAllTest() { 
 		System.out.println("총 상멤 내역========================"+service.getSangMemAll());
 	}

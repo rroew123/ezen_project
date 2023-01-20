@@ -1,6 +1,8 @@
 package co.kr.ezen_project.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,6 +86,22 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public List<MemberVO> getMemAdmin(String memCate) {
 		return session.selectList("co.kr.ezen_project.dao.MemberDAO.getMemAdmin", memCate);
+	}
+	
+	@Override
+	public List<MemberVO> searchAll(String searchOption, String keyword){
+	   Map<String, String> map= new HashMap<String,String>();
+	   map.put("searchOption", searchOption);
+	   map.put("keyword", keyword);
+	   return session.selectList("member.searchAll", map);
+	}
+
+	@Override
+	public int countArticle(String searchOption, String keyword) {
+	   Map<String, String> map= new HashMap<String,String>();
+	   map.put("searchOption", searchOption);
+	   map.put("keyword", keyword);
+	   return session.selectOne("member.countArticle", map);
 	}
 
 

@@ -81,4 +81,14 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> getMemAdmin(String memCate) {
 		return dao.getMemAdmin(memCate);
 	}
+	
+	@Override
+	public List<MemberVO> searchAll(String searchOption, String keyword){
+	   return dao.searchAll(searchOption, keyword);
+	   }
+	@Override
+	public int countArticle(String searchOption, String keyword){
+	   return dao.countArticle(searchOption, keyword);
+	   }
+
 }

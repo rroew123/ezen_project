@@ -30,6 +30,7 @@
     });
   });
 </script>
+
 </head>
 
 <body>
@@ -47,13 +48,13 @@
 				<p>가격 : ${SangpumInfo.price}</p>
 				<p>상품코드 : ${SangpumInfo.sangCode}</p>
 				<p>
-					<c:forEach var="vo" items="${SangCodeSpecVO}">
+					<c:forEach var="vo" items="${SangColor}">
 						<a href="http://localhost/sangpum/sangpum?SangCode=abc1234&sangColor=${vo.sangColor}">${vo.sangColor}</a>&nbsp
 					</c:forEach> 
 				</p>
 				<p>
-					<c:forEach var="vo" items="${SangCodeSpecVO}">
-						<span>${vo.sangSize}</span>&nbsp
+					<c:forEach var="vo" items="${SangSize}">
+						<span>${vo.sangSize}
 					</c:forEach>
 				</p>
 				<p> </p>
@@ -65,7 +66,48 @@
 			</div>
 		</div>
 	</div>
+	<button id="ajaxButton" type="button">Make a request</button>
+
+
+<script>
+function(){
+	document.getElementById("ajaxButton").addEventListener('click', makeRequest);
+	 function makeRequest() {
+		 console.log("나오나 확인용")
+		 location.href="/sangpum/sangpum?SangCode=abc1234&SangColor=3";
+	 }
+}
+/* 
+	(function() {
+	  var httpRequest;
+	  document.getElementById("ajaxButton").addEventListener('click', makeRequest);
 	
+	  function makeRequest() {
+		location.href=/sangpum/sangpum?SangCode=abc1234&SangColor=3;
+	    httpRequest = new XMLHttpRequest();
+	
+	    if(!httpRequest) {
+	      alert('XMLHTTP 인스턴스를 만들 수가 없어요 ㅠㅠ');
+	      return false;
+	    }
+	    httpRequest.onreadystatechange = alertContents;
+	    httpRequest.open('GET', '/sangpum/sangpum?SangCode=abc1234&SangColor=3');
+	    httpRequest.send();
+	  }
+	
+	  function alertContents() {
+		  
+	    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+	      if (httpRequest.status === 200) {
+	    	  location.href=/sangpum/sangpum?SangCode=abc1234&SangColor=3
+	      } else {
+	        alert('request에 뭔가 문제가 있어요.');
+	      }
+	    }
+	  }
+	})(); */
+</script>
+
 	
 	<%-- <jsp:include page="footer.jsp"/> --%>
 

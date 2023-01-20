@@ -34,5 +34,10 @@ public interface MemberService {
 
 	List<MemberVO> getMemAdmin(String memCate);
 	
+	List<MemberVO> searchAll(String searchOption, String keyword);
+
+	int countArticle(String searchOption, String keyword);
+
+	
 
 }

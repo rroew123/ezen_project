@@ -35,5 +35,10 @@ public interface MemberDAO {
 	String findPwd(MemberVO vo);
 
 	List<MemberVO> getMemAdmin(String memCate);
+	
+	List<MemberVO> searchAll(String searchOption, String keyword);
+
+	public int countArticle(String searchOption, String keyword);
+
 
 }
