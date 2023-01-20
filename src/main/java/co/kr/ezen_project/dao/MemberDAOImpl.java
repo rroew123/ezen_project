@@ -93,7 +93,7 @@ public class MemberDAOImpl implements MemberDAO{
 	   Map<String, String> map= new HashMap<String,String>();
 	   map.put("searchOption", searchOption);
 	   map.put("keyword", keyword);
-	   return session.selectList("member.searchAll", map);
+	   return session.selectList("co.kr.ezen_project.dao.MemberDAO.getMemAdmin.searchAll", map);
 	}
 
 	@Override
@@ -101,7 +101,7 @@ public class MemberDAOImpl implements MemberDAO{
 	   Map<String, String> map= new HashMap<String,String>();
 	   map.put("searchOption", searchOption);
 	   map.put("keyword", keyword);
-	   return session.selectOne("member.countArticle", map);
+	   return session.selectOne("co.kr.ezen_project.dao.MemberDAO.getMemAdmin.countArticle", map);
 	}
 
 

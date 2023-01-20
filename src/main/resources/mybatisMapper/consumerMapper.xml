@@ -9,7 +9,7 @@
 	</delete>
 	
 	<delete id="delFAQ" parameterType="integer">
-		delete from faq where faqTitle = #{faqTitle}
+		delete from faq where faqNum=#{faqNum}
 	</delete>
 	
 	<insert id="addFAQ" parameterType="FAQVO">
@@ -18,7 +18,7 @@
 	</insert>
 	
 	<update id="udtFAQ" parameterType="FAQVO">
-		update faq set faqCat=#{faqCat}, faqTitle=#{faqTitle}, faqCntxt=#{faqCntxt} where faqTitle=#{faqTitle}
+		update faq set faqTitle=#{faqTitle}, faqCat=#{faqCat}, faqTitle=#{faqTitle}, faqCntxt=#{faqCntxt} where faqNum=#{faqNum}
 	</update>
 	
 	<select id="getFAQCount" resultType="integer">	
@@ -26,7 +26,7 @@
 	</select>
 	
 	<select id="getFAQOne" resultType="FAQVO" parameterType="String">	
-		select * from faq where faqTitle = #{faqTitle}
+		select * from faq where faqNum=#{faqNum}
 	</select>
 	
 	<select id="getFAQAll" resultType="FAQVO">	
