@@ -23,11 +23,7 @@ public class QnAController {
 
 	}
 
-	@RequestMapping("/QnABoard")
-	public void QnABoard(Model model) {
-		System.out.println(consumerService.getQnAAll());
-		model.addAttribute("list", consumerService.getQnAAll());
-	}
+	
 
 	/*
 	 * @RequestMapping(value = "/QnABoard") public ModelAndView list(ModelAndView
@@ -57,11 +53,17 @@ public class QnAController {
 		return "redirect:QnABoard";
 	
 	}
+	@RequestMapping("/QnABoard")
+	public void QnABoard(Model model) {
+		System.out.println(consumerService.getQnAAll());
+		model.addAttribute("list", consumerService.getQnAAll());
+	}
 	
 	@RequestMapping(value = "/QnAPage", method = RequestMethod.GET)
 	public void QnAPage(int qnaNum, Model model) {
 		model.addAttribute("qnavo", consumerService.getQnAOne(qnaNum));
 	}
+
 
 }
 

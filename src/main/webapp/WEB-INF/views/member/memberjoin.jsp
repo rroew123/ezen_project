@@ -228,7 +228,7 @@ header {
 						</select>
 					</div>
 					성별 : <input type="radio" name="gender" value="1" > 남자
-					<input type="radio" name="gender" value="2"> 여자 <br>
+					<input type="radio" name="gender" value="2"> 	 여자 <br>
 					
 					<div>
 						<label>sms수신여부 <span>*</span></label>
