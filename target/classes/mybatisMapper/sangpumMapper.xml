@@ -90,4 +90,15 @@
 		SELECT * FROM Sangpum where sangCode=#{sangCode}
 	</select>
 	
+	<select id="searchAll" resultType="SangpumVO" parameterType="SearchVO">
+		select * from sangpum
+		where ${searchOption} like #{keyword}
+		order by sangCode desc, sangName desc
+	</select>
+
+	<select id="countArticle" resultType="integer" parameterType="SearchVO">
+		select count(*) from sangpum 
+		where ${searchOption} like #{keyword} 
+	</select>
+	
 </mapper>

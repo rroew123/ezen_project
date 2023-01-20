@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.kr.ezen_project.dao.SangpumDAO;
+import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.SangCodeSpecVO;
 import co.kr.ezen_project.vo.SangpumVO;
 
@@ -117,13 +118,13 @@ public class SangpumServiceImpl implements SangpumService {
 		return dao.getSangAdmin(sangCode);
 	}
 
-
-	
-
-	
-
-	
-
-	
+	@Override
+	public List<SangpumVO> searchAll(String searchOption, String keyword){
+	   return dao.searchAll(searchOption, keyword);
+	}
+	@Override
+	public int countArticle(String searchOption, String keyword){
+	   return dao.countArticle(searchOption, keyword);
+	}
 
 }

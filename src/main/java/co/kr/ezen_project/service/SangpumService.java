@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.SangCodeSpecVO;
 import co.kr.ezen_project.vo.SangpumVO;
 
@@ -47,4 +48,7 @@ public interface SangpumService {
 	
 	List<SangpumVO> getSangAdmin(String sangCode);
 	
+	List<SangpumVO> searchAll(String searchOption, String keyword);
+
+	int countArticle(String searchOption, String keyword);
 }

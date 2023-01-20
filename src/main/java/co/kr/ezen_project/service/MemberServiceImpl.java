@@ -85,10 +85,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public List<MemberVO> searchAll(String searchOption, String keyword){
 	   return dao.searchAll(searchOption, keyword);
-	   }
+	}
 	@Override
 	public int countArticle(String searchOption, String keyword){
 	   return dao.countArticle(searchOption, keyword);
-	   }
+	}
 
 }

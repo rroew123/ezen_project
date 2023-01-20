@@ -6,8 +6,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.SangCodeSpecVO;
 import co.kr.ezen_project.vo.SangpumVO;
+import co.kr.ezen_project.vo.SearchVO;
 
 @Repository
 public class SangpumDAOImpl implements SangpumDAO {
@@ -119,7 +121,23 @@ public class SangpumDAOImpl implements SangpumDAO {
 		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSangAdmin", sangCode);
 	}
 
-	
+	@Override
+	public List<SangpumVO> searchAll(String searchOption, String keyword){
+		SearchVO vo = new SearchVO();
+		keyword = "%"+keyword+"%";
+		vo.setSearchOption(searchOption);
+		vo.setKeyword(keyword);
+		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.searchAll", vo);
+	}
+
+	@Override
+	public int countArticle(String searchOption, String keyword) {
+		SearchVO vo = new SearchVO();
+		keyword = "%"+keyword+"%";
+		vo.setSearchOption(searchOption);
+		vo.setKeyword(keyword);
+	    return session.selectOne("co.kr.ezen_project.dao.SangpumDAO.countArticle", vo);
+	}
 
 
 	

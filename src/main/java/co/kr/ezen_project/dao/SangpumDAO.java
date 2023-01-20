@@ -2,6 +2,7 @@ package co.kr.ezen_project.dao;
 
 import java.util.List;
 
+import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.SangCodeSpecVO;
 import co.kr.ezen_project.vo.SangpumVO;
 
@@ -45,7 +46,9 @@ public interface SangpumDAO {
 
 	List<SangpumVO> getSangAdmin(String sangCode);
 	
+	List<SangpumVO> searchAll(String searchOption, String keyword);
 
+	public int countArticle(String searchOption, String keyword);
 	
 
 
