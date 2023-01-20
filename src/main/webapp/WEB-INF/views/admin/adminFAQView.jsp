@@ -5,30 +5,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 상세페이지</title>
+<title>FAQ 상세페이지</title>
 <link rel="stylesheet" href="/resources/basic.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
 <%@ include file="top.jsp" %>
-<h1>공지사항 상세페이지</h1>
+<h1>FAQ 상세페이지</h1>
 <form name="form1" method="post">
 	<div>
-		작성일자 : ${dto.relDate}
+	카테고리<select name="faqCat" id="faqCat" value="">
+		<option value="1">배송</option>
+		<option value="2">교환</option>
+		<option value="3">반품</option>
+		<option value="4">마일리지</option>
+		<option value="5">쿠폰</option></select>
 	</div>
 	<div>
-		조회수 : ${dto.viewCnt}
+		<input name="faqTitle" id="faqTitle" size="80" value="${dto.faqTitle}" placeholder="제목을 입력해주세요">
 	</div>
 	<div>
-		제목
-		<input name="ntcTitle" id="ntcTitle" size="80" value="${dto.ntcTitle}" placeholder="제목을 입력해주세요">
-	</div>
-	<div>
-		내용
-		<textarea name="ntcCntxt" id="ntcCntxt" rows="4" cols="80" placeholder="내용을 입력해주세요">${dto.ntcCntxt}</textarea>
+		<textarea name="faqCntxt" id="faqCntxt" rows="4" cols="80" placeholder="내용을 입력해주세요">${dto.faqCntxt}</textarea>
 	</div>
 	<div style="width:650px; text-align: center">
-		<input type="hidden" name="ntcNum" value="${dto.ntcNum}">
+		<input type="hidden" name="faqNum" value="${dto.faqNum}">
 		<button type="button" id="btnUpdate">수정</button>
 		<button type="button" id="btnDelete">삭제</button>
 		<button type="button" id="btnHome">목록</button>
@@ -38,30 +38,30 @@
 	$(document).ready(function(){
 		$("#btnDelete").click(function(){
 			if(confirm("삭제하시겠습니까?")){
-				document.form1.action="${path}/admin/adminNtcDeleteProc";
+				document.form1.action="${path}/admin/adminFAQDeleteProc";
 				document.form1.submit();
 			}
 		});
 		
 		$("#btnUpdate").click(function(){
-			var ntcTitle = $("#ntcTitle").val();
-			var ntcCntxt = $("#ntcCntxt").val();
-			if(ntcTitle == ""){
+			var faqTitle = $("#faqTitle").val();
+			var faqCntxt = $("#faqCntxt").val();
+			if(faqTitle == ""){
 				alert("제목을 입력하세요");
-				document.form1.ntcTitle.focus();
+				document.form1.faqTitle.focus();
 				return;	
 			}
-			if(ntcCntxt == ""){
+			if(faqCntxt == ""){
 				alert("내용을 입력하세요");
-				document.form1.ntcCntxt.focus();
+				document.form1.faqCntxt.focus();
 				return;	
 			}
-			document.form1.action="${path}/admin/adminNtcUpdateProc"
+			document.form1.action="${path}/admin/adminFAQUpdateProc"
 			document.form1.submit();
 		});
 		
 		$("#btnHome").click(function(){
-				document.form1.action="${path}/admin/adminNotice";
+				document.form1.action="${path}/admin/adminFAQ";
 				document.form1.submit();
 		});
 	});

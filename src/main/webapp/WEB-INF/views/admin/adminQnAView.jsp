@@ -14,7 +14,14 @@
 <h1>QnA 상세페이지</h1>
 <form name="form1" method="post">
 	<div>
-		카테고리 : ${dto.qnaCat}
+	카테고리<select name="faqCat" id="faqCat">
+	
+		<option value="1">배송</option>
+		<option value="2">교환</option>
+		<option value="3">반품</option>
+		<option value="4">마일리지</option>
+		<option value="5">쿠폰</option>
+		</select>
 	</div>
 	<div>
 		제목
@@ -35,7 +42,15 @@
 		<button type="button" id="btnDelete">삭제</button>
 		<button type="button" id="btnHome">목록</button>
 	</div>
-
+	
+	<div>
+	<textarea name="ansCntxt" id="ansCntxt">${dto.ansCntxt}</textarea>
+	</div>
+	<div style="width:650px; text-align: center">
+		<input type="hidden" name="ansDate" value="${dto.ansDate}">
+		<button type="button" id="btnUpdate">등록</button>
+		<button type="reset" id="btnReset">취소</button>
+	</div>
 </form>
 <script>
 	$(document).ready(function(){
@@ -49,7 +64,12 @@
 		$("#btnHome").click(function(){
 			document.form1.action="${path}/admin/adminQnA";
 			document.form1.submit();
-	});
+		});
+		
+		$("#btnUpdate").click(function(){
+			document.form1.action="${path}/admin/adminQnAUpdateProc";
+			document.form1.submit();
+		});
 });
 </script>
 <%@ include file="bottom.jsp" %>

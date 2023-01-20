@@ -10,7 +10,7 @@
 </head>
 <body>
 <%@ include file="top.jsp" %>
-<h1>QnA 목록 페이지</h1>
+<h1>QnA 목록</h1>
 <table border="1" width="600px">
 	<tr>
 		<th>번호</th>
@@ -23,7 +23,11 @@
 	<tr>
 		<td>${row.qnaNum}</td>
 		<td>${row.qnaCat}</td>
-		<td><a href="${path}/admin/adminQnAViewProc?qnaNum=${row.qnaNum}">${row.brdTitle}</a></td>
+		<td><a href="${path}/admin/adminQnAViewProc?qnaNum=${row.qnaNum}">${row.brdTitle}</a>
+		<c:if test="${row.ansCntxt != null}">
+		<span style="color:red;">(답변완료)</span>
+		</c:if>
+		</td>
 		<td>${row.memId}</td>
 		<td>${row.writDate}</td>
 	</tr>

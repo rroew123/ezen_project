@@ -11,6 +11,9 @@
 </head>
 <body>
 <%@ include file="top.jsp" %>
+	
+
 <%@ include file="bottom.jsp" %>
+
 </body>
 </html>

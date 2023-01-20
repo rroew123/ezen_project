@@ -29,7 +29,7 @@
 	</tr>
 	</c:forEach>
 </table>
-<%@ include file="bottom.jsp" %>
+
 <script>
 	$(document).ready(function(){
 		$("#btnWrite").click(function(){
@@ -37,6 +37,7 @@
 		});
 	});
 </script>
+<%@ include file="bottom.jsp" %>
 </body>
 </html>
 

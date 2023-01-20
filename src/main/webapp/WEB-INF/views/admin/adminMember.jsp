@@ -11,6 +11,7 @@
 <body>
 <%@ include file="top.jsp" %>
 <h1>회원 목록</h1>
+${map.count}개의 정보가 있습니다.
     <table border="1" width="700px">
         <tr>
             <th><b>아이디</b></th>
@@ -32,8 +33,16 @@
         	<td><a href="${path}/admin/adminMemView?memId=${row.memId}">회원정보</a></td>
         </tr>
         </c:forEach>
-        
-    </table>
+	</table>
+	<form name="form1", method="post" action="${path}/admin/adminMember">
+		<select name="ch1">
+			<option value="memName" <c:out value="${map.searchOption == 'memName'?'selected':''}"/> >이름</option>
+			<option value="memId" <c:out value="${map.searchOption == 'memId'?'selected':''}"/> >아이디</option>
+		</select>
+		<input type="text" name="keyword">
+		<input type="submit" value="검색하기">
+	</form>
+	
     <%@ include file="bottom.jsp" %>
 </body>
 </html>

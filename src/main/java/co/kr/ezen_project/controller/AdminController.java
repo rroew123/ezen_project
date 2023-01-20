@@ -1,6 +1,8 @@
-package co.kr.ezen_project.controller;
+/*package co.kr.ezen_project.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -21,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import co.kr.ezen_project.service.ConsumerService;
 import co.kr.ezen_project.service.MemberService;
 import co.kr.ezen_project.service.SangpumService;
+import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
@@ -48,7 +51,7 @@ public class AdminController {
 	public void admin() {
 	} 
 	
-	@RequestMapping({"/adminFinance","/bottom","/top","/adminFAQ"})
+	@RequestMapping({"/adminFinance","/bottom","/top"})
 	public void signUpGood() {
 		
 	} 
@@ -58,6 +61,25 @@ public class AdminController {
 		String memCate = "memId";
 		model.addAttribute("list", memberService.getMemAdmin(memCate));
 		
+	}
+
+	@RequestMapping("adminMember")
+	public ModelAndView searchAll(@RequestParam(defaultValue="memName") String searchOption,
+									@RequestParam(defaultValue="") String keyword) {
+		List<MemberVO> list = memberService.searchAll(searchOption, keyword);
+		
+		int count = memberService.countArticle(searchOption, keyword);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		map.put("count", count);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		mav.addObject("map", map);
+		mav.setViewName("admind/adminMember");
+		return mav;
 	}
 	
 	@RequestMapping("/adminMemView")
@@ -88,7 +110,7 @@ public class AdminController {
 	public void adminSangAdd() {
 	}
 	
-	@RequestMapping("/adminInsertProc")
+	@RequestMapping("/adminSangInsertProc")
 	public String SangpumInsert(@ModelAttribute SangpumVO vo) {
 		sangpumService.addSang(vo);
 		
@@ -127,7 +149,7 @@ public class AdminController {
 	public void adminNtcAdd() {
 	}
 	
-	@RequestMapping(value="adminInsertProc", method=RequestMethod.POST)
+	@RequestMapping(value="adminNtcInsertProc", method=RequestMethod.POST)
 	public String adminInsert(@ModelAttribute NtcBoardVO vo){
 		consumerService.addNtc(vo);
 		return "redirect:/admin/adminNotice";
@@ -142,13 +164,13 @@ public class AdminController {
 		return mav;
 	}
 	
-	@RequestMapping(value="adminUpdateProc", method=RequestMethod.POST)
+	@RequestMapping(value="adminNtcUpdateProc", method=RequestMethod.POST)
 	public String adminUpdate(@ModelAttribute NtcBoardVO vo){
 		consumerService.udtNtc(vo);
 		return "redirect:/admin/adminNotice";
 	}
 	
-	@RequestMapping(value="adminDeleteProc")
+	@RequestMapping(value="adminNtcDeleteProc")
 	public String adminDelete(@RequestParam int ntcNum) {
 		consumerService.delNtc(ntcNum);
 		return "redirect:/admin/adminNotice";
@@ -177,4 +199,50 @@ public class AdminController {
 		return "redirect:/admin/adminQnA";
 	}
 	
-}
+	@RequestMapping(value="adminQnAUpdateProc", method=RequestMethod.POST)
+	public String adminQnAUpdate(@ModelAttribute QnAboardVO vo){
+		System.out.println(vo);
+		consumerService.udtQnA_Ans(vo);
+		return "redirect:/admin/adminQnA";
+	}
+	
+	@RequestMapping("/adminFAQ")
+	public ModelAndView adminFAQ() throws Exception{
+		List<FAQVO> list = consumerService.getFAQAll();
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("admin/adminFAQ");
+		mav.addObject("list", list);
+		return mav;
+	}
+	
+	@RequestMapping(value="adminFAQAdd", method=RequestMethod.GET)
+	public void adminFAQAdd() {
+	}
+	
+	@RequestMapping(value="adminFAQInsertProc", method=RequestMethod.POST)
+	public String adminFAQInsert(@ModelAttribute FAQVO vo){
+		consumerService.addFAQ(vo);
+		return "redirect:/admin/adminFAQ";
+	}
+	
+	@RequestMapping(value="adminFAQViewProc", method=RequestMethod.GET)
+	public ModelAndView FAQView(@RequestParam int faqNum){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("admin/adminFAQView");
+		mav.addObject("dto", consumerService.getFAQOne(faqNum));
+		return mav;
+	}
+	
+	@RequestMapping(value="adminFAQUpdateProc", method=RequestMethod.POST)
+	public String adminFAQUpdate(@ModelAttribute FAQVO vo){
+		consumerService.udtFAQ(vo);
+		return "redirect:/admin/adminFAQ";
+	}
+	
+	@RequestMapping(value="adminFAQDeleteProc")
+	public String adminFAQDelete(@RequestParam int faqNum) {
+		consumerService.delFAQ(faqNum);
+		return "redirect:/admin/adminFAQ";
+	}
+	
+}*/

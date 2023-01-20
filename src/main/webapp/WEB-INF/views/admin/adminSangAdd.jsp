@@ -11,7 +11,7 @@
 <body>
 <%@ include file="top.jsp" %>
 <h2>상품등록폼</h2>
-<form name="form2" method="post" action="${path}/admin/adminInsertProc">
+<form name="form2" method="post" action="${path}/admin/adminSangInsertProc">
 	<table border="1" width="400px">
 		<tr>
 			<td>상품코드</td>
@@ -50,7 +50,7 @@
 			<td><input name="saleRat"></td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center">
+			<td colspan="3" align="center">
 			<input type="submit" value="확인">
 			<input type="reset" value="취소">
 		</tr>

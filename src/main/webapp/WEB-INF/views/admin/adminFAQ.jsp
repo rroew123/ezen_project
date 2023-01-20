@@ -11,21 +11,25 @@
 </head>
 <body>
 <%@ include file="top.jsp" %>
-<h1>FAQ 목록 페이지</h1>
-<table border="1" width="600px">
-	<tr>
-		<th>번호</th>
-		<th>카테고리</th>
-		<th>제목</th>
-	</tr>
+<h1>FAQ 목록</h1>
+<button type="button" id="btnWrite">글쓰기</button>
+<div>
 	<c:forEach var="row" items="${list}">
-	<tr>
-		<td>${row.faqNum}</td>
-		<td>${row.faqCat}</td>
-		<td><a href="${path}/admin/adminFAQViewProc?faqNum=${row.faqNum}">${row.faqTitle}</a></td>
-	</tr>
+
+		<div>${row.faqTitle}</div>
+		<div>
+		<p>${row.faqCntxt}</p>
+		<p><a href="${path}/admin/adminFAQViewProc?faqNum=${row.faqNum}">수정</a></p>
+		</div>
 	</c:forEach>
-</table>
+</div>
+<script>
+	$(document).ready(function(){
+		$("#btnWrite").click(function(){
+			location.href="${path}/admin/adminFAQAdd";
+		});
+	});
+</script>
 <%@ include file="bottom.jsp" %>
 </body>
 </html>
