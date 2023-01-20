@@ -78,7 +78,7 @@ public class AdminController {
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 		mav.addObject("map", map);
-		mav.setViewName("admind/adminMember");
+		mav.setViewName("admin/adminMember");
 		return mav;
 	}
 	
