@@ -69,13 +69,13 @@
 		select * from member order by #{memCate}
 	</select>
 	
-	<select id="searchAll" resultType="MemberVO" parameterType="String">
+	<select id="searchAll" resultType="MemberVO" parameterType="SearchVO">
 		select memId, memName, regDate, membership from member
 		where ${searchOption} like % \\#{keyword}\\ %
 		order by memId desc, memName desc, regDate desc , membership desc
 	</select>
 
-	<select id="countArticle" resultType="integer" parameterType="String">
+	<select id="countArticle" resultType="integer" parameterType="SearchVO">
 		select count(*) from member 
 		where ${searchOption} like % \\#{keyword}\\ %
 	</select>
