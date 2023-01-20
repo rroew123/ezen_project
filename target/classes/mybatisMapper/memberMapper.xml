@@ -24,8 +24,8 @@
 	</delete>
 	
 	<update id="udtMem" parameterType="MemberVO">
-		UPDATE member SET email=#{email}, memName=#{memName}, memPwd=#{memPwd}, phone=#{phone},
-		address={address}, markAgree={markAgree}
+		UPDATE member SET email=#{email}, memName=#{memName}, memPwd=#{memPwd}, 
+		phone=#{phone},	address=#{address}, markAgree=#{markAgree}
 		where memId=#{memId}
 	</update>
 	
@@ -69,21 +69,15 @@
 		select * from member order by #{memCate}
 	</select>
 	
-	<select id="searchAll" resultType="MemberVO" parameterType="String">
+	<select id="searchAll" resultType="MemberVO" parameterMap="searchMap">
 		select memId, memName, regDate, membership from member
-		<include refid="search"></include>
+		where ${searchOption} like % \\#{keyword}\\ %
 		order by memId desc, memName desc, regDate desc , membership desc
 	</select>
 
-	<select id="countArticle" resultType="int">
-		select count(*) from member <include refid="search"></include>
+	<select id="countArticle" resultType="integer" parameterMap="searchMap">
+		select count(*) from member 
+		where ${searchOption} like % \\#{keyword}\\ %
 	</select>
 
-	<sql id="search">
-		<choose>
-			<when test="searchOption != null">
-		  		 where ${searchOption} like '%' \\#{keyword}\\'%'
-		  	 </when>
-		</choose>
-	</sql>
 </mapper>
