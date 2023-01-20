@@ -48,9 +48,13 @@
 				<p>가격 : ${SangpumInfo.price}</p>
 				<p>상품코드 : ${SangpumInfo.sangCode}</p>
 				<p>
+					<select>
 					<c:forEach var="vo" items="${SangColor}">
 						<a href="http://localhost/sangpum/sangpum?SangCode=abc1234&sangColor=${vo.sangColor}">${vo.sangColor}</a>&nbsp
-					</c:forEach> 
+						
+						<option value="${SangColor}">${SangColor}</option>
+					</c:forEach>
+					</select>
 				</p>
 				<p>
 					<c:forEach var="vo" items="${SangSize}">
