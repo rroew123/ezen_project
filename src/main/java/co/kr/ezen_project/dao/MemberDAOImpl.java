@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.kr.ezen_project.vo.MemberVO;
+import co.kr.ezen_project.vo.SearchVO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO{
@@ -90,18 +91,18 @@ public class MemberDAOImpl implements MemberDAO{
 	
 	@Override
 	public List<MemberVO> searchAll(String searchOption, String keyword){
-	   Map<String, String> map= new HashMap<String,String>();
-	   map.put("searchOption", searchOption);
-	   map.put("keyword", keyword);
-	   return session.selectList("co.kr.ezen_project.dao.MemberDAO.getMemAdmin.searchAll", map);
+		SearchVO vo = new SearchVO();
+		vo.setSearchOption(searchOption);
+		vo.setKeyword(keyword);
+		return session.selectList("co.kr.ezen_project.dao.MemberDAO.getMemAdmin.searchAll", vo);
 	}
 
 	@Override
 	public int countArticle(String searchOption, String keyword) {
-	   Map<String, String> map= new HashMap<String,String>();
-	   map.put("searchOption", searchOption);
-	   map.put("keyword", keyword);
-	   return session.selectOne("co.kr.ezen_project.dao.MemberDAO.getMemAdmin.countArticle", map);
+		SearchVO vo = new SearchVO();
+		vo.setSearchOption(searchOption);
+		vo.setKeyword(keyword);
+	    return session.selectOne("co.kr.ezen_project.dao.MemberDAO.getMemAdmin.countArticle", vo);
 	}
 
 

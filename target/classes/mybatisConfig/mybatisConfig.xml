@@ -19,5 +19,6 @@
 		<typeAlias type="co.kr.ezen_project.vo.SangMemVO" 		alias="SangMemVO"/>
 		<typeAlias type="co.kr.ezen_project.vo.SangpumVO" 		alias="SangpumVO"/>
 		<typeAlias type="co.kr.ezen_project.vo.VisitorVO" 		alias="VisitorVO"/>
+		<typeAlias type="co.kr.ezen_project.vo.SearchVO" 		alias="SearchVO"/>
 	</typeAliases> 
 </configuration>
