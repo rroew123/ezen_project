@@ -2,6 +2,7 @@ package co.kr.ezen_project.dao;
 
 import java.util.List;
 
+import co.kr.ezen_project.vo.Criteria;
 import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
@@ -62,5 +63,9 @@ public interface ConsumerDAO {
 	List<QnAboardVO> getQnA_Admin();
 
 	void udtQnA_Ans(QnAboardVO qvo1);
+	
+	List<QnAboardVO> getListPaging(Criteria cri);
+	
+	int getTotal();
 	
 }

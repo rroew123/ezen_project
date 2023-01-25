@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import co.kr.ezen_project.vo.Criteria;
 import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
@@ -66,5 +67,8 @@ public interface ConsumerService {
 	
 	void udtQnA_Ans(QnAboardVO qvo1);
 	
+	List<QnAboardVO> getListPaging(Criteria cri);
+	
+	int getTotal();
 
 }

@@ -66,7 +66,7 @@ public class MemberServiceImpl implements MemberService {
 		return dao.findId(email);
 	}
 	@Override
-	public String findPwd(MemberVO vo) {
+	public MemberVO findPwd(MemberVO vo) {
 			return dao.findPwd(vo);
 	}
 	@Override

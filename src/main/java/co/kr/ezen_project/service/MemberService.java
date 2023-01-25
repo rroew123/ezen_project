@@ -30,7 +30,7 @@ public interface MemberService {
 
 	MemberVO loginCheck(MemberVO vo6);
 
-	String findPwd(MemberVO vo);
+	MemberVO findPwd(MemberVO vo);
 
 	List<MemberVO> getMemAdmin(String memCate);
 	

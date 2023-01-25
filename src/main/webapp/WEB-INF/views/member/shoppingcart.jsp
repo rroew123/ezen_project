@@ -9,47 +9,16 @@
 <script src="https://kit.fontawesome.com/9af1085f00.js"
 	crossorigin="anonymous"></script>
 <style>
-header {
-	outline: 1px dotted red;
-	line-height: 70px;
-	height: 75px;
-	position: sticky;
-	top: 20px;
-	left: 30px;
-	background: linear-gradient(to bottom, #FFC6B8, #FFDBDD);
-	z-index: 1;
+
+.Cside {
+	position: fixed;
+	right: 1.5%;
+	top: 68%;
+	cursor: pointer;
+	font-size: 45px;
+	width: 90px;
 }
 
-.logo {
-	padding: 0.9px;
-	background: linear-gradient(to bottom, #FCE2FC, #FF82C3);
-	float: left;
-	margin-left: 100px;
-	border-radius: 40%;
-}
-
-.Search {
-	height: 38px;
-	width: 640px;
-	margin-left: 220px;
-	line-height: 65px;
-}
-
-.SearchInput {
-	width: 500px;
-	height: 30px;
-}
-
-.Searchri {
-	text-align: right;
-	margin-right: 200px;
-	line-height: 10px;
-}
-
-.Searchri a:hover {
-	color: #fff;
-	background: #67BDCF;
-}
 
 .top {
 	text-align: left;
@@ -147,20 +116,7 @@ header {
 </style>
 </head>
 <body>
-	<header>
-		<div class="logo">
-			<a href="http://localhost/">쇼핑몰 이름</a>
-		</div>
-		<div class="Search">
-			<input type="text" class="SearchInput" placeholder="검색 기능" />
-			<button>검색</button>
-		</div>
-		<div class="Searchri">
-			<a href="http://localhost/login">로그인</a> <a
-				href="http://localhost/memberjoin">회원가입</a> <a href="">고객센터</a> <a
-				href="">장바구니</a> <a href="">추천</a>
-		</div>
-	</header>
+	<%@ include file="member_top.jsp" %>
 	<div class="top">
 
 		<div class="wrap_inner ">
@@ -232,12 +188,10 @@ header {
 	</div>
 	<div class="Cside">
 		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
-		<a href="http://localhost/shoppingcart"><i
-			class="fa-sharp fa-solid fa-cart-shopping"></i></a> 
-			<a href="http://localhost/member/customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a> 
-			<i class="fa-regular fa-clock"></i>
-			<i class="fa-regular fa-circle-down"
-			value="Last" onclick="clickLast()"></i>
+		<a href="./shoppingcart"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
+		<a href="./customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
+		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
+		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
 	</div>
 
 	<script>

@@ -7,11 +7,24 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script src="https://kit.fontawesome.com/9af1085f00.js"
+	crossorigin="anonymous"></script>
+	<style>
+.Cside {
+	position: fixed;
+	right: 1.5%;
+	top: 68%;
+	cursor: pointer;
+	font-size: 45px;
+	width: 90px;
+}
+</style>
 <body>
+<%@ include file="member_top.jsp" %>
 		<a href="mypage_orderHis">주문내역</a>
 		<a href="mypage_board?myBoard=${userInfo.memId}">내 게시물보기</a>
-		<a href="/member/mypage_memUpdate">회원수정</a> 
-		<a href="/member/mypage_memDelete">회원탈퇴</a>
+		<a href="/member/mypage_memUpdate?memId=${userInfo.memId}">회원수정</a> 
+		<a href="/member/mypage_memDelete?memId=${userInfo.memId}">회원탈퇴</a>
 		<a href="/QnA/QnABoard">QnA</a>
 			
 			<table>
@@ -39,6 +52,13 @@
 		</tr>
 		</c:forEach>
 	</table>
+	<div class="Cside">
+		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
+		<a href="./shoppingcart"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
+		<a href="./customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
+		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
+		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
+	</div>
 			
 </body>
 </html>

@@ -32,7 +32,7 @@ public interface MemberDAO {
 
 	MemberVO loginCheck(MemberVO vo);
 
-	String findPwd(MemberVO vo);
+	MemberVO findPwd(MemberVO vo);
 
 	List<MemberVO> getMemAdmin(String memCate);
 	
