@@ -26,6 +26,8 @@ public interface ConsumerService {
 
 	List<FAQVO> getFAQAll();
 	
+	List<FAQVO> getFAQ_faqCate(int faqCate);
+	
 	
 
 	int delNtcAll();

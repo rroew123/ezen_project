@@ -169,5 +169,10 @@ public class ConsumerServiceImpl implements ConsumerService {
 		return dao.getTotal();
 	}
 
+	@Override
+	public List<FAQVO> getFAQ_faqCate(int faqCate) {
+		return dao.getFAQ_faqCate(faqCate);
+	}
+
 
 }

@@ -13,7 +13,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     $.ajax({
@@ -31,10 +30,29 @@
   });
 </script>
 
+<style type="text/css">
+	input[type="radio"] {
+        display: none;
+    }
+ 
+    input[type="radio"] + span {
+        display: inline-block;
+        padding: 15px 10px;
+        border: 1px solid #dfdfdf;
+        background-color: #ffffff;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    input[type="radio"]:checked + span {
+        background-color: black;
+        color: white;
+    }
+</style>
 </head>
 
 <body>
-	<%-- <jsp:include page="header.jsp"/> --%>
+	<%@ include file="./../home_top.jsp"%>
 	<div class="jumbotron">
 		<div class="">
 			<h1 class="">상품 정보</h1>
@@ -48,40 +66,64 @@
 				<p>가격 : ${SangpumInfo.price}</p>
 				<p>상품코드 : ${SangpumInfo.sangCode}</p>
 				<p>
-					<select>
 					<c:forEach var="vo" items="${SangColor}">
-						<a href="http://localhost/sangpum/sangpum?SangCode=abc1234&sangColor=${vo.sangColor}">${vo.sangColor}</a>&nbsp
-						
-						<option value="${SangColor}">${SangColor}</option>
+						<a href="http://localhost/sangpum/sangpum?SangCode=${SangpumInfo.sangCode}&sangColor=${vo.sangColor}">${vo.sangColor}</a>&nbsp	
 					</c:forEach>
-					</select>
 				</p>
 				<p>
 					<c:forEach var="vo" items="${SangSize}">
-						<span>${vo.sangSize}
+						<label>
+							<input type="radio" name="${vo.sangSize}" value="SangSize">
+							<span>${vo.sangSize}</span>
+						</label>
 					</c:forEach>
 				</p>
-				<p> </p>
-				<p> 개</p>	<!-- 갯수 -->
-				<h4>총  원</h4>	<!-- 총 가격 -->
-				<p> <a href="#" class="btn btn-info"> 상품 주문 &raquo;</a></p>
-					<a href="./products.jsp" class="btn btn-secondary">상품
-					 목록 &raquo;</a>
+				 <form action="">
+					<input type='button' onclick='count("plus")' value='+'/>
+					<span><span id='sangCnt'>1</span>개</span>
+					<input id="minus" type='button' onclick='count("minus")' value='-'/>
+					
+					<br />	<!-- 갯수 -->
+					<div>총 금액 <span id="cost">0</span>원</div>	<!-- 총 가격 -->
+					<a href="#" class="btn btn-info"> 장바구니 &raquo;</a><br />
+					<a href="./products.jsp" class="btn btn-secondary">결제 &raquo;</a>
+				</form>
 			</div>
 		</div>
 	</div>
-	<button id="ajaxButton" type="button">Make a request</button>
-
 
 <script>
-function(){
-	document.getElementById("ajaxButton").addEventListener('click', makeRequest);
-	 function makeRequest() {
-		 console.log("나오나 확인용")
-		 location.href="/sangpum/sangpum?SangCode=abc1234&SangColor=3";
-	 }
+
+
+function count(type)  {
+	// 결과를 표시할 element
+	const resultElement = document.getElementById('sangCnt');
+	
+	// 현재 화면에 표시된 값
+	let number = resultElement.innerText;
+	
+	// 더하기/빼기
+	if(type === 'plus') {
+	  number = parseInt(number) + 1;
+	}else if(type === 'minus')  {
+	  number = parseInt(number) - 1;
+	  
+	  if(parseInt(number) === 0 ){
+		  document.getElementById('minus').hide();
+		}
+	}
+	
+	
+	// 결과 출력
+	resultElement.innerText = number;
+	cost(number);
 }
-/* 
+
+function cost(number){
+	const resultElement = document.getElementById('cost');
+	resultElement.innerText = number * ${SangpumInfo.price}
+}
+/*  
 	(function() {
 	  var httpRequest;
 	  document.getElementById("ajaxButton").addEventListener('click', makeRequest);

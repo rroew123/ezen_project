@@ -37,11 +37,6 @@ public class SangpumController {
 		model.addAttribute("SangpumInfo", sangpumService.getSang(SangCode));
 		model.addAttribute("SangColor", sangpumService.getColor(SangCode));
 		model.addAttribute("SangSize", sangpumService.getSize(scsvo));
-		System.out.println(SangCode);
-		System.out.println(sangpumService.getSang(SangCode));
-		System.out.println(sangpumService.getColor(SangCode));
-		System.out.println(scsvo);
-		System.out.println(sangpumService.getSize(scsvo));
 	}
 	@RequestMapping("/sangpum_Info")
 	public void sangpum_Info() {	//상품 상세정보

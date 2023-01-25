@@ -33,6 +33,10 @@
 		select * from faq
 	</select>
 	
+	<select id="getFAQ_faqCate" resultType="FAQVO" parameterType="integer">	
+		select * from faq where FAQCAT = #{faqCate}
+	</select>
+	
 	
 	
 	<delete id="delNtcAll">

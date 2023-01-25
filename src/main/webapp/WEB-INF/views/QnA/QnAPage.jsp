@@ -53,9 +53,12 @@
 		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
 		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
 	</div>
+	
+	<c:if test="${userInfo.memId eq qnavo.memId}">
+		<a href="/QnA/QnA_deleteProc?qnaNum=${qnavo.qnaNum}">삭제</a>
+		<a href="/QnA/QnA_Update">수정</a>
+	</c:if>
 
-	<a href="/QnA/QnA_deleteProc?qnaNum=${qnavo.qnaNum}">삭제</a>
-	<a href="/QnA/QnA_Update">수정</a>
 	<a href="/QnA/QnABoard">목록보기</a>
 
 

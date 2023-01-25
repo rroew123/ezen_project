@@ -81,11 +81,11 @@ li {
 		<ul>
 			<span class="btnLeft"> <i class="fa-solid fa-arrow-left"></i>
 			</span>
-			<img src="image/1.png" alt="" />
-			<img src="image/2.png" alt="" />
-			<img src="image/3.png" alt="" />
-			<img src="image/4.png" alt="" />
-			<img src="image/5.png" alt="" />
+			<img src="/resources/img/1.png" alt="" />
+			<img src="/resources/img/2.png" alt="" />
+			<img src="/resources/img/3.png" alt="" />
+			<img src="/resources/img/4.png" alt="" />
+			<img src="/resources/img/5.png" alt="" />
 			<span class="btnRight"> <i class="fa-solid fa-arrow-right"></i>
 			</span>
 		</ul>
@@ -124,7 +124,7 @@ li {
 
 	</div>
 	<div class="Footer">
-		<img src="image/footer.png" alt="" />
+		<img src="/resources/img/footer.png" alt="" />
 		<p>푸터입니다</p>
 	</div>
 	<script>

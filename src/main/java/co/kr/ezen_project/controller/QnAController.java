@@ -36,9 +36,7 @@ public class QnAController {
 	@RequestMapping(value = "/WriteProc", method = RequestMethod.POST)
 	public String writeProc(QnAboardVO qvo1, HttpSession session) {
 		consumerService.addQnA(qvo1);
-		System.out.println("=================");
 		session.setAttribute("boardInfo", qvo1);
-		System.out.println("==================second");
 		return "/QnA/QnA_Write";
 	}
 
@@ -57,7 +55,7 @@ public class QnAController {
 	}
 	@RequestMapping("/QnABoard")
 	public void QnABoard(Model model , Criteria cri) {
-		System.out.println(consumerService.getQnAAll());
+		
 		model.addAttribute("list", consumerService.getQnAAll());
 		model.addAttribute("list", consumerService.getListPaging(cri));
 		int total = consumerService.getTotal();

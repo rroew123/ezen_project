@@ -67,5 +67,7 @@ public interface ConsumerDAO {
 	List<QnAboardVO> getListPaging(Criteria cri);
 	
 	int getTotal();
+
+	List<FAQVO> getFAQ_faqCate(int faqCate);
 	
 }

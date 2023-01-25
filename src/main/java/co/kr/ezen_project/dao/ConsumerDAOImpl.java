@@ -163,6 +163,11 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	public int getTotal() {
 		return session.selectOne("co.kr.ezen_project.dao.ConsumerDAO.getTotal");
 	}
+
+	@Override
+	public List<FAQVO> getFAQ_faqCate(int faqCate) {
+		return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getFAQ_faqCate", faqCate);
+	}
 	
 	
 }
