@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.kr.ezen_project.dao.ConsumerDAO;
+import co.kr.ezen_project.vo.Criteria;
 import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
@@ -18,6 +19,7 @@ public class ConsumerServiceImpl implements ConsumerService {
 	
 	@Autowired
 	ConsumerDAO dao;
+	
 	
 	@Override
 	public int delFAQAll() {
@@ -154,6 +156,17 @@ public class ConsumerServiceImpl implements ConsumerService {
 	@Override
 	public void udtQnA_Ans(QnAboardVO qvo1) {
 		dao.udtQnA_Ans(qvo1);
+	}
+
+	@Override
+	public List<QnAboardVO> getListPaging(Criteria cri) {
+		return dao.getListPaging(cri);
+	}
+	
+	@Override
+	public int getTotal() {
+		
+		return dao.getTotal();
 	}
 
 

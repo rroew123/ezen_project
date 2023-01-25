@@ -16,47 +16,7 @@
 }
 
 /* ==================container ======================= */
-header {
-	outline: 1px dotted red;
-	line-height: 70px;
-	height: 100px;
-	position: sticky;
-	top: 10px;
-	left: 30px;
-	background: linear-gradient(to bottom, #FFC6B8, #FFDBDD);
-	z-index: 1;
-}
 
-.logo {
-	padding: 0.9px;
-	background: linear-gradient(to bottom, #FCE2FC, #FF82C3);
-	float: left;
-	margin-left: 100px;
-	border-radius: 40%;
-}
-
-.Search {
-	height: 38px;
-	width: 640px;
-	margin-left: 220px;
-	line-height: 65px;
-}
-
-.SearchInput {
-	width: 500px;
-	height: 30px;
-}
-
-.Searchri {
-	text-align: right;
-	margin-right: 200px;
-	line-height: 10px;
-}
-
-.Searchri a:hover {
-	color: #fff;
-	background: #67BDCF;
-}
 /* ==================== header ========================= */
 .side {
 	float: left;
@@ -84,9 +44,9 @@ header {
 .Cside {
 	position: fixed;
 	right: 1.5%;
-	top: 70%;
+	top: 65%;
 	cursor: pointer;
-	font-size: 50px;
+	font-size: 45px; 
 	width: 100px;
 }
 
@@ -131,29 +91,9 @@ table {
 </style>
 
 <body>
+<%@ include file="member_top.jsp" %>
 	<div class="container">
-		<header>
-			<div class="logo">
-				<a href="">쇼핑몰 이름</a>
-			</div>
-			<div class="Search">
-				<input type="text" class="SearchInput" placeholder="검색 기능" />
-				<button>검색</button>
-			</div>
-			<div class="Searchri">
-				<a href="http://localhost/login">로그인</a> <a
-					href="http://localhost/memberjoin">회원가입</a> <a
-					href="http://localhost/member/customer">고객센터</a> <a
-					href="http://localhost/shoppingcart">장바구니</a> <a href="">추천</a>
-			</div>
-			<div class="scrollBtn">
-				<input type="button" value="자주하는 질문" class="scrollTo"
-					data-direction="top"> <input type="button"
-					value="취소/반품/교환/AS" class="scrollTo" data-direction="as"> <input
-					type="button" value="QnA" data-direction="answer"> <input
-					type="button" value="공지사항" class="scrollTo" data-direction="last">
-			</div>
-		</header>
+		
 		<div class="contents">
 			<div class="FAQ">
 				<h1>자주하는 질문</h1>
@@ -185,10 +125,12 @@ table {
 				<button class="btn">취소/반품 후 환불은 언제 받을 수 있나요?</button>
 			</div>
 			<div class="Cside">
-				<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
-				<i class="fa-regular fa-circle-down" value="Last"
-					onclick="clickLast()"></i>
-			</div>
+		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
+		<a href="/member/shoppingcart"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
+		<a href="/member/customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
+		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
+		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
+	</div>
 			
 			<div class="Cnotice">
 				<h1>공지사항</h1>

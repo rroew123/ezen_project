@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import co.kr.ezen_project.service.ConsumerService;
+import co.kr.ezen_project.vo.Criteria;
+import co.kr.ezen_project.vo.PageMakeVO;
 import co.kr.ezen_project.vo.QnAboardVO;
 
 @Controller
@@ -54,9 +56,13 @@ public class QnAController {
 	
 	}
 	@RequestMapping("/QnABoard")
-	public void QnABoard(Model model) {
+	public void QnABoard(Model model , Criteria cri) {
 		System.out.println(consumerService.getQnAAll());
 		model.addAttribute("list", consumerService.getQnAAll());
+		model.addAttribute("list", consumerService.getListPaging(cri));
+		int total = consumerService.getTotal();
+		PageMakeVO pageMake = new PageMakeVO(cri, total);
+		model.addAttribute("pageMaker", pageMake);
 	}
 	
 	@RequestMapping(value = "/QnAPage", method = RequestMethod.GET)

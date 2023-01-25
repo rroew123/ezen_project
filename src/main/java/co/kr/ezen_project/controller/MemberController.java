@@ -28,7 +28,7 @@ public class MemberController {
 	@Autowired
 	ConsumerService conService;
 
-	@RequestMapping({ "/customer", "/mypage_memDelete", "mypage_memUpdate", "mypage_recentlyView", "mypage_orderHis",
+	@RequestMapping({ "/customer", "mypage_memUpdate","mypage_memDelete", "mypage_recentlyView", "mypage_orderHis",
 			"mypage_wishlist" })
 	public void webmovepost() { // findId, findPw, memberJoin 페이지가 오류 => 원인 불명
 	}
@@ -77,64 +77,79 @@ public class MemberController {
 		System.out.println(email);
 		String searchmemId = MemService.findId(email);
 		System.out.println(searchmemId);
-		model.addAttribute("userInfo", searchmemId);
+		model.addAttribute("findId", searchmemId);
 		System.out.println("작동확인");
 		return "/member/findID";
 	}
 
+	/*
+	 * @RequestMapping(value = "/findPWProc", method = RequestMethod.POST) public
+	 * String PWFind(@RequestParam(required = true, value = "memId") String memId,
+	 * 
+	 * @RequestParam(required = true, value = "email") String email, MemberVO vo,
+	 * Model model) {
+	 * 
+	 * vo.setMemName(memId); vo.setEmail(email); String memPwd =
+	 * MemService.findPwd(vo); System.out.println(memPwd);
+	 * model.addAttribute("member", memPwd);
+	 * 
+	 * return "/member/findPW"; }
+	 */
+
 	@RequestMapping(value = "/findPWProc", method = RequestMethod.POST)
-	public String idFind(@RequestParam(required = true, value = "memId") String memId,
-			@RequestParam(required = true, value = "email") String email, MemberVO member, Model model) {
-
-		member.setMemName(memId);
-		member.setEmail(email);
-		String memPwd = MemService.findPwd(member);
-		System.out.println(memPwd);
+	public String findPwd(MemberVO vo , Model model) {
+		MemberVO memPwd = MemService.findPwd(vo);
+		vo.setMemId("memId");
+		vo.setEmail("email");
+		vo.setMemName("memName");
+		vo.setPhone("phone");
+		System.out.println(MemService.findPwd(vo));
 		model.addAttribute("member", memPwd);
-
+		System.out.println(model.addAttribute("member", memPwd));
+		
+		
 		return "/member/findPW";
 	}
-
-	@RequestMapping(value = "/myPage_deleteProc", method = RequestMethod.GET)
-	public String myPage_deleteProc(String memId) {
+	
+	@RequestMapping(value = "/myPage_deleteProc" , method = RequestMethod.GET)
+	public String delete(String memId, HttpSession session) {
+		System.out.println(memId);
+		session.invalidate();
 		MemService.delMem(memId);
-		System.out.println("==============");
-
+		
 		return "redirect:/";
 	}
+	
 
-	@RequestMapping(value = "/myPage_UpdateProc", method = RequestMethod.POST)
-	public String myPage_UpdateProc(MemberVO vo, HttpSession session) {
+	@RequestMapping(value = "/mypage_UpdateProc", method = RequestMethod.POST)
+		public String myPage_UpdateProc(MemberVO vo, HttpSession session) {
+		System.out.println(vo);
 		MemService.udtMem(vo);
-		System.out.println("=1=1=1==1=1==1=1");
-		session.setAttribute("MyUpdate", vo);
-		System.out.println("==============");
-		return "/member/mypage";
+		System.out.println(MemService.udtMem(vo));
+		return "/member/mypage_memUpdate"; 
 	}
 	
-/*	@RequestMapping("/mypage")
-	public void mypage(HttpSession session, Model model) {
-		System.out.println("=============first");
-		System.out.println((MemberVO)session.getAttribute("userInfo"));
-		MemberVO vo = (MemberVO)session.getAttribute("userInfo");
-		System.out.println(sangService.getSM_Mem(vo));
-		System.out.println(sangService.getSM_MemId(vo.getMemId()));
-		model.addAttribute("His", sangService.getSM_MemId(vo.getMemId()));
-	}
-	*/
+
 	
 	@RequestMapping("/mypage")
 	public void mypage(HttpSession session,Model model) {
 		MemberVO vo = (MemberVO) session.getAttribute("userInfo");
-	System.out.println(session.getAttribute("userInfo"));
-	System.out.println(vo);
-	System.out.println(vo.getMemId());
+		
+		System.out.println((MemberVO) session.getAttribute("userInfo"));
+		/*
+		 * System.out.println(session.getAttribute("userInfo")); System.out.println(vo);
+		 * System.out.println(vo.getMemId());
+		 */
 	String memid = vo.getMemId();
-	System.out.println(memid);
-	System.out.println(sangService.getSM_MemId(memid));
+	/*
+	 * System.out.println(memid);
+	 * System.out.println(sangService.getSM_MemId(memid));
+	 */
 	model.addAttribute("His", sangService.getSM_MemId(memid));
 	
-	}
+	System.out.println(model.addAttribute("His", sangService.getSM_MemId(memid)));
+	
+	} 
 	
 @RequestMapping("/mypage_board")
 	public void mypage_board(HttpSession session, Model model) {

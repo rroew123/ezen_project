@@ -14,53 +14,12 @@
 <style>
 * {
 	text-align: center;
+	background: 
 }
 
-header {
-	outline: 1px dotted red;
-	line-height: 70px;
-	height: 75px;
-	position: sticky;
-	top: 10px;
-	left: 30px;
-	background: linear-gradient(to bottom, #FFC6B8, #FFDBDD);
-	z-index: 3;
-}
-
-.logo {
-	padding: 0.9px;
-	background: linear-gradient(to bottom, #FCE2FC, #FF82C3);
-	float: left;
-	margin-left: 100px;
-	border-radius: 40%;
-}
-
-.Search {
-	height: 38px;
-	width: 640px;
-	margin-left: 220px;
-	line-height: 65px;
-}
-
-.SearchInput {
-	width: 500px;
-	height: 30px;
-}
-
-.Searchri {
-	text-align: right;
-	margin-left: 500px;
-	line-height: 10px;
-}
-
-.Searchri a:hover {
-	color: #fff;
-	background: #67BDCF;
-}
 
 ========================
 nav {
-	border: 2px solid blue;
 	height: 110px;
 }
 
@@ -69,37 +28,44 @@ ul {
 	padding-left: 0px;
 }
 
+a{
+	text-decoration-line : none; 
+}
+
 #menu {
 	height: 100px;
-	background: white;
-	outline: 1px dotted red;
+	background: #fde2e7;
 	z-index: 2;
+	padding : 0px;
+	font-size: 20px;
 }
 
 .main1 {
 	width: 700px;
 	height: 300px;;
 	margin: 0 auto;
+	
 }
 
 .main1>li {
 	float: left;
-	width: 25%;
+	width : 100px;
 	line-height: 50px;
 	text-align: center;
 	position: relative;
+	
 }
 
 .main1>li:hover .main2 {
 	left: 0;
+	background: #fde2e7;
 }
 
 .main1>li a {
 	display: block;
 }
-
 .main1>li a:hover {
-	background: #B21016;
+	background: #f9c6cf;
 	color: #fff;
 	font-weight: bold;
 }
@@ -108,8 +74,8 @@ ul {
 	position: absolute;
 	top: 50px;
 	left: -9999px;
-	background: #ccc;
-	width: 120%;
+	background: #f9c6cf;
+	width: 200px;
 	z-index: 2;
 }
 
@@ -120,6 +86,7 @@ ul {
 
 .main2>li:hover .main3 {
 	left: 100%;
+	
 }
 
 .main2>li a, .main3>li a {
@@ -130,32 +97,30 @@ ul {
 .main3 {
 	position: absolute;
 	top: 0;
-	background: #6BD089;
-	width: 80%;
+	background: #fde2e7;
+	width: 200px;
 	left: -9999px;
 }
 
 .main3>li a:hover {
-	background: #085820;
+	background: #f9c6cf;
 	color: #fff;
 }
 
 =================================
 .Content {
 	outline: 2px dotted green;
-	height: 300px;
-	line-height: 300px;
+	
 }
 
 .slides {
 	padding: 0;
-	width: 609px;
 	height: 420px;
 	display: block;
 	margin: 0 auto;
 	position: relative;
 }
-
+/* 
 .slides * {
 	user-select: none;
 	-ms-user-select: none;
@@ -164,34 +129,32 @@ ul {
 	-webkit-user-select: none;
 	-webkit-touch-callout: none;
 }
+ */
+	.slides input {
+		display: none;
+	}
 
-.slides input {
-	display: none;
-}
-
-.slide-container {
+/* .slide-container {
 	display: block;
-}
+} */
 
 .slide {
 	top: 0;
 	opacity: 0;
-	width: 609px;
-	height: 420px;
 	display: block;
 	position: absolute;
 	transform: scale(0);
 	transition: all .7s ease-in-out;
 }
 
-.slide img {
+/* .slide img {
 	width: 100%;
 	height: 100%;
-}
+} */
 
 .nav label {
-	width: 200px;
-	height: 100%;
+	
+	width : 200px;
 	display: none;
 	position: absolute;
 	opacity: 0;
@@ -207,10 +170,10 @@ ul {
 	text-shadow: 0px 0px 15px rgb(119, 119, 119);
 }
 
-.slide:hover+.nav label {
+/* .slide:hover+.nav label {
 	opacity: 0.5;
 }
-
+ */
 .nav label:hover {
 	opacity: 1;
 }
@@ -219,11 +182,11 @@ ul {
 	right: 0;
 }
 
-input:checked+.slide-container  .slide {
+ input:checked+.slide-container  .slide {
 	opacity: 1;
 	transform: scale(1);
 	transition: opacity 1s ease-in-out;
-}
+} 
 
 input:checked+.slide-container .nav label {
 	display: block;
@@ -243,7 +206,6 @@ input:checked+.slide-container .nav label {
 	width: 11px;
 	height: 11px;
 	margin: 0 4px;
-	position: relative;
 	border-radius: 100%;
 	display: inline-block;
 	background-color: rgba(0, 0, 0, 0.6);
@@ -254,13 +216,13 @@ input:checked+.slide-container .nav label {
 	background-color: rgba(0, 0, 0, 0.8);
 }
 
-input#img-1:checked ~ .nav-dots label#img-dot-1, input#img-2:checked ~
+/* input#img-1:checked ~ .nav-dots label#img-dot-1, input#img-2:checked ~
 	.nav-dots label#img-dot-2, input#img-3:checked ~ .nav-dots label#img-dot-3,
 	input#img-4:checked ~ .nav-dots label#img-dot-4, input#img-5:checked ~
 	.nav-dots label#img-dot-5, input#img-6:checked ~ .nav-dots label#img-dot-6
 	{
 	background: rgba(0, 0, 0, 0.8);
-}
+} */
 
 .Cside {
 	position: fixed;
@@ -304,42 +266,7 @@ footer {
 </head>
 <body>
 
-	<header>
-		<div class="logo">
-			<a href="/">쇼핑몰 이름</a>
-		</div>
-		<div class="Search">
-			<input type="text" class="SearchInput" placeholder="검색 기능" />
-			<button>검색</button>
-		</div>
-		<div class="Searchri">
-
-
-			<c:if test="${userInfo != null}">
-
-				<li><a href="/member/customer">고객센터</a></li>
-				<li><a href="/member/mypage_wishlist">관심상품</a></li>
-				<li><a href="/member/mypage">마이페이지</a></li>
-				<li><a href="/member/logout.do">로그아웃</a></li>
-				<li><a href="/QnA/QnABoard">QnA</a></li>
-
-				<br />
-
-				<span>${userInfo.memName} 님 환영합니다.<br />
-
-				</span>
-
-			</c:if>
-			<c:if test="${userInfo== null}">
-				<li><a href="/member/customer">고객센터</a></li>
-				<li><a href="/member/login">로그인</a></li>
-				<li><a href="/member/memberjoin">회원가입</a></li>
-				<li><a href="/member/shoppingcart">장바구니</a></li>
-
-			</c:if>
-		</div>
-
-	</header>
+	<%@ include file="home_top.jsp" %>
 
 	<div id="menu">
 
@@ -428,7 +355,7 @@ footer {
 			<li class="slide-container">
 				<div class="slide">
 					<img
-						src="http://farm9.staticflickr.com/8072/8346734966_f9cd7d0941_z.jpg" />
+						src="./resources/img/img1.jpg" style="height : 430px; width : 2010px;"/>
 				</div>
 				<div class="nav">
 					<label for="img-6" class="prev">&#x2039;</label> <label for="img-2"
@@ -440,7 +367,7 @@ footer {
 			<li class="slide-container">
 				<div class="slide">
 					<img
-						src="http://farm9.staticflickr.com/8504/8365873811_d32571df3d_z.jpg" />
+						src="./resources/img/img2.jpg" style="height : 430px; width : 2010px;"/>
 				</div>
 				<div class="nav">
 					<label for="img-1" class="prev">&#x2039;</label> <label for="img-3"
@@ -452,7 +379,7 @@ footer {
 			<li class="slide-container">
 				<div class="slide">
 					<img
-						src="http://farm9.staticflickr.com/8068/8250438572_d1a5917072_z.jpg" />
+						src="./resources/img/img3.jpg" style="height : 430px; width : 2010px;"/>
 				</div>
 				<div class="nav">
 					<label for="img-2" class="prev">&#x2039;</label> <label for="img-4"
@@ -464,7 +391,7 @@ footer {
 			<li class="slide-container">
 				<div class="slide">
 					<img
-						src="http://farm9.staticflickr.com/8061/8237246833_54d8fa37f0_z.jpg" />
+						src="./resources/img/img4.jpg" style="height : 430px; width : 2010px;"/>
 				</div>
 				<div class="nav">
 					<label for="img-3" class="prev">&#x2039;</label> <label for="img-5"
@@ -476,7 +403,7 @@ footer {
 			<li class="slide-container">
 				<div class="slide">
 					<img
-						src="http://farm9.staticflickr.com/8055/8098750623_66292a35c0_z.jpg" />
+						src="./resources/img/img5.jpg" style="height : 430px; width : 2010px;"/>
 				</div>
 				<div class="nav">
 					<label for="img-4" class="prev">&#x2039;</label> <label for="img-6"
@@ -488,7 +415,7 @@ footer {
 			<li class="slide-container">
 				<div class="slide">
 					<img
-						src="http://farm9.staticflickr.com/8195/8098750703_797e102da2_z.jpg" />
+						src="./resources/img/img6.jpg" style="height : 430px; width : 2010px;"/>
 				</div>
 				<div class="nav">
 					<label for="img-5" class="prev">&#x2039;</label> <label for="img-1"
@@ -533,13 +460,12 @@ footer {
 
 	<div class="Cside">
 		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
-		<a href="./member/shoppingcart"><i
-			class="fa-sharp fa-solid fa-cart-shopping"></i></a> <a
-			href="./member/customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
-		<i class="fa-regular fa-clock"></i> <i
-			class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
+		<a href="./member/shoppingcart"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
+		<a href="./member/customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
+		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
+		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
 	</div>
-	<footer> Footer 영역 </footer>
+	<footer> <%@ include file="home_footer.jsp" %> </footer>
 
 	<script>
 		function clickTop() {

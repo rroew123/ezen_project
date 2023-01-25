@@ -8,9 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+ <form method="get" action="/myPage_deleteProc">
  <p>진짜 삭제하시겠습니까?</p>
  <p>다신 되돌릴수 없습니다</p>
+ <a href="/member/myPage_deleteProc?memId=${userInfo.memId}">삭제</a>
+ </form>
 
- <a href="/member/myPage_deleteProc?del=${memvo.memId}">삭제</a>
 </body>
 </html>

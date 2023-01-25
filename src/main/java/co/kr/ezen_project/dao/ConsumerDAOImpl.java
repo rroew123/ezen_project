@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import co.kr.ezen_project.vo.Criteria;
 import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
@@ -151,6 +152,16 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	public void udtQnA_Ans(QnAboardVO qvo1) {
 		session.update("co.kr.ezen_project.dao.ConsumerDAO.udtQnA_Ans", qvo1);
 		
+	}
+
+	@Override
+	public List<QnAboardVO> getListPaging(Criteria cri) {
+		return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getListPaging", cri);
+	}
+
+	@Override
+	public int getTotal() {
+		return session.selectOne("co.kr.ezen_project.dao.ConsumerDAO.getTotal");
 	}
 	
 	

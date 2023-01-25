@@ -80,7 +80,7 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public String findPwd(MemberVO vo) {
+	public MemberVO findPwd(MemberVO vo) {
 		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.findPwd", vo);
 	}
 	
