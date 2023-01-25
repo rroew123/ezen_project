@@ -50,7 +50,7 @@
 			<div class="pageInfo_area">
 				<ul id="pageInfo" class="pageInfo">
 					<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-						<li class="pageInfo_btn"><a href="/QnA/QnAboard?pageNum=${num}">${num}</a></li>
+						<li class="pageInfo_btn"><a href="/QnA/QnABoard?pageNum=${num}">${num}</a></li>
 					</c:forEach>
 				</ul>
 			</div>
@@ -59,13 +59,13 @@
 		<input type="hidden" name="amount" value="${pageMaker.cri.amount}"/>
 		 <!-- 이전페이지 버튼 -->
                 <c:if test="${pageMaker.prev}">
-                    <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}">Previous</a></li>
+                    <li class="pageInfo_btn previous"><a href="/QnA/QnABoard?pageNum=${pageMaker.startPage-1}">Previous</a></li>
                 </c:if>
                 
                 
                 <!-- 다음페이지 버튼 -->
                 <c:if test="${pageMaker.next}">
-                    <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
+                    <li class="pageInfo_btn next"><a href="/QnA/QnABoard?pageNum=${pageMaker.endPage + 1 }">Next</a></li>
                 </c:if>   
 			<div class="Cside">
 		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
@@ -79,7 +79,7 @@
 	</div>
 	
 	<script>
-
+ 
     
 	$(".pageInfo a").on("click", function(e){
 		 e.preventDefault();

@@ -56,7 +56,7 @@
 		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
 		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
 	</div>
-		<!-- <div class="tabcnt_find tabcnt_find2">
+	<!-- 	<div class="tabcnt_find tabcnt_find2">
 			<fieldset>
 				<legend class="hidden">비밀번호 변경</legend>
 				<div class="fld">
