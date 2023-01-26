@@ -63,12 +63,12 @@
 
 	
 	<select id="getColor" resultType="SangCodeSpecVO">
-		select * from SangCodeSpec where sangCode = #{sangCode}
+		select DISTINCT sangCode, sangColor from SangCodeSpec where sangCode = #{sangCode}
 	</select>
 	
-	<select id="getSize" resultType="SangCodeSpecVO">
-		select * from SangCodeSpec where sangCode = #{sangCode} 
-				<if test="sangColor != null"> and sangColor = #{sangColor}</if>
+	<select id="getSize" resultType="SangCodeSpecVO" parameterType="SangCodeSpecVO">
+		select DISTINCT * from SangCodeSpec where sangCode = #{sangCode}
+		<if test="sangColor != 0"> and sangColor = #{sangColor}</if>
 	</select>
 	
 	<select id="getSangRat" resultType="SangpumVO">

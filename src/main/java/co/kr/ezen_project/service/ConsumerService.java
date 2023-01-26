@@ -9,6 +9,7 @@ import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
+import co.kr.ezen_project.vo.VisitorVO;
 
 public interface ConsumerService {
 
@@ -72,5 +73,7 @@ public interface ConsumerService {
 	List<QnAboardVO> getListPaging(Criteria cri);
 	
 	int getTotal();
+	
+	List<VisitorVO> getVisitor();
 
 }

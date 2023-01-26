@@ -7,6 +7,7 @@ import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
+import co.kr.ezen_project.vo.VisitorVO;
 
 public interface ConsumerDAO {
 
@@ -69,5 +70,7 @@ public interface ConsumerDAO {
 	int getTotal();
 
 	List<FAQVO> getFAQ_faqCate(int faqCate);
+	
+	List<VisitorVO> getVisitor();
 	
 }

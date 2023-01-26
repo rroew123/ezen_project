@@ -125,20 +125,22 @@
 	</select>
 	 -->
 	<update id="increaseViewCnt" parameterType="integer">
-      update ntcBoard set viewCnt = viewCnt + 1 where ntcNum=#{ntcNum}
-   </update>
+      	update ntcBoard set viewCnt = viewCnt + 1 where ntcNum=#{ntcNum}
+  	</update>
    
    <select id="getListPaging" resultType="QnAboardVO">
-   <![CDATA[
-     select qnaNum, memId, qnaCat, brdTitle, brdCntxt from(select rownum as rn , qnaNum, memId, qnaCat, brdTitle, brdCntxt
-     from QNABOARD where rownum <= #{pageNum} * #{amount})
-     where rn > (#{pageNum} -1) * #{amount}
-     ]]> 
+	   <![CDATA[
+		     select qnaNum, memId, qnaCat, brdTitle, brdCntxt from(select rownum as rn , qnaNum, memId, qnaCat, brdTitle, brdCntxt
+		     from QNABOARD where rownum <= #{pageNum} * #{amount})
+		     where rn > (#{pageNum} -1) * #{amount}
+	     ]]> 
    </select>
    
    <select id="getTotal" resultType="int">
    	select count(*) from QNABOARD
    </select>
 	
-	
+	<select id="getVisitor" resultType="VisitorVO">
+   		select * from visitor
+	</select>	
 </mapper>

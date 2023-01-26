@@ -11,6 +11,7 @@ import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
+import co.kr.ezen_project.vo.VisitorVO;
 
 @Repository
 public class ConsumerDAOImpl implements ConsumerDAO {
@@ -169,5 +170,8 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 		return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getFAQ_faqCate", faqCate);
 	}
 	
-	
+	@Override
+	   public List<VisitorVO> getVisitor() {
+	      return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getVisitor");
+	   }
 }

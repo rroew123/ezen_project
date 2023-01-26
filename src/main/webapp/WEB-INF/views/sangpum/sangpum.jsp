@@ -13,95 +13,116 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $.ajax({
-      type: "GET",
-      url: "http://localhost/sangpum/sangpum?SangCode=abc1234&sangColor=3",
-      dataType: "text",
-      contentType : "application/x-www-form-urlencoded;charset=UTF-8"
-      error: function() {
-        console.log('통신실패!!');
-      },
-      success: function(data) {
-        console.log("통신데이터 값 : " + data);
-      }
-    });
-  });
-</script>
 
 <style type="text/css">
-	input[type="radio"] {
-        display: none;
-    }
- 
-    input[type="radio"] + span {
-        display: inline-block;
-        padding: 15px 10px;
-        border: 1px solid #dfdfdf;
-        background-color: #ffffff;
-        text-align: center;
-        cursor: pointer;
-    }
-    
-    input[type="radio"]:checked + span {
-        background-color: black;
-        color: white;
-    }
+*{
+	padding : 0px;
+	margin : 0px;
+	
+}
+
+#container{
+	width : 80%;
+	margin : 0 auto;
+}
+#leftbox{
+	display: inline-block;
+	width : 100px;
+	border : 1px solid black;
+}
+#centerbox{
+	display: inline-block;
+	width : 450px;
+	border : 1px solid black;
+}
+#rightbox{
+	display: inline-block;
+	width : 200px;
+	border : 1px solid black;
+}
+
+input[type="radio"] {
+       display: none;
+   }
+
+   input[type="radio"] + span {
+       display: inline-block;
+       padding: 15px 10px;
+       border: 1px solid #dfdfdf;
+       background-color: #ffffff;
+       text-align: center;
+       cursor: pointer;
+   }
+   
+   input[type="radio"]:checked + span {
+       background-color: black;
+       color: white;
+   }
 </style>
 </head>
 
 <body>
-	<%@ include file="./../home_top.jsp"%>
-	<div class="jumbotron">
-		<div class="">
-			<h1 class="">상품 정보</h1>
-		</div>
-	</div>
-	
-	<div class="container">
-		<div class="">
-			<div class="">
-				<h3>${SangpumInfo.sangName}</h3>
-				<p>가격 : ${SangpumInfo.price}</p>
-				<p>상품코드 : ${SangpumInfo.sangCode}</p>
-				<p>
-					<c:forEach var="vo" items="${SangColor}">
-						<a href="http://localhost/sangpum/sangpum?SangCode=${SangpumInfo.sangCode}&sangColor=${vo.sangColor}">${vo.sangColor}</a>&nbsp	
-					</c:forEach>
-				</p>
-				<p>
-					<c:forEach var="vo" items="${SangSize}">
-						<label>
-							<input type="radio" name="${vo.sangSize}" value="SangSize">
-							<span>${vo.sangSize}</span>
-						</label>
-					</c:forEach>
-				</p>
-				 <form action="">
-					<input type='button' onclick='count("plus")' value='+'/>
-					<span><span id='sangCnt'>1</span>개</span>
-					<input id="minus" type='button' onclick='count("minus")' value='-'/>
-					
-					<br />	<!-- 갯수 -->
-					<div>총 금액 <span id="cost">0</span>원</div>	<!-- 총 가격 -->
-					<a href="#" class="btn btn-info"> 장바구니 &raquo;</a><br />
-					<a href="./products.jsp" class="btn btn-secondary">결제 &raquo;</a>
-				</form>
+	<header><%@ include file="./../home_top.jsp"%></header>
+	<div id="container">
+		<div id="contents">
+			<div id="leftbox">
+				<p>asdasd</p>
+			</div>
+			<div id="centerbox">
+				<img src="https://dummyimage.com/450x600/000/fff" alt="상품이미지" />
+			</div>
+			<div id="rightbox">
+			
+				<div class="jumbotron">
+					<div class="">
+						<h1 class="">상품 정보</h1>
+					</div>
+				</div>
+				
+				<div class="container">
+					<div class="">
+						<div class="">
+							<h3>${sangpumInfo.sangName}</h3>
+							<p>가격 : ${sangpumInfo.price}</p>
+							<p>상품코드 : ${sangpumInfo.sangCode}</p>
+							<p>
+								<c:forEach var="vo" items="${sangColor}">	
+										<a href="/sangpum/sangpum?sangCode=${sangpumInfo.sangCode}&sangColor=${vo.sangColor}">${vo.sangColor}</a>&nbsp
+								</c:forEach>
+							</p>
+							<p>
+								<c:forEach var="vo" items="${sangSize}">
+									<label>
+										<input type="radio" name="sangSize" id="sangSize" value="sangSize">
+										<span>${vo.sangSize}</span>
+									</label>
+								</c:forEach>
+							</p>
+							 <form name="sang">
+								<input type='button' onclick='count("plus")' value='+'/>
+								<span><span id='sangCnt'>1</span>개</span>
+								<input type='button' onclick='count("minus")' value='-'/>
+								<input type="hidden" id="sangSize" value="${sangSize}">
+								<input type="hidden" id="sangColor" value="${sangColor}">
+								<input type="hidden" id="sangCode" value="${sangCode}">
+								<br />	<!-- 갯수 -->
+								<div>총 금액 <span id="cost">0</span>원</div>	<!-- 총 가격 -->
+								<input type="button" value="장바구니" onclick='sangmove("cart")'>
+								<input type="button" value="결제" onclick='sangmove("pay")'>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-
 <script>
 
 
-function count(type)  {
-	// 결과를 표시할 element
+function count(type)  {	//갯수 올리고 내리기
 	const resultElement = document.getElementById('sangCnt');
-	
 	// 현재 화면에 표시된 값
 	let number = resultElement.innerText;
-	
 	// 더하기/빼기
 	if(type === 'plus') {
 	  number = parseInt(number) + 1;
@@ -112,17 +133,52 @@ function count(type)  {
 		  document.getElementById('minus').hide();
 		}
 	}
-	
-	
 	// 결과 출력
 	resultElement.innerText = number;
 	cost(number);
 }
 
-function cost(number){
+function cost(number){	//총액 계산 함수
 	const resultElement = document.getElementById('cost');
-	resultElement.innerText = number * ${SangpumInfo.price}
+	resultElement.innerText = number * ${sangpumInfo.price}
 }
+
+function sangmove(move){
+	//결제나 쇼핑카트	ajax쓸 예정
+	if(move ==='cart'){
+		document.sang.action="/sangpum/shoppingcartProc";
+		document.sang.submit();
+	}else if(move ==='pay'){
+		document.sang.action="/admin/adminQnADeleteProc";
+		document.sang.submit();
+	}
+}
+
+$("input[name='sangSize']").change(function() {//사이즈선택 시
+	if(${scsvo.sangColor} == 0){
+		$("input[name='sangSize']").prop('checked', false);
+		return alert("색먼저 선택해주세요");
+	}
+	cost(1);
+  });
+  
+/* $("input[name='sangColor']").change(function() {//컬러선택 시..ㅠ 실패
+    var selColor = $("input[name='sangColor']:checked").val();
+    var sangCode = "${sangpumInfo.sangCode}";
+	$.ajax({
+      	type: "GET",
+     	url: "/sangpum/selColorProc",
+    	dataType : "json",
+     	data : {
+    		"sangCode" : sangCode,
+    		"sangColor" : selColor
+    	}	
+	});
+    location.href="/sangpum/sangpum?sangCode=${sangpumInfo.sangCode}";
+  }); */
+
+
+
 /*  
 	(function() {
 	  var httpRequest;
@@ -152,6 +208,7 @@ function cost(number){
 	    }
 	  }
 	})(); */
+	
 </script>
 
 	

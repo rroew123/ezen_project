@@ -13,6 +13,7 @@ import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
+import co.kr.ezen_project.vo.VisitorVO;
 
 @Service
 public class ConsumerServiceImpl implements ConsumerService {
@@ -173,6 +174,9 @@ public class ConsumerServiceImpl implements ConsumerService {
 	public List<FAQVO> getFAQ_faqCate(int faqCate) {
 		return dao.getFAQ_faqCate(faqCate);
 	}
-
-
+	
+	@Override
+	   public List<VisitorVO> getVisitor() {
+	      return dao.getVisitor();
+	   }
 }
