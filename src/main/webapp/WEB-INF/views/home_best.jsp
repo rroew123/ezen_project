@@ -72,8 +72,8 @@ header {
 			<button>검색</button>
 		</div>
 		<div class="Searchri">
-			<a href="http://localhost/member/login">로그인</a> <a
-				href="http://localhost/member/memberjoin">회원가입</a> <a href="">고객센터</a>
+			<a href="/member/login">로그인</a> <a
+				href="/member/memberjoin">회원가입</a> <a href="">고객센터</a>
 			<a href="/member/shoppingcart">장바구니</a> <a href="">추천</a>
 		</div>
 		<div class="sangpum1">

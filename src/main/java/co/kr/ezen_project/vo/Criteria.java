@@ -9,7 +9,7 @@ public class Criteria {
     
     /* 기본 생성자 -> 기봅 세팅 : pageNum = 1, amount = 10 */
     public Criteria() {
-        this(1,2);
+        this(1,10);
     }
     
     /* 생성자 => 원하는 pageNum, 원하는 amount */

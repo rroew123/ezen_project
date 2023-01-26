@@ -66,12 +66,97 @@ li {
 	
 }
 
+ul {
+	list-style: none;
+	padding-left: 0px;
+}
+
+a{
+	text-decoration-line : none; 
+}
+
+#menu {
+	height: 100px;
+	background: #fde2e7;
+	z-index: 2;
+	padding : 0px;
+	font-size: 20px;
+}
+
+.main1 {
+	width: 700px;
+	height: 300px;;
+	margin: 0 auto;
+	
+}
+
+.main1>li {
+	float: left;
+	width : 100px;
+	line-height: 50px;
+	text-align: center;
+	position: relative;
+	
+}
+
+.main1>li:hover .main2 {
+	left: 0;
+	background: #fde2e7;
+}
+
+.main1>li a {
+	display: block;
+}
+.main1>li a:hover {
+	background: #f9c6cf;
+	color: #fff;
+	font-weight: bold;
+}
+
+.main2 {
+	position: absolute;
+	top: 50px;
+	left: -9999px;
+	background: #f9c6cf;
+	width: 200px;
+	z-index: 2;
+}
+
+.main2>li {
+	position: relative;
+	z-index: 2;
+}
+
+.main2>li:hover .main3 {
+	left: 100%;
+	
+}
+
+.main2>li a, .main3>li a {
+	border-radius: 10px;
+	margin: 10px;
+}
+
+.main3 {
+	position: absolute;
+	top: 0;
+	background: #fde2e7;
+	width: 200px;
+	left: -9999px;
+}
+
+.main3>li a:hover {
+	background: #f9c6cf;
+	color: #fff;
+}
+
+
 
 </style>
 <body>
 <header>
 		<div class="logo">
-			<a href="/"><img src="./resources/img/Ezen.png" /></a>
+			<a href="/"><img src="/resources/img/Ezen.png" /></a>
 		</div>
 		<div class="Search">
 			<input type="text" class="SearchInput" placeholder="검색 기능" />
@@ -101,7 +186,7 @@ li {
 				
 				<li><a href="/member/login"><i class="fa-solid fa-power-off" style="font-size:30px;"></i></a></li>
 				<li><a href="/member/memberjoin"><i class="fa-solid fa-user-plus" style="font-size:30px;"></i></a></li>
-				<li><a href="/member/customer"><i class="fa-solid fa-circle-info" style="font-size:30px;"></i></a></li>
+				<li><a href="/member/customer?faqCate=1"><i class="fa-solid fa-circle-info" style="font-size:30px;"></i></a></li>
 			</c:if>
 			<c:if test="${userInfo.membership > 8}">
 				<span>${userInfo.memName} 관리자님 환영합니다</span>
@@ -110,7 +195,84 @@ li {
 			</c:if>
 			
 		</div>
+	<div id="menu">
 
+		<ul class="main1">
+			<li><a href="#">메뉴</a>
+				<ul class="main2"> 	
+					<li><a href="#">여성</a>
+						<ul class="main3">
+							<li><a href="#">아우터</a></li>
+							<li><a href="#">상의</a></li>
+							<li><a href="#">하의</a></li>
+							<li><a href="#">원피스</a></li>
+							<li><a href="#">스커트</a></li>
+							<li><a href="#">신발</a></li>
+						</ul></li>
+
+					<li><a href="#">남성</a>
+						<ul class="main3">
+							<li><a href="#">아우터</a></li>
+							<li><a href="#">상의</a></li>
+							<li><a href="#">하의</a></li>
+							<li><a href="#">신발</a></li>
+						</ul></li>
+				</ul></li>
+			<li><a href="#">아우터</a>
+				<ul class="main2">
+					<li><a href="#">코트</a></li>
+					<li><a href="#">라이더자켓</a></li>
+					<li><a href="#">가디건</a></li>
+					<li><a href="#">아노락</a></li>
+					<li><a href="#">무스탕</a></li>
+					<li><a href="#">트레이닝자켓</a></li>
+				</ul></li>
+			<li><a href="#">상의</a>
+				<ul class="main2">
+					<li><a href="#">니트</a></li>
+					<li><a href="#">셔츠</a></li>
+					<li><a href="#">맨투맨</a></li>
+					<li><a href="#">티셔츠</a></li>
+					<li><a href="#">후드티</a></li>
+					<li><a href="#">블라우스</a></li>
+				</ul></li>
+			<li><a href="#">하의</a>
+				<ul class="main2">
+					<li><a href="#">숏팬츠</a></li>
+					<li><a href="#">레깅스</a></li>
+					<li><a href="#">슬랙스</a></li>
+					<li><a href="#">코튼팬츠</a></li>
+					<li><a href="#">청바지</a></li>
+					<li><a href="#">점프슈트</a></li>
+				</ul></li>
+
+			<li><a href="#">원피스</a>
+				<ul class="main2">
+					<li><a href="#">미니원피스</a></li>
+					<li><a href="#">맥시원피스</a></li>
+					<li><a href="#">롱원피스</a></li>
+					<li><a href="#">미디원피스</a></li>
+				</ul></li>
+
+			<li><a href="#">스커트</a>
+				<ul class="main2">
+					<li><a href="#">미니스커트</a></li>
+					<li><a href="#">미디스커트</a></li>
+					<li><a href="#">롱스커트</a></li>
+				</ul></li>
+
+			<li><a href="#">신발</a>
+				<ul class="main2">
+					<li><a href="#">구두</a></li>
+					<li><a href="#">로퍼</a></li>
+					<li><a href="#">샌들</a></li>
+					<li><a href="#">슬리퍼</a></li>
+					<li><a href="#">힐</a></li>
+					<li><a href="#">플랫슈즈</a></li>
+					<li><a href="#">부츠</a></li>
+				</ul></li>
+		</ul>
+	</div>
 	</header>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/9af1085f00.js"
 	crossorigin="anonymous"></script>
+	 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <style>
 .container {
@@ -91,39 +92,22 @@ table {
 </style>
 
 <body>
-<%@ include file="member_top.jsp" %>
+<%@ include file="./../home_top.jsp" %>
 	<div class="container">
 		
 		<div class="contents">
-			<div class="FAQ">
-				<h1>자주하는 질문</h1>
-				<div class="Csearch">
-					<strong>FAQ 검색</strong> <input type="text" class="SearchInput"
-						placeholder="궁금하신 내용을 검색해 보세요!" />
-					<button>검색</button>
-				</div>
-				<button class="btn">배송기간은 어떻게 되나요?</button>
-				<button class="btn">배송기간은 어떻게 되나요?</button>
-				<button class="btn">배송기간은 어떻게 되나요?</button>
-				<button class="btn">배송기간은 어떻게 되나요?</button>
-				<button class="btn">배송기간은 어떻게 되나요?</button>
-				<button class="btn">배송기간은 어떻게 되나요?</button>
-				<button class="btn">배송기간은 어떻게 되나요?</button>
+		<%@ include file="./subpage/customerFAQ.jsp" %> 
+		<div style="height: 500px">
+    <%
+        int faqCate = 1;
+  
+    %>
+    <jsp:include page="subpage/subpage.jsp"></jsp:include>
+</div>
+		
+					
 			</div>
-			<div class="AS">
-				<h1>취소/반품/교환/AS</h1>
-				<div class="Csearch">
-					<strong>취소/반품/교환/AS</strong> <input type="text" class="SearchInput"
-						placeholder="궁금하신 내용을 검색해 보세요!" />
-					<button>검색</button>
-				</div>
-				<button class="btn">취소/반품 후 환불은 언제 받을 수 있나요?</button>
-				<button class="btn">취소/반품 후 환불은 언제 받을 수 있나요?</button>
-				<button class="btn">취소/반품 후 환불은 언제 받을 수 있나요?</button>
-				<button class="btn">취소/반품 후 환불은 언제 받을 수 있나요?</button>
-				<button class="btn">취소/반품 후 환불은 언제 받을 수 있나요?</button>
-				<button class="btn">취소/반품 후 환불은 언제 받을 수 있나요?</button>
-			</div>
+			
 			<div class="Cside">
 		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
 		<a href="/member/shoppingcart"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
@@ -147,66 +131,14 @@ table {
 				</thead>
 				<br />
 				<tbody>
+				<c:forEach var="ntc" items="${ntc}">
 					<tr>
-						<td>번호</td>
-						<td><a href="">[공지]개인정보처리방침 개정 안내(2022년 10월 25일 시행)</a></td>
-						<td>2022.10.18</td>
-						<td>4,356</td>
+					<th>${ntc.ntcNum}</th>
+					<th>${ntc.ntcTitle}</th>
+					<th>${ntc.ntcCntxt}</th>
+					<th>${ntc.viewCnt}</th>
 					</tr>
-					<tr>
-						<td>번호</td>
-						<td><a href="">[공지]개인정보처리방침 개정 안내(2022년 10월 25일 시행)</a></td>
-						<td>2022.10.18</td>
-						<td>4,356</td>
-					</tr>
-					<tr>
-						<td>번호</td>
-						<td><a href="">[공지]개인정보처리방침 개정 안내(2022년 10월 25일 시행)</a></td>
-						<td>2022.10.18</td>
-						<td>4,356</td>
-					</tr>
-					<tr>
-						<td>번호</td>
-						<td><a href="">[공지]개인정보처리방침 개정 안내(2022년 10월 25일 시행)</a></td>
-						<td>2022.10.18</td>
-						<td>4,356</td>
-					</tr>
-					<tr>
-						<td>번호</td>
-						<td><a href="">[공지]개인정보처리방침 개정 안내(2022년 10월 25일 시행)</a></td>
-						<td>2022.10.18</td>
-						<td>4,356</td>
-					</tr>
-					<tr>
-						<td>번호</td>
-						<td><a href="">[공지]개인정보처리방침 개정 안내(2022년 10월 25일 시행)</a></td>
-						<td>2022.10.18</td>
-						<td>4,356</td>
-					</tr>
-					<tr>
-						<td>번호</td>
-						<td><a href="">[공지]개인정보처리방침 개정 안내(2022년 10월 25일 시행)</a></td>
-						<td>2022.10.18</td>
-						<td>4,356</td>
-					</tr>
-					<tr>
-						<td>번호</td>
-						<td><a href="">[공지]개인정보처리방침 개정 안내(2022년 10월 25일 시행)</a></td>
-						<td>2022.10.18</td>
-						<td>4,356</td>
-					</tr>
-					<tr>
-						<td>번호</td>
-						<td><a href="">[공지]개인정보처리방침 개정 안내(2022년 10월 25일 시행)</a></td>
-						<td>2022.10.18</td>
-						<td>4,356</td>
-					</tr>
-					<tr>
-						<td>번호</td>
-						<td><a href="">[공지]개인정보처리방침 개정 안내(2022년 10월 25일 시행)</a></td>
-						<td>2022.10.18</td>
-						<td>4,356</td>
-					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>
@@ -214,7 +146,7 @@ table {
 		<div class="footer">
 			<p>푸터입니다</p>
 		</div>
-	</div>
+	
 	<script>
 	/* 상단 고정 위치이동 버튼 */
 	const scrollMove = (event) => {
@@ -238,7 +170,15 @@ table {
     function clickLast() {
         window.scrollTo(99999,99999);
       }
-    /*  */
+    
+    
+    function dis(){
+      if($('#dis').css('display') == 'none'){
+      $('#dis').show();
+    }else{
+      $('#dis').hide();
+    }
+    }
     
 	</script>
 </body>

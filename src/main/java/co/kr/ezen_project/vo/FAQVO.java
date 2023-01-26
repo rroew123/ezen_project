@@ -18,7 +18,7 @@ public class FAQVO {
 	@NonNull
 	private String faqCntxt;
 	
-	public FAQVO(int fAQCat, @NonNull String faqTitle, @NonNull String faqCntxt) {
+	public FAQVO(int faqCat, @NonNull String faqTitle, @NonNull String faqCntxt) {
 		super();
 		this.faqCat = faqCat;
 		this.faqTitle = faqTitle;

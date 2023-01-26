@@ -14,7 +14,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import co.kr.ezen_project.service.ConsumerService;
 import co.kr.ezen_project.service.MemberService;
 import co.kr.ezen_project.service.SangMemService;
+import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.MemberVO;
+import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
 import co.kr.ezen_project.vo.SangMemVO;
 
@@ -28,8 +30,8 @@ public class MemberController {
 	@Autowired
 	ConsumerService conService;
 
-	@RequestMapping({ "/customer", "mypage_memUpdate","mypage_memDelete", "mypage_recentlyView", "mypage_orderHis",
-			"mypage_wishlist" })
+	@RequestMapping({ "customerFAQ","mypage_memUpdate","mypage_memDelete", "mypage_recentlyView", "mypage_orderHis",
+			"mypage_wishlist","customerFAQ"})
 	public void webmovepost() { // findId, findPw, memberJoin 페이지가 오류 => 원인 불명
 	}
 
@@ -151,11 +153,19 @@ public class MemberController {
 	
 	} 
 	
-@RequestMapping("/mypage_board")
+	@RequestMapping("/mypage_board")
 	public void mypage_board(HttpSession session, Model model) {
 	model.addAttribute("row", conService.getQnA_Mem((MemberVO)session.getAttribute("userInfo")));
 	}
 	
+	@RequestMapping("/customer")
+	public void customer(int faqCate, Model model, NtcBoardVO vo) {
+		model.addAttribute("sub", conService.getFAQ_faqCate(faqCate));
+		model.addAttribute("faqlist", conService.getFAQAll());
+		model.addAttribute("faqCate", faqCate);
+		System.out.println(conService.getFAQAll());
+		model.addAttribute("ntc", conService.getNtcAll());
+	}
 	
 	
 	
