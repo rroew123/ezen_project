@@ -1,5 +1,7 @@
 package co.kr.ezen_project.vo;
 
+import java.sql.Date;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -14,7 +16,7 @@ public class NtcBoardVO {
 	private String ntcTitle;
 	@NonNull
 	private String ntcCntxt;
-	private String relDate;
+	private Date relDate;
 	private int viewCnt;
 	
 	public NtcBoardVO(int ntcNum, @NonNull String ntcTitle, @NonNull String ntcCntxt) {

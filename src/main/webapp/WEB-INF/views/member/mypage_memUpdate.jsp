@@ -35,11 +35,11 @@
 			</tr>
 			
 			<tr>
-				<th><input type="text" placeholder="이메일" name="email"/></th>
-				<th><input type="text" placeholder="성함" name="memName"/></th>
-				<th><input type="text" placeholder="비밀번호" name="memPwd"/></th>
-				<th><input type="text" placeholder="전화번호" name="phone"/></th>
-				<th><input type="text" placeholder="주소" name="address"/></th>
+				<th><input type="text" placeholder="이메일" name="email" value="${userInfo.email}"/></th>
+				<th><input type="text" placeholder="성함" name="memName" value="${userInfo.memName}"/></th>
+				<th><input type="text" placeholder="비밀번호" name="memPwd" value="${userInfo.memPwd}"/></th>
+				<th><input type="text" placeholder="전화번호" name="phone" value="${userInfo.phone}"/></th>
+				<th><input type="text" placeholder="주소" name="address" value="${userInfo.address}"/></th>
 				<th><input type="radio" name="markAgree" value="1"/>
 					<input type="radio" name="markAgree" value="2"/>
 				</th>

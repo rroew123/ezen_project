@@ -1,5 +1,7 @@
 package co.kr.ezen_project.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +37,7 @@ public class MemberController {
 	public void webmovepost() { // findId, findPw, memberJoin 페이지가 오류 => 원인 불명
 	}
 
-	@RequestMapping({ "/findID", "/findPW", "/login", "/shoppingcart" })
+	@RequestMapping({ "/findID", "/findPW", "/login" })
 	public void webmoveget() { // findId, findPw, memberJoin 페이지가 오류 => 원인 불명
 	}
 
@@ -124,7 +126,7 @@ public class MemberController {
 	
 
 	@RequestMapping(value = "/mypage_UpdateProc", method = RequestMethod.POST)
-		public String myPage_UpdateProc(MemberVO vo, HttpSession session) {
+		public String myPage_UpdateProc(MemberVO vo) {
 		System.out.println(vo);
 		MemService.udtMem(vo);
 		System.out.println(MemService.udtMem(vo));
@@ -159,7 +161,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/customer")
-	public void customer(int faqCate, Model model, NtcBoardVO vo) {
+	public void customer(int faqCate, Model model) {
 		model.addAttribute("sub", conService.getFAQ_faqCate(faqCate));
 		model.addAttribute("faqlist", conService.getFAQAll());
 		model.addAttribute("faqCate", faqCate);
@@ -167,9 +169,48 @@ public class MemberController {
 		model.addAttribute("ntc", conService.getNtcAll());
 	}
 	
+	@RequestMapping("/faqCntxt")
+	public void faqCntxt(int faqNum, Model model) {
+		model.addAttribute("txt", conService.getFAQOne(faqNum));
+	}
 	
+	@RequestMapping("/ntcCntxt")
+	public void ntcCntxt(int ntcNum, Model model) {
+		model.addAttribute("txt", conService.getNtcOne(ntcNum));
+	}
 	
+	@RequestMapping("/shoppingcart")
+	public void shoppingcart(HttpSession session) {
+		session.setAttribute("shop", sangService.getSangMemAll());		
+	}
 	
+	@RequestMapping("/cartDelProc")
+	public String cartDelProc(int[] orderNum) {
+		
+		SangMemVO vo = new SangMemVO();
+		System.out.println(vo);
+		System.out.println(vo.getOrderNum());
+	/*	for(int i = 0; i < orderNum.length ; i=i+1 ) {
+			vo.setOrderNum(orderNum[i]);
+			sangService.delSangMem(vo);
+		}*/				
+		for(int i : orderNum) {
+		vo.setOrderNum(i);
+		sangService.delSangMem(vo);
+	}
+		
+		
+		return "redirect:/member/shoppingcart";
+	}
+		
+	@RequestMapping("/paypage")
+	public void paypage(int[] orderNum, Model model) {
+		List<SangMemVO> list = null;
+		for(int orderN : orderNum) {
+			list.add(sangService.getSangMem(orderN));
+		}
+		model.addAttribute("list", list);
+	}
 
 	/*
 	 * mypage 연결 마이페이지

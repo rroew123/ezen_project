@@ -12,5 +12,6 @@
 	<a href="adminQnA">QnA</a> &nbsp;&nbsp;&nbsp;
 	<a href="adminFAQ">FAQ</a> &nbsp;&nbsp;&nbsp;
 	<a href="adminNotice">공지사항</a> &nbsp;&nbsp;&nbsp;
+	<a href="/">메인홈페이지</a>
 </nav>
 

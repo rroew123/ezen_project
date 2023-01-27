@@ -19,23 +19,28 @@ table {
 </style>
 </head>
 <body>
+	
 	<table>
-		<thead>
 		<tr>
-			<th style="background-color: #eeeeee; text-align: center; width: 30px;">번호</th>
-			<th style="background-color: #eeeeee; text-align: center; width : 500px;">제목</th>
+		<th>번호</th>
+		<th>카테고리</th>
+		<th>제목</th>
+		
 		</tr>
-		</thead>
-		<tbody>
-		<c:forEach var="sub" items="${sub}">
-			<tr>
-				<th>${sub.faqNum}</th>
-				<th><a href="/member/faqCntxt?faqNum=${sub.faqNum}">${sub.faqTitle}</a></th>
-				
-			</tr>
+		
+		<tr>
+			<th>${txt.faqNum}</th>
+			<th>${txt.faqCat}</th>
+			<th>${txt.faqTitle}</th>
 			
-		</c:forEach>
-		</tbody>
+		</tr>
+		<tr>
+		<th colspan="3">내용</th>
+		</tr>
+		<tr>
+		<th colspan="3">${txt.faqCntxt}</th>
+		</tr>
 	</table>
+	
 </body>
 </html>

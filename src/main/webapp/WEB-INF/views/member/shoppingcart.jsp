@@ -8,6 +8,7 @@
 <title>shoppingcart</title>
 <script src="https://kit.fontawesome.com/9af1085f00.js"
 	crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <style>
 
 .Cside {
@@ -127,7 +128,39 @@
 
 				<dl>
 					<dt>
-						<img src="" class="icon" alt="">주문관리
+						<form name="sang" action="">
+						<c:forEach var="aa" items="${shop}">
+						<table>
+						<tr>
+						<th><label for="${aa.orderNum}"><input name="orderNum" type="checkbox" id="${aa.orderNum}" value="${aa.orderNum}"/>이미지들어가는칸</th>
+						<th>상품이름</th>
+						<th>사이즈</th>
+						<th>상품개수</th>
+						<th>색상</th>
+						<th>가격</th>
+						</label>
+						</tr>
+							<tr>
+							<td><a href="/sangpum/sangpum?sangCode=${aa}"><img src="https://dummyimage.com/50x50/000/fff" alt="" /></a>	</td>
+							<td>${aa.sangName}</td>
+							
+							<td>${aa.sangSize}</td>
+							<td>${aa.sangCnt}</td>
+							<td>${aa.sangColor}</td>
+							<td>${aa.price}</td>
+						</tr>
+						
+						
+						</table>
+						
+						</c:forEach>
+						<input type="button" value="주문결제" onclick='sangmove("pay")'>
+                        <input type="button" value="선택삭제" onclick='sangmove("del")'>
+					
+						</form>
+						<div class="right-content">
+							
+							</div>
 					</dt>
 					<dd class="order">
 						<a href="">주문/배송조회</a><a class="star1 " onclick="stargo('order')"></a>
@@ -136,16 +169,13 @@
 						<a href="">최근 본 상품</a><a class="star1"
 							onclick="stargo('today_goods')"></a>
 					</dd>
-					<dd class="cart">
-						<a href="" class="active">장바구니</a><a class="star1"
-							onclick="stargo('cart')"></a>
-					</dd>
-					<dd class="wish">
-						<a href="">좋아요</a><a class="star1" onclick="stargo('wish')"></a>
-					</dd>
+					
 				</dl>
 			</div>
 		</div>
+		
+		
+		
 	</div>
 	<div class="cart-sub-header">
 		<div class="left-content">
@@ -161,9 +191,7 @@
 						오늘출발<span class="checkgh">[</span><span id="todaygoods-cnt">0</span><span
 						class="checkgh">/</span>1<span class="checkgh">]</span></label></li>
 			</ul>
-			<div class="right-content">
-				<a href="">장바구니</a><a href="">주문결제</a><a href="">주문완료</a><a href="">선택삭제</a>
-			</div>
+			
 		</div>
 
 		<div class="price-title">
@@ -202,6 +230,18 @@
 		function clickLast() {
 			window.scrollTo(99999, 99999);
 		}
+		
+		 function sangmove(move){
+			   //결제나 쇼핑카트   
+			   if(move ==='del'){  //쇼핑카트에 담기
+				  
+			      document.sang.action="/member/cartDelProc";
+			      document.sang.submit();
+			   }else if(move ==='pay'){  //결제하기
+			      document.sang.action="/member/paypage";
+			      document.sang.submit();
+			   }
+			} 
 	</script>
 </body>
 </html>

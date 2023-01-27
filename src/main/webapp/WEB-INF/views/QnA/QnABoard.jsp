@@ -18,6 +18,22 @@
 	font-size: 45px;
 	width: 90px;
 }
+
+ .pageInfo{
+      list-style : none;
+      display: inline-block;
+    margin: 50px 0 0 100px;      
+  }
+  .pageInfo li{
+      float: left;
+    font-size: 20px;
+    margin-left: 18px;
+    padding: 7px;
+    font-weight: 500;
+  }
+ a:link {color:black; text-decoration: none;}
+ a:visited {color:black; text-decoration: none;}
+ a:hover {color:black; text-decoration: underline;}
 </style>
 <body>
 <%@ include file="QnA_Top.jsp" %>

@@ -21,6 +21,7 @@
 </head>
 <body>
 <%@ include file="member_top.jsp" %>
+<button onclick="location.href='/member/mypage'">마이페이지</button>
  <table style="text-align: cursor: help;nter; border: 1px solid #dddddd">
 				<thead>
 					<tr>
