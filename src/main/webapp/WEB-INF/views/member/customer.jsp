@@ -74,7 +74,7 @@
 	margin: auto;
 }
 
-table, th, td {
+table, th {
 	border: 1px solid black;
 }
 
@@ -123,10 +123,11 @@ table {
 			<table>
 				<thead>
 					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성일</th>
-						<th>조회수</th>
+						<th style="background-color: #eeeeee; text-align: center; width: 30px;">번호</th>
+						<th style="background-color: #eeeeee; text-align: center; width : 500px;">제목</th>
+						<th style="background-color: #eeeeee; text-align: center; width: 30px;">조회수</th>
+						
+						
 					</tr>
 				</thead>
 				<br />
@@ -134,8 +135,7 @@ table {
 				<c:forEach var="ntc" items="${ntc}">
 					<tr>
 					<th>${ntc.ntcNum}</th>
-					<th>${ntc.ntcTitle}</th>
-					<th>${ntc.ntcCntxt}</th>
+					<th><a href="/member/ntcCntxt?ntcNum=${ntc.ntcNum}">${ntc.ntcTitle}</a></th>
 					<th>${ntc.viewCnt}</th>
 					</tr>
 					</c:forEach>

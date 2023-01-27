@@ -23,10 +23,12 @@ public class SangMemVO {
 	private String sangCode;
 	private int sangCnt;
 	private Date ordDate;
-	private int ordStat;	
+	private int ordStat;
+	private String sangName;
+	private int price;
 	
 	public SangMemVO(int orderNum, @NonNull String memId, int sangSize, int sangColor,
-			@NonNull String sangCode,  int sangCnt, int ordStat) {
+			@NonNull String sangCode,  int sangCnt, int ordStat, String sangName, int price) {
 		super();
 		this.orderNum = orderNum;
 		this.memId = memId;
@@ -35,6 +37,8 @@ public class SangMemVO {
 		this.sangCode = sangCode;
 		this.sangCnt = sangCnt;
 		this.ordStat = ordStat;
+		this.sangName = sangName;
+		this.price = price;
 	}
 
 	public SangMemVO(int sangSize, int sangColor, @NonNull String sangCode) {
