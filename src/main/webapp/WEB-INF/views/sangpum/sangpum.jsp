@@ -22,8 +22,11 @@
 }
 
 #container{
-	width : 80%;
+	width : 60%;
 	margin : 0 auto;
+}
+#contents{
+	border : 1px solid black;
 }
 #leftbox{
 	display: inline-block;
@@ -37,27 +40,44 @@
 }
 #rightbox{
 	display: inline-block;
-	width : 200px;
+	width : 300px;
 	border : 1px solid black;
+}
+#sangInfo, #review, #sangQnA{
+	height: 600px;
 }
 
 input[type="radio"] {
        display: none;
-   }
+}
 
-   input[type="radio"] + span {
-       display: inline-block;
-       padding: 15px 10px;
-       border: 1px solid #dfdfdf;
-       background-color: #ffffff;
-       text-align: center;
-       cursor: pointer;
-   }
+input[type="radio"] + span {
+    display: inline-block;
+    padding: 15px 10px;
+    border: 1px solid #dfdfdf;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked + span {
+    background-color: black;
+    color: white;
+}
+
+.subheader{
+	whith : 100%;
+	height: 100px;
+	border : 1px solid black;
+}
+
+.subTitle{
+	display: inline-block;
+	whith : 33%;
+	height: 100px;
+	border : 1px solid black;
+}
    
-   input[type="radio"]:checked + span {
-       background-color: black;
-       color: white;
-   }
 </style>
 </head>
 
@@ -115,6 +135,23 @@ input[type="radio"] {
 				</div>
 			</div>
 		</div>
+		<div id="subcontents">
+			<div id="subheader" class="subheader">
+				<div class="subTitle"><a href="#review" >리뷰로 가자</a></div>
+				<div class="subTitle"><a href="#sangInfo">상품상세로 가자</a></div>
+				<div class="subTitle"><a href="#sangQnA">상품 qna로 가자</a></div>
+			</div>
+			<div id="review" >
+				리뷰는 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi vel sed velit quisquam dolore iusto recusandae earum sunt magnam dolores aspernatur totam molestias tempora animi odio! Deleniti placeat praesentium earum.
+			</div>
+			<div id="sangInfo" >
+				상품정보는 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi vel sed velit quisquam dolore iusto recusandae earum sunt magnam dolores aspernatur totam molestias tempora animi odio! Deleniti placeat praesentium earum.
+			</div>
+			<div id="sangQnA" >
+				상품 qna는 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi vel sed velit quisquam dolore iusto recusandae earum sunt magnam dolores aspernatur totam molestias tempora animi odio! Deleniti placeat praesentium earum.
+			</div>
+		</div>
+		
 	</div>
 <script>
 
