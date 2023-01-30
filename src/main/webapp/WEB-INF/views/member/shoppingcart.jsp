@@ -129,10 +129,10 @@
 				<dl>
 					<dt>
 						<form name="sang" action="">
-						<c:forEach var="aa" items="${shop}">
+						<c:forEach var="shop" items="${shop}">
 						<table>
 						<tr>
-						<th><label for="${aa.orderNum}"><input name="orderNum" type="checkbox" id="${aa.orderNum}" value="${aa.orderNum}"/>이미지들어가는칸</th>
+						<th><label for="${shop.orderNum}"><input name="orderNum" type="checkbox" id="${shop.orderNum}" value="${shop.orderNum}"/>이미지들어가는칸</th>
 						<th>상품이름</th>
 						<th>사이즈</th>
 						<th>상품개수</th>
@@ -141,13 +141,13 @@
 						</label>
 						</tr>
 							<tr>
-							<td><a href="/sangpum/sangpum?sangCode=${aa}"><img src="https://dummyimage.com/50x50/000/fff" alt="" /></a>	</td>
-							<td>${aa.sangName}</td>
+							<td><a href="/sangpum/sangpum?sangCode=${shop}"><img src="https://dummyimage.com/50x50/000/fff" alt="" /></a>	</td>
+							<td>${shop.sangName}</td>
 							
-							<td>${aa.sangSize}</td>
-							<td>${aa.sangCnt}</td>
-							<td>${aa.sangColor}</td>
-							<td>${aa.price}</td>
+							<td>${shop.sangSize}</td>
+							<td>${shop.sangCnt}</td>
+							<td>${shop.sangColor}</td>
+							<td>${shop.price}</td>
 						</tr>
 						
 						

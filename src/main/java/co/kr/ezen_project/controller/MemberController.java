@@ -1,5 +1,6 @@
 package co.kr.ezen_project.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -32,8 +33,8 @@ public class MemberController {
 	@Autowired
 	ConsumerService conService;
 
-	@RequestMapping({ "customerFAQ","mypage_memUpdate","mypage_memDelete", "mypage_recentlyView", "mypage_orderHis",
-			"mypage_wishlist","customerFAQ"})
+	@RequestMapping({ "customerFAQ", "mypage_memUpdate", "mypage_memDelete", "mypage_recentlyView", "mypage_orderHis",
+			"mypage_wishlist", "customerFAQ" })
 	public void webmovepost() { // findId, findPw, memberJoin 페이지가 오류 => 원인 불명
 	}
 
@@ -101,7 +102,7 @@ public class MemberController {
 	 */
 
 	@RequestMapping(value = "/findPWProc", method = RequestMethod.POST)
-	public String findPwd(MemberVO vo , Model model) {
+	public String findPwd(MemberVO vo, Model model) {
 		MemberVO memPwd = MemService.findPwd(vo);
 		vo.setMemId("memId");
 		vo.setEmail("email");
@@ -110,56 +111,52 @@ public class MemberController {
 		System.out.println(MemService.findPwd(vo));
 		model.addAttribute("member", memPwd);
 		System.out.println(model.addAttribute("member", memPwd));
-		
-		
+
 		return "/member/findPW";
 	}
-	
-	@RequestMapping(value = "/myPage_deleteProc" , method = RequestMethod.GET)
+
+	@RequestMapping(value = "/myPage_deleteProc", method = RequestMethod.GET)
 	public String delete(String memId, HttpSession session) {
 		System.out.println(memId);
 		session.invalidate();
 		MemService.delMem(memId);
-		
+
 		return "redirect:/";
 	}
-	
 
 	@RequestMapping(value = "/mypage_UpdateProc", method = RequestMethod.POST)
-		public String myPage_UpdateProc(MemberVO vo) {
+	public String myPage_UpdateProc(MemberVO vo) {
 		System.out.println(vo);
 		MemService.udtMem(vo);
 		System.out.println(MemService.udtMem(vo));
-		return "/member/mypage_memUpdate"; 
+		return "/member/mypage_memUpdate";
 	}
-	
 
-	
 	@RequestMapping("/mypage")
-	public void mypage(HttpSession session,Model model) {
+	public void mypage(HttpSession session, Model model) {
 		MemberVO vo = (MemberVO) session.getAttribute("userInfo");
-		
+
 		System.out.println((MemberVO) session.getAttribute("userInfo"));
 		/*
 		 * System.out.println(session.getAttribute("userInfo")); System.out.println(vo);
 		 * System.out.println(vo.getMemId());
 		 */
-	String memid = vo.getMemId();
-	/*
-	 * System.out.println(memid);
-	 * System.out.println(sangService.getSM_MemId(memid));
-	 */
-	model.addAttribute("His", sangService.getSM_MemId(memid));
-	
-	System.out.println(model.addAttribute("His", sangService.getSM_MemId(memid)));
-	
-	} 
-	
+		String memid = vo.getMemId();
+		/*
+		 * System.out.println(memid);
+		 * System.out.println(sangService.getSM_MemId(memid));
+		 */
+		model.addAttribute("His", sangService.getSM_MemId(memid));
+
+		System.out.println(model.addAttribute("His", sangService.getSM_MemId(memid)));
+
+	}
+
 	@RequestMapping("/mypage_board")
 	public void mypage_board(HttpSession session, Model model) {
-	model.addAttribute("row", conService.getQnA_Mem((MemberVO)session.getAttribute("userInfo")));
+		model.addAttribute("row", conService.getQnA_Mem((MemberVO) session.getAttribute("userInfo")));
 	}
-	
+
 	@RequestMapping("/customer")
 	public void customer(int faqCate, Model model) {
 		model.addAttribute("sub", conService.getFAQ_faqCate(faqCate));
@@ -168,73 +165,57 @@ public class MemberController {
 		System.out.println(conService.getFAQAll());
 		model.addAttribute("ntc", conService.getNtcAll());
 	}
-	
+
 	@RequestMapping("/faqCntxt")
 	public void faqCntxt(int faqNum, Model model) {
 		model.addAttribute("txt", conService.getFAQOne(faqNum));
 	}
-	
+
 	@RequestMapping("/ntcCntxt")
 	public void ntcCntxt(int ntcNum, Model model) {
 		model.addAttribute("txt", conService.getNtcOne(ntcNum));
 	}
-	
+
 	@RequestMapping("/shoppingcart")
-	public void shoppingcart(Model model , String memId) {
+	public void shoppingcart(Model model, String memId) {
 		model.addAttribute("shop", sangService.getSangMemAll());
 		model.addAttribute("shop", sangService.getSM_MemId(memId));
 	}
-	
+
 	@RequestMapping("/cartDelProc")
 	public String cartDelProc(int[] orderNum) {
-		
+
 		SangMemVO vo = new SangMemVO();
 		System.out.println(vo);
 		System.out.println(vo.getOrderNum());
-	/*	for(int i = 0; i < orderNum.length ; i=i+1 ) {
-			vo.setOrderNum(orderNum[i]);
+		/*
+		 * for(int i = 0; i < orderNum.length ; i=i+1 ) { vo.setOrderNum(orderNum[i]);
+		 * sangService.delSangMem(vo); }
+		 */
+		for (int i : orderNum) {
+			vo.setOrderNum(i);
 			sangService.delSangMem(vo);
-		}*/				
-		for(int i : orderNum) {
-		vo.setOrderNum(i);
-		sangService.delSangMem(vo);
-	}
-		
-		
+		}
+
 		return "redirect:/member/shoppingcart";
 	}
-		
+
 	@RequestMapping("/paypage")
-	public void paypage(int[] orderNum, Model model, HttpSession session) {
-		List<SangMemVO> list = null;
-		for(int orderN : orderNum) {
+	public void paypage(int[] orderNum, Model model, SangMemVO vo) {
+		List<SangMemVO> list = new ArrayList<SangMemVO>();
+		for (int orderN : orderNum) {
 			list.add(sangService.getSangMem(orderN));
+			System.out.println(vo);
+			if(vo.getSangSize() != 0) {
+				list.add(vo);
+			}
 		}
-		model.addAttribute("list", list);
+		model.addAttribute("shop", list);
 		
-		model.addAttribute("list",sangService.getSM_MemId((String)session.getAttribute("memId")));
+
 		
 	}
 
-	/*
-	 * mypage 연결 마이페이지
-	 * 
-	 * customer 연결 고객센터
-	 * 
-	 * mypage_board 연결 마이페이지 내게시글
-	 * 
-	 * mypage_memDelete연결 마이페이지 회원탈퇴
-	 * 
-	 * mypage_memUpdate연결 마이페이지 회원정보수정
-	 * 
-	 * mypage_orderHis연결 마이페이지 마이페이지 주문내역
-	 * 
-	 * mypage_recentlyView연결 마이페이지 최근본상품
-	 * 
-	 * mypage_wishlist연결 마이페이지 관심상품
-	 * 
-	 * ntcBoard연결 공지사항
-	 * 
-	 */
+	
 
 }
