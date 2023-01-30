@@ -176,7 +176,13 @@ public class ConsumerServiceImpl implements ConsumerService {
 	}
 	
 	@Override
-	   public List<VisitorVO> getVisitor() {
-	      return dao.getVisitor();
-	   }
+	public List<VisitorVO> getVisitor() {
+	   return dao.getVisitor();
+	}
+	
+	@Override
+	public List<QnAboardVO> getQnAAns() {
+		return dao.getQnAAns();
+	}
+
 }

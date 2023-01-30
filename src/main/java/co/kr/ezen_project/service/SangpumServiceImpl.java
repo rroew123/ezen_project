@@ -126,5 +126,10 @@ public class SangpumServiceImpl implements SangpumService {
 	public int countArticle(String searchOption, String keyword){
 	   return dao.countArticle(searchOption, keyword);
 	}
+	
+	@Override
+	   public List<SangpumVO> getSangOrder() {
+	      return dao.getSangOrder();
+	   }
 
 }

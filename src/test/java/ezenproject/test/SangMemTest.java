@@ -33,13 +33,14 @@ public class SangMemTest {
 	@Autowired
 	SangMemService service;
 	
-	@Before
-	public void SangMemvobox() {
-		vo1 = new SangMemVO(123456, "hyeon", 654321, 100, 3,"abc1234", 1, null, 3);
-	    vo2 = new SangMemVO(111222, "hyeon", 222111, 95, 1,"def1234", 2, null, 1);
-	    vo3 = new SangMemVO(555666, "hyeon", 666555, 105, 5,"abc1234" ,1, null, 1);
-
-	}
+	/*
+	 * @Before public void SangMemvobox() { vo1 = new SangMemVO(123456, "hyeon",
+	 * 654321, 100, 3,"abc1234", 1, null, 3); vo2 = new SangMemVO(111222, "hyeon",
+	 * 222111, 95, 1,"def1234", 2, null, 1); vo3 = new SangMemVO(555666, "hyeon",
+	 * 666555, 105, 5,"abc1234" ,1, null, 1);
+	 * 
+	 * }
+	 */
 	
 	@Before
 	public void Coupvobox() {

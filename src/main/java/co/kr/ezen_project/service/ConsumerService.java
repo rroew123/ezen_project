@@ -75,5 +75,7 @@ public interface ConsumerService {
 	int getTotal();
 	
 	List<VisitorVO> getVisitor();
+	
+	List<QnAboardVO> getQnAAns();
 
 }

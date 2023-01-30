@@ -51,4 +51,6 @@ public interface SangpumService {
 	List<SangpumVO> searchAll(String searchOption, String keyword);
 
 	int countArticle(String searchOption, String keyword);
+	
+	List<SangpumVO> getSangOrder();
 }

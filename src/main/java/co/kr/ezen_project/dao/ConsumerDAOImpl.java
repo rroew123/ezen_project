@@ -171,7 +171,13 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	}
 	
 	@Override
-	   public List<VisitorVO> getVisitor() {
-	      return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getVisitor");
-	   }
+	public List<VisitorVO> getVisitor() {
+	    return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getVisitor");
+	}
+	
+	@Override
+	public List<QnAboardVO> getQnAAns() {
+	    return session.selectList("co.kr.ezen_project.dao.ConsumerDAO.getQnAAns");
+	}
+
 }

@@ -22,12 +22,12 @@
 	
 	<insert id="addSangMemPay" parameterType="SangMemVO">
 		insert into SangMem (orderNum, memId, payNum, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) 
-		values(#{orderNum}, #{memId}, #{payNum}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 2 )
+		values(sm_seq.nextval(), #{memId}, #{payNum}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 2 )
 	</insert>
 	
 	<insert id="addSangMemCart" parameterType="SangMemVO">
 		insert into SangMem (orderNum, memId, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) 
-		values(#{orderNum}, #{memId}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 1 )
+		values(sm_seq.nextval, #{memId}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 1 )
 	</insert>
 	
 	<delete id="delSM_Mem" parameterType="String">

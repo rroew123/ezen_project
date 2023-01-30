@@ -139,6 +139,10 @@ public class SangpumDAOImpl implements SangpumDAO {
 	    return session.selectOne("co.kr.ezen_project.dao.SangpumDAO.countArticle", vo);
 	}
 
+	@Override
+	   public List<SangpumVO> getSangOrder() {
+	      return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSangOrder");
+	   }
 
 	
 }

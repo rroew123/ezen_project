@@ -73,4 +73,6 @@ public interface ConsumerDAO {
 	
 	List<VisitorVO> getVisitor();
 	
+	List<QnAboardVO> getQnAAns();
+	
 }

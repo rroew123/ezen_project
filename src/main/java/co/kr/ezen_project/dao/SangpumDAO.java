@@ -50,6 +50,7 @@ public interface SangpumDAO {
 
 	public int countArticle(String searchOption, String keyword);
 	
+	List<SangpumVO> getSangOrder();
 
 
 	

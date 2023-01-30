@@ -106,12 +106,12 @@ input[type="radio"]:checked + span {
 							<p>가격 : ${sangpumInfo.price}</p>
 							<p>상품코드 : ${sangpumInfo.sangCode}</p>
 							<p>
-								<c:forEach var="vo" items="${sangColor}">	
+								<c:forEach var="vo" items="${sangColorList}">	
 										<a href="/sangpum/sangpum?sangCode=${sangpumInfo.sangCode}&sangColor=${vo.sangColor}">${vo.sangColor}</a>&nbsp
 								</c:forEach>
 							</p>
 							<p>
-								<c:forEach var="vo" items="${sangSize}">
+								<c:forEach var="vo" items="${sangSizeList}">
 									<label>
 										<input type="radio" name="sangSize" id="sangSize" value="sangSize">
 										<span>${vo.sangSize}</span>
@@ -119,12 +119,16 @@ input[type="radio"]:checked + span {
 								</c:forEach>
 							</p>
 							 <form name="sang">
-								<input type='button' onclick='count("plus")' value='+'/>
-								<span><span id='sangCnt'>1</span>개</span>
-								<input type='button' onclick='count("minus")' value='-'/>
-								<input type="hidden" id="sangSize" value="${sangSize}">
-								<input type="hidden" id="sangColor" value="${sangColor}">
-								<input type="hidden" id="sangCode" value="${sangCode}">
+								<input type="button" onclick='count("plus")' value="+"/>
+								<span><span id="count">1</span>개</span>
+								<input type="button" onclick='count("minus")' value="-"/>
+								<input type="text"  name="sangSize" value="">
+								<input type="hidden"  name="sangColor" value="${sangColor}">
+								<input type="hidden" name="sangCode" value="${sangCode}">
+								<input type="hidden" name="sangName" value="${sangpumInfo.sangName}"/>
+								<input type="hidden" name="memId" value="${userInfo.memId}"/>
+								<input type="number" hidden="hidden" name="price" value=""/>
+								<input type="number" hidden="hidden" name="sangCnt" id="sangCnt" value=""/>
 								<br />	<!-- 갯수 -->
 								<div>총 금액 <span id="cost">0</span>원</div>	<!-- 총 가격 -->
 								<input type="button" value="장바구니" onclick='sangmove("cart")'>
@@ -157,7 +161,7 @@ input[type="radio"]:checked + span {
 
 
 function count(type)  {	//갯수 올리고 내리기
-	const resultElement = document.getElementById('sangCnt');
+	const resultElement = document.getElementById('count');
 	// 현재 화면에 표시된 값
 	let number = resultElement.innerText;
 	// 더하기/빼기
@@ -183,10 +187,12 @@ function cost(number){	//총액 계산 함수
 function sangmove(move){
 	//결제나 쇼핑카트	ajax쓸 예정
 	if(move ==='cart'){
+		$('input[name=sangCnt]').attr('value', 2);
+		$('input[name=price]').attr('value', 20000 /* document.getElementById('cost') */);
 		document.sang.action="/sangpum/shoppingcartProc";
 		document.sang.submit();
 	}else if(move ==='pay'){
-		document.sang.action="/admin/adminQnADeleteProc";
+		document.sang.action="/sangpum/sangpaymentProc";
 		document.sang.submit();
 	}
 }
@@ -196,7 +202,7 @@ $("input[name='sangSize']").change(function() {//사이즈선택 시
 		$("input[name='sangSize']").prop('checked', false);
 		return alert("색먼저 선택해주세요");
 	}
-	cost(1);
+	cost(document.getElementById('count').innerText);
   });
   
 /* $("input[name='sangColor']").change(function() {//컬러선택 시..ㅠ 실패

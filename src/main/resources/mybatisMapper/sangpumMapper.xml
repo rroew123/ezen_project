@@ -102,4 +102,9 @@
 		where ${searchOption} like #{keyword} 
 	</select>
 	
+	<select id="getSangOrder" resultType="SangpumVO">   
+      select * from sangpum where <![CDATA[remStock <= 20]]>
+   </select>
+	
+	
 </mapper>

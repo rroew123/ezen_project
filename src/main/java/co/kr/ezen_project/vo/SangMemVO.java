@@ -14,7 +14,6 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 public class SangMemVO {
 	private int orderNum;
-	@NonNull
 	private String memId;
 	private int payNum;
 	private int sangSize;

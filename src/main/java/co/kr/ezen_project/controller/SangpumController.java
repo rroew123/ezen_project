@@ -45,34 +45,28 @@ public class SangpumController {
 		 */
 		
 		model.addAttribute("sangpumInfo", sangpumService.getSang(sangCode));
-		model.addAttribute("sangColor", sangpumService.getColor(sangCode));
-		model.addAttribute("sangSize", sangpumService.getSize(scsvo));
+		model.addAttribute("sangColorList", sangpumService.getColor(sangCode));
+		model.addAttribute("sangSizeList", sangpumService.getSize(scsvo));
+		session.setAttribute("sangCode", sangCode);
+		session.setAttribute("sangColor", scsvo.getSangColor());
 		model.addAttribute("scsvo",scsvo);
 	}
 	@GetMapping("/selColorProc")	//실패......
 	@ResponseBody
-	public String selColorProc(String sangCode, String sangColor, HttpSession session) {		//상품페이지로 이동
+	public String selColorProc(String sangCode, int sangColor, HttpSession session) {		//상품페이지로 이동
 		System.out.println(sangCode);
 		System.out.println(sangColor);
 		SangCodeSpecVO scsvo = null;
 		scsvo.setSangCode(sangCode);
-		scsvo.setSangColor(Integer.parseInt(sangColor));
+		scsvo.setSangColor(sangColor);
 		session.setAttribute("sangCode", sangCode);
-		session.setAttribute("sangSize", sangpumService.getSize(scsvo));
+		session.setAttribute("sangColor", sangColor);
 		
 		return "";
 	}
 	
-	@RequestMapping("/sangpum_Info")
+	@RequestMapping({"/sangpum_Info","/sangpum_QnA","/sangpum_review"})
 	public void sangpum_Info() {	//상품 상세정보
-		
-	}
-	@RequestMapping("/sangpum_QnA")
-	public void sangpum_QnA() {		//상품 QnA						
-		
-	}
-	@RequestMapping("/sangpum_review")
-	public void sangpum_review() {	//상품 리뷰
 		
 	}
 	@RequestMapping("/search")
@@ -81,18 +75,26 @@ public class SangpumController {
 	}
 	
 	@RequestMapping("/shoppingcartProc")		//장바구니에 추가
-	public String sangmemInsert(SangCodeSpecVO SCSvo, int sangCnt, Model model, HttpSession session) {
-		if(		session.getAttribute("memId") == null		) {	//아이디가 없을때
-			session.setAttribute(null, session);
-		}else {													//아이디가 있을때
-			SangMemVO SMvo = null;
-			SMvo.setSangCode(SCSvo.getSangCode());
-			SMvo.setSangColor(SCSvo.getSangColor());
-			SMvo.setSangSize(SCSvo.getSangSize());
-			SMvo.setSangCnt(sangCnt);
-			SMvo.setMemId((String)session.getAttribute("memId"));
-			sangmemService.addSangMemCart(SMvo);
-		}
+	public String sangmemInsert(SangMemVO SMvo, int sangCnt, Model model, HttpSession session) {
+		System.out.println(SMvo);
+		System.out.println(sangCnt);
+		SMvo.setSangCnt(sangCnt);
+		SMvo.setMemId((String)session.getAttribute("memId"));
+		sangmemService.addSangMemCart(SMvo);
+		
+		return "/sangpum/sangpum";
+	}
+	
+	@RequestMapping("/sangpaymentProc")		//결제 페이지로 가기?
+	public String sangpaymentProc(SangCodeSpecVO SCSvo, int sangCnt, Model model, HttpSession session) {											//아이디가 있을때
+		SangMemVO SMvo = null;
+		SMvo.setSangCode(SCSvo.getSangCode());
+		SMvo.setSangColor(SCSvo.getSangColor());
+		SMvo.setSangSize(SCSvo.getSangSize());
+		SMvo.setSangCnt(sangCnt);
+		SMvo.setMemId((String)session.getAttribute("memId"));
+		sangmemService.addSangMemCart(SMvo);
+		
 		return "/sangpum/sangpum";
 	}
 }
