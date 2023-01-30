@@ -9,15 +9,27 @@
 <title>Insert title here</title>
 <style>
 table {
-	text-align: center;
-}
-table , th , td {
-	border: 1px solid black;
+    width: 700px;
+    text-align: center;
+    border: 1px solid #fff;
+    border-spacing: 1px;
+    font-family: 'Cairo', sans-serif;
+  margin: auto;
 }
 
-table {
-	margin-left: auto;
-	margin-right: auto;
+caption {
+    font-weight: bold;
+}
+
+table td {
+    padding: 10px;
+    background-color: #eee;
+}
+
+table th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
 }
 </style>
 </head>

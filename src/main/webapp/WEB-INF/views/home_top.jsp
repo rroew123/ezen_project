@@ -200,9 +200,9 @@ a{
 
 			
 				<li><a href="/member/mypage"><i class="fa-solid fa-user" style="font-size:30px;"></i></a></li>&nbsp;
-				<li><a href="/member/shoppingcart"><i class="fa-solid fa-cart-shopping" style="font-size:30px;"></i></a></li>&nbsp;
+				<li><a href="/member/shoppingcart?memId=${userInfo.memId}"><i class="fa-solid fa-cart-shopping" style="font-size:30px;"></i></a></li>&nbsp;
 				<li><a href="/member/logout.do"><i class="fa-solid fa-power-off" style="font-size:30px;"></i></a></li>&nbsp;
-				<li><a href="/member/customer"><i class="fa-solid fa-circle-info" style="font-size:30px;"></i></a></li>
+				<li><a href="/member/customer?faqCate=1"><i class="fa-solid fa-circle-info" style="font-size:30px;"></i></a></li>
 				
 				
 				<br />

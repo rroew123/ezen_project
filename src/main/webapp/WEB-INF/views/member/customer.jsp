@@ -37,8 +37,8 @@
 .Cnotice {
 	background: #d3d3d3;
 	height: 80px;
-	width: 700px;
-	margin-left: 310px;
+	width: 500px;
+	margin-left: 700px;
 	line-height: 80px;
 }
 

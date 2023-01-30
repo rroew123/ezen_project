@@ -7,13 +7,26 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-table, th {
-	border: 1px solid black;
+table {
+    width: 700px;
+    text-align: center;
+    border: 1px solid #fff;
+    border-spacing: 1px;
+    font-family: 'Cairo', sans-serif;
+  margin: auto;
 }
 
-table {
-	margin-left: auto;
-	margin-right: auto;
+
+
+table td {
+    padding: 10px;
+    background-color: #eee;
+}
+
+table th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
 }
 
 </style>
@@ -29,16 +42,16 @@ table {
 		</tr>
 		
 		<tr>
-			<th>${txt.faqNum}</th>
-			<th>${txt.faqCat}</th>
-			<th>${txt.faqTitle}</th>
+			<td>${txt.faqNum}</td>
+			<td>${txt.faqCat}</td>
+			<td>${txt.faqTitle}</td>
 			
 		</tr>
 		<tr>
-		<th colspan="3">내용</th>
+		<td colspan="3">내용</td>
 		</tr>
 		<tr>
-		<th colspan="3">${txt.faqCntxt}</th>
+		<td colspan="3">${txt.faqCntxt}</td>
 		</tr>
 	</table>
 	

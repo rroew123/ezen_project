@@ -180,8 +180,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/shoppingcart")
-	public void shoppingcart(HttpSession session) {
-		session.setAttribute("shop", sangService.getSangMemAll());		
+	public void shoppingcart(Model model , String memId) {
+		model.addAttribute("shop", sangService.getSangMemAll());
+		model.addAttribute("shop", sangService.getSM_MemId(memId));
 	}
 	
 	@RequestMapping("/cartDelProc")
@@ -204,12 +205,15 @@ public class MemberController {
 	}
 		
 	@RequestMapping("/paypage")
-	public void paypage(int[] orderNum, Model model) {
+	public void paypage(int[] orderNum, Model model, HttpSession session) {
 		List<SangMemVO> list = null;
 		for(int orderN : orderNum) {
 			list.add(sangService.getSangMem(orderN));
 		}
 		model.addAttribute("list", list);
+		
+		model.addAttribute("list",sangService.getSM_MemId((String)session.getAttribute("memId")));
+		
 	}
 
 	/*
