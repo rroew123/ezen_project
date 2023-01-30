@@ -21,13 +21,13 @@
 	</select>
 	
 	<insert id="addSangMemPay" parameterType="SangMemVO">
-		insert into SangMem (orderNum, memId, payNum, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) 
-		values(sm_seq.nextval(), #{memId}, #{payNum}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 2 )
+		insert into SangMem (orderNum, memId, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat, price, sangName) 
+		values(sm_seq.nextval, #{memId}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 1, #{price}, #{sangName})
 	</insert>
 	
 	<insert id="addSangMemCart" parameterType="SangMemVO">
-		insert into SangMem (orderNum, memId, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat) 
-		values(sm_seq.nextval, #{memId}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 1 )
+		insert into SangMem (orderNum, memId, sangSize, sangColor, sangCode, sangCnt, ordDate, ordStat, price, sangName) 
+		values(sm_seq.nextval, #{memId}, #{sangSize}, #{sangColor}, #{sangCode}, #{sangCnt}, sysdate, 1, #{price}, #{sangName})
 	</insert>
 	
 	<delete id="delSM_Mem" parameterType="String">

@@ -34,6 +34,7 @@ public class SangMemServiceImpl implements SangMemService {
 	
 	@Override
 	public int addSangMemCart(SangMemVO vo) {
+		System.out.println("service impl에서 확인 memId = "+vo.getMemId());
 		return dao.addSangMemCart(vo);
 	}
 

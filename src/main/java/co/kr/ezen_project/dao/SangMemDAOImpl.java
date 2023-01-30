@@ -35,6 +35,7 @@ public class SangMemDAOImpl implements SangMemDAO {
 	
 	@Override
 	public int addSangMemCart(SangMemVO vo) {
+		System.out.println("dao impl에서 memId = "+vo.getMemId());
 		return session.insert("co.kr.ezen_project.dao.SangMemDAO.addSangMemCart", vo);
 	}
 

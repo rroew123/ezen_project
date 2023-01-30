@@ -75,26 +75,11 @@ public class SangpumController {
 	}
 	
 	@RequestMapping("/shoppingcartProc")		//장바구니에 추가
-	public String sangmemInsert(SangMemVO SMvo, int sangCnt, Model model, HttpSession session) {
+	public String sangmemInsert(SangMemVO SMvo, Model model, HttpSession session) {
 		System.out.println(SMvo);
-		System.out.println(sangCnt);
-		SMvo.setSangCnt(sangCnt);
-		SMvo.setMemId((String)session.getAttribute("memId"));
 		sangmemService.addSangMemCart(SMvo);
 		
-		return "/sangpum/sangpum";
+		return "redirect:/sangpum/sangpum?sangCode=" + SMvo.getSangCode();
 	}
 	
-	@RequestMapping("/sangpaymentProc")		//결제 페이지로 가기?
-	public String sangpaymentProc(SangCodeSpecVO SCSvo, int sangCnt, Model model, HttpSession session) {											//아이디가 있을때
-		SangMemVO SMvo = null;
-		SMvo.setSangCode(SCSvo.getSangCode());
-		SMvo.setSangColor(SCSvo.getSangColor());
-		SMvo.setSangSize(SCSvo.getSangSize());
-		SMvo.setSangCnt(sangCnt);
-		SMvo.setMemId((String)session.getAttribute("memId"));
-		sangmemService.addSangMemCart(SMvo);
-		
-		return "/sangpum/sangpum";
-	}
 }

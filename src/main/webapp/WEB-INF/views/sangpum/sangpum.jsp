@@ -110,19 +110,19 @@ input[type="radio"]:checked + span {
 										<a href="/sangpum/sangpum?sangCode=${sangpumInfo.sangCode}&sangColor=${vo.sangColor}">${vo.sangColor}</a>&nbsp
 								</c:forEach>
 							</p>
-							<p>
-								<c:forEach var="vo" items="${sangSizeList}">
-									<label>
-										<input type="radio" name="sangSize" id="sangSize" value="sangSize">
-										<span>${vo.sangSize}</span>
-									</label>
-								</c:forEach>
-							</p>
-							 <form name="sang">
+							<form name="sang">
+								<p>
+									<c:forEach var="vo" items="${sangSizeList}">
+										<label>
+											<input type="radio" name="sangSize" id="sangSize" value="${vo.sangSize}">
+											<span>${vo.sangSize}</span>
+										</label>
+									</c:forEach>
+								</p>
+							 
 								<input type="button" onclick='count("plus")' value="+"/>
 								<span><span id="count">1</span>개</span>
 								<input type="button" onclick='count("minus")' value="-"/>
-								<input type="text"  name="sangSize" value="">
 								<input type="hidden"  name="sangColor" value="${sangColor}">
 								<input type="hidden" name="sangCode" value="${sangCode}">
 								<input type="hidden" name="sangName" value="${sangpumInfo.sangName}"/>
@@ -187,12 +187,14 @@ function cost(number){	//총액 계산 함수
 function sangmove(move){
 	//결제나 쇼핑카트	ajax쓸 예정
 	if(move ==='cart'){
-		$('input[name=sangCnt]').attr('value', 2);
-		$('input[name=price]').attr('value', 20000 /* document.getElementById('cost') */);
+		$('input[name=sangCnt]').attr('value', document.getElementById('count').innerText);
+		$('input[name=price]').attr('value', document.getElementById('cost').innerText);
 		document.sang.action="/sangpum/shoppingcartProc";
 		document.sang.submit();
 	}else if(move ==='pay'){
-		document.sang.action="/sangpum/sangpaymentProc";
+		$('input[name=sangCnt]').attr('value', document.getElementById('count').innerText);
+		$('input[name=price]').attr('value', document.getElementById('cost').innerText);
+		document.sang.action="/member/paypage";
 		document.sang.submit();
 	}
 }
