@@ -20,7 +20,7 @@
 </style>
 </head>
 <body>
-<%@ include file="member_top.jsp" %>
+<%@ include file="../home_top.jsp" %>
 <form method="post" action="/member/mypage_UpdateProc">
 	<table>
 		<thead>
@@ -50,13 +50,7 @@
 	</table>
 	<input type="submit" value="수정" />
 </form>
-<div class="Cside">
-		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
-		<a href="./shoppingcart"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
-		<a href="./customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
-		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
-		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
-	</div>
+
 <button onclick="location.href='/member/mypage'">마이페이지</button>
 </body>
 

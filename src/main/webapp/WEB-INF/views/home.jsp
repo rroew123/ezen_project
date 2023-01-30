@@ -150,14 +150,6 @@ input:checked+.slide-container .nav label {
 	background: rgba(0, 0, 0, 0.8);
 } */
 
-.Cside {
-	position: fixed;
-	right: 1.5%;
-	top: 68%;
-	cursor: pointer;
-	font-size: 45px;
-	width: 90px;
-}
 
 .Cheader {
 	text-align: center;
@@ -181,6 +173,8 @@ input:checked+.slide-container .nav label {
 .sangpum1 li:hover {
 	background: linear-gradient(to bottom, #FCE2FC, #CBD68F);
 }
+
+
 
 ===========================
 footer {
@@ -284,34 +278,15 @@ footer {
 			<a href="">잘팔리는거</a> <a href="">추천</a>
 		</div>
 
+		
 		<div class="sangpum1">
-			<ul>
-				<li>상품1</li>
-				<li>상품2</li>
-				<li>상품3</li>
-				<li>상품4</li>
-				<li>상품5</li>
-				<li>상품6</li>
-				<li>상품7</li>
-				<li>상품8</li>
-				<li>상품9</li>
-				<li>상품10</li>
-				<li>상품11</li>
-				<li>상품12</li>
-				<li>상품13</li>
-				<li>상품14</li>
-				<li>상품15</li>
-			</ul>
-		</div>
-	</div>
+		<c:forEach var="photo" items="${photo}">
+			<span><a href="/sangpum/sangpum?sangCode=${photo.sangCode}"><img src="./resources/img/Ezen.png" alt="" style="height: 300px; width: 300px; border: 1px solid black;"/></a></span>
+		</c:forEach>
+			</div>
+			
 
-	<div class="Cside">
-		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
-		<a href="./member/shoppingcart"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
-		<a href="./member/customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
-		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
-		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
-	</div>
+	
 	<footer> <%@ include file="home_footer.jsp" %> </footer>
 
 	<script>

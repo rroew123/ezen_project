@@ -18,6 +18,8 @@
 
 /* ==================container ======================= */
 
+
+
 /* ==================== header ========================= */
 .side {
 	float: left;
@@ -30,9 +32,7 @@
 	border: 3px solid gray;
 }
 
-.scrollBtn {
-	
-}
+
 
 .Cnotice {
 	background: #d3d3d3;
@@ -42,14 +42,7 @@
 	line-height: 80px;
 }
 
-.Cside {
-	position: fixed;
-	right: 1.5%;
-	top: 65%;
-	cursor: pointer;
-	font-size: 45px; 
-	width: 100px;
-}
+
 
 .Csearch {
 	background-color: #f5f5f5;
@@ -92,7 +85,7 @@ table {
 </style>
 
 <body>
-<%@ include file="./../home_top.jsp" %>
+<%@ include file="../home_top.jsp" %>
 	<div class="container">
 		
 		<div class="contents">
@@ -108,13 +101,7 @@ table {
 					
 			</div>
 			
-			<div class="Cside">
-		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
-		<a href="/member/shoppingcart"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
-		<a href="/member/customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
-		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
-		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
-	</div>
+	
 			
 			<div class="Cnotice">
 				<h1>공지사항</h1>
@@ -143,10 +130,8 @@ table {
 			</table>
 		</div>
 
-		<div class="footer">
-			<p>푸터입니다</p>
-		</div>
-	
+		
+	<%@ include file="../home_footer.jsp" %> 
 	<script>
 	/* 상단 고정 위치이동 버튼 */
 	const scrollMove = (event) => {

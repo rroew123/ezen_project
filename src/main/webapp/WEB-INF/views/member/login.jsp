@@ -21,17 +21,10 @@
 	margin: 1em;
 }
 
-.Cside {
-	position: fixed;
-	right: 1%;
-	top: 60%;
-	cursor: pointer;
-	font-size: 44px;
-	width: 77px;
-}
+
 </style>
 <body>
-	<%@ include file="member_top.jsp" %>
+	<%@ include file="../home_top.jsp" %>
 	
 	<fieldset>
 		<legend>회원로그인</legend>
@@ -94,14 +87,7 @@
 			</fieldset>
 		</form>
 	</div>
-	<div class="Cside">
-		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
-		<a href="/member/shoppingcart"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
-		<a href="/member/customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
-		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
-		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
-	</div>
-
+	
 	<script>
 		function clickTop() {
 			window.scrollTo(0, 0);

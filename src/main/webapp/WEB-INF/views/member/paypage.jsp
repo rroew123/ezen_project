@@ -31,6 +31,7 @@ table th {
 }
 </style>
 <body>
+<%@ include file="../home_top.jsp" %>
 <table>
 <tr>
 <tr>

@@ -11,14 +11,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <style>
 
-.Cside {
-	position: fixed;
-	right: 1.5%;
-	top: 68%;
-	cursor: pointer;
-	font-size: 45px;
-	width: 90px;
-}
+
 
 
 .top {
@@ -117,7 +110,7 @@
 </style>
 </head>
 <body>
-	<%@ include file="member_top.jsp" %>
+	<%@ include file="../home_top.jsp" %>
 	<div class="top">
 
 		<div class="wrap_inner ">
@@ -214,13 +207,7 @@
 			onclick="MemberProc.choose_buy();">선택상품 주문하기</a></span> <span class="canbox"><a
 			href="" onclick="MemberProc.all_buy();">전체상품 주문하기</a></span>
 	</div>
-	<div class="Cside">
-		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
-		<a href="./shoppingcart"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
-		<a href="./customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
-		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
-		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
-	</div>
+	
 
 	<script>
 		function clickTop() {

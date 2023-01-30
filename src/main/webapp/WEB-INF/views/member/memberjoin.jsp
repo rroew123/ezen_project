@@ -21,7 +21,7 @@
 </style>
 </head>
 <body>
-	<%@ include file="member_top.jsp" %>
+	<%@ include file="../home_top.jsp" %>
 	<div id="join_input">
 		<form name="" action="/member/joinformProc"
 			onsubmit="return join_chk();" target="hi_fr">
@@ -212,13 +212,7 @@
 
 		</form>
 	</div>
-	<div class="Cside">
-		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
-		<a href="/member/shoppingcart"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
-		<a href="/member/customer"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
-		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
-		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
-	</div>
+	
 
 	<script>
 		function clickTop() {

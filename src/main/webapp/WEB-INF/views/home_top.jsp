@@ -18,7 +18,8 @@ header {
 	top: 10px;
 	left: 30px;
 	background: #fde2e7;
-	z-index: 3;	
+	z-index: 1;
+	margin-bottom: 10px;
 }
 
 .logo {
@@ -178,6 +179,14 @@ a{
 .main3>li:hover .main4 {
 	left: 100%;
 	
+}
+.Cside {
+	position: fixed;
+	right: 1.5%;
+	top: 68%;
+	cursor: pointer;
+	font-size: 45px;
+	width: 90px;
 }
 
 
@@ -368,5 +377,12 @@ a{
 		</ul>
 	</div>
 	</header>
+	<div class="Cside">
+		<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
+		<a href="/member/shoppingcart?memId=${userInfo.memId}"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
+		<a href="/member/customer?faqCate=1"><i class="fa-sharp fa-solid fa-user-tie"></i></a>
+		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
+		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
+	</div>
 </body>
 </html>

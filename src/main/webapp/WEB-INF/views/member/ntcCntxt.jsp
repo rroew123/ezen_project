@@ -34,6 +34,7 @@ table th {
 </style>
 </head>
 <body>
+<%@ include file="../home_top.jsp" %>
 <table>
 <tr>
 	<th>번호</th>

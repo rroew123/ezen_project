@@ -20,7 +20,7 @@
 }
 </style>
 <body>
-	<%@ include file="member_top.jsp" %>
+	<%@ include file="../home_top.jsp" %>
 	<h2>비밀번호찾기</h2>
 	
 

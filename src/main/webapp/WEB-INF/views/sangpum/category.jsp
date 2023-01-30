@@ -18,23 +18,12 @@
 	float: right;
 }
 
-.Header {
-	border: 2px solid red;
-	line-height: 55px;
-	text-align: center;
-}
+
 
 /* =======================header =========================== */
-.Nav {
-	border: 2px solid blue;
-	line-height: 100px;
-	text-align: center;
-}
 
-ul img {
-	width: 300px;
-	height: 150px;
-}
+
+
 
 /* =========================== nav ============================== */
 .Content {
@@ -47,7 +36,7 @@ ul img {
 	margin-bottom: 100px;
 }
 
-li {
+.sangpum li {
 	margin-bottom: 40px;
 	margin-left: 10px;
 	border: 1px solid black;
@@ -57,14 +46,7 @@ li {
 	display: inline-block;
 }
 
-.Cside {
-	position: fixed;
-	right: 1.5%;
-	top: 70%;
-	cursor: pointer;
-	font-size: 50px;
-	width: 100px;
-}
+
 
 /* ===========================content=============================  */
 .Footer {
@@ -75,21 +57,11 @@ li {
 /* ==================================footer==========================  */
 }
 </style>
+
+<%@ include file="../home_top.jsp" %>
 <body>
-	<div class="Header">Header 영역</div>
-	<div class="Nav">
-		<ul>
-			<span class="btnLeft"> <i class="fa-solid fa-arrow-left"></i>
-			</span>
-			<img src="/resources/img/1.png" alt="" />
-			<img src="/resources/img/2.png" alt="" />
-			<img src="/resources/img/3.png" alt="" />
-			<img src="/resources/img/4.png" alt="" />
-			<img src="/resources/img/5.png" alt="" />
-			<span class="btnRight"> <i class="fa-solid fa-arrow-right"></i>
-			</span>
-		</ul>
-	</div>
+	
+	
 	<div class="Content">
 		<div class="Cheader">
 			<h1>분류 메뉴</h1>
@@ -101,8 +73,8 @@ li {
 			<span class="btnLeft"> <i class="fa-solid fa-arrow-left"></i>
 			</span> <span class="btnRight"> <i class="fa-solid fa-arrow-right"></i>
 			</span>
+			<div class="sangpum">
 		<ul>
-
 			<li>상품1</li>
 			<li>상품2</li>
 			<li>상품3</li>
@@ -118,11 +90,8 @@ li {
 			<li>상품13</li>
 			<li>상품14</li>
 			<li>상품15</li>
+	
 		</ul>
-		<div class="Cside">
-			<i class="fa-regular fa-circle-up" value="Top" onclick="clickTop()"></i>
-			<i class="fa-regular fa-circle-down" value="Last"
-				onclick="clickLast()"></i>
 		</div>
 
 	</div>
