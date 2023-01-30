@@ -45,7 +45,6 @@
 		});
 		
 		$("#btnUpdate").click(function(){
-			int faqCat = $("#faqCat").val();
 			var faqTitle = $("#faqTitle").val();
 			var faqCntxt = $("#faqCntxt").val();
 			if(faqTitle == ""){

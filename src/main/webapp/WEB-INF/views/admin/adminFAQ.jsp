@@ -8,6 +8,7 @@
 <title>FAQ 페이지</title>
 <link rel="stylesheet" href="/resources/basic.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 </head>
 <body>
 <%@ include file="top.jsp" %>
@@ -15,14 +16,29 @@
 <button type="button" id="btnWrite">글쓰기</button>
 <div>
 	<c:forEach var="row" items="${list}">
-
-		<div>${row.faqTitle}</div>
-		<div>
-		<p>${row.faqCntxt}</p>
-		<p><a href="${path}/admin/adminFAQViewProc?faqNum=${row.faqNum}">수정</a></p>
-		</div>
+		<button class="btn01" >${row.faqTitle}</button>
+		<br/>
+		<ul id="${row.faqTitle}" class="example01" style="display: none;">
+		<li>${row.faqCntxt}</li>
+		<li><a href="${path}/admin/adminFAQViewProc?faqNum=${row.faqNum}">수정</a></li>
+		</ul>
+		
+	
 	</c:forEach>
 </div>
+
+
+<script>
+$(document).ready(function(){
+	$(".btn01").click(function(){
+		if($(".example01").is(":visible")){
+			$(".example01").slideUp();
+		}else{
+			$(".example01").slideDown();
+		}
+	});
+});
+</script>
 <script>
 	$(document).ready(function(){
 		$("#btnWrite").click(function(){

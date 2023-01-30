@@ -4,6 +4,7 @@
 <header id = header>
 	<h1>쇼핑몰 관리자 페이지</h1>
 </header>
+
 <nav id=index>
 	<a href="admin">홈</a> &nbsp;&nbsp;&nbsp;
 	<a href="adminMember">회원관리</a> &nbsp;&nbsp;&nbsp;

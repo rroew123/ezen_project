@@ -35,6 +35,7 @@ import co.kr.ezen_project.vo.VisitorVO;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
 
+
 @Controller
 @RequestMapping("/admin/")
 public class AdminController {
@@ -51,11 +52,16 @@ public class AdminController {
 	 
 	
 	
-	@RequestMapping(path = "/admin")
-	public void admin() {
-	} 
+	@RequestMapping("/admin")
+	public void adminSangOrder(Model model) {
+		model.addAttribute("sangpumlist", sangpumService.getSangOrder());
+		
+		List<QnAboardVO> list = consumerService.getQnAAns();
+		model.addAttribute("qnalist", list);
+	}
+
 	
-	@RequestMapping({"/adminFinance","/bottom","/top"})
+	@RequestMapping({"/bottom","/top"})
 	public void signUpGood() {
 		
 	} 
@@ -270,12 +276,23 @@ public class AdminController {
 		return "redirect:/admin/adminFAQ";
 	}
 	
-	@RequestMapping("/yangdoll")
+	
+	
+	@GetMapping("/yangdoll")
 	@ResponseBody
-	public List<VisitorVO> VisitorGraph() {
+	public List<VisitorVO> visitorGraph() {
 
 		return consumerService.getVisitor();
 	}
+	
+	@RequestMapping("/adminFinanceProc")
+	@ResponseBody
+	public List<VisitorVO> adminFinance(Model model) throws Exception{
+		List<VisitorVO> visitor = consumerService.getVisitor();
+		model.addAttribute("visitor", visitor);
+		return visitor;
+	}
 		
+	
 	
 }
