@@ -129,15 +129,6 @@
 		
 </script>
 
-<script>
-
-fetch("{path}/admin/yangdoll")
-  .then((response) => response.json())
-  .then((data) => {
-	  console.log(data);
-	  console.log('data'+ '를 이용해서 원하는 값을 그래프 함수에 넘겨줘서 그림을 그리게 함...');
-  });
-</script>
 <%@ include file="bottom.jsp" %>
 </body>
 </html>
