@@ -283,16 +283,6 @@ public class AdminController {
 		consumerService.delFAQ(faqNum);
 		return "redirect:/admin/adminFAQ";
 	}
-	
-	
-	
-	@GetMapping("/yangdoll")
-	@ResponseBody
-	public List<VisitorVO> visitorGraph() {
-
-		return consumerService.getVisitor();
-	}
-	
 		
 	@RequestMapping("/adminFinance")
 	public void adminFinance(Locale locale, Model model) {
