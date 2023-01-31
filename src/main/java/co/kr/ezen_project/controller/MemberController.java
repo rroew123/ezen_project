@@ -202,6 +202,8 @@ public class MemberController {
 
 	@RequestMapping("/paypage")
 	public void paypage(int[] orderNum, Model model, SangMemVO vo) {
+		System.out.println(orderNum);
+		System.out.println(vo);
 		List<SangMemVO> list = new ArrayList<SangMemVO>();
 		for (int orderN : orderNum) {
 			list.add(sangService.getSangMem(orderN));

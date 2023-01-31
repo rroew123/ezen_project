@@ -198,7 +198,7 @@ function sangmove(move){
 	}else if(move === 'pay'){
 		$('input[name=sangCnt]').attr('value', document.getElementById('count').innerText);
 		$('input[name=price]').attr('value', document.getElementById('cost').innerText);
-		document.sang.action="/member/paypage";
+		document.sang.action="/member/paypage?orderNum=999999";
 		document.sang.submit();
 	}else{		//이거 왜 작동을 안하냐...
 		alter("색과 사이즈를 골라주세요");

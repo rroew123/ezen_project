@@ -65,10 +65,11 @@
 	<div class="Content">
 		<div class="Cheader">
 			<h1>분류 메뉴</h1>
-			<a href="/sangpum/category?sangcode=${sangCode}">전체</a>
-			<a href="">어쩌구</a>
-			<a href="">저쩌구</a>
-			<a href="">전체</a>
+			<a href="/sangpum/category?sangCode=${sangCode}">전체</a>
+			<c:forEach var="" items="">
+				<a href="">전체</a>
+			</c:forEach>
+			
 		</div>
 			<span class="btnLeft"> <i class="fa-solid fa-arrow-left"></i>
 			</span> <span class="btnRight"> <i class="fa-solid fa-arrow-right"></i>

@@ -107,7 +107,7 @@
    </select>
    
    	<select id="getSC_cateName" resultType="SangCateVO" parameterType="SearchVO">   
-      select * from sangCate where sangCode like #{keyword} order by #{orby};
+      select * from sangCate where sangCode like #{keyword} order by #{orby}
    </select>
    
 	
