@@ -23,7 +23,7 @@ public class SangMemServiceImpl implements SangMemService {
 	}
 
 	@Override
-	public SangMemVO getSangMem(int orderNum) {
+	public SangMemVO getSangMem(String orderNum) {
 		return dao.getSangMem(orderNum);
 	}
 
@@ -171,4 +171,15 @@ public class SangMemServiceImpl implements SangMemService {
 	public List<SangMemVO> getSM_MemId(String memId) {
 		return dao.getSM_MemId(memId);
 	}
+	
+	@Override
+	   public SangMemVO getSangGender(String orderNum) {
+	      return dao.getSangGender(orderNum);
+	   }
+
+	@Override
+	   public SangMemVO getSangNonmem(String orderNum) {
+	      return dao.getSangNonmem(orderNum);
+	   }
+
 }

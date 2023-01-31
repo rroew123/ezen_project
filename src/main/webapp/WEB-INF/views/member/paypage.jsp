@@ -56,7 +56,7 @@ table th {
 							</td>
 </tr>	
 </table>
-	<c:forEach var="shop" items="${shop}">
+	<c:forEach var="pay" items="${pay}">
 		<table>
 			<tr>
 				<th>이미지들어가는칸</th>
@@ -68,13 +68,13 @@ table th {
 				
 			</tr>
 			<tr>
-				<td><a href="/sangpum/sangpum?sangCode=${shop}"><img
+				<td><a href="/sangpum/sangpum?sangCode=${pay}"><img
 						src="https://dummyimage.com/50x50/000/fff" alt="" /></a></td>
-				<td>${shop.sangName}</td>
-				<td>${shop.sangSize}</td>
-				<td>${shop.sangCnt}</td>
-				<td>${shop.sangColor}</td>
-				<td>${shop.price}</td>
+				<td>${pay.sangName}</td>
+				<td>${pay.sangSize}</td>
+				<td>${pay.sangCnt}</td>
+				<td>${pay.sangColor}</td>
+				<td>${pay.price}</td>
 		</table>
 	</c:forEach>
 	<button style="margin-left: 1200px;">결제하기</button>

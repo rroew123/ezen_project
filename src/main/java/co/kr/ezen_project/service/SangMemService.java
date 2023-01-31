@@ -16,7 +16,7 @@ public interface SangMemService {
 	
 	List<SangMemVO> getSM_MemId(String memId);
 	
-	SangMemVO getSangMem(int orderNum);
+	SangMemVO getSangMem(String orderN);
 	
 	int addSangMemPay(SangMemVO vo);
 	
@@ -71,4 +71,9 @@ public interface SangMemService {
 	int delPaymentAll();
 	
 	int updPayment(PaymentVO vo);
+	
+	SangMemVO getSangGender(String orderNum);
+
+	SangMemVO getSangNonmem(String orderNum);
+
 }

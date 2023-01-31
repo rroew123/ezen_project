@@ -24,7 +24,7 @@ public class SangMemDAOImpl implements SangMemDAO {
 	}
 
 	@Override
-	public SangMemVO getSangMem(int orderNum) {
+	public SangMemVO getSangMem(String orderNum) {
 		return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getSangMem", orderNum);
 	}
 
@@ -192,6 +192,15 @@ public class SangMemDAOImpl implements SangMemDAO {
 	public void delPayment_Mem(String memId) {
 		session.delete("co.kr.ezen_project.dao.SangMemDAO.delPayment_Mem", memId);
 	}
+
+	@Override
+	   public SangMemVO getSangGender(String orderNum) {
+	      return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getSangGender", orderNum);
+	   }
+	@Override
+	   public SangMemVO getSangNonmem(String orderNum) {
+	      return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getSangNonmem", orderNum);
+	   }
 
 
 }

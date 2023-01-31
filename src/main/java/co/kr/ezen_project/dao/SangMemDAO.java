@@ -12,7 +12,7 @@ public interface SangMemDAO {
 
 	List<SangMemVO> getSangMemAll();
 
-	SangMemVO getSangMem(int orderNum);
+	SangMemVO getSangMem(String orderNum);
 
 	int addSangMemPay(SangMemVO vo);
 	
@@ -79,5 +79,10 @@ public interface SangMemDAO {
 	void delPayment_Mem(String memId);
 
 	List<SangMemVO> getSM_MemId(String memId);
+	
+	SangMemVO getSangGender(String orderNum);
+
+	SangMemVO getSangNonmem(String orderNum);
+
 
 }
