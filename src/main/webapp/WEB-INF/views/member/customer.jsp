@@ -112,7 +112,6 @@ table {
 					<tr>
 						<th style="background-color: #eeeeee; text-align: center; width: 30px;">번호</th>
 						<th style="background-color: #eeeeee; text-align: center; width : 500px;">제목</th>
-						<th style="background-color: #eeeeee; text-align: center; width: 30px;">조회수</th>
 						
 						
 					</tr>
@@ -123,7 +122,7 @@ table {
 					<tr>
 					<th>${ntc.ntcNum}</th>
 					<th><a href="/member/ntcCntxt?ntcNum=${ntc.ntcNum}">${ntc.ntcTitle}</a></th>
-					<th>${ntc.viewCnt}</th>
+					
 					</tr>
 					</c:forEach>
 				</tbody>

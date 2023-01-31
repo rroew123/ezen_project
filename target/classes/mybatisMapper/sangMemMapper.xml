@@ -154,4 +154,13 @@
 		update Payment set payment = #{payment}, coupNum = #{coupNum}, cardInfo = #{cardInfo}, payType = #{payType} where payNum = #{payNum}
 	</update>
 	
+	<select id="getSangGender" resultType="SangMemVO">   
+      select sangCnt from SangMem where gender = #{gender}
+   </select>
+
+<select id="getSangNonmem" resultType="SangMemVO">   
+      select sangCnt from SangMem where memId is null
+   </select>
+	
+	
 </mapper>

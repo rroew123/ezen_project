@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor 
 @AllArgsConstructor
 public class SangMemVO {
-	private int orderNum;
+	private String orderNum;
 	private String memId;
 	private int payNum;
 	private int sangSize;
@@ -25,8 +25,9 @@ public class SangMemVO {
 	private int ordStat;
 	private String sangName;
 	private int price;
+	private int gender;
 	
-	public SangMemVO(int orderNum, @NonNull String memId, int sangSize, int sangColor,
+	public SangMemVO(String orderNum, @NonNull String memId, int sangSize, int sangColor,
 			@NonNull String sangCode,  int sangCnt, int ordStat, String sangName, int price) {
 		super();
 		this.orderNum = orderNum;
@@ -40,11 +41,12 @@ public class SangMemVO {
 		this.price = price;
 	}
 
-	public SangMemVO(int sangSize, int sangColor, @NonNull String sangCode) {
+	public SangMemVO(int sangSize, int sangColor, @NonNull String sangCode, int gender) {
 		super();
 		this.sangSize = sangSize;
 		this.sangColor = sangColor;
 		this.sangCode = sangCode;
+		this.gender = gender;
 	}
 	
 	

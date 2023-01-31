@@ -99,14 +99,7 @@
 	margin-right: 150px;
 	line-height: 10px;
 }
-.Cside {
-	position: fixed;
-	right: 1%;
-	top: 60%;
-	cursor: pointer;
-	font-size: 44px;
-	width: 77px;
-}
+
 </style>
 </head>
 <body>
@@ -122,16 +115,17 @@
 				<dl>
 					<dt>
 						<form name="sang" action="">
+						<input type="hidden" name="memId" value="${userInfo.memId}" />
 						<c:forEach var="shop" items="${shop}">
 						<table>
 						<tr>
-						<th><label for="${shop.orderNum}"><input name="orderNum" type="checkbox" id="${shop.orderNum}" value="${shop.orderNum}"/>이미지들어가는칸</th>
+						<th><label for="${shop.orderNum}"><input name="orderNum" type="checkbox" id="${shop.orderNum}" value="${shop.orderNum}"/>이미지들어가는칸</label></th>
 						<th>상품이름</th>
 						<th>사이즈</th>
 						<th>상품개수</th>
 						<th>색상</th>
 						<th>가격</th>
-						</label>
+						
 						</tr>
 							<tr>
 							<td><a href="/sangpum/sangpum?sangCode=${shop}"><img src="https://dummyimage.com/50x50/000/fff" alt="" /></a>	</td>
