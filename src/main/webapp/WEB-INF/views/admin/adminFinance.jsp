@@ -38,7 +38,7 @@
 		
 		var chartDataTotal = [];
 
-		$.getJSON("http://127.0.0.1/admin/adminVisitorProc", function(data) {
+		$.getJSON("{path}/admin/adminVisitorProc", function(data) {
 
 			$.each(data, function(inx, obj) {
 				
@@ -131,7 +131,7 @@
 
 <script>
 
-fetch("http://127.0.0.1/admin/yangdoll")
+fetch("{path}/admin/yangdoll")
   .then((response) => response.json())
   .then((data) => {
 	  console.log(data);
