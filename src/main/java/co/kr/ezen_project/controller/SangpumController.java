@@ -34,13 +34,13 @@ public class SangpumController {
 			searchvo.setOrby("SOLDCNT desc");
 		}
 		searchvo.setKeyword(sangCode + "%");
-		System.out.println(searchvo);
 		model.addAttribute("sangList", sangpumService.getSangCate(searchvo));		//상품 코드와 order by로 상품 리스트 들을 검색
 		
 		if( sangCode.length() > 4 ) {					//sangCode 가 5자리 이상일 경우 뒤에 2자리를 자르고 아닌경우 그냥 사용
 			sangCode = sangCode.substring( 0 , sangCode.length() - 2);
 		}
-		
+		searchvo.setKeyword(sangCode);
+		model.addAttribute("typeTwo", sangpumService.getSC_cateName(searchvo));
 		searchvo.setKeyword(sangCode + "__");
 		model.addAttribute("cateList", sangpumService.getSC_cateName(searchvo));
 		model.addAttribute("sangCode", sangCode);

@@ -183,8 +183,8 @@ public class MemberController {
 	}
 
 	@RequestMapping("/cartDelProc")
-	public String cartDelProc(int[] orderNum) {
-
+	public String cartDelProc(String[] orderNum ,String memId) {
+	
 		SangMemVO vo = new SangMemVO();
 		System.out.println(vo);
 		System.out.println(vo.getOrderNum());
@@ -192,27 +192,28 @@ public class MemberController {
 		 * for(int i = 0; i < orderNum.length ; i=i+1 ) { vo.setOrderNum(orderNum[i]);
 		 * sangService.delSangMem(vo); }
 		 */
-		for (int i : orderNum) {
+		for (String i : orderNum) {
 			vo.setOrderNum(i);
 			sangService.delSangMem(vo);
 		}
-
-		return "redirect:/member/shoppingcart";
+		System.out.println(MemService.getMemOne(memId));
+		return "redirect:/member/shoppingcart?memId=" + memId;
 	}
 
 	@RequestMapping("/paypage")
-	public void paypage(int[] orderNum, Model model, SangMemVO vo) {
+	public void paypage(String[] orderNum, Model model, SangMemVO vo) {
 		System.out.println(orderNum);
 		System.out.println(vo);
+		
 		List<SangMemVO> list = new ArrayList<SangMemVO>();
-		for (int orderN : orderNum) {
+		for (String orderN : orderNum) {
 			list.add(sangService.getSangMem(orderN));
 			System.out.println(vo);
 			if(vo.getSangSize() != 0) {
 				list.add(vo);
 			}
 		}
-		model.addAttribute("shop", list);
+		model.addAttribute("pay", list);
 		
 
 		

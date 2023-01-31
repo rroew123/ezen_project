@@ -10,5 +10,5 @@ public class SangCateVO {
 	private int typeOne;
 	private int typeTwo;
 	private int typeThree;
-	private int cateName;
+	private String cateName;
 }

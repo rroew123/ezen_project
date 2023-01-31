@@ -64,10 +64,13 @@
 	
 	<div class="Content">
 		<div class="Cheader">
-			<h1>분류 메뉴</h1>
+			<c:forEach var="typeTwo" items="${typeTwo}">
+				<h1>${typeTwo.cateName}</h1>
+			</c:forEach>
+			
 			<a href="/sangpum/category?sangCode=${sangCode}">전체</a>
-			<c:forEach var="" items="">
-				<a href="">전체</a>
+			<c:forEach var="cateList" items="${cateList}">
+				<a href="/sangpum/category?sangCode=${cateList.sangCode}">${cateList.cateName}</a>
 			</c:forEach>
 			
 		</div>
