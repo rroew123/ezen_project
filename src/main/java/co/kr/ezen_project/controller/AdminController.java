@@ -2,6 +2,7 @@ package co.kr.ezen_project.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -23,13 +24,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
+
 import co.kr.ezen_project.service.ConsumerService;
 import co.kr.ezen_project.service.MemberService;
+import co.kr.ezen_project.service.SangMemService;
 import co.kr.ezen_project.service.SangpumService;
 import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
+import co.kr.ezen_project.vo.SangMemVO;
 import co.kr.ezen_project.vo.SangpumVO;
 import co.kr.ezen_project.vo.VisitorVO;
 import lombok.extern.log4j.Log4j;
@@ -49,6 +54,9 @@ public class AdminController {
 	
 	@Inject
 	ConsumerService consumerService;
+	
+	@Inject
+	SangMemService sangmemService;
 	 
 	
 	
@@ -285,14 +293,32 @@ public class AdminController {
 		return consumerService.getVisitor();
 	}
 	
-	@RequestMapping("/adminFinanceProc")
-	@ResponseBody
-	public List<VisitorVO> adminFinance(Model model) throws Exception{
-		List<VisitorVO> visitor = consumerService.getVisitor();
-		model.addAttribute("visitor", visitor);
-		return visitor;
-	}
 		
+	@RequestMapping("/adminFinance")
+	public void adminFinance(Locale locale, Model model) {
+		
+	}
+	
+	@RequestMapping(value="/adminVisitorProc", method=RequestMethod.GET)
+	@ResponseBody
+	public String adminVisitorProc(Locale locale, Model model) {
+		Gson gson = new Gson();
+		List<VisitorVO> list = consumerService.getVisitor();
+		return gson.toJson(list);
+	}
+	
+	/*equestMapping(value="/adminOrderStatProc", method=RequestMethod.GET)
+	@ResponseBody
+	public String adminOrderStatProc(Locale locale, Model model) {
+		Gson gson = new Gson();
+		List<SangMemVO> list = sangmemService.getSangGender();
+		return gson.toJson(list);
+	}*/
+	
+	
+	
+	
+	
 	
 	
 }
