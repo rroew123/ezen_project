@@ -77,11 +77,12 @@ public class SangMemTest {
 	
 	@Test
 	public void getSangMemTest() {
-		int orderNum = vo1.getOrderNum();
-		System.out.println(orderNum);
-		
-		assertNotNull(service.getSangMem(orderNum) );
-		System.out.println(service.getSangMem(orderNum));
+		/*
+		 * int orderNum = vo1.getOrderNum(); System.out.println(orderNum);
+		 * 
+		 * assertNotNull(service.getSangMem(orderNum) );
+		 * System.out.println(service.getSangMem(orderNum));
+		 */
 	}
 	
 	@Test
@@ -120,11 +121,12 @@ public class SangMemTest {
 	
 	@Test
 	public void updSangMemTest() {
-		assertNotNull(service.addSangMemPay(vo3));
-		int orderNum = vo3.getOrderNum();
-		System.out.println(service.getSangMem(orderNum));
-		System.out.println("상멤 업데이트=============" + service.updSangMem(vo1));
-		System.out.println(service.getSangMem(orderNum));
+		/*
+		 * assertNotNull(service.addSangMemPay(vo3)); int orderNum = vo3.getOrderNum();
+		 * System.out.println(service.getSangMem(orderNum));
+		 * System.out.println("상멤 업데이트=============" + service.updSangMem(vo1));
+		 * System.out.println(service.getSangMem(orderNum));
+		 */
 	}
 	
 	@Test

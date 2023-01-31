@@ -38,7 +38,7 @@
 		
 		var chartDataTotal = [];
 
-		$.getJSON("{path}/admin/adminVisitorProc", function(data) {
+		$.getJSON("/admin/adminVisitorProc", function(data) {
 
 			$.each(data, function(inx, obj) {
 				

@@ -206,17 +206,15 @@ public class MemberController {
 		System.out.println(vo);
 		
 		List<SangMemVO> list = new ArrayList<SangMemVO>();
-		for (String orderN : orderNum) {
-			list.add(sangService.getSangMem(orderN));
-			System.out.println(vo);
-			if(vo.getSangSize() != 0) {
-				list.add(vo);
+		if(orderNum != null) {
+			for (String orderN : orderNum) {
+				list.add(sangService.getSangMem(orderN));
 			}
 		}
+		if(vo.getSangSize() != 0) {
+			list.add(vo);
+		}
 		model.addAttribute("pay", list);
-		
-
-		
 	}
 
 	
