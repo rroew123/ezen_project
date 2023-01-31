@@ -5,8 +5,10 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import co.kr.ezen_project.vo.MemberVO;
+import co.kr.ezen_project.vo.SangCateVO;
 import co.kr.ezen_project.vo.SangCodeSpecVO;
 import co.kr.ezen_project.vo.SangpumVO;
+import co.kr.ezen_project.vo.SearchVO;
 
 public interface SangpumService {
 	
@@ -44,7 +46,7 @@ public interface SangpumService {
 	
 	List<SangpumVO> getSoldOut(String sangCode);
 
-	List<SangpumVO> getSangCate(SangpumVO vo);
+	List<SangpumVO> getSangCate(SearchVO vo);
 	
 	List<SangpumVO> getSangAdmin(String sangCode);
 	
@@ -53,4 +55,6 @@ public interface SangpumService {
 	int countArticle(String searchOption, String keyword);
 	
 	List<SangpumVO> getSangOrder();
+	
+	List<SangCateVO> getSC_cateName(SearchVO vo);
 }

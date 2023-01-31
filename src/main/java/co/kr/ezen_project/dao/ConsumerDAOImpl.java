@@ -141,7 +141,6 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	@Override
 	public void delQnAMem(String memId) {
 		session.selectList("co.kr.ezen_project.dao.ConsumerDAO.delQnAMem", memId);
-		
 	}
 
 	@Override
@@ -152,7 +151,6 @@ public class ConsumerDAOImpl implements ConsumerDAO {
 	@Override
 	public void udtQnA_Ans(QnAboardVO qvo1) {
 		session.update("co.kr.ezen_project.dao.ConsumerDAO.udtQnA_Ans", qvo1);
-		
 	}
 
 	@Override

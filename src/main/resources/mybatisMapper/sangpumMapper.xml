@@ -83,8 +83,8 @@
 		select remStock from Sangpum where sangCode = #{sangCode}
 	</select>
 	
-	<select id="getSangCate" parameterType="String" resultType="SangpumVO">
-		SELECT * FROM Sangpum WHERE sangCode LIKE #{sangCode} order by #{orby}
+	<select id="getSangCate" parameterType="SearchVO" resultType="SangpumVO">
+		SELECT * FROM Sangpum WHERE sangCode LIKE #{keyword} order by #{orby}
 	</select>
 	
 	<select id="getSangAdmin" parameterType="String" resultType="SangpumVO">
@@ -105,6 +105,11 @@
 	<select id="getSangOrder" resultType="SangpumVO">   
       select * from sangpum where <![CDATA[remStock <= 20]]>
    </select>
+   
+   	<select id="getSC_cateName" resultType="SangCateVO" parameterType="SearchVO">   
+      select * from sangCate where sangCode like #{keyword} order by #{orby};
+   </select>
+   
 	
 	
 </mapper>

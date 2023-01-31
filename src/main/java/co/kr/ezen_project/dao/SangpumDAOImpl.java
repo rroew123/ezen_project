@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.kr.ezen_project.vo.MemberVO;
+import co.kr.ezen_project.vo.SangCateVO;
 import co.kr.ezen_project.vo.SangCodeSpecVO;
 import co.kr.ezen_project.vo.SangpumVO;
 import co.kr.ezen_project.vo.SearchVO;
@@ -112,7 +113,7 @@ public class SangpumDAOImpl implements SangpumDAO {
 	}
 
 	@Override
-	public List<SangpumVO> getSangCate(SangpumVO vo) {
+	public List<SangpumVO> getSangCate(SearchVO vo) {
 		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSangCate", vo);
 	}
 
@@ -143,6 +144,11 @@ public class SangpumDAOImpl implements SangpumDAO {
 	   public List<SangpumVO> getSangOrder() {
 	      return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSangOrder");
 	   }
+
+	@Override
+	public List<SangCateVO> getSC_cateName(SearchVO vo) {
+		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSC_cateName", vo);
+	}
 
 	
 }

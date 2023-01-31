@@ -13,4 +13,5 @@ public class VisitorVO {
 	private String visitDate;
 	private int visitMen;
 	private int visitWom;
+	private int total;
 }

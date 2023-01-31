@@ -65,7 +65,7 @@
 	<div class="Content">
 		<div class="Cheader">
 			<h1>분류 메뉴</h1>
-			<a href="">전체</a>
+			<a href="/sangpum/category?sangcode=${sangCode}">전체</a>
 			<a href="">어쩌구</a>
 			<a href="">저쩌구</a>
 			<a href="">전체</a>
@@ -75,22 +75,9 @@
 			</span>
 			<div class="sangpum">
 		<ul>
-			<li>상품1</li>
-			<li>상품2</li>
-			<li>상품3</li>
-			<li>상품4</li>
-			<li>상품5</li>
-			<li>상품6</li>
-			<li>상품7</li>
-			<li>상품8</li>
-			<li>상품9</li>
-			<li>상품10</li>
-			<li>상품11</li>
-			<li>상품12</li>
-			<li>상품13</li>
-			<li>상품14</li>
-			<li>상품15</li>
-	
+			<c:forEach var="list" items="${sangList}">
+				<li><a href="/sangpum/sangpum?sangCode=${list.sangCode}">${list.sangName}</a></li>
+			</c:forEach>
 		</ul>
 		</div>
 

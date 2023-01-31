@@ -22,7 +22,7 @@
 }
 
 #container{
-	width : 60%;
+	width : 900px;
 	margin : 0 auto;
 }
 #contents{
@@ -161,22 +161,26 @@ input[type="radio"]:checked + span {
 
 
 function count(type)  {	//갯수 올리고 내리기
-	const resultElement = document.getElementById('count');
-	// 현재 화면에 표시된 값
-	let number = resultElement.innerText;
-	// 더하기/빼기
-	if(type === 'plus') {
-	  number = parseInt(number) + 1;
-	}else if(type === 'minus')  {
-	  number = parseInt(number) - 1;
-	  
-	  if(parseInt(number) === 0 ){
-		  document.getElementById('minus').hide();
+	if($("input:radio[name='sangSize']").is(':checked')){
+		const resultElement = document.getElementById('count');
+		// 현재 화면에 표시된 값
+		let number = resultElement.innerText;
+		// 더하기/빼기
+		if(type === 'plus') {
+		  number = parseInt(number) + 1;
+		}else if(type === 'minus')  {
+		  number = parseInt(number) - 1;
+		  
+		  if(parseInt(number) === 0 ){
+			  document.getElementById('minus').hide();
+			}
 		}
+		// 결과 출력
+		resultElement.innerText = number;
+		cost(number);
+	}else{
+		return alert("사이즈먼저 선택해주세요");
 	}
-	// 결과 출력
-	resultElement.innerText = number;
-	cost(number);
 }
 
 function cost(number){	//총액 계산 함수
@@ -186,16 +190,18 @@ function cost(number){	//총액 계산 함수
 
 function sangmove(move){
 	//결제나 쇼핑카트	ajax쓸 예정
-	if(move ==='cart'){
+	if(move === 'cart' && $("input:radio[name='sangSize']").is(':checked')){
 		$('input[name=sangCnt]').attr('value', document.getElementById('count').innerText);
 		$('input[name=price]').attr('value', document.getElementById('cost').innerText);
 		document.sang.action="/sangpum/shoppingcartProc";
 		document.sang.submit();
-	}else if(move ==='pay'){
+	}else if(move === 'pay'){
 		$('input[name=sangCnt]').attr('value', document.getElementById('count').innerText);
 		$('input[name=price]').attr('value', document.getElementById('cost').innerText);
 		document.sang.action="/member/paypage";
 		document.sang.submit();
+	}else{		//이거 왜 작동을 안하냐...
+		alter("색과 사이즈를 골라주세요");
 	}
 }
 

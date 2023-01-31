@@ -3,8 +3,10 @@ package co.kr.ezen_project.dao;
 import java.util.List;
 
 import co.kr.ezen_project.vo.MemberVO;
+import co.kr.ezen_project.vo.SangCateVO;
 import co.kr.ezen_project.vo.SangCodeSpecVO;
 import co.kr.ezen_project.vo.SangpumVO;
+import co.kr.ezen_project.vo.SearchVO;
 
 public interface SangpumDAO {
 
@@ -42,7 +44,7 @@ public interface SangpumDAO {
 
 	List<SangpumVO> getSoldOut(String sangCode);
 
-	List<SangpumVO> getSangCate(SangpumVO vo);
+	List<SangpumVO> getSangCate(SearchVO vo);
 
 	List<SangpumVO> getSangAdmin(String sangCode);
 	
@@ -51,6 +53,8 @@ public interface SangpumDAO {
 	public int countArticle(String searchOption, String keyword);
 	
 	List<SangpumVO> getSangOrder();
+
+	List<SangCateVO> getSC_cateName(SearchVO vo);
 
 
 	

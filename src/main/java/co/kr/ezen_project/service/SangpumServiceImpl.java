@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import co.kr.ezen_project.dao.SangpumDAO;
 import co.kr.ezen_project.vo.MemberVO;
+import co.kr.ezen_project.vo.SangCateVO;
 import co.kr.ezen_project.vo.SangCodeSpecVO;
 import co.kr.ezen_project.vo.SangpumVO;
+import co.kr.ezen_project.vo.SearchVO;
 
 @Service
 public class SangpumServiceImpl implements SangpumService {
@@ -109,7 +111,7 @@ public class SangpumServiceImpl implements SangpumService {
 	}
 
 	@Override
-	public List<SangpumVO> getSangCate(SangpumVO vo) {
+	public List<SangpumVO> getSangCate(SearchVO vo) {
 		return dao.getSangCate(vo);
 	}
 
@@ -131,5 +133,10 @@ public class SangpumServiceImpl implements SangpumService {
 	   public List<SangpumVO> getSangOrder() {
 	      return dao.getSangOrder();
 	   }
+
+	@Override
+	public List<SangCateVO> getSC_cateName(SearchVO vo) {
+		 return dao.getSC_cateName(vo);
+	}
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,6 +15,7 @@ import co.kr.ezen_project.service.SangpumService;
 import co.kr.ezen_project.vo.SangCodeSpecVO;
 import co.kr.ezen_project.vo.SangMemVO;
 import co.kr.ezen_project.vo.SangpumVO;
+import co.kr.ezen_project.vo.SearchVO;
 
 @Controller
 @RequestMapping("/sangpum/")
@@ -23,19 +25,32 @@ public class SangpumController {
 	@Autowired
 	SangMemService sangmemService;
 	
-	@RequestMapping({"/category","/category_best","/category_new","/category_lowprice","/category_highprice"})
-	public void category(String SangCode, Model model) {	//분류페이지로 이동
-		/*SangCode = SangCode + "%";
-		SangpumVO Svo = null;
-		Svo.setSangCode(SangCode);
-		model.addAttribute("list", sangpumService.getSangCate(Svo));*/
+	@RequestMapping("/category")
+	public void category(String sangCode, String orby, Model model) {	//분류페이지로 이동
+		SearchVO searchvo = new SearchVO();
+		if(orby != null) {						//order by 기본이 판매량 순
+			searchvo.setOrby(orby);	
+		}else {
+			searchvo.setOrby("SOLDCNT desc");
+		}
+		searchvo.setKeyword(sangCode + "%");
+		model.addAttribute("sangList", sangpumService.getSangCate(searchvo));		//상품 코드와 order by로 상품 리스트 들을 검색
+		
+		if( sangCode.length() > 4 ) {					//sangCode 가 5자리 이상일 경우 뒤에 2자리를 자르고 아닌경우 그냥 사용
+			sangCode = sangCode.substring( 0 , sangCode.length() - 2);
+		}
+		
+		searchvo.setKeyword(sangCode + "__");
+		model.addAttribute("cateList", sangpumService.getSC_cateName(searchvo));
+		model.addAttribute("sangCode", sangCode);
 	}
+	
 	@RequestMapping("/order")
 	public void order(SangCodeSpecVO vo, Model model) {		//결제페이지로 이동
 		model.addAttribute("SangCodeSpecVO", vo);
 	}
 	
-	@RequestMapping("/sangpum")
+	@GetMapping("/sangpum")
 	public void sangpum(String sangCode, SangCodeSpecVO scsvo, HttpSession session, Model model) {		//상품페이지로 이동
 		/*
 		 * if(session.getattribute("sangcode") != null) { sangcode = (string)
@@ -54,8 +69,6 @@ public class SangpumController {
 	@GetMapping("/selColorProc")	//실패......
 	@ResponseBody
 	public String selColorProc(String sangCode, int sangColor, HttpSession session) {		//상품페이지로 이동
-		System.out.println(sangCode);
-		System.out.println(sangColor);
 		SangCodeSpecVO scsvo = null;
 		scsvo.setSangCode(sangCode);
 		scsvo.setSangColor(sangColor);
@@ -76,9 +89,7 @@ public class SangpumController {
 	
 	@RequestMapping("/shoppingcartProc")		//장바구니에 추가
 	public String sangmemInsert(SangMemVO SMvo, Model model, HttpSession session) {
-		System.out.println(SMvo);
 		sangmemService.addSangMemCart(SMvo);
-		
 		return "redirect:/sangpum/sangpum?sangCode=" + SMvo.getSangCode();
 	}
 	

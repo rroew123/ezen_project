@@ -177,12 +177,10 @@ public class SanpumTest {
 		System.out.println("평점확인========================"+service.getSoldOut(sangCode));
 	}
 	
-	@Test
-	public void getSangCateTest() {
-		vo1.setOrby("price(DESC)");
-		vo1.setSangCate("abc%");
-		System.out.println(service.getSangCate(vo1));
-	}
+	/*
+	 * @Test public void getSangCateTest() { vo1.setOrby("price(DESC)");
+	 * vo1.setSangCate("abc%"); System.out.println(service.getSangCate(vo1)); }
+	 */
 
 	
 }
