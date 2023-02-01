@@ -1,5 +1,6 @@
 package co.kr.ezen_project.controller;
 
+import java.sql.Array;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -297,13 +298,18 @@ public class AdminController {
 		return gson.toJson(list);
 	}
 	
-	/*equestMapping(value="/adminOrderStatProc", method=RequestMethod.GET)
+	@RequestMapping(value="/adminOrderStatProc", method=RequestMethod.GET)
 	@ResponseBody
 	public String adminOrderStatProc(Locale locale, Model model) {
 		Gson gson = new Gson();
-		List<SangMemVO> list = sangmemService.getSangGender();
+		int[] list = {
+			sangmemService.getSangGender("1"),
+			sangmemService.getSangGender("2"),
+		};
+		System.out.println("===============" + sangmemService.getSangGender("1"));
 		return gson.toJson(list);
-	}*/
+		
+	}
 	
 	
 	
