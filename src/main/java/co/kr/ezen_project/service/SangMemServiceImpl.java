@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 
 import co.kr.ezen_project.dao.SangMemDAO;
 import co.kr.ezen_project.vo.CouponVO;
+import co.kr.ezen_project.vo.GenderSoldVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.SangMemVO;
+import co.kr.ezen_project.vo.VisitorVO;
 
 @Service
 public class SangMemServiceImpl implements SangMemService {
@@ -173,9 +175,9 @@ public class SangMemServiceImpl implements SangMemService {
 	}
 	
 	@Override
-	   public int getSangGender() {
-	      return dao.getSangGender();
-	   }
+	public List<GenderSoldVO> getSangGender() {
+	   return dao.getSangGender();
+	}
 
 	@Override
 	   public SangMemVO getSangNonmem(String orderNum) {

@@ -3,10 +3,12 @@ package co.kr.ezen_project.service;
 import java.util.List;
 
 import co.kr.ezen_project.vo.CouponVO;
+import co.kr.ezen_project.vo.GenderSoldVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.SangMemVO;
+import co.kr.ezen_project.vo.VisitorVO;
 
 public interface SangMemService {
 	
@@ -72,7 +74,7 @@ public interface SangMemService {
 	
 	int updPayment(PaymentVO vo);
 	
-	int getSangGender();
+	List<GenderSoldVO> getSangGender();
 
 	SangMemVO getSangNonmem(String orderNum);
 

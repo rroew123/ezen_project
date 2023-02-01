@@ -88,69 +88,56 @@
 				}
 			})
 		}
-
+		
 		
 		
 		
 		
 		/* 판매율 그래프 */
-		var chartSangMen = [];		
-		var chartSangWomen = [];		
-		var chartDataNull = [];
+		var chartData = [];		
+
 
 		$.getJSON("/admin/adminOrderStatProc", function(data) {
-			$.each(data, function(inx, obj) {			
-				chartSangMen.push(obj.getSangGender("1"));				
-				chartSangWomen.push(obj.getSangGender("2"));
-				chartDataNull.push(obj.getSangGender(null));					
+			$.each(data, function(inx, obj) {
+				chartData.push(obj.countData);						
 			});
-			createChart();
+			createMyChart();
 			console.log("create MyChart")
 		}); 
 		
-		var context = document
-			.getElementById('myChart')
-			.getContext('2d');
-		var myChart = new Chart(context, {
-			type: 'pie', // 차트의 형태
-			data: { // 차트에 들어갈 데이터
-			labels: [ //x 축
-				'여자','남자','비회원'
-				],
-			datasets : [
+		
+		var myChartData = {
+				labels: ['비회원','남자','여자'],
+				datasets : [
 				{
 					label : "남자 판매율",
-					backgroundColor : "skyblue",			
-					borderColor : "skyblue",			
+					backgroundColor : ["grey", "skyblue","pink"],			
+					borderColor : ["grey", "skyblue","pink"],			
 					borderWidth: 1,			
-					data : chartSangMen
-				},{
-					label : "여자 판매율",
-					backgroundColor : "pink",				
-					borderColor : "pink",				
-					borderWidth: 1,				
-					data : chartSangWomen				
-				},{
-					label : "비회원 판매율",
-					backgroundColor : "grey",				
-					borderColor : "grey",				
-					borderWidth: 1,				
-					data : chartDataNull
-				}
-				]   
-				},
-				options: {
-					scales: {
-						yAxes: [
-							{
-								ticks: {
-									beginAtZero: true
-								}
+					data : chartData
+			}
+			]   
+		}
+		
+		function createMyChart(){
+			var context = document.getElementById('myChart').getContext('2d');
+			
+			var myChart = new Chart(context, {
+				type: "pie",
+				data: myChartData,
+				options : {
+					scales : {
+						yAxes : [ {
+							ticks : {
+								beginAtZero : true
 							}
-						]
+						} ]
 					}
 				}
-			});
+			})
+		}
+
+
 </script>
 <%@ include file="bottom.jsp" %>
 </body>

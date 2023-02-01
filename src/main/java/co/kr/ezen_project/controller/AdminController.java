@@ -32,6 +32,7 @@ import co.kr.ezen_project.service.MemberService;
 import co.kr.ezen_project.service.SangMemService;
 import co.kr.ezen_project.service.SangpumService;
 import co.kr.ezen_project.vo.FAQVO;
+import co.kr.ezen_project.vo.GenderSoldVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
@@ -302,9 +303,8 @@ public class AdminController {
 	@ResponseBody
 	public String adminOrderStatProc(Locale locale, Model model) {
 		Gson gson = new Gson();
-		int[] list = {
-			sangmemService.getSangGender("1")
-		};
+		List<GenderSoldVO> list = sangmemService.getSangGender();
+		
 		return gson.toJson(list);
 		
 	}

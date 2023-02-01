@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.kr.ezen_project.vo.CouponVO;
+import co.kr.ezen_project.vo.GenderSoldVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.SangMemVO;
 import co.kr.ezen_project.vo.SangpumVO;
+import co.kr.ezen_project.vo.VisitorVO;
 
 @Repository
 public class SangMemDAOImpl implements SangMemDAO {
@@ -195,9 +197,9 @@ public class SangMemDAOImpl implements SangMemDAO {
 	}
 
 	@Override
-	   public int getSangGender() {
-	      return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getSangGender");
-	   }
+	public List<GenderSoldVO> getSangGender() {
+	    return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getSangGender");
+	}
 	@Override
 	   public SangMemVO getSangNonmem(String orderNum) {
 	      return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getSangNonmem", orderNum);
