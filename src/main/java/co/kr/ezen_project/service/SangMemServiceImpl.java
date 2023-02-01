@@ -173,7 +173,7 @@ public class SangMemServiceImpl implements SangMemService {
 	}
 	
 	@Override
-	   public SangMemVO getSangGender(String orderNum) {
+	   public int getSangGender(String orderNum) {
 	      return dao.getSangGender(orderNum);
 	   }
 

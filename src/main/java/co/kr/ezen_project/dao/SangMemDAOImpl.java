@@ -195,7 +195,7 @@ public class SangMemDAOImpl implements SangMemDAO {
 	}
 
 	@Override
-	   public SangMemVO getSangGender(String gender) {
+	   public int getSangGender(String gender) {
 	      return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getSangGender", gender);
 	   }
 	@Override
