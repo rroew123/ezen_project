@@ -298,15 +298,13 @@ public class AdminController {
 		return gson.toJson(list);
 	}
 	
-	@RequestMapping(value="/adminOrderStatProc", method=RequestMethod.GET)
+	@GetMapping(value="/adminOrderStatProc")
 	@ResponseBody
 	public String adminOrderStatProc(Locale locale, Model model) {
 		Gson gson = new Gson();
 		int[] list = {
-			sangmemService.getSangGender("1"),
-			sangmemService.getSangGender("2"),
+			sangmemService.getSangGender("1")
 		};
-		System.out.println("===============" + sangmemService.getSangGender("1"));
 		return gson.toJson(list);
 		
 	}
