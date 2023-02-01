@@ -89,7 +89,7 @@ input[type="radio"]:checked + span {
 				<p>asdasd</p>
 			</div>
 			<div id="centerbox">
-				<img src="https://dummyimage.com/450x600/000/fff" alt="상품이미지" />
+				<img src="/resources/img/Ezen.png" alt="상품이미지" />
 			</div>
 			<div id="rightbox">
 			

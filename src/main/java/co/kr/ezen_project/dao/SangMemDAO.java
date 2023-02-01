@@ -81,7 +81,7 @@ public interface SangMemDAO {
 
 	List<SangMemVO> getSM_MemId(String memId);
 	
-	int getSangGender(String orderNum);
+	int getSangGender(String gender);
 
 	SangMemVO getSangNonmem(String orderNum);
 
