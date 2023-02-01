@@ -154,8 +154,8 @@
 		update Payment set payment = #{payment}, coupNum = #{coupNum}, cardInfo = #{cardInfo}, payType = #{payType} where payNum = #{payNum}
 	</update>
 	
-	<select id="getSangGender" resultType="SangMemVO" parameterType="String">   
-      select sangCnt from SangMem where gender = #{gender}
+	<select id="getSangGender" resultType="GenderSoldVO">   
+      select sum(sangcnt) as countData, decode(gender, 1, '남', 2, '여', '비회원') gender  from sangmem group by gender
    </select>
 
 <select id="getSangNonmem" resultType="SangMemVO">   
