@@ -11,6 +11,7 @@ import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.SangMemVO;
+import co.kr.ezen_project.vo.SangpumVO;
 
 @Repository
 public class SangMemDAOImpl implements SangMemDAO {
@@ -194,13 +195,15 @@ public class SangMemDAOImpl implements SangMemDAO {
 	}
 
 	@Override
-	   public SangMemVO getSangGender(String orderNum) {
-	      return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getSangGender", orderNum);
+	   public SangMemVO getSangGender(String gender) {
+	      return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getSangGender", gender);
 	   }
 	@Override
 	   public SangMemVO getSangNonmem(String orderNum) {
 	      return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getSangNonmem", orderNum);
 	   }
+
+	
 
 
 }

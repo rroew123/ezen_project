@@ -72,7 +72,7 @@ public interface SangMemService {
 	
 	int updPayment(PaymentVO vo);
 	
-	SangMemVO getSangGender(String orderNum);
+	SangMemVO getSangGender(String gender);
 
 	SangMemVO getSangNonmem(String orderNum);
 

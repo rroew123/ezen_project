@@ -198,8 +198,11 @@ a{
 			<a href="/"><img src="/resources/img/Ezen.png" /></a>
 		</div>
 		<div class="Search">
-			<input type="text" class="SearchInput" placeholder="검색 기능" />
-			<a href="" style="font-size:20px;"><i class="fa-solid fa-magnifying-glass"></i></a>
+			<form action="/sangpum/search">
+				<input type="text" class="SearchInput" name="sangName" placeholder="검색 기능" />
+				<input type="submit">
+				<a href="" style="font-size:20px;"><i class="fa-solid fa-magnifying-glass"></i></a>
+			</form>
 			</div>
 			
 		

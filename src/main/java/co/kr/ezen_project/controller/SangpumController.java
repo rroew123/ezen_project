@@ -1,5 +1,7 @@
 package co.kr.ezen_project.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,8 +86,12 @@ public class SangpumController {
 		
 	}
 	@RequestMapping("/search")
-	public void search() {			//검색창 보류
-		
+	public void search(String sangName, Model model) {			//검색창 보류
+		model.addAttribute("sangName", sangName);
+		SearchVO vo = new SearchVO();
+		vo.setKeyword("%" + sangName + "%");
+		model.addAttribute("sangListSize", sangpumService.getSP_sangName(vo).size());
+		model.addAttribute("sangList", sangpumService.getSP_sangName(vo));
 	}
 	
 	@RequestMapping("/shoppingcartProc")		//장바구니에 추가

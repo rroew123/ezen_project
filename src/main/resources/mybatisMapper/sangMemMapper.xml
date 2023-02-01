@@ -154,7 +154,7 @@
 		update Payment set payment = #{payment}, coupNum = #{coupNum}, cardInfo = #{cardInfo}, payType = #{payType} where payNum = #{payNum}
 	</update>
 	
-	<select id="getSangGender" resultType="SangMemVO">   
+	<select id="getSangGender" resultType="SangMemVO" parameterType="String">   
       select sangCnt from SangMem where gender = #{gender}
    </select>
 

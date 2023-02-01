@@ -7,6 +7,7 @@ import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.SangMemVO;
+import co.kr.ezen_project.vo.SangpumVO;
 
 public interface SangMemDAO {
 

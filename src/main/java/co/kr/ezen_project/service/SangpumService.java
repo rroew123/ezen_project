@@ -57,4 +57,6 @@ public interface SangpumService {
 	List<SangpumVO> getSangOrder();
 	
 	List<SangCateVO> getSC_cateName(SearchVO vo);
+	
+	List<SangpumVO> getSP_sangName(SearchVO vo);
 }

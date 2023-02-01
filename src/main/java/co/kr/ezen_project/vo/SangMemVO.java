@@ -25,7 +25,7 @@ public class SangMemVO {
 	private int ordStat;
 	private String sangName;
 	private int price;
-	private int gender;
+	private String gender;
 	
 	public SangMemVO(String orderNum, @NonNull String memId, int sangSize, int sangColor,
 			@NonNull String sangCode,  int sangCnt, int ordStat, String sangName, int price) {
@@ -41,7 +41,7 @@ public class SangMemVO {
 		this.price = price;
 	}
 
-	public SangMemVO(int sangSize, int sangColor, @NonNull String sangCode, int gender) {
+	public SangMemVO(int sangSize, int sangColor, @NonNull String sangCode, String gender) {
 		super();
 		this.sangSize = sangSize;
 		this.sangColor = sangColor;

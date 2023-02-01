@@ -67,7 +67,7 @@
 	</select>
 	
 	<select id="getSize" resultType="SangCodeSpecVO" parameterType="SangCodeSpecVO">
-		select DISTINCT * from SangCodeSpec where sangCode = #{sangCode}
+		select DISTINCT sangCode, sangSize from SangCodeSpec where sangCode = #{sangCode}
 		<if test="sangColor != 0"> and sangColor = #{sangColor}</if>
 	</select>
 	
@@ -109,6 +109,11 @@
    	<select id="getSC_cateName" resultType="SangCateVO" parameterType="SearchVO">   
       select * from sangCate where sangCode like #{keyword} order by #{orby}
    </select>
+   
+   <select id="getSP_sangName" resultType="SangpumVO" parameterType="SearchVO">
+		select * from sangpum where sangName like #{keyword}
+		<!-- order by sangCode desc, sangName desc -->
+	</select>
    
 	
 	

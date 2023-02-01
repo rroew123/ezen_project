@@ -46,6 +46,10 @@
 	display: inline-block;
 }
 
+.sangpumList{
+	display: inline-block;
+}
+
 
 
 /* ===========================content=============================  */
@@ -67,7 +71,9 @@
 			<c:forEach var="typeTwo" items="${typeTwo}">
 				<h1>${typeTwo.cateName}</h1>
 			</c:forEach>
-			
+			<a href="/sangpum/category?sangCode=${sangCode}">전체</a>
+			<a href="/sangpum/category?sangCode=${sangCode}">남자</a>
+			<a href="/sangpum/category?sangCode=${sangCode}">여자</a> <br>
 			<a href="/sangpum/category?sangCode=${sangCode}">전체</a>
 			<c:forEach var="cateList" items="${cateList}">
 				<a href="/sangpum/category?sangCode=${cateList.sangCode}">${cateList.cateName}</a>
@@ -80,7 +86,12 @@
 			<div class="sangpum">
 		<ul>
 			<c:forEach var="list" items="${sangList}">
-				<li><a href="/sangpum/sangpum?sangCode=${list.sangCode}">${list.sangName}</a></li>
+				<span class="sangpumList"><a href="/sangpum/sangpum?sangCode=${list.sangCode}"><img src="/resources/img/Ezen.png" alt="" style="height: 300px; width: 300px; border: 1px solid black;"/></a>
+					<br><span>${list.sangName}</span>
+					<br><span>${list.price}</span>
+					<!--사진이 들어갈 주소  /resource/sangpum/${list.typeOne}/${list.typeTwo}/${list.typeThree}/${list.sangCode}.img-->
+				</span>
+				
 			</c:forEach>
 		</ul>
 		</div>
