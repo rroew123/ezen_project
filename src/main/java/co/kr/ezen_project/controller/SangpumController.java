@@ -100,4 +100,13 @@ public class SangpumController {
 		return "redirect:/sangpum/sangpum?sangCode=" + SMvo.getSangCode();
 	}
 	
+	@RequestMapping("/home")		//홈이라고 생각하자
+	public void home(String orby, Model model) {
+		SearchVO vo = new SearchVO();
+		for(int i = 1; i < 10;i++) {
+			sangpumService.getSC_cateName(vo);
+		}
+	}	
+
+	
 }

@@ -173,8 +173,8 @@ public class SangMemServiceImpl implements SangMemService {
 	}
 	
 	@Override
-	   public int getSangGender(String gender) {
-	      return dao.getSangGender(gender);
+	   public int getSangGender() {
+	      return dao.getSangGender();
 	   }
 
 	@Override
