@@ -105,19 +105,21 @@ public class SangpumController {
 	
 	@RequestMapping("/test")		//홈이라고 생각하자
 	public void test(String orby, Model model) {
-		SangCateVO Scvo = new SangCateVO();
 		SearchVO searchvo = new SearchVO();
-		
-		searchvo.setKeyword("1__");
-		model.addAttribute("maintypeTwo", sangpumService.getSC_cateName(searchvo));
-		
 		searchvo.setKeyword("_");
-		model.addAttribute("maintypeOne", sangpumService.getSC_cateName(searchvo));
-	
-		
+		model.addAttribute("mainTypeOne", sangpumService.getSC_cateName(searchvo));
+		for( SangCateVO vo1 : sangpumService.getSC_cateName(searchvo)) {
+			searchvo.setKeyword(vo1.getSangCode()+"__");
+			model.addAttribute("listA"+vo1.getSangCode() , sangpumService.getSC_cateName(searchvo));
+			for(SangCateVO vo2 : sangpumService.getSC_cateName(searchvo)) {
+				searchvo.setKeyword(vo2.getSangCode()+"__");
+				model.addAttribute("listB"+vo2.getSangCode() , sangpumService.getSC_cateName(searchvo));
+			}
+		}
 	}	
 	
-	@RequestMapping("/getcate")		//홈이라고 생각하자
+	/*
+	@RequestMapping("/getcate")		//필요 없어
 	@ResponseBody
 	public String categet(String cateCode, HttpSession session, Model model) {
 		System.out.println(cateCode);
@@ -132,6 +134,6 @@ public class SangpumController {
 		}
 		
 		return "";
-	}
+	}*/
 	
 }
