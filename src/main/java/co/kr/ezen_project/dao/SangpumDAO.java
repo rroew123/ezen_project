@@ -56,6 +56,8 @@ public interface SangpumDAO {
 
 	List<SangCateVO> getSC_cateName(SearchVO vo);
 
+	List<SangCateVO> getSC_cateType(SangCateVO vo);
+	
 	List<SangpumVO> getSP_sangName(SearchVO vo);
 
 

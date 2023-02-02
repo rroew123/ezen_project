@@ -2,6 +2,8 @@ package co.kr.ezen_project.controller;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.kr.ezen_project.service.SangMemService;
 import co.kr.ezen_project.service.SangpumService;
+import co.kr.ezen_project.vo.SangCateVO;
 import co.kr.ezen_project.vo.SangCodeSpecVO;
 import co.kr.ezen_project.vo.SangMemVO;
 import co.kr.ezen_project.vo.SangpumVO;
@@ -100,13 +103,35 @@ public class SangpumController {
 		return "redirect:/sangpum/sangpum?sangCode=" + SMvo.getSangCode();
 	}
 	
-	@RequestMapping("/home")		//홈이라고 생각하자
-	public void home(String orby, Model model) {
-		SearchVO vo = new SearchVO();
-		for(int i = 1; i < 10;i++) {
-			sangpumService.getSC_cateName(vo);
-		}
+	@RequestMapping("/test")		//홈이라고 생각하자
+	public void test(String orby, Model model) {
+		SangCateVO Scvo = new SangCateVO();
+		SearchVO searchvo = new SearchVO();
+		
+		searchvo.setKeyword("1__");
+		model.addAttribute("maintypeTwo", sangpumService.getSC_cateName(searchvo));
+		
+		searchvo.setKeyword("_");
+		model.addAttribute("maintypeOne", sangpumService.getSC_cateName(searchvo));
+	
+		
 	}	
-
+	
+	@RequestMapping("/getcate")		//홈이라고 생각하자
+	@ResponseBody
+	public String categet(String cateCode, HttpSession session, Model model) {
+		System.out.println(cateCode);
+		SearchVO searchvo = new SearchVO();
+		searchvo.setKeyword(cateCode+"__");
+		if(cateCode.length() < 3) {
+			session.setAttribute("typeTwo", sangpumService.getSC_cateName(searchvo));
+			System.out.println("타입투 되나");
+		}else {
+			session.setAttribute("typeThree", sangpumService.getSC_cateName(searchvo));
+			System.out.println("타입쓰리 되나");
+		}
+		
+		return "";
+	}
 	
 }

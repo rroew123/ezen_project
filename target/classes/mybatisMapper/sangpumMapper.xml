@@ -103,15 +103,19 @@
 	</select>
 	
 	<select id="getSangOrder" resultType="SangpumVO">   
-      select * from sangpum where <![CDATA[remStock <= 20]]>
+      	select * from sangpum where <![CDATA[remStock <= 20]]>
    </select>
    
    	<select id="getSC_cateName" resultType="SangCateVO" parameterType="SearchVO">   
-      select * from sangCate where sangCode like #{keyword} order by #{orby}
-   </select>
+    	select * from sangCate where sangCode like #{keyword}
+ 	</select>
+ 	
+ 	<select id="getSC_cateType" resultType="SangCateVO" parameterType="SangCateVO">   
+      select * from sangCate where typeOne=#{typeOne} and typeTwo=#{typeTwo} and typeThree=#{typeThree}
+ 	</select>
    
    <select id="getSP_sangName" resultType="SangpumVO" parameterType="SearchVO">
-		select * from sangpum where sangName like #{keyword}
+		select * from sangpum where sangCode like #{keyword}
 		<!-- order by sangCode desc, sangName desc -->
 	</select>
    

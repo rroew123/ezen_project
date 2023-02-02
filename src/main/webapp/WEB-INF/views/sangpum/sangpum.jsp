@@ -191,6 +191,7 @@ function cost(number){	//총액 계산 함수
 function sangmove(move){
 	//결제나 쇼핑카트	ajax쓸 예정
 	if(move === 'cart' && $("input:radio[name='sangSize']").is(':checked')){
+		alert("장바구니에 추가되었습니다.");
 		$('input[name=sangCnt]').attr('value', document.getElementById('count').innerText);
 		$('input[name=price]').attr('value', document.getElementById('cost').innerText);
 		document.sang.action="/sangpum/shoppingcartProc";
@@ -201,7 +202,7 @@ function sangmove(move){
 		document.sang.action="/member/paypage";
 		document.sang.submit();
 	}else{		//이거 왜 작동을 안하냐...
-		alter("색과 사이즈를 골라주세요");
+		alert("색과 사이즈를 골라주세요");
 	}
 }
 

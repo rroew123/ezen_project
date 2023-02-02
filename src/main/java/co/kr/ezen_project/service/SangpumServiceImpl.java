@@ -138,6 +138,11 @@ public class SangpumServiceImpl implements SangpumService {
 	public List<SangCateVO> getSC_cateName(SearchVO vo) {
 		 return dao.getSC_cateName(vo);
 	}
+	
+	@Override
+	public List<SangCateVO> getSC_cateType(SangCateVO vo) {
+		 return dao.getSC_cateType(vo);
+	}
 
 	@Override
 	public List<SangpumVO> getSP_sangName(SearchVO vo) {

@@ -149,6 +149,11 @@ public class SangpumDAOImpl implements SangpumDAO {
 	public List<SangCateVO> getSC_cateName(SearchVO vo) {
 		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSC_cateName", vo);
 	}
+	
+	@Override
+	public List<SangCateVO> getSC_cateType(SangCateVO vo) {
+		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSC_cateType", vo);
+	}
 
 	@Override
 	public List<SangpumVO> getSP_sangName(SearchVO vo) {
