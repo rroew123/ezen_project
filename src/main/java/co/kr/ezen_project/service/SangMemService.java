@@ -5,6 +5,7 @@ import java.util.List;
 import co.kr.ezen_project.vo.CouponVO;
 import co.kr.ezen_project.vo.GenderSoldVO;
 import co.kr.ezen_project.vo.MemberVO;
+import co.kr.ezen_project.vo.PayAdminVO;
 import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.SangMemVO;
@@ -77,5 +78,10 @@ public interface SangMemService {
 	List<GenderSoldVO> getSangGender();
 
 	SangMemVO getSangNonmem(String orderNum);
-
+	
+	List<SangMemVO> getOrderDate();
+	
+	List<PayAdminVO> getPayAdmin();
+	
+	List<PaymentVO> getRevenue();
 }

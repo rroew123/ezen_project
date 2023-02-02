@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import co.kr.ezen_project.vo.CouponVO;
 import co.kr.ezen_project.vo.GenderSoldVO;
 import co.kr.ezen_project.vo.MemberVO;
+import co.kr.ezen_project.vo.PayAdminVO;
 import co.kr.ezen_project.vo.ReviewVO;
 import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.SangMemVO;
@@ -205,7 +206,20 @@ public class SangMemDAOImpl implements SangMemDAO {
 	      return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getSangNonmem", orderNum);
 	   }
 
+	@Override
+	public List<SangMemVO>getOrderDate() {
+		return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getOrderDate");
+	}
+
+	@Override
+	public List<PayAdminVO> getPayAdmin() {
+	    return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getPayAdmin");
+	}
 	
+	@Override
+	public List<PaymentVO> getRevenue() {
+		return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getRevenue");
+	}
 
 
 }

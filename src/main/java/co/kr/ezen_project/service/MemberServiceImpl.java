@@ -90,5 +90,9 @@ public class MemberServiceImpl implements MemberService {
 	public int countArticle(String searchOption, String keyword){
 	   return dao.countArticle(searchOption, keyword);
 	}
-
+	
+	@Override
+	public int getGender() {
+		return dao.getGender();
+	}
 }

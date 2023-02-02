@@ -22,5 +22,6 @@
 		<typeAlias type="co.kr.ezen_project.vo.SearchVO" 		alias="SearchVO"/>
 		<typeAlias type="co.kr.ezen_project.vo.SangCateVO" 		alias="SangCateVO"/>
 		<typeAlias type="co.kr.ezen_project.vo.GenderSoldVO" 	alias="GenderSoldVO"/>
+		<typeAlias type="co.kr.ezen_project.vo.PayAdminVO" 		alias="PayAdminVO"/>
 	</typeAliases> 
 </configuration>

@@ -40,5 +40,5 @@ public interface MemberDAO {
 
 	public int countArticle(String searchOption, String keyword);
 
-
+	int getGender();
 }

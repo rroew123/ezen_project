@@ -22,6 +22,12 @@
 			<canvas id="canvas" height="450px" width="600px"></canvas>
 			<h3>판매율 그래프</h3>
 			<canvas id="myChart" height="450px" width="600px"></canvas>
+			<h3>주문 수 그래프</h3>
+			<canvas id="myOrderChart" height="450px" width="600px"></canvas>
+			<h3>결제종류 그래프</h3>
+			<canvas id="myPayChart" height="450px" width="600px"></canvas>
+			<h3>총 수익 그래프</h3>
+			<canvas id="myRevChart" height="450px" width="600px"></canvas>
 
 		</div>
 
@@ -137,6 +143,148 @@
 			})
 		}
 
+		
+		
+		
+		/* 주문수 그래프 */
+		var chartOrderData = [];		
+		var chartOrderLabel = [];
+
+		$.getJSON("/admin/adminOrderDateProc", function(data) {
+			$.each(data, function(inx, obj) {
+				chartOrderLabel.push(obj.ordDate)
+				chartOrderData.push(obj.sangCnt);						
+			});
+			createOrderChart();
+			console.log("create OrderChart")
+		}); 
+		
+		
+		var OrderChartData = {
+				labels: chartOrderLabel,
+				datasets : [
+				{
+					label : "주문 수",
+					backgroundColor : "rgba( 255, 255, 255, 0 )",			
+					borderColor : "black",			
+					borderWidth: 1,			
+					data : chartOrderData
+			}
+			]   
+		}
+		
+		function createOrderChart(){
+			var aaa = document.getElementById('myOrderChart').getContext('2d');
+			
+			var orderChart = new Chart(aaa, {
+				type: "line",
+				data: OrderChartData,
+				options : {
+					scales : {
+						yAxes : [ {
+							ticks : {
+								beginAtZero : true
+							}
+						} ]
+					}
+				}
+			})
+		}
+		
+		
+		
+		
+
+		/* 결제종류 그래프 */
+		var chartPayData = [];		
+
+		$.getJSON("/admin/adminPayProc", function(data) {
+			$.each(data, function(inx, obj) {
+				chartPayData.push(obj.count);						
+			});
+			createPayChart();
+			console.log("create PayChart")
+		}); 
+		
+		
+		var payChartData = {
+				labels: ['카드결제','무통장입금','간편결제'],
+				datasets : [
+				{
+					label : "결제 종류 그래프",
+					backgroundColor : ["yellow", "orange","pink"],			
+					borderColor : ["yellow", "orange","pink"],			
+					borderWidth: 1,			
+					data : chartPayData
+			}
+			]   
+		}
+		
+		function createPayChart(){
+			var bbb = document.getElementById('myPayChart').getContext('2d');
+			
+			var myChart = new Chart(bbb, {
+				type: "pie",
+				data: payChartData,
+				options : {
+					scales : {
+						yAxes : [ {
+							ticks : {
+								beginAtZero : true
+							}
+						} ]
+					}
+				}
+			})
+		}
+		
+		
+		
+		/* 총 수익 그래프 */
+		var chartRevData = [];		
+		var chartRevLabel = [];
+
+		$.getJSON("/admin/adminRevenueProc", function(data) {
+			$.each(data, function(inx, obj) {
+				chartRevLabel.push(obj.payDate)
+				chartRevData.push(obj.payment);						
+			});
+			createRevChart();
+			console.log("create RevChart")
+		}); 
+		
+		
+		var RevChartData = {
+				labels: chartRevLabel,
+				datasets : [
+				{
+					label : "총 수익",
+					backgroundColor : "rgba( 255, 255, 255, 0 )",			
+					borderColor : "black",			
+					borderWidth: 1,			
+					data : chartRevData
+			}
+			]   
+		}
+		
+		function createRevChart(){
+			var ccc = document.getElementById('myRevChart').getContext('2d');
+			
+			var revChart = new Chart(ccc, {
+				type: "line",
+				data: RevChartData,
+				options : {
+					scales : {
+						yAxes : [ {
+							ticks : {
+								beginAtZero : true
+							}
+						} ]
+					}
+				}
+			})
+		}
+		
 
 </script>
 <%@ include file="bottom.jsp" %>

@@ -35,6 +35,8 @@ import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.GenderSoldVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
+import co.kr.ezen_project.vo.PayAdminVO;
+import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.QnAboardVO;
 import co.kr.ezen_project.vo.SangMemVO;
 import co.kr.ezen_project.vo.SangpumVO;
@@ -106,6 +108,8 @@ public class AdminController {
 	@RequestMapping("/adminMemView")
 	public void adminMemView(String memId, Model model) {
 		model.addAttribute("dto", memberService.getMemOne(memId));
+		MemberVO vo = new MemberVO();
+		vo.getGender();
 		logger.info("클릭한 아이디: " + memId);
 	}
 	
@@ -309,8 +313,35 @@ public class AdminController {
 		
 	}
 	
+	@GetMapping(value="/adminOrderDateProc")
+	@ResponseBody
+	public String adminOrderDateProc(Model model){
+		Gson gson = new Gson();
+		List<SangMemVO> list = sangmemService.getOrderDate();
+		
+		return gson.toJson(list);
+		
+	}
 	
+	@GetMapping(value="/adminPayProc")
+	@ResponseBody
+	public String adminPayProc(Model model){
+		Gson gson = new Gson();
+		List<PayAdminVO> list = sangmemService.getPayAdmin();
+		
+		return gson.toJson(list);
+		
+	}
 	
+	@GetMapping(value="/adminRevenueProc")
+	@ResponseBody
+	public String adminRevenueProc(Model model){
+		Gson gson = new Gson();
+		List<PaymentVO> list = sangmemService.getRevenue();
+		
+		return gson.toJson(list);
+		
+	}
 	
 	
 	

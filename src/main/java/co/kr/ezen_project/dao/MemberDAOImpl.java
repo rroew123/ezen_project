@@ -107,5 +107,8 @@ public class MemberDAOImpl implements MemberDAO{
 	    return session.selectOne("co.kr.ezen_project.dao.MemberDAO.countArticle", vo);
 	}
 
-
+	@Override
+	public int getGender() {
+		return session.selectOne("co.kr.ezen_project.dao.MemberDAO.getGender");
+	}
 }

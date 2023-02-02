@@ -154,13 +154,28 @@
 		update Payment set payment = #{payment}, coupNum = #{coupNum}, cardInfo = #{cardInfo}, payType = #{payType} where payNum = #{payNum}
 	</update>
 	
-	<select id="getSangGender" resultType="GenderSoldVO">   
-      select sum(sangcnt) as countData, decode(gender, 1, '남', 2, '여', '비회원') gender  from sangmem group by gender
-   </select>
-
-<select id="getSangNonmem" resultType="SangMemVO">   
-      select sangCnt from SangMem where memId is null
-   </select>
+	<select id="getPayAdmin" resultType="PayAdminVO">	
+		select count(*) as count, payType from payment group by payType
+	</select>
 	
+	<select id="getSangGender" resultType="GenderSoldVO">   
+		select sum(sangcnt) as countData, decode(gender, 1, '남', 2, '여', '비회원') gender  from sangmem group by gender
+	</select>
+
+	<select id="getSangNonmem" resultType="SangMemVO">   
+		select sangCnt from SangMem where memId is null
+	</select>
+	
+	<select id="getOrderDate" resultType="SangMemVO">   
+		select sum(aa) sangCnt, bb ordDate from
+    	(select sum(sangCnt) aa,to_date(ordDate, 'yyyy-mm-dd') bb from sangmem group by ordDate)
+   		 group by bb order by bb
+	</select>
+	
+	<select id="getRevenue" resultType="PaymentVO">   
+		select sum(aa) payment, bb payDate from
+		(select sum(payment) aa,to_date(payDate, 'yyyy-mm-dd') bb from payment group by payDate)
+		group by bb order by bb
+	</select>
 	
 </mapper>

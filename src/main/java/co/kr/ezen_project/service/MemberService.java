@@ -38,6 +38,6 @@ public interface MemberService {
 
 	int countArticle(String searchOption, String keyword);
 
-	
+	int getGender();
 
 }

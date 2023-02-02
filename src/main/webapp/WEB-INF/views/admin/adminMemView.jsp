@@ -11,7 +11,9 @@
 </head>
 <body>
 <%@ include file="top.jsp" %>
+
 <h2>회원 정보 상세</h2>
+
 <form name="form1" method="post">
 	<table border="1" width="480px">
 		<tr>
@@ -36,7 +38,13 @@
 		</tr>
 		<tr>
 			<td>성별</td>
-			<td><input name="gender" value = "${dto.gender}" ></td>
+	
+			<td><input type = "radio" name="gender" value = 2 <% if("${dto.gender}".equals("2")){ %> checked <%}%>
+			> 여성
+			<input type = "radio" name="gender" value = 1 <% if("${dto.gender}".equals("1")){ %> checked <%}%>
+			> 남성
+		
+		</td>
 		</tr>
 		<tr>
 			<td>주소</td>

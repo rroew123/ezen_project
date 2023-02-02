@@ -56,13 +56,13 @@ public class SangMemTest {
 	    rvo3 = new ReviewVO(555666, 3.0, "gfsfdsfsfdsfs");
 	}
 	
-	@Before
+	/*@Before
 	public void Paymentvobox() {
 		pvo1 = new PaymentVO(654321, 10000, 11111, "cardInfo123", 1);
 	    pvo2 = new PaymentVO(222111, 25000, 22222, "cardInfo444", 2);
 	    pvo3 = new PaymentVO(666555, 13500, 33333, "cardInfo555", 3);
 
-	}
+	}*/
 	
 	@Test
 	public void getSangmem() {

@@ -42,7 +42,7 @@
 		<update id="udtMemAdmin" parameterType="MemberVO">
 		UPDATE member SET email=#{email}, membership=#{membership}, memName=#{memName}, gender=#{gender}, 
 		address=#{address}, mileage=#{mileage}, markAgree=#{markAgree}, totalPay=#{totalPay}
-		where  and memId=#{memId}
+		where memId=#{memId}
 	</update>
 	
 	<select id="getMemOne" resultType="MemberVO" parameterType="String">	
@@ -79,6 +79,10 @@
 	<select id="countArticle" resultType="integer" parameterType="SearchVO">
 		select count(*) from member 
 		where ${searchOption} like #{keyword} 
+	</select>
+	
+	<select id="getGender" resultType="MemberVO" parameterType="Integer">	
+		select gender from member where memId=#{memId}
 	</select>
 
 </mapper>
