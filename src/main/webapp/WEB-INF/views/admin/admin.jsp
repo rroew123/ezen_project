@@ -28,7 +28,7 @@
         <c:forEach var="row" items="${sangpumlist}">
         <tr>
         	<td>${row.sangCode}</td>
-        	<td ><img src="https://dummyimage.com/50x50/000/fff"></td>
+        	<td ><img src="/resources/img/Ezen.png" width="50px" height="50px" alt="상품 이미지"></td>
         	<td>${row.price}</td>
         	<td>${row.sangName}</td>
         	<td>${row.soldCnt}</td>

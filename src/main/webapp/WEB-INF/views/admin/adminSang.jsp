@@ -39,7 +39,7 @@ ${map.count}개의 정보가 있습니다.<br/><br/>
         <c:forEach var="row" items="${list}">
         <tr>
         	<td>${row.sangCode}</td>
-        	<td><img src="https://dummyimage.com/50x50/000/fff"></td>
+        	<td><img src="/resources/img/Ezen.png" width="50px" height="50px" alt="상품 이미지"></td>
         	<td>${row.price}</td>
         	<td>${row.sangName}</td>
         	<td>${row.soldCnt}</td>
