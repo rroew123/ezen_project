@@ -32,6 +32,10 @@
 		remStock = #{remStock}, saleRat = #{saleRat} where sangCode = #{sangCode}
 	</update>
 	
+	<update id="updSang_RemStock" parameterType="SangpumVO">
+		update Sangpum set remStock = #{remStock}, soldCnt = #{soldCnt} where sangCode = #{sangCode}
+	</update>
+	
 	
 	
 	
@@ -115,7 +119,7 @@
  	</select>
    
    <select id="getSP_sangName" resultType="SangpumVO" parameterType="SearchVO">
-		select * from sangpum where sangCode like #{keyword}
+		select * from sangpum where sangName like #{keyword}
 		<!-- order by sangCode desc, sangName desc -->
 	</select>
    

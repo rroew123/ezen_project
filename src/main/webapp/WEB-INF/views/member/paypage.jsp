@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <style>
 table {
@@ -58,28 +59,51 @@ table th {
 			</select></td>
 		</tr>
 	</table>
-	<c:forEach var="pay" items="${pay}">
-		<table>
-			<tr>
-				<th>이미지들어가는칸</th>
-				<th>상품이름</th>
-				<th>사이즈</th>
-				<th>상품개수</th>
-				<th>색상</th>
-				<th>가격</th>
-
-			</tr>
-			<tr>
-				<td><a href="/sangpum/sangpum?sangCode=${pay}"><img
-						src="../resources/img/Ezen.png" alt="" style="width: 150px; height : 150px;"/></a></td>
-				<td>${pay.sangName}</td>
-				<td>${pay.sangSize}</td>
-				<td>${pay.sangCnt}</td>
-				<td>${pay.sangColor}</td>
-				<td>${pay.price}</td>
-		</table>
-	</c:forEach>
-	<button style="margin-left: 1200px;">결제하기</button>
+	<script>
+		var totalcost = 0;
+	</script>
+	<form action="/sangpum/payProc" name="paylist">
+		<input type="hidden" value="memId" name="${userInfo.memId}"/>
+		<c:forEach var="pay" items="${pay}">
+		<input type="checkbox" value="smvo" name="${pay}" checked="checked" hidden="hidden"/>
+		
+			<table>
+				<tr>
+					<th>이미지들어가는칸</th>
+					<th>상품이름</th>
+					<th>사이즈</th>
+					<th>상품개수</th>
+					<th>색상</th>
+					<th>가격</th>
+	
+				</tr>
+				<tr>
+					<td><a href="/sangpum/sangpum?sangCode=${pay}"><img
+							src="../resources/img/Ezen.png" alt="" style="width: 150px; height : 150px;"/></a></td>
+					
+					<td>${pay.sangName}</td>
+					<td>${pay.sangSize}</td>
+					<td>${pay.sangCnt}</td>
+					<td>${pay.sangColor}</td>
+					<td>${pay.price}</td>
+					<script>
+						totalcost = totalcost + ${pay.price};
+					</script>
+			</table>
+		</c:forEach>
+		<div>총 금액 <span id="cost">0</span>원</div>
+		<input type="hidden" value="" name="cost" id="cost"/>
+		<input type="submit" style="margin-left: 1200px;" onclick="pay" value="결제하기"></input>
+	</form>
+	
 	</div>
+<script type="text/javascript">
+
+$(document).ready(function cost(){	//총액 계산 함수
+	const resultElement = document.getElementById('cost');
+	resultElement.innerText = totalcost;
+	$('input[id=cost]').attr('value', totalcost);
+});
+</script>
 </body>
 </html>

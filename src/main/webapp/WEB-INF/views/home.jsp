@@ -9,6 +9,7 @@
 <title>home</title>
 <script src="https://kit.fontawesome.com/9af1085f00.js"
 	crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <style>
@@ -160,6 +161,10 @@ input:checked+.slide-container .nav label {
 	color: #fff;
 }
 
+.sangpum1{
+	display: inline-block;
+}
+
 .sangpum1 li {
 	margin-bottom: 40px;
 	margin-left: 10px;
@@ -281,7 +286,10 @@ footer {
 		
 		<div class="sangpum1">
 		<c:forEach var="photo" items="${photo}">
-			<span><a href="/sangpum/sangpum?sangCode=${photo.sangCode}"><img src="./resources/img/Ezen.png" alt="" style="height: 300px; width: 300px; border: 1px solid black;"/></a></span>
+			<li><a href="/sangpum/sangpum?sangCode=${photo.sangCode}"><img src="./resources/img/Ezen.png" alt="" style="height: 300px; width: 300px; border: 1px solid black;"/></a>
+				<br><span>${photo.sangName}</span>
+				<br><span>${photo.price} 원</span>
+			</li>
 		</c:forEach>
 			</div>
 			

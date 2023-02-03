@@ -134,7 +134,7 @@
 	</select>
 	
 	<insert id="addPayment" parameterType="PaymentVO">
-		insert into Payment (payNum, payment, coupNum, cardInfo, payType) values (#{payNum}, #{payment}, #{coupNum}, #{cardInfo}, #{payType})
+		insert into Payment (payNum, payment, coupNum, cardInfo, payType) values (pay_seq.nextval, #{payment}, #{coupNum}, #{cardInfo}, #{payType})
 	</insert>
 	
 	<delete id="delPayment" parameterType="PaymentVO">

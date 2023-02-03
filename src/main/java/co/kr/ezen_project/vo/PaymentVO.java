@@ -14,6 +14,7 @@ public class PaymentVO {
 	private int payment;
 	private int coupNum;
 	private String cardInfo;
+	private String memId;
 	private int payType;
 	private Date payDate;
 }

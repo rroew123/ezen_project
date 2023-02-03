@@ -168,6 +168,7 @@ public class MemberController {
 		if(vo.getSangSize() != 0) {
 			list.add(vo);
 		}
+		model.addAttribute("orderNumlist", orderNum);
 		model.addAttribute("pay", list);
 	}
 

@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/9af1085f00.js"
 	crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <style>
 
@@ -238,145 +239,44 @@ a{
 			
 		</div>
 	<div id="menu">
-
 		<ul class="main1">
 			<li><a href="#">메뉴</a>
 				<ul class="main2"> 	
-					<li><a href="#">여성</a>
-						<ul class="main3">
-							<li><a href="#">아우터</a>
-								<ul class="main4">
-									<li><a href="#">코트</a></li>
-									<li><a href="#">라이더자켓</a></li>
-									<li><a href="#">가디건</a></li>
-									<li><a href="#">아노락</a></li>
-									<li><a href="#">무스탕</a></li>
-									<li><a href="#">트레이닝자켓</a></li>
-								</ul>
-							</li>
-							<li><a href="#">상의</a>
-								<ul class="main4">
-									<li><a href="#">니트</a></li>
-									<li><a href="#">셔츠</a></li>
-									<li><a href="#">맨투맨</a></li>
-									<li><a href="#">티셔츠</a></li>
-									<li><a href="#">후드티</a></li>
-									<li><a href="#">블라우스</a></li>
-								</ul>
-							</li>
-							<li><a href="#">하의</a>
-								<ul class="main4">
-									<li><a href="#">숏팬츠</a></li>
-									<li><a href="#">레깅스</a></li>
-									<li><a href="#">슬랙스</a></li>
-									<li><a href="#">코튼팬츠</a></li>
-									<li><a href="#">청바지</a></li>
-									<li><a href="#">점프슈트</a></li>
-								</ul>
-							</li>
-							<li><a href="#">원피스</a>
-								<ul class="main4">
-									<li><a href="#">미니원피스</a></li>
-									<li><a href="#">맥시원피스</a></li>
-									<li><a href="#">롱원피스</a></li>
-									<li><a href="#">미디원피스</a></li>
-								</ul>
-							</li>
-							<li><a href="#">스커트</a>
-								<ul class="main4">
-									<li><a href="#">미니스커트</a></li>
-									<li><a href="#">미디스커트</a></li>
-									<li><a href="#">롱스커트</a></li>
-								</ul>
-							</li>
-							<li><a href="#">신발</a>
-								<ul class="main4">
-									<li><a href="#">구두</a></li>
-									<li><a href="#">로퍼</a></li>
-									<li><a href="#">샌들</a></li>
-									<li><a href="#">슬리퍼</a></li>
-									<li><a href="#">힐</a></li>
-									<li><a href="#">플랫슈즈</a></li>
-									<li><a href="#">부츠</a></li>			
-								</ul>
-							</li>
+					<c:forEach var="typeOne" items="${mainTypeOne}">
+						<li><a href="/sangpum/category?sangCode=${typeOne.sangCode}">${typeOne.cateName}</a>
+							<ul class="main3" id="${typeOne.sangCode}">
 							
-						</ul></li>
-
-					<li><a href="#">남성</a>
-						<ul class="main3">
-							<li><a href="#">아우터</a>
-								<ul class="main4">
-									<li><a href="#">코트</a></li>
-									<li><a href="#">라이더자켓</a></li>
-									<li><a href="#">가디건</a></li>
-									<li><a href="#">아노락</a></li>
-									<li><a href="#">무스탕</a></li>
-									<li><a href="#">트레이닝자켓</a></li>
-								</ul>
+								<c:set var="typeOne" value="listA${typeOne.sangCode}"/>
+								<c:forEach var="typeTwo" items="${requestScope[typeOne]}">
+									<li><a href="/sangpum/category?sangCode=${typeTwo.sangCode}">${typeTwo.cateName}</a>
+										<ul class="main4">
+										
+											<c:set var="typeTwo" value="listB${typeTwo.sangCode}" />
+											<c:forEach var="typeThree" items="${requestScope[typeTwo]}">
+												<li><a href="/sangpum/category?sangCode=${typeThree.sangCode}">${typeThree.cateName}</a></li>
+											</c:forEach>
+					
+										</ul>
+									</li>
+								</c:forEach>
+								
+							</ul>
+						</li>
+					</c:forEach>
+					</ul>
+				</li>
+			<c:forEach var="typeTwo" items="${listA1}">
+				<li><a href="/sangpum/category?sangCode=${typeTwo.sangCode}">${typeTwo.cateName}</a>
+					<ul class="main2">
+						<c:set var="typeTwo" value="listB${typeTwo.sangCode}" />
+						<c:forEach var="typeThree" items="${requestScope[typeTwo]}">
+							<li>
+								<a href="/sangpum/category?sangCode=${typeThree.sangCode}">${typeThree.cateName}</a>
 							</li>
-							<li><a href="#">상의</a>
-								<ul class="main4">
-								<li><a href="#">니트</a></li>
-								<li><a href="#">셔츠</a></li>
-								<li><a href="#">맨투맨</a></li>
-								<li><a href="#">티셔츠</a></li>
-								<li><a href="#">후드티</a></li>
-								</ul>
-							</li>
-							<li><a href="#">하의</a>
-								<ul class="main4">
-									<li><a href="#">슬랙스</a></li>
-									<li><a href="#">코튼팬츠</a></li>
-									<li><a href="#">청바지</a></li>
-									<li><a href="#">점프슈트</a></li>
-								</ul>
-							</li>
-							<li><a href="#">신발</a>
-								<ul class="main4">
-									<li><a href="#">구두</a></li>
-									<li><a href="#">로퍼</a></li>
-									<li><a href="#">샌들</a></li>
-									<li><a href="#">슬리퍼</a></li>
-									<li><a href="#">플랫슈즈</a></li>
-								</ul>
-							</li>
-						</ul></li>
-				</ul></li>
-			<li><a href="#">아우터</a>
-				<ul class="main2">
-					<li><a href="#">코트</a></li>
-					<li><a href="#">라이더자켓</a></li>
-					<li><a href="#">가디건</a></li>
-					<li><a href="#">아노락</a></li>
-					<li><a href="#">무스탕</a></li>
-					<li><a href="#">트레이닝자켓</a></li>
-				</ul></li>
-			<li><a href="#">상의</a>
-				<ul class="main2">
-					<li><a href="#">니트</a></li>
-					<li><a href="#">셔츠</a></li>
-					<li><a href="#">맨투맨</a></li>
-					<li><a href="#">티셔츠</a></li>
-					<li><a href="#">후드티</a></li>
-				</ul></li>
-			<li><a href="#">하의</a>
-				<ul class="main2">
-					<li><a href="#">슬랙스</a></li>
-					<li><a href="#">코튼팬츠</a></li>
-					<li><a href="#">청바지</a></li>
-					<li><a href="#">점프슈트</a></li>
-				</ul></li>
-
-
-			<li><a href="#">신발</a>
-				<ul class="main2">
-					<li><a href="#">구두</a></li>
-					<li><a href="#">로퍼</a></li>
-					<li><a href="#">샌들</a></li>
-					<li><a href="#">슬리퍼</a></li>
-					<li><a href="#">플랫슈즈</a></li>
-				</ul></li>	
+						</c:forEach>
+					</ul>
+				</li>
+			</c:forEach>
 		</ul>
 	</div>
 	</header>
