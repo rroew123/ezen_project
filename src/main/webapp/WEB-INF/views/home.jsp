@@ -9,9 +9,8 @@
 <title>home</title>
 <script src="https://kit.fontawesome.com/9af1085f00.js"
 	crossorigin="anonymous"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
-
 <style>
 * {
 	text-align: center;
@@ -162,9 +161,9 @@ input:checked+.slide-container .nav label {
 }
 
 .sangpum1{
-	display: inline-block;
+	display : inline-block;
+	background: linear-gradient(to bottom, #FCE2FC, #CBD68F);
 }
-
 .sangpum1 li {
 	margin-bottom: 40px;
 	margin-left: 10px;

@@ -28,6 +28,7 @@ public class SangpumController {
 
 	@RequestMapping("/payProc") // 장바구니에 추가
 	public String payProc(SangCodeSpecVO[] scsvoList, SangMemVO[] smvo, int cost, String memId, Model model) {
+		home_top(model);
 		SangpumVO spvo = new SangpumVO();
 		PaymentVO payvo = new PaymentVO();
 		for (SangCodeSpecVO vo : scsvoList) {
@@ -56,6 +57,7 @@ public class SangpumController {
 
 	@RequestMapping("/category")
 	public void category(String sangCode, String orby, Model model) {	//분류페이지로 이동
+		home_top(model);
 		SearchVO searchvo = new SearchVO();
 		if(orby != null) {						//order by 기본이 판매량 순
 			searchvo.setOrby(orby);	
@@ -71,11 +73,7 @@ public class SangpumController {
 		model.addAttribute("cateList", sangpumService.getSC_cateName(searchvo));
 		model.addAttribute("sangCode", sangCode);
 		
-		System.out.println(sangCode.substring(0, 1));
-		System.out.println(sangCode);
-		System.out.println(sangCode.substring(1));
 		if( sangCode.substring(0, 1).equals("1") ){
-			System.out.println("이게 왜안될까");
 			sangCode = "_" + sangCode.substring(1);
 			
 		}
@@ -86,18 +84,20 @@ public class SangpumController {
 
 	@RequestMapping("/order")
 	public void order(SangCodeSpecVO vo, Model model) { // 결제페이지로 이동
+		home_top(model);
 		model.addAttribute("SangCodeSpecVO", vo);
 	}
 
 	@GetMapping("/sangpum")
 	public void sangpum(String sangCode, SangCodeSpecVO scsvo, HttpSession session, Model model) { // 상품페이지로 이동
+		home_top(model);
 		/*
 		 * if(session.getattribute("sangcode") != null) { sangcode = (string)
 		 * session.getattribute("sangcode");
 		 * scsvo.setsangcolor((integer)session.getattribute("sangcode"));
 		 * session.removeattribute("sangcode"); session.removeattribute("sangsize"); }
 		 */
-
+		
 		model.addAttribute("sangpumInfo", sangpumService.getSang(sangCode));
 		model.addAttribute("sangColorList", sangpumService.getColor(sangCode));
 		model.addAttribute("sangSizeList", sangpumService.getSize(scsvo));
@@ -108,7 +108,8 @@ public class SangpumController {
 
 	@GetMapping("/selColorProc") // 실패......
 	@ResponseBody
-	public String selColorProc(String sangCode, int sangColor, HttpSession session) { // 상품페이지로 이동
+	public String selColorProc(String sangCode, int sangColor, HttpSession session,Model model) { // 상품페이지로 이동
+		home_top(model);
 		SangCodeSpecVO scsvo = null;
 		scsvo.setSangCode(sangCode);
 		scsvo.setSangColor(sangColor);
@@ -119,31 +120,30 @@ public class SangpumController {
 	}
 
 	@RequestMapping({ "/sangpum_Info", "/sangpum_QnA", "/sangpum_review" })
-	public void sangpum_Info() { // 상품 상세정보
-
+	public void sangpum_Info(Model model) { // 상품 상세정보
+		home_top(model);
 	}
 
 	@RequestMapping("/search")
 	public void search(String sangName, Model model) { // 검색창 보류
+		home_top(model);
 		model.addAttribute("sangName", sangName);
 		SearchVO vo = new SearchVO();
 		vo.setKeyword("%" + sangName + "%");
 		model.addAttribute("sangListSize", sangpumService.getSP_sangName(vo).size());
 		model.addAttribute("sangList", sangpumService.getSP_sangName(vo));
-		System.out.println(sangName);
-		System.out.println(vo);
-		System.out.println(sangpumService.getSP_sangName(vo).size());
-		System.out.println(sangpumService.getSP_sangName(vo));
 	}
 
 	@RequestMapping("/shoppingcartProc") // 장바구니에 추가
 	public String sangmemInsert(SangMemVO SMvo, Model model, HttpSession session) {
+		home_top(model);
 		sangmemService.addSangMemCart(SMvo);
 		return "redirect:/sangpum/sangpum?sangCode=" + SMvo.getSangCode();
 	}
 
 	@RequestMapping("/test") // 홈이라고 생각하자
 	public void test(String orby, Model model) {
+		home_top(model);
 		SearchVO searchvo = new SearchVO();
 		searchvo.setKeyword("_");
 		model.addAttribute("mainTypeOne", sangpumService.getSC_cateName(searchvo));
@@ -154,6 +154,27 @@ public class SangpumController {
 				searchvo.setKeyword(vo2.getSangCode() + "__");
 				model.addAttribute("listB" + vo2.getSangCode(), sangpumService.getSC_cateName(searchvo));
 			}
+		}
+	}
+	
+	public void home_top(Model model) {
+		SearchVO searchvo = new SearchVO();
+		searchvo.setKeyword("_");
+		model.addAttribute("mainTypeOne", sangpumService.getSC_cateName(searchvo));
+		for( SangCateVO vo1 : sangpumService.getSC_cateName(searchvo)) {		//메뉴에 들어갈 카테고리 가져오기
+			searchvo.setKeyword(vo1.getSangCode()+"__");
+			model.addAttribute("listA"+vo1.getSangCode() , sangpumService.getSC_cateName(searchvo));
+			for(SangCateVO vo2 : sangpumService.getSC_cateName(searchvo)) {
+				searchvo.setKeyword(vo2.getSangCode()+"__");
+				model.addAttribute("listB"+vo2.getSangCode() , sangpumService.getSC_cateName(searchvo));
+			}
+		}
+		
+		searchvo.setKeyword("1__");												//공용 카테고리 가져오기
+		model.addAttribute("listA"+1 , sangpumService.getSC_cateName(searchvo));
+		for(SangCateVO vo2 : sangpumService.getSC_cateName(searchvo)) {
+			searchvo.setKeyword(vo2.getSangCode()+"__");
+			model.addAttribute("listB"+vo2.getSangCode() , sangpumService.getSC_cateName(searchvo));
 		}
 	}
 

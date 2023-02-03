@@ -240,8 +240,7 @@ a{
 		</div>
 	<div id="menu">
 		<ul class="main1">
-			<li><a href="#">메뉴
-			</a>
+			<li><a>메뉴</a>
 				<ul class="main2"> 	
 					<c:forEach var="typeOne" items="${mainTypeOne}">
 						<li><a href="/sangpum/category?sangCode=${typeOne.sangCode}">${typeOne.cateName}</a>
@@ -288,14 +287,17 @@ a{
 		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
 		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
 	</div>
-	<script>
-		function clickTop() {
-			window.scrollTo(0, 0);
-		}
+<script>
 
-		function clickLast() {
-			window.scrollTo(99999, 99999);
-		}
-	</script>
+
+
+function clickTop() {
+	window.scrollTo(0, 0);
+}
+
+function clickLast() {
+	window.scrollTo(99999, 99999);
+}
+</script>
 </body>
 </html>

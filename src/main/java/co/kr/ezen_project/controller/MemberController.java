@@ -17,11 +17,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import co.kr.ezen_project.service.ConsumerService;
 import co.kr.ezen_project.service.MemberService;
 import co.kr.ezen_project.service.SangMemService;
+import co.kr.ezen_project.service.SangpumService;
 import co.kr.ezen_project.vo.FAQVO;
 import co.kr.ezen_project.vo.MemberVO;
 import co.kr.ezen_project.vo.NtcBoardVO;
 import co.kr.ezen_project.vo.QnAboardVO;
+import co.kr.ezen_project.vo.SangCateVO;
 import co.kr.ezen_project.vo.SangMemVO;
+import co.kr.ezen_project.vo.SearchVO;
 
 @Controller
 @RequestMapping("/member/")
@@ -32,18 +35,17 @@ public class MemberController {
 	SangMemService sangService;
 	@Autowired
 	ConsumerService conService;
+	@Autowired
+	SangpumService sangpumService;
 
 	@RequestMapping({ "customerFAQ", "mypage_memUpdate", "mypage_memDelete", "mypage_recentlyView", "mypage_orderHis",
-			"mypage_wishlist", "customerFAQ" })
-	public void webmovepost() { // findId, findPw, memberJoin 페이지가 오류 => 원인 불명
+			"mypage_wishlist", "customerFAQ","/findID", "/findPW", "/login"})
+	public void webmovepost(Model model) { // findId, findPw, memberJoin 페이지가 오류 => 원인 불명
+		home_top(model);
 	}
-
-	@RequestMapping({ "/findID", "/findPW", "/login" })
-	public void webmoveget() { // findId, findPw, memberJoin 페이지가 오류 => 원인 불명
-	}
-
 	@RequestMapping(value = "/loginProc.do") // "/myPage"}
-	public String loginProc(MemberVO member, HttpSession session, RedirectAttributes rttr) {
+	public String loginProc(MemberVO member, HttpSession session, RedirectAttributes rttr, Model model) {
+		home_top(model);
 		MemberVO vo = MemService.loginCheck(member);
 
 		if (vo == null) {
@@ -63,13 +65,14 @@ public class MemberController {
 
 	// 회원가입 get
 	@RequestMapping(value = "/memberjoin", method = RequestMethod.GET)
-	public void getRegister() throws Exception {
+	public void getRegister(Model model) throws Exception {
+		home_top(model);
 	}
 
 	// 회원가입 post
 	@RequestMapping(value = "/joinformProc")
-	public String postRegister(MemberVO vo) throws Exception {
-
+	public String postRegister(MemberVO vo,Model model) throws Exception {
+		home_top(model);
 		MemService.addMem(vo);
 
 		return "/member/login";
@@ -77,6 +80,7 @@ public class MemberController {
 
 	@RequestMapping("/findIDProc")
 	public String findIdProc(String email, Model model) {
+		home_top(model);
 		String searchmemId = MemService.findId(email);
 		model.addAttribute("findId", searchmemId);
 		return "/member/findID";
@@ -84,6 +88,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/findPWProc", method = RequestMethod.POST)
 	public String findPwd(MemberVO vo, Model model) {
+		home_top(model);
 		MemberVO memPwd = MemService.findPwd(vo);
 		vo.setMemId("memId");
 		vo.setEmail("email");
@@ -95,7 +100,8 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/myPage_deleteProc", method = RequestMethod.GET)
-	public String delete(String memId, HttpSession session) {
+	public String delete(String memId, HttpSession session, Model model) {
+		home_top(model);
 		session.invalidate();
 		MemService.delMem(memId);
 
@@ -103,13 +109,15 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/mypage_UpdateProc", method = RequestMethod.POST)
-	public String myPage_UpdateProc(MemberVO vo) {
+	public String myPage_UpdateProc(MemberVO vo, Model model) {
+		home_top(model);
 		MemService.udtMem(vo);
 		return "/member/mypage_memUpdate";
 	}
 
 	@RequestMapping("/mypage")
 	public void mypage(HttpSession session, Model model) {
+		home_top(model);
 		MemberVO vo = (MemberVO) session.getAttribute("userInfo");
 
 		String memid = vo.getMemId();
@@ -119,11 +127,13 @@ public class MemberController {
 
 	@RequestMapping("/mypage_board")
 	public void mypage_board(HttpSession session, Model model) {
+		home_top(model);
 		model.addAttribute("row", conService.getQnA_Mem((MemberVO) session.getAttribute("userInfo")));
 	}
 
 	@RequestMapping("/customer")
 	public void customer(int faqCate, Model model) {
+		home_top(model);
 		model.addAttribute("sub", conService.getFAQ_faqCate(faqCate));
 		model.addAttribute("faqlist", conService.getFAQAll());
 		model.addAttribute("faqCate", faqCate);
@@ -132,23 +142,26 @@ public class MemberController {
 
 	@RequestMapping("/faqCntxt")
 	public void faqCntxt(int faqNum, Model model) {
+		home_top(model);
 		model.addAttribute("txt", conService.getFAQOne(faqNum));
 	}
 
 	@RequestMapping("/ntcCntxt")
 	public void ntcCntxt(int ntcNum, Model model) {
+		home_top(model);
 		model.addAttribute("txt", conService.getNtcOne(ntcNum));
 	}
 
 	@RequestMapping("/shoppingcart")
 	public void shoppingcart(Model model, String memId) {
+		home_top(model);
 		model.addAttribute("shop", sangService.getSangMemAll());
 		model.addAttribute("shop", sangService.getSM_MemId(memId));
 	}
 
 	@RequestMapping("/cartDelProc")
-	public String cartDelProc(String[] orderNum ,String memId) {
-	
+	public String cartDelProc(String[] orderNum ,String memId, Model model) {
+		home_top(model);
 		SangMemVO vo = new SangMemVO();
 		for (String i : orderNum) {
 			vo.setOrderNum(i);
@@ -159,6 +172,7 @@ public class MemberController {
 
 	@RequestMapping("/paypage")
 	public void paypage(String[] orderNum, Model model, SangMemVO vo) {
+		home_top(model);
 		List<SangMemVO> list = new ArrayList<SangMemVO>();
 		if(orderNum != null) {
 			for (String orderN : orderNum) {
@@ -170,6 +184,27 @@ public class MemberController {
 		}
 		model.addAttribute("orderNumlist", orderNum);
 		model.addAttribute("pay", list);
+	}
+	
+	public void home_top(Model model) {
+		SearchVO searchvo = new SearchVO();
+		searchvo.setKeyword("_");
+		model.addAttribute("mainTypeOne", sangpumService.getSC_cateName(searchvo));
+		for( SangCateVO vo1 : sangpumService.getSC_cateName(searchvo)) {		//메뉴에 들어갈 카테고리 가져오기
+			searchvo.setKeyword(vo1.getSangCode()+"__");
+			model.addAttribute("listA"+vo1.getSangCode() , sangpumService.getSC_cateName(searchvo));
+			for(SangCateVO vo2 : sangpumService.getSC_cateName(searchvo)) {
+				searchvo.setKeyword(vo2.getSangCode()+"__");
+				model.addAttribute("listB"+vo2.getSangCode() , sangpumService.getSC_cateName(searchvo));
+			}
+		}
+		
+		searchvo.setKeyword("1__");												//공용 카테고리 가져오기
+		model.addAttribute("listA"+1 , sangpumService.getSC_cateName(searchvo));
+		for(SangCateVO vo2 : sangpumService.getSC_cateName(searchvo)) {
+			searchvo.setKeyword(vo2.getSangCode()+"__");
+			model.addAttribute("listB"+vo2.getSangCode() , sangpumService.getSC_cateName(searchvo));
+		}
 	}
 
 	
