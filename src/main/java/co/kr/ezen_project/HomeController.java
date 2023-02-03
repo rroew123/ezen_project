@@ -4,8 +4,10 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tomcat.util.net.ApplicationBufferHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +71,7 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/*", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public void home_top(Locale locale, Model model, HttpSession session) {
 		SearchVO searchvo = new SearchVO();
 		searchvo.setKeyword("_");
