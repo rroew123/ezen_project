@@ -202,7 +202,7 @@
 	  $("#typeOne").trigger("change");
 	});
 	
-	var malls2 = false;
+	var malls2 = false; 
 	
 	function third_selected(){
 		$("#typeThree").val(${dto.typeThree});
