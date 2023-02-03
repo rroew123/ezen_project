@@ -240,7 +240,8 @@ a{
 		</div>
 	<div id="menu">
 		<ul class="main1">
-			<li><a href="#">메뉴</a>
+			<li><a href="#">메뉴
+			</a>
 				<ul class="main2"> 	
 					<c:forEach var="typeOne" items="${mainTypeOne}">
 						<li><a href="/sangpum/category?sangCode=${typeOne.sangCode}">${typeOne.cateName}</a>
