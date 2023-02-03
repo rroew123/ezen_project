@@ -23,7 +23,13 @@
 	<c:forEach var="row" items="${list}">
 	<tr>
 		<td>${row.qnaNum}</td>
-		<td>${row.qnaCat}</td>
+		<td>					
+			<c:if test="${row.qnaCat eq '1'}">배송</c:if>
+			<c:if test="${row.qnaCat eq '2'}">교환</c:if>
+			<c:if test="${row.qnaCat eq '3'}">반품</c:if>
+			<c:if test="${row.qnaCat eq '4'}">마일리지</c:if>
+			<c:if test="${row.qnaCat eq '5'}">쿠폰</c:if>
+		</td>
 		<td><a href="${path}/admin/adminQnAViewProc?qnaNum=${row.qnaNum}">${row.brdTitle}</a>
 		<c:if test="${row.ansCntxt != null}">
 		<span style="color:red;">(답변완료)</span>

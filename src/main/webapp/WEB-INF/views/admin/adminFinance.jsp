@@ -24,10 +24,10 @@
 			<canvas id="myChart" height="450px" width="600px"></canvas>
 			<h3>주문 수 그래프</h3>
 			<canvas id="myOrderChart" height="450px" width="600px"></canvas>
-			<h3>결제종류 그래프</h3>
-			<canvas id="myPayChart" height="450px" width="600px"></canvas>
 			<h3>총 수익 그래프</h3>
 			<canvas id="myRevChart" height="450px" width="600px"></canvas>
+			<h3>결제종류 그래프</h3>
+			<canvas id="myPayChart" height="450px" width="600px"></canvas>
 
 		</div>
 

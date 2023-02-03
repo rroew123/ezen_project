@@ -40,6 +40,7 @@ import co.kr.ezen_project.vo.PaymentVO;
 import co.kr.ezen_project.vo.QnAboardVO;
 import co.kr.ezen_project.vo.SangMemVO;
 import co.kr.ezen_project.vo.SangpumVO;
+import co.kr.ezen_project.vo.SearchVO;
 import co.kr.ezen_project.vo.VisitorVO;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
@@ -164,6 +165,10 @@ public class AdminController {
 	
 	@RequestMapping("/adminSangView")
 	public void adminSangView(String sangCode, Model model) {
+		
+		SearchVO searchvo = new SearchVO();
+		
+		model.addAttribute("cate", sangpumService.getSC_cateName(searchvo));
 		model.addAttribute("dto", sangpumService.getSang(sangCode));
 		logger.info("클릭한 상품코드: " + sangCode);
 	}

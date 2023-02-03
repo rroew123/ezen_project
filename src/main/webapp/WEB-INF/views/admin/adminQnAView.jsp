@@ -14,40 +14,13 @@
 <h1>QnA 상세페이지</h1>
 <form name="form1" method="post">
 	<div>
-	카테고리<select name="faqCat" id="faqCat">
-		
-		<% if("${dto.faqCat}".equals("1")) { %>
-			<option value="1" selected>배송</option>
-			<option value="2">교환</option>
-			<option value="3">반품</option>
-			<option value="4">마일리지</option>
-			<option value="5">쿠폰</option>
-		<% } else if("${dto.faqCat}".equals("2")) { %>
-			<option value="1">배송</option>
-			<option value="2" selected>교환</option>
-			<option value="3">반품</option>
-			<option value="4">마일리지</option>
-			<option value="5">쿠폰</option>
-		<% } else if("${dto.faqCat}".equals("3")) { %>
-			<option value="1">배송</option>
-			<option value="2">교환</option>
-			<option value="3" selected>반품</option>
-			<option value="4">마일리지</option>
-			<option value="5">쿠폰</option>
-		<% } else if("${dto.faqCat}".equals("4")) { %>
-			<option value="1">배송</option>
-			<option value="2">교환</option>
-			<option value="3">반품</option>
-			<option value="4" selected>마일리지</option>
-			<option value="5">쿠폰</option>
-		<% } else{ %>
-			<option value="1">배송</option>
-			<option value="2">교환</option>
-			<option value="3">반품</option>
-			<option value="4">마일리지</option>
-			<option value="5" selected>쿠폰</option>
-		<% } %>
-		
+		카테고리
+		<select name="faqCat" id="faqCat">				
+			<option value="1" id="1" <c:if test="${dto.qnaCat eq '1'}"> selected</c:if>>배송</option>
+			<option value="2" id="2" <c:if test="${dto.qnaCat eq '2'}"> selected</c:if>>교환</option>
+			<option value="3" id="3" <c:if test="${dto.qnaCat eq '3'}"> selected</c:if>>반품</option>
+			<option value="4" id="4" <c:if test="${dto.qnaCat eq '4'}"> selected</c:if>>마일리지</option>
+			<option value="5" id="5" <c:if test="${dto.qnaCat eq '5'}"> selected</c:if>>쿠폰</option>
 		</select>
 	
 		

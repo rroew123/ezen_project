@@ -38,13 +38,16 @@
 		</tr>
 		<tr>
 			<td>성별</td>
-	
-			<td><input type = "radio" name="gender" value = 2 <% if("${dto.gender}".equals("2")){ %> checked <%}%>
-			> 여성
-			<input type = "radio" name="gender" value = 1 <% if("${dto.gender}".equals("1")){ %> checked <%}%>
-			> 남성
-		
-		</td>
+			<td>
+				<c:if test="${dto.gender eq '2'}">
+	    			<input type = "radio" name="gender" value="2" checked id="women"> <label for="women">여성</label>&nbsp;&nbsp;
+					<input type = "radio" name="gender" value="1" id="men" > <label for="men">남성</label>
+				</c:if>
+				<c:if test="${dto.gender eq '1'}">
+	    			<input type = "radio" name="gender" value="2" id="women"> <label for="women">여성</label>&nbsp;&nbsp;
+					<input type = "radio" name="gender" value="1" id="men" checked > <label for="men">남성</label>
+				</c:if>
+			</td>
 		</tr>
 		<tr>
 			<td>주소</td>
