@@ -10,8 +10,15 @@
 <script src="https://kit.fontawesome.com/9af1085f00.js"
 	crossorigin="anonymous"></script>
 	<style>
+.container{
+	margin-top: 50px;
+}
 
-
+table{
+	width : 500px;
+	height: 100px;
+	font-size: 15px;
+}
  .pageInfo{
       list-style : none;
       display: inline-block;

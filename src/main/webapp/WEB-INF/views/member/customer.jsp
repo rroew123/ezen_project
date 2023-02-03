@@ -16,20 +16,10 @@
 	text-align: center;
 }
 
-/* ==================container ======================= */
 
+.contents{
+margin-top: 50px;
 
-
-/* ==================== header ========================= */
-.side {
-	float: left;
-	border: 3px solid green;
-	height: 1770px;
-}
-
-/* ==================== side ========================= */
-.contents {
-	border: 3px solid gray;
 }
 
 
@@ -38,34 +28,13 @@
 	background: #d3d3d3;
 	height: 80px;
 	width: 500px;
-	margin-left: 700px;
+	margin-left: 750px;
 	line-height: 80px;
 }
 
 
 
-.Csearch {
-	background-color: #f5f5f5;
-	height: 80px;
-	width: 750px;
-	margin-left: 310px;
-	line-height: 80px;
-}
 
-.SearchInput {
-	width: 500px;
-	height: 30px;
-}
-
-.btn {
-	border: 0 none;
-	background-color: transparent;
-	cursor: pointer;
-	display: block;
-	font-size: 15px;
-	padding: 16px 45px 14px 20px;
-	margin: auto;
-}
 
 table, th {
 	border: 1px solid black;
@@ -77,15 +46,14 @@ table {
 }
 
 /* ==================== contents ========================= */
-.footer {
-	border: 1px solid black;
-}
 
-/* ==================== footer ========================= */
+
 </style>
 
 <body>
 <%@ include file="../home_top.jsp" %>
+
+
 	<div class="container">
 		
 		<div class="contents">
@@ -130,23 +98,9 @@ table {
 		</div>
 
 		
-	<%@ include file="../home_footer.jsp" %> 
+	 
 	<script>
-	/* 상단 고정 위치이동 버튼 */
-	const scrollMove = (event) => {
-        if (event.target.dataset.direction === 'top')
-            window.scrollTo(0, 20);
-        else if (event.target.dataset.direction === 'as')
-            window.scrollTo(0, 530);
-        else if (event.target.dataset.direction === 'answer')
-            window.scrollTo(0, 1000);
-        else if (event.target.dataset.direction === 'last')
-            window.scrollTo(0, document.querySelector('body').scrollHeight);
-    }
-
-    document.querySelector('.scrollBtn').addEventListener('click', scrollMove);
-    
-    /* 최상단 최하단으로 이동 버튼 */
+	
     function clickTop() {
       window.scrollTo(0,0);
     }
@@ -154,15 +108,6 @@ table {
     function clickLast() {
         window.scrollTo(99999,99999);
       }
-    
-    
-    function dis(){
-      if($('#dis').css('display') == 'none'){
-      $('#dis').show();
-    }else{
-      $('#dis').hide();
-    }
-    }
     
 	</script>
 </body>

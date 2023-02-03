@@ -289,15 +289,7 @@ footer {
 	
 	<footer> <%@ include file="home_footer.jsp" %> </footer>
 
-	<script>
-		function clickTop() {
-			window.scrollTo(0, 0);
-		}
-
-		function clickLast() {
-			window.scrollTo(99999, 99999);
-		}
-	</script>
+	
 
 </body>
 </html>

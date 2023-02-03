@@ -7,9 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-table, th {
-	border: 1px solid black;
-}
+
 
 table {
 	margin-left: auto;
@@ -23,7 +21,7 @@ table {
 		<thead>
 		<tr>
 			<th style="background-color: #eeeeee; text-align: center; width: 30px;">번호</th>
-			<th style="background-color: #eeeeee; text-align: center; width : 500px;">제목</th>
+			<th style="background-color: #eeeeee; text-align: center; width : 600px;">제목</th>
 		</tr>
 		</thead>
 		<tbody>

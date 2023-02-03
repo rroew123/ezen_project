@@ -12,10 +12,15 @@
 .sangpumList{
 	display: inline-block;
 }
+
+.container{
+	margin-top: 50px;
+}
 </style>
 </head>
 <body>
 	<header><%@ include file="./../home_top.jsp"%></header>
+	<div class="container">
 	<c:if test="${sangListSize eq 0}">
 		<h1>검색된 상품이 없습니다</h1>
 	</c:if>
@@ -36,7 +41,7 @@
 		</span>
 		
 	</c:forEach>
-	
+</div>	
 <script type="text/javascript">
 function searchOrby(orby){
 	//결제나 쇼핑카트	ajax쓸 예정
@@ -62,6 +67,7 @@ function searchOrby(orby){
 		document.sang.submit();
 	}
 }
+
 </script>
 </body>
 </html>

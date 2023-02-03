@@ -9,53 +9,55 @@
 </head>
 <style>
 table {
-    width: 700px;
-    text-align: center;
-    border: 1px solid #fff;
-    border-spacing: 1px;
-    font-family: 'Cairo', sans-serif;
-  margin: auto;
+	width: 700px;
+	text-align: center;
+	border: 1px solid #fff;
+	border-spacing: 1px;
+	font-family: 'Cairo', sans-serif;
+	margin: auto;
 }
 
-
-
 table td {
-    padding: 10px;
-    background-color: #eee;
+	padding: 10px;
+	background-color: #eee;
 }
 
 table th {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+}
+
+.container{
+	margin-top:  50px;
 }
 </style>
+
+<%@ include file="../home_top.jsp"%>
 <body>
-<%@ include file="../home_top.jsp" %>
-<table>
-<tr>
-<tr>
-<th>성함</th>
-<th>번호</th>
-<th>주소</th>
-<th>배송요청사항</th>
-</tr>
-</tr>
-<tr>
-<td>${userInfo.memName}</td>	
-<td>${userInfo.phone}</td>
-<td>${userInfo.address}</td>
-<td>
-	<select name="" id="">
-		<option value="1">배송 시 요청사항을 선택해주세요</option>
-		<option value="2">부재 시 경비실에 맡겨주세요</option>
-		<option value="3">부재 시 택배함에 넣어주세요</option>
-		<option value="3">부재 시 집 앞에 놔주세요</option>
-		<option value="3">배송 전 연락 바랍니다</option>
-		</select>
-							</td>
-</tr>	
-</table>
+<div class="container">
+	<table>
+
+		<tr>
+			<th>성함</th>
+			<th>번호</th>
+			<th>주소</th>
+			<th>배송요청사항</th>
+		</tr>
+
+		<tr>
+			<td>${userInfo.memName}</td>
+			<td>${userInfo.phone}</td>
+			<td>${userInfo.address}</td>
+			<td><select name="" id="">
+					<option value="1">배송 시 요청사항을 선택해주세요</option>
+					<option value="2">부재 시 경비실에 맡겨주세요</option>
+					<option value="3">부재 시 택배함에 넣어주세요</option>
+					<option value="3">부재 시 집 앞에 놔주세요</option>
+					<option value="3">배송 전 연락 바랍니다</option>
+			</select></td>
+		</tr>
+	</table>
 	<c:forEach var="pay" items="${pay}">
 		<table>
 			<tr>
@@ -65,11 +67,11 @@ table th {
 				<th>상품개수</th>
 				<th>색상</th>
 				<th>가격</th>
-				
+
 			</tr>
 			<tr>
 				<td><a href="/sangpum/sangpum?sangCode=${pay}"><img
-						src="https://dummyimage.com/50x50/000/fff" alt="" /></a></td>
+						src="../resources/img/Ezen.png" alt="" style="width: 150px; height : 150px;"/></a></td>
 				<td>${pay.sangName}</td>
 				<td>${pay.sangSize}</td>
 				<td>${pay.sangCnt}</td>
@@ -78,5 +80,6 @@ table th {
 		</table>
 	</c:forEach>
 	<button style="margin-left: 1200px;">결제하기</button>
+	</div>
 </body>
 </html>

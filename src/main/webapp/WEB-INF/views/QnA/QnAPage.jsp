@@ -9,10 +9,19 @@
 <script src="https://kit.fontawesome.com/9af1085f00.js"
 	crossorigin="anonymous"></script>
 </head>
-
+<style>
+.container{
+	margin-top: 50px;
+}
+table{
+	width : 500px;
+	height: 100px;
+	font-size: 15px;
+}
+</style>
 <body>
 <%@ include file="../home_top.jsp" %>
-	<div>
+	<div class="container">
 		<table style="text-align: center; border: 1px solid #dddddd">
 			<thead>
 				<tr>
@@ -21,7 +30,7 @@
 					<th style="background-color: #eeeeee; text-align: center;"><b>카테고리</b></th>
 					<th style="background-color: #eeeeee; text-align: center;"><b>제목</b></th>
 					<th style="background-color: #eeeeee; text-align: center;"><b>작성자</b></th>
-					<th style="background-color: #eeeeee; text-align: center;"><b>작성 내용</b></th>
+				
 
 				</tr>
 			</thead>
@@ -31,12 +40,18 @@
 						<td>${qnavo.qnaCat}</td>
 						<td>${qnavo.brdTitle}</td>
 						<td>${qnavo.memId}</td>
-						<td>${qnavo.brdCntxt}</td>
+						
+						</tr>
+						<tr>
+						<td colspan="4" style="background-color: #eeeeee; "><b>작성내용</b></td>
+						</tr>
+						<tr>
+						<td colspan="4" style="height : 500px;">${qnavo.brdCntxt}</td>
 						</tr>
 			</tbody>
 		</table>
 		
-	</div>
+	
 	
 	
 	<c:if test="${userInfo.memId eq qnavo.memId}">
@@ -46,7 +61,7 @@
 
 	<a href="/QnA/QnABoard">목록보기</a>
 
-
+</div>
 
 </body>
 </html>

@@ -56,13 +56,12 @@ header {
 .Searchri {
 	
 	list-style-type: none;
-	text-align: right;
-	margin-right: 100px;
+	
+	margin-left: 1700px;
 }
 
 .Searchri a:hover {
 	color: #fff;
-	background: #67BDCF;
 }
 
 li {
@@ -82,7 +81,7 @@ a{
 #menu {
 	height: 100px;
 	background: #fde2e7;
-	z-index: 3;
+	z-index: 1;
 	padding : 0px;
 	font-size: 20px;
 }
@@ -187,6 +186,7 @@ a{
 	cursor: pointer;
 	font-size: 45px;
 	width: 90px;
+	z-index: 2;
 }
 
 
@@ -201,7 +201,7 @@ a{
 			<form action="/sangpum/search">
 				<input type="text" class="SearchInput" name="sangName" placeholder="검색 기능" />
 				<input type="submit">
-				<a href="" style="font-size:20px;"><i class="fa-solid fa-magnifying-glass"></i></a>
+				
 			</form>
 			</div>
 			
@@ -231,7 +231,7 @@ a{
 				<li><a href="/member/customer?faqCate=1"><i class="fa-solid fa-circle-info" style="font-size:30px;"></i></a></li>
 			</c:if>
 			<c:if test="${userInfo.membership > 8}">
-				<span>${userInfo.memName} 관리자님 환영합니다</span>
+				<span>${userInfo.memName} 님 환영합니다</span>
 				<li><a href="/admin/admin"><i class="fa-solid fa-wrench" style="font-size:30px;"></i></a></li>
 				<li><a href="/member/logout.do"><i class="fa-solid fa-power-off" style="font-size:30px;"></i></a></li>
 			</c:if>
@@ -376,7 +376,7 @@ a{
 					<li><a href="#">샌들</a></li>
 					<li><a href="#">슬리퍼</a></li>
 					<li><a href="#">플랫슈즈</a></li>
-				</ul></li>
+				</ul></li>	
 		</ul>
 	</div>
 	</header>
@@ -387,5 +387,14 @@ a{
 		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
 		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
 	</div>
+	<script>
+		function clickTop() {
+			window.scrollTo(0, 0);
+		}
+
+		function clickLast() {
+			window.scrollTo(99999, 99999);
+		}
+	</script>
 </body>
 </html>

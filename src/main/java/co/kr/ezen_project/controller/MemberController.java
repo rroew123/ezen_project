@@ -64,13 +64,11 @@ public class MemberController {
 	// 회원가입 get
 	@RequestMapping(value = "/memberjoin", method = RequestMethod.GET)
 	public void getRegister() throws Exception {
-		System.out.println("get register");
 	}
 
 	// 회원가입 post
 	@RequestMapping(value = "/joinformProc")
 	public String postRegister(MemberVO vo) throws Exception {
-		System.out.println(vo);
 
 		MemService.addMem(vo);
 
@@ -79,27 +77,10 @@ public class MemberController {
 
 	@RequestMapping("/findIDProc")
 	public String findIdProc(String email, Model model) {
-		System.out.println(email);
 		String searchmemId = MemService.findId(email);
-		System.out.println(searchmemId);
 		model.addAttribute("findId", searchmemId);
-		System.out.println("작동확인");
 		return "/member/findID";
 	}
-
-	/*
-	 * @RequestMapping(value = "/findPWProc", method = RequestMethod.POST) public
-	 * String PWFind(@RequestParam(required = true, value = "memId") String memId,
-	 * 
-	 * @RequestParam(required = true, value = "email") String email, MemberVO vo,
-	 * Model model) {
-	 * 
-	 * vo.setMemName(memId); vo.setEmail(email); String memPwd =
-	 * MemService.findPwd(vo); System.out.println(memPwd);
-	 * model.addAttribute("member", memPwd);
-	 * 
-	 * return "/member/findPW"; }
-	 */
 
 	@RequestMapping(value = "/findPWProc", method = RequestMethod.POST)
 	public String findPwd(MemberVO vo, Model model) {
@@ -108,16 +89,13 @@ public class MemberController {
 		vo.setEmail("email");
 		vo.setMemName("memName");
 		vo.setPhone("phone");
-		System.out.println(MemService.findPwd(vo));
 		model.addAttribute("member", memPwd);
-		System.out.println(model.addAttribute("member", memPwd));
 
 		return "/member/findPW";
 	}
 
 	@RequestMapping(value = "/myPage_deleteProc", method = RequestMethod.GET)
 	public String delete(String memId, HttpSession session) {
-		System.out.println(memId);
 		session.invalidate();
 		MemService.delMem(memId);
 
@@ -126,9 +104,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/mypage_UpdateProc", method = RequestMethod.POST)
 	public String myPage_UpdateProc(MemberVO vo) {
-		System.out.println(vo);
 		MemService.udtMem(vo);
-		System.out.println(MemService.udtMem(vo));
 		return "/member/mypage_memUpdate";
 	}
 
@@ -136,19 +112,8 @@ public class MemberController {
 	public void mypage(HttpSession session, Model model) {
 		MemberVO vo = (MemberVO) session.getAttribute("userInfo");
 
-		System.out.println((MemberVO) session.getAttribute("userInfo"));
-		/*
-		 * System.out.println(session.getAttribute("userInfo")); System.out.println(vo);
-		 * System.out.println(vo.getMemId());
-		 */
 		String memid = vo.getMemId();
-		/*
-		 * System.out.println(memid);
-		 * System.out.println(sangService.getSM_MemId(memid));
-		 */
 		model.addAttribute("His", sangService.getSM_MemId(memid));
-
-		System.out.println(model.addAttribute("His", sangService.getSM_MemId(memid)));
 
 	}
 
@@ -162,7 +127,6 @@ public class MemberController {
 		model.addAttribute("sub", conService.getFAQ_faqCate(faqCate));
 		model.addAttribute("faqlist", conService.getFAQAll());
 		model.addAttribute("faqCate", faqCate);
-		System.out.println(conService.getFAQAll());
 		model.addAttribute("ntc", conService.getNtcAll());
 	}
 
@@ -186,25 +150,15 @@ public class MemberController {
 	public String cartDelProc(String[] orderNum ,String memId) {
 	
 		SangMemVO vo = new SangMemVO();
-		System.out.println(vo);
-		System.out.println(vo.getOrderNum());
-		/*
-		 * for(int i = 0; i < orderNum.length ; i=i+1 ) { vo.setOrderNum(orderNum[i]);
-		 * sangService.delSangMem(vo); }
-		 */
 		for (String i : orderNum) {
 			vo.setOrderNum(i);
 			sangService.delSangMem(vo);
 		}
-		System.out.println(MemService.getMemOne(memId));
 		return "redirect:/member/shoppingcart?memId=" + memId;
 	}
 
 	@RequestMapping("/paypage")
 	public void paypage(String[] orderNum, Model model, SangMemVO vo) {
-		System.out.println(orderNum);
-		System.out.println(vo);
-		
 		List<SangMemVO> list = new ArrayList<SangMemVO>();
 		if(orderNum != null) {
 			for (String orderN : orderNum) {

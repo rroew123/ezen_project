@@ -23,7 +23,8 @@
 
 #container{
 	width : 900px;
-	margin : 0 auto;
+	margin-top : 50px;
+	margin-left: 550px; 
 }
 #contents{
 	border : 1px solid black;

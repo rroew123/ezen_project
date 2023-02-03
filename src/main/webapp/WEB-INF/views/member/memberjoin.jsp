@@ -8,17 +8,7 @@
 <title>memberjoin</title>
 <script src="https://kit.fontawesome.com/9af1085f00.js"
 	crossorigin="anonymous"></script>
-<style>
 
-.Cside {
-	position: fixed;
-	right: 1%;
-	top: 60%;
-	cursor: pointer;
-	font-size: 44px;
-	width: 77px;
-}
-</style>
 </head>
 <body>
 	<%@ include file="../home_top.jsp" %>

@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+.container{
+	margin-top: 50px;
+}
 table {
     width: 700px;
     text-align: center;
@@ -35,6 +38,7 @@ table th {
 </head>
 <body>
 <%@ include file="../home_top.jsp" %>
+<div class="container">
 <table>
 <tr>
 	<th>번호</th>
@@ -53,5 +57,6 @@ table th {
 		<td colspan="3">${txt.ntcCntxt}</td>
 		</tr>
 	</table>
+	</div>
 </body>
 </html>

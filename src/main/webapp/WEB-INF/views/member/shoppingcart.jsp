@@ -21,7 +21,7 @@
 	font-size: 20px;
 	line-height: 1.6;
 	vertical-align: baseline;
-	margin: 0px;
+	margin-top: 50px;
 	padding: 0px;
 	border-width: 0px;
 	border-style: initial;
@@ -30,11 +30,11 @@
 	outline: 0px;
 	font-family: "Poppins", "Apple SD Gothic Neo", "Malgun Gothic",
 		sans-serif;
-	background: linear-gradient(to bottom, #FCE2FC, #FCE0A4);
+	
 	min-height: 170px;
 	position: relative;
-	margin: 20px;
 	text-align: center;
+	width: 700px;
 }
 
 .price-title {
@@ -106,20 +106,14 @@
 	<%@ include file="../home_top.jsp" %>
 	<div class="top">
 
-		<div class="wrap_inner ">
-			<div class="navi">
-				홈 &gt; <a href="">마이페이지 &gt; </a> <a href="" class="active">장바구니</a>
-			</div>
-			<div id="my_menu" class="my_menu">
-
-				<dl>
-					<dt>
-						<form name="sang" action="">
+		
+					
+						<form name="sang" action="" >
 						<input type="hidden" name="memId" value="${userInfo.memId}" />
 						<c:forEach var="shop" items="${shop}">
 						<table>
 						<tr>
-						<th><label for="${shop.orderNum}"><input name="orderNum" type="checkbox" id="${shop.orderNum}" value="${shop.orderNum}"/>이미지들어가는칸</label></th>
+						<th><label for="${shop.orderNum}"><input name="orderNum" type="checkbox" id="${shop.orderNum}" value="${shop.orderNum}"/>이미지</label></th>
 						<th>상품이름</th>
 						<th>사이즈</th>
 						<th>상품개수</th>
@@ -128,7 +122,7 @@
 						
 						</tr>
 							<tr>
-							<td><a href="/sangpum/sangpum?sangCode=${shop}"><img src="https://dummyimage.com/50x50/000/fff" alt="" /></a>	</td>
+							<td><a href="/sangpum/sangpum?sangCode=${shop.sangCode}"><img src="../resources/img/Ezen.png" alt="" style="width : 100px;	"/></a>	</td>
 							<td>${shop.sangName}</td>
 							
 							<td>${shop.sangSize}</td>
@@ -141,28 +135,9 @@
 						</table>
 						
 						</c:forEach>
+						</form>
 						<input type="button" value="주문결제" onclick='sangmove("pay")'>
                         <input type="button" value="선택삭제" onclick='sangmove("del")'>
-					
-						</form>
-						<div class="right-content">
-							
-							</div>
-					</dt>
-					<dd class="order">
-						<a href="">주문/배송조회</a><a class="star1 " onclick="stargo('order')"></a>
-					</dd>
-					<dd class="today_goods">
-						<a href="">최근 본 상품</a><a class="star1"
-							onclick="stargo('today_goods')"></a>
-					</dd>
-					
-				</dl>
-			</div>
-		</div>
-		
-		
-		
 	</div>
 	<div class="cart-sub-header">
 		<div class="left-content">

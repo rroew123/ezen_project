@@ -10,6 +10,11 @@
 	crossorigin="anonymous"></script>
 
 </head>
+<style>
+.container{
+	margin-top: 50px;
+}
+</style>
 <body>
 <%@ include file="../home_top.jsp" %>
 <div class="container">
@@ -23,20 +28,20 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><input type="text" placeholder="글 제목" name="brdTitle"/></td>
+						<td><input type="text" placeholder="글 제목" name="brdTitle" style="width:300px;"/></td>
 					</tr>	
 						
 						<tr>
-						<td><textarea placeholder="게시물No." name="qnaNum" style="height:20px;"/></textarea></td>
+						<td><textarea placeholder="게시물No." name="qnaNum" style="height:20px; width:300px;"/></textarea></td>
 					</tr>
 						<tr>
-						<td><textarea placeholder="글쓴이" name="memId" style="height:20px;"/></textarea></td>
+						<td><textarea placeholder="글쓴이" name="memId" style="height:20px; width:300px;"/></textarea></td>
 					</tr>
 						<tr>
-						<td><textarea placeholder="카테고리" name="qnaCat" style="height:20px;"/></textarea></td>
+						<td><textarea placeholder="카테고리" name="qnaCat" style="height:20px; width:300px;"/></textarea></td>
 					</tr>
 					<tr>
-						<td><textarea placeholder="본문 내용" name="brdCntxt" style="height:100px;"/></textarea></td>
+						<td><textarea placeholder="본문 내용" name="brdCntxt" style="height:100px; width:300px;"/></textarea></td>
 					</tr>
 				</tbody>
 				

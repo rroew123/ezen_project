@@ -9,16 +9,6 @@
 	<script src="https://kit.fontawesome.com/9af1085f00.js"
 	crossorigin="anonymous"></script>
 </head>
-<style>
-.Cside {
-	position: fixed;
-	right: 1.5%;
-	top: 68%;
-	cursor: pointer;
-	font-size: 45px;
-	width: 90px;
-}
-</style>
 <body>
 	<%@ include file="../home_top.jsp" %>
 	<h2>비밀번호찾기</h2>
@@ -56,21 +46,7 @@
 		<a href="/QnA/QnABoard"><i class="fa-solid fa-circle-question"></i></a>
 		<i class="fa-regular fa-circle-down" value="Last" onclick="clickLast()"></i>
 	</div>
-	<!-- 	<div class="tabcnt_find tabcnt_find2">
-			<fieldset>
-				<legend class="hidden">비밀번호 변경</legend>
-				<div class="fld">
-					<label>변경할 비밀번호</label> <input type="password" name="mem_pw"
-						id="mem_pw" class="form_input member" placeholder="변경할 비밀번호">
-				</div>
-				<div class="fld">
-					<label>비밀번호 확인</label> <input type="password" name="mem_pw1"
-						id="mem_pw1" class="form_input member" placeholder="비밀번호 확인">
-				</div>
-				<span class="box_btn block h50 fs15"><a href="javascript:"
-					onclick="pw_change();">비밀번호 변경</a></span>
-			</fieldset>
-		</div> -->
+	
 
 </body>
 </html>
