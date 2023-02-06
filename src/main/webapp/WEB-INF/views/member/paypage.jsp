@@ -65,7 +65,7 @@ table th {
 	<form action="/sangpum/payProc" name="paylist">
 		<input type="hidden" value="memId" name="${userInfo.memId}"/>
 		<c:forEach var="pay" items="${pay}">
-		<input type="checkbox" value="smvo" name="${pay}" checked="checked" hidden="hidden"/>
+		<input type="checkbox" value="smvo" name="${pay.orderNum}" checked="checked" hidden="hidden"/>
 		
 			<table>
 				<tr>

@@ -134,12 +134,11 @@
 	</select>
 	
 	<insert id="addPayment" parameterType="PaymentVO">
-		insert into Payment (payNum, payment, coupNum, cardInfo, payType) values (pay_seq.nextval, #{payment}, #{coupNum}, #{cardInfo}, #{payType})
+		insert into Payment (payNum, payment, coupNum, cardInfo, payType, payDate) values (pay_seq.nextval, #{payment}, #{coupNum}, #{cardInfo}, #{payType}, sysdate)
 	</insert>
 	
 	<delete id="delPayment" parameterType="PaymentVO">
 		delete from Payment where payNum = #{payNum}
-		
 	</delete>
 	
 	<delete id="delPayment_Mem" parameterType="String">
@@ -176,6 +175,10 @@
 		select sum(aa) payment, bb payDate from
 		(select sum(payment) aa,to_date(payDate, 'yyyy-mm-dd') bb from payment group by payDate)
 		group by bb order by bb
+	</select>
+	
+	<select id="getPayNum" resultType="integer" parameterType="String">   
+		select payNum from (SELECT payNum,paydate FROM payment where memId = #{memId} order by paydate desc) where ROWNUM =1
 	</select>
 	
 </mapper>

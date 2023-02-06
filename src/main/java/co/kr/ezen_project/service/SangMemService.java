@@ -84,4 +84,6 @@ public interface SangMemService {
 	List<PayAdminVO> getPayAdmin();
 	
 	List<PaymentVO> getRevenue();
+
+	int getPayNum(String memId);
 }

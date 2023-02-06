@@ -26,7 +26,7 @@ public class SangpumController {
 	@Autowired
 	SangMemService sangmemService;
 
-	@RequestMapping("/payProc") // 장바구니에 추가
+	/*@RequestMapping("/payProc") // 장바구니에 추가
 	public String payProc(SangCodeSpecVO[] scsvoList, SangMemVO[] smvo, int cost, String memId, Model model) {
 		home_top(model);
 		SangpumVO spvo = new SangpumVO();
@@ -42,18 +42,21 @@ public class SangpumController {
 				spvo.setSoldCnt(spvo.getSoldCnt() + 1);
 				sangpumService.updSang(spvo); // 상품코드스펙에서 재고 -1
 				sangpumService.updSCS(vo); // 상품에서 재고 -1 그리고 판매량 +1
-
-			}
-			;
+			};
 		}
+		
 		payvo.setMemId(memId);
 		payvo.setPayment(cost);
-		sangmemService.addPayment(payvo);
-
-		payvo.setPayment(0);
-
+		sangmemService.addPayment(payvo);	//페이 테이블 데이터 생성
+		
+		int paynum = sangmemService.getPayNum(memId);
+		for(SangMemVO vo : smvo) {			//상멤 애들에 오더스텟 2로 바꾸고 페이넘버 붙여두기
+			vo.setOrdStat(2);
+			vo.setPayNum(paynum);
+			sangmemService.updSangMem(vo);
+		}
 		return "/member/paypage";
-	}
+	}*/
 
 	@RequestMapping("/category")
 	public void category(String sangCode, String orby, Model model) {	//분류페이지로 이동
