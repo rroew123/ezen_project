@@ -32,6 +32,10 @@ table th {
 .container{
 	margin-top:  50px;
 }
+
+.cost{
+	padding-left: 1250px;
+}
 </style>
 
 <%@ include file="../home_top.jsp"%>
@@ -91,7 +95,7 @@ table th {
 					</script>
 			</table>
 		</c:forEach>
-		<div>총 금액 <span id="cost">0</span>원</div>
+		<div class="cost">총 금액 <span id="cost">0</span>원</div>
 		<input type="hidden" value="" name="cost" id="cost"/>
 		<input type="submit" style="margin-left: 1200px;" onclick="pay" value="결제하기"></input>
 	</form>
