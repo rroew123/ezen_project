@@ -283,16 +283,15 @@ footer {
 
 		
 		<div class="sangpum1">
-		<c:forEach var="photo" items="${photo}">
-			<li><a href="/sangpum/sangpum?sangCode=${photo.sangCode}"><img src="./resources/img/Ezen.png" alt="" style="height: 300px; width: 300px; border: 1px solid black;"/></a>
-				<br><span>${photo.sangName}</span>
-				<br><span>${photo.price} 원</span>
-				<br><span>할인율 : ${photo.saleRat}%</span>
-			</li>
-		</c:forEach>
-			</div>
-			
-
+			<c:forEach var="photo" items="${photo}">
+				<li><a href="/sangpum/sangpum?sangCode=${photo.sangCode}"><img src="./resources/img/Ezen.png" alt="" style="height: 300px; width: 300px; border: 1px solid black;"/></a>
+					<br><span>${photo.sangName}</span>
+					<br><span>${photo.price} 원</span>
+					<br><span>할인율 : ${photo.saleRat}%</span>
+				</li>
+			</c:forEach>
+		</div>
+	</div>
 	
 	<footer> <%@ include file="home_footer.jsp" %> </footer>
 

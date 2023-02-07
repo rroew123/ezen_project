@@ -17,24 +17,17 @@ table {
 	font-family: 'Cairo', sans-serif;
 	margin: auto;
 }
-
 table td {
 	padding: 10px;
 	background-color: #eee;
 }
-
 table th {
 	background-color: #333;
 	color: #fff;
 	padding: 10px;
 }
-
 .container{
 	margin-top:  50px;
-}
-
-.cost{
-	padding-left: 1250px;
 }
 </style>
 
@@ -69,8 +62,8 @@ table th {
 	<form action="/sangpum/payProc" name="paylist">
 		<input type="hidden" value="memId" name="${userInfo.memId}"/>
 		<c:forEach var="pay" items="${pay}">
-		<input type="checkbox" value="smvo" name="${pay.orderNum}" checked="checked" hidden="hidden"/>
-		
+		<input type="checkbox" value="${pay.orderNum}" name="orderNumList" checked="checked" hidden="hidden"/>
+
 			<table>
 				<tr>
 					<th>이미지들어가는칸</th>
@@ -79,12 +72,12 @@ table th {
 					<th>상품개수</th>
 					<th>색상</th>
 					<th>가격</th>
-	
+
 				</tr>
 				<tr>
 					<td><a href="/sangpum/sangpum?sangCode=${pay}"><img
 							src="../resources/img/Ezen.png" alt="" style="width: 150px; height : 150px;"/></a></td>
-					
+
 					<td>${pay.sangName}</td>
 					<td>${pay.sangSize}</td>
 					<td>${pay.sangCnt}</td>
@@ -95,19 +88,21 @@ table th {
 					</script>
 			</table>
 		</c:forEach>
-		<div class="cost">총 금액 <span id="cost">0</span>원</div>
+		<div>총 금액 <span id="cost">0</span>원</div>
 		<input type="hidden" value="" name="cost" id="cost"/>
-		<input type="submit" style="margin-left: 1200px;" onclick="pay" value="결제하기"></input>
+		<input type="submit" style="margin-left: 1200px;" onclick="pay()" value="결제하기"></input>
 	</form>
-	
+
 	</div>
 <script type="text/javascript">
-
 $(document).ready(function cost(){	//총액 계산 함수
 	const resultElement = document.getElementById('cost');
 	resultElement.innerText = totalcost;
 	$('input[id=cost]').attr('value', totalcost);
 });
+function pay(){
+	alert("결제되었습니다.");
+}
 </script>
 </body>
 </html>
