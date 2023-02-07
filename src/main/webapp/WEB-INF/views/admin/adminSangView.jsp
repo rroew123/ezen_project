@@ -74,7 +74,7 @@
 					<option value="3" id="3" class="opt22"<c:if test="${dto.typeThree eq '3'}"> selected</c:if>>맨투맨</option>
 					<option value="4" id="4" class="opt22"<c:if test="${dto.typeThree eq '4'}"> selected</c:if>>티셔츠</option>
 					<option value="5" id="5" class="opt22"<c:if test="${dto.typeThree eq '5'}"> selected</c:if>>후드티</option>
-					<option value="6" id="6" class="opt22"<c:if test="${dto.typeThree eq '6'}"> selected</c:if>>블라우스</option>
+					<option value="6" id="6" class="opt22"<c:if test="${dto.typeThree eq '21'}"> selected</c:if>>블라우스</option>
 					
 					<option value="21" id="21" class="opt23"<c:if test="${dto.typeThree eq '21'}"> selected</c:if>>숏팬츠</option>
 					<option value="22" id="22" class="opt23"<c:if test="${dto.typeThree eq '22'}"> selected</c:if>>레깅스</option>
@@ -103,27 +103,27 @@
 					
 					
 					
-					<option value="1" id="1" class="opt31"<c:if test="${dto.typeThree eq '1'}"> selected</c:if>>코트</option>
-					<option value="2" id="2" class="opt31"<c:if test="${dto.typeThree eq '2'}"> selected</c:if>>라이더자켓</option>
-					<option value="3" id="3" class="opt31"<c:if test="${dto.typeThree eq '3'}"> selected</c:if>>가디건</option>
-					<option value="4" id="4" class="opt31"<c:if test="${dto.typeThree eq '4'}"> selected</c:if>>아노락</option>
-					<option value="5" id="5" class="opt31"<c:if test="${dto.typeThree eq '5'}"> selected</c:if>>무스탕</option>
-					<option value="6" id="6" class="opt31"<c:if test="${dto.typeThree eq '6'}"> selected</c:if>>트레이닝 자켓</option>
+					<option value="1" id="1" class="opt31"<c:if test="${dto.typeThree eq '1'}"> selected="selected"</c:if>>코트</option>
+					<option value="2" id="2" class="opt31"<c:if test="${dto.typeThree eq '2'}"> selected="selected"</c:if>>라이더자켓</option>
+					<option value="3" id="3" class="opt31"<c:if test="${dto.typeThree eq '3'}"> selected="selected"</c:if>>가디건</option>
+					<option value="4" id="4" class="opt31"<c:if test="${dto.typeThree eq '4'}"> selected="selected"</c:if>>아노락</option>
+					<option value="5" id="5" class="opt31"<c:if test="${dto.typeThree eq '5'}"> selected="selected"</c:if>>무스탕</option>
+					<option value="6" id="6" class="opt31"<c:if test="${dto.typeThree eq '6'}"> selected="selected"</c:if>>트레이닝 자켓</option>
 					
-					<option value="1" id="1" class="opt32"<c:if test="${dto.typeThree eq '1'}"> selected</c:if>>니트</option>
-					<option value="2" id="2" class="opt32"<c:if test="${dto.typeThree eq '2'}"> selected</c:if>>셔츠</option>
-					<option value="3" id="3" class="opt32"<c:if test="${dto.typeThree eq '3'}"> selected</c:if>>맨투맨</option>
-					<option value="4" id="4" class="opt32"<c:if test="${dto.typeThree eq '4'}"> selected</c:if>>티셔츠</option>
-					<option value="5" id="5" class="opt32"<c:if test="${dto.typeThree eq '5'}"> selected</c:if>>후드티</option>
+					<option value="1" id="1" class="opt32"<c:if test="${dto.typeThree eq '1'}"> selected="selected"</c:if>>니트</option>
+					<option value="2" id="2" class="opt32"<c:if test="${dto.typeThree eq '2'}"> selected="selected"</c:if>>셔츠</option>
+					<option value="3" id="3" class="opt32"<c:if test="${dto.typeThree eq '3'}"> selected="selected"</c:if>>맨투맨</option>
+					<option value="4" id="4" class="opt32"<c:if test="${dto.typeThree eq '4'}"> selected="selected"</c:if>>티셔츠</option>
+					<option value="5" id="5" class="opt32"<c:if test="${dto.typeThree eq '5'}"> selected="selected"</c:if>>후드티</option>
 					
-					<option value="1" id="1" class="opt33"<c:if test="${dto.typeThree eq '1'}"> selected</c:if>>슬랙스</option>
-					<option value="2" id="2" class="opt33"<c:if test="${dto.typeThree eq '2'}"> selected</c:if>>코튼팬츠</option>
-					<option value="3" id="3" class="opt33"<c:if test="${dto.typeThree eq '3'}"> selected</c:if>>청바지</option>
-					<option value="4" id="4" class="opt33"<c:if test="${dto.typeThree eq '4'}"> selected</c:if>>점프수트</option>
+					<option value="1" id="1" class="opt33"<c:if test="${dto.typeThree eq '1'}"> selected="selected"</c:if>>슬랙스</option>
+					<option value="2" id="2" class="opt33"<c:if test="${dto.typeThree eq '2'}"> selected="selected"</c:if>>코튼팬츠</option>
+					<option value="3" id="3" class="opt33"<c:if test="${dto.typeThree eq '3'}"> selected="selected"</c:if>>청바지</option>
+					<option value="4" id="4" class="opt33"<c:if test="${dto.typeThree eq '4'}"> selected="selected"</c:if>>점프수트</option>
 					
-					<option value="1" id="1" class="opt34"<c:if test="${dto.typeThree eq '1'}"> selected</c:if>>구두</option>
-					<option value="2" id="2" class="opt34"<c:if test="${dto.typeThree eq '2'}"> selected</c:if>>로퍼</option>
-					<option value="3" id="3" class="opt34"<c:if test="${dto.typeThree eq '3'}"> selected</c:if>>샌들</option>		
+					<option value="1" id="1" class="opt34"<c:if test="${dto.typeThree eq '1'}"> selected="selected"</c:if>>구두</option>
+					<option value="2" id="2" class="opt34"<c:if test="${dto.typeThree eq '2'}"> selected="selected"</c:if>>로퍼</option>
+					<option value="3" id="3" class="opt34"<c:if test="${dto.typeThree eq '3'}"> selected="selected"</c:if>>샌들</option>		
 				</select>
 			</td>
 		</tr>
@@ -208,16 +208,19 @@
 		$("#typeThree").val(${dto.typeThree});
 		$("#typeThree").find("option[value!=0]").detach();
 		
-		$("#typeThree").append(malls2.filter(".opt"+($(this).val())+ ${dto.typeTwo}));
+		$("#typeThree").append(malls2.filter(".opt" + ${dto.typeOne} + ${dto.typeTwo} ) );
 	}
 	
 	$(function() {
 		malls2 = $("#typeThree").find("option[value!=0]");
-		malls2.detach();
+		//malls2.detach();
 		
 		$("#typeOne").change(update_selected).change(third_selected);
 		$("#typeOne").trigger("change");
-
+		
+		$("#typeTwo").change(third_selected);
+		$("#typeTwo").trigger("change");
+		
 	});
 	
 	
