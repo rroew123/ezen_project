@@ -105,39 +105,36 @@
 <body>
 	<%@ include file="../home_top.jsp" %>
 	<div class="top">
-
+		<form name="sang" action="" >
+		<input type="text" hidden="hidden" name="memId" id="memId" value="${userInfo.memId}" />
+		<c:forEach var="shop" items="${shop}">
+		<table>
+		<tr>
+		<th><label for="${shop.orderNum}"><input name="orderNum" type="checkbox" id="${shop.orderNum}" value="${shop.orderNum}"/>이미지</label></th>
+		<th>상품이름</th>
+		<th>사이즈</th>
+		<th>상품개수</th>
+		<th>색상</th>
+		<th>가격</th>
 		
-					
-						<form name="sang" action="" >
-						<input type="hidden" name="memId" value="${userInfo.memId}" />
-						<c:forEach var="shop" items="${shop}">
-						<table>
-						<tr>
-						<th><label for="${shop.orderNum}"><input name="orderNum" type="checkbox" id="${shop.orderNum}" value="${shop.orderNum}"/>이미지</label></th>
-						<th>상품이름</th>
-						<th>사이즈</th>
-						<th>상품개수</th>
-						<th>색상</th>
-						<th>가격</th>
-						
-						</tr>
-							<tr>
-							<td><a href="/sangpum/sangpum?sangCode=${shop.sangCode}"><img src="../resources/img/Ezen.png" alt="" style="width : 100px;	"/></a>	</td>
-							<td>${shop.sangName}</td>
-							
-							<td>${shop.sangSize}</td>
-							<td>${shop.sangCnt}</td>
-							<td>${shop.sangColor}</td>
-							<td>${shop.price}</td>
-						</tr>
-						
-						
-						</table>
-						
-						</c:forEach>
-						</form>
-						<input type="button" value="주문결제" onclick='sangmove("pay")'>
-                        <input type="button" value="선택삭제" onclick='sangmove("del")'>
+		</tr>
+			<tr>
+			<td><a href="/sangpum/sangpum?sangCode=${shop.sangCode}"><img src="../resources/img/Ezen.png" alt="" style="width : 100px;	"/></a>	</td>
+			<td>${shop.sangName}</td>
+			
+			<td>${shop.sangSize}</td>
+			<td>${shop.sangCnt}</td>
+			<td>${shop.sangColor}</td>
+			<td>${shop.price}</td>
+		</tr>
+		
+		
+		</table>
+		
+		</c:forEach>
+		</form>
+		<input type="button" value="주문결제" onclick='sangmove("pay")'>
+                    <input type="button" value="선택삭제" onclick='sangmove("del")'>
 	</div>
 	<div class="cart-sub-header">
 		<div class="left-content">

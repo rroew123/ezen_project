@@ -22,27 +22,21 @@
 }
 
 #container{
-	width : 900px;
+	width : 950px;
 	margin-top : 50px;
 	margin-left: 550px; 
-}
-#contents{
-	border : 1px solid black;
 }
 #leftbox{
 	display: inline-block;
 	width : 100px;
-	border : 1px solid black;
 }
 #centerbox{
 	display: inline-block;
-	width : 450px;
-	border : 1px solid black;
+	width : 500px;
 }
 #rightbox{
 	display: inline-block;
 	width : 300px;
-	border : 1px solid black;
 }
 #sangInfo, #review, #sangQnA{
 	height: 600px;
@@ -55,8 +49,6 @@ input[type="radio"] {
 input[type="radio"] + span {
     display: inline-block;
     padding: 15px 10px;
-    border: 1px solid #dfdfdf;
-    background-color: #ffffff;
     text-align: center;
     cursor: pointer;
 }
@@ -69,14 +61,12 @@ input[type="radio"]:checked + span {
 .subheader{
 	whith : 100%;
 	height: 100px;
-	border : 1px solid black;
 }
 
 .subTitle{
 	display: inline-block;
 	whith : 33%;
 	height: 100px;
-	border : 1px solid black;
 }
    
 </style>
@@ -87,7 +77,8 @@ input[type="radio"]:checked + span {
 	<div id="container">
 		<div id="contents">
 			<div id="leftbox">
-				<p>asdasd</p>
+				<p>여러 사진이 들어갈 장소</p>
+				<!--사진이 들어갈 주소  /resource/sangpum/${list.typeOne}/${list.typeTwo}/${list.typeThree}/${list.sangCode}.img-->
 			</div>
 			<div id="centerbox">
 				<img src="/resources/img/Ezen.png" alt="상품이미지" />
@@ -139,12 +130,12 @@ input[type="radio"]:checked + span {
 					</div>
 				</div>
 			</div>
-		</div>
+		</div><br /><br />
 		<div id="subcontents">
 			<div id="subheader" class="subheader">
-				<div class="subTitle"><a href="#review" >리뷰로 가자</a></div>
-				<div class="subTitle"><a href="#sangInfo">상품상세로 가자</a></div>
-				<div class="subTitle"><a href="#sangQnA">상품 qna로 가자</a></div>
+				<div class="subTitle"><a href="#review" >리뷰</a></div> &nbsp&nbsp&nbsp
+				<div class="subTitle"><a href="#sangInfo">상품상세</a></div>&nbsp&nbsp&nbsp
+				<div class="subTitle"><a href="#sangQnA">상품 qna</a></div>&nbsp&nbsp&nbsp
 			</div>
 			<div id="review" >
 				리뷰는 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi vel sed velit quisquam dolore iusto recusandae earum sunt magnam dolores aspernatur totam molestias tempora animi odio! Deleniti placeat praesentium earum.
@@ -156,28 +147,23 @@ input[type="radio"]:checked + span {
 				상품 qna는 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi vel sed velit quisquam dolore iusto recusandae earum sunt magnam dolores aspernatur totam molestias tempora animi odio! Deleniti placeat praesentium earum.
 			</div>
 		</div>
-		
 	</div>
 <script>
 
 
 function count(type)  {	//갯수 올리고 내리기
 	if($("input:radio[name='sangSize']").is(':checked')){
-		const resultElement = document.getElementById('count');
-		// 현재 화면에 표시된 값
-		let number = resultElement.innerText;
-		// 더하기/빼기
+		const resultElement = document.getElementById('count');	// 현재 화면에 표시된 값
+		let number = resultElement.innerText;// 더하기/빼기
 		if(type === 'plus') {
 		  number = parseInt(number) + 1;
 		}else if(type === 'minus')  {
 		  number = parseInt(number) - 1;
-		  
 		  if(parseInt(number) === 0 ){
 			  document.getElementById('minus').hide();
 			}
-		}
-		// 결과 출력
-		resultElement.innerText = number;
+		}		
+		resultElement.innerText = number;	// 결과 출력
 		cost(number);
 	}else{
 		return alert("사이즈먼저 선택해주세요");
@@ -190,7 +176,7 @@ function cost(number){	//총액 계산 함수
 }
 
 function sangmove(move){
-	//결제나 쇼핑카트	ajax쓸 예정
+	//결제나 쇼핑카트
 	if(move === 'cart' && $("input:radio[name='sangSize']").is(':checked')){
 		alert("장바구니에 추가되었습니다.");
 		$('input[name=sangCnt]').attr('value', document.getElementById('count').innerText);

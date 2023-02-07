@@ -17,7 +17,11 @@
 	</select>
 	
 	<select id="getSM_MemId" resultType="SangMemVO" parameterType="String">	
-		select * from SangMem where memId = #{memId}
+		select * from SangMem where memId = #{memId} and ORDSTAT = 2
+	</select>
+	
+	<select id="getSM_MemId_cart" resultType="SangMemVO" parameterType="String">	
+		select * from SangMem where memId = #{memId} and ORDSTAT = 1
 	</select>
 	
 	<insert id="addSangMemPay" parameterType="SangMemVO">
@@ -45,6 +49,10 @@
 	<update id="updSangMem" parameterType="SangMemVO">
 		update SangMem set memId = #{memId}, payNum = #{payNum}, sangSize = #{sangSize}, sangColor = #{sangColor}, 
 		sangCode = #{sangCode}, sangCnt = #{sangCnt}, ordDate = sysdate, ordStat = #{ordStat} where orderNum = #{orderNum}
+	</update>
+	
+	<update id="updSangMem_ordStat" parameterType="SangMemVO">
+		update SangMem set ordStat = 2 where orderNum = #{orderNum}
 	</update>
 	
 	<select id="getCouponAll" resultType="CouponVO">	

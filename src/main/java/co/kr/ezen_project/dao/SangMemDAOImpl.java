@@ -226,5 +226,10 @@ public class SangMemDAOImpl implements SangMemDAO {
 		return session.selectOne("co.kr.ezen_project.dao.SangMemDAO.getPayNum", memId);
 	}
 
+	@Override
+	public List<SangMemVO> getSM_MemId_cart(String memId) {
+		return session.selectList("co.kr.ezen_project.dao.SangMemDAO.getSM_MemId_cart", memId);
+	}
+
 
 }

@@ -204,6 +204,11 @@ public class SangMemServiceImpl implements SangMemService {
 	public int getPayNum(String memId) {
 		return dao.getPayNum(memId);
 	}
+
+	@Override
+	public List<SangMemVO> getSM_MemId_cart(String memId) {
+		return dao.getSM_MemId_cart(memId);
+	}
 	
 
 }

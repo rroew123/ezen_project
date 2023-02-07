@@ -47,6 +47,10 @@
 		select * from SangCodeSpec where sangCode = #{sangCode}
 	</select>
 	
+	<select id="getSCSremStock" resultType="SangCodeSpecVO">	
+		select * from SangCodeSpec where sangCode = #{sangCode} and sangColor = #{sangColor} and sangSize = #{sangSize}  
+	</select>
+	
 	<insert id="addSCS" parameterType="SangCodeSpecVO">
 		insert into SangCodeSpec (sangSize, sangColor, sangCode, remStock) values (#{sangSize}, #{sangColor}, #{sangCode}, #{remStock})
 	</insert>
@@ -88,7 +92,7 @@
 	</select>
 	
 	<select id="getSangCate" parameterType="SearchVO" resultType="SangpumVO">
-		SELECT * FROM Sangpum WHERE sangCode LIKE #{keyword} order by #{orby}
+		SELECT * FROM sangpum WHERE sangCode LIKE #{keyword} order by ${orby}
 	</select>
 	
 	<select id="getSangAdmin" parameterType="String" resultType="SangpumVO">

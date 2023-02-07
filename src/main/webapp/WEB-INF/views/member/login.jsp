@@ -59,8 +59,8 @@
 		</ul>
 	</fieldset>
 
-	<div class="form_nomember form_box">
-		<!-- 비회원주문조회폼 -->
+	<!-- <div class="form_nomember form_box">
+		비회원주문조회폼
 		<form name="orderform" method="post" action="/member/order_view.php"
 			onsubmit="return order_view();" autocomplete="off">
 			<fieldset>
@@ -86,7 +86,7 @@
 				</a>
 			</fieldset>
 		</form>
-	</div>
+	</div> -->
 	
 	<script>
 		function clickTop() {

@@ -38,10 +38,17 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
-		home_top(model);
+	public String home(Model model, String orby) {
 		
-		model.addAttribute("photo",sangpumService.getSangAll());
+		home_top(model);
+		if(orby == null) {
+			model.addAttribute("photo",sangpumService.getSangAll());
+		}else {
+			SearchVO vo = new SearchVO();
+			vo.setKeyword("%");
+			vo.setOrby(orby);
+			model.addAttribute("photo",sangpumService.getSangCate(vo));
+		}
 		
 		return "home";
 	}

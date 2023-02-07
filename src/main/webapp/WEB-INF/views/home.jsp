@@ -278,8 +278,7 @@ footer {
 		</ul>
 		<br />
 		<div class="Cheader">
-			<a href="">전체</a> <a href="">신상</a> <a href="">베스트</a> <a href="">세일</a>
-			<a href="">잘팔리는거</a> <a href="">추천</a>
+			<a href="/?orby=SOLDCNT desc">인기</a> <a href="/?orby=regDate">신상</a> <a href="/?orby=SALERAT desc">세일</a>
 		</div>
 
 		
@@ -288,6 +287,7 @@ footer {
 			<li><a href="/sangpum/sangpum?sangCode=${photo.sangCode}"><img src="./resources/img/Ezen.png" alt="" style="height: 300px; width: 300px; border: 1px solid black;"/></a>
 				<br><span>${photo.sangName}</span>
 				<br><span>${photo.price} 원</span>
+				<br><span>할인율 : ${photo.saleRat}%</span>
 			</li>
 		</c:forEach>
 			</div>

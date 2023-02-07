@@ -60,6 +60,8 @@ public interface SangpumDAO {
 	
 	List<SangpumVO> getSP_sangName(SearchVO vo);
 
+	SangCodeSpecVO getSCSremStock(SangCodeSpecVO scsvo);
+
 
 	
 

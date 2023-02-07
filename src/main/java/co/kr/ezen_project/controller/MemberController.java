@@ -112,6 +112,7 @@ public class MemberController {
 	public String myPage_UpdateProc(MemberVO vo, Model model) {
 		home_top(model);
 		MemService.udtMem(vo);
+		model.addAttribute("userInfo", MemService.getMemOne(vo.getMemId()));
 		return "/member/mypage_memUpdate";
 	}
 
@@ -156,7 +157,7 @@ public class MemberController {
 	public void shoppingcart(Model model, String memId) {
 		home_top(model);
 		model.addAttribute("shop", sangService.getSangMemAll());
-		model.addAttribute("shop", sangService.getSM_MemId(memId));
+		model.addAttribute("shop", sangService.getSM_MemId_cart(memId));
 	}
 
 	@RequestMapping("/cartDelProc")

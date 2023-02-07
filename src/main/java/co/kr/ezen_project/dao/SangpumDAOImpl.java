@@ -159,4 +159,9 @@ public class SangpumDAOImpl implements SangpumDAO {
 	public List<SangpumVO> getSP_sangName(SearchVO vo) {
 		return session.selectList("co.kr.ezen_project.dao.SangpumDAO.getSP_sangName", vo);
 	}
+
+	@Override
+	public SangCodeSpecVO getSCSremStock(SangCodeSpecVO scsvo) {
+		return session.selectOne("co.kr.ezen_project.dao.SangpumDAO.getSCSremStock", scsvo);
+	}
 }

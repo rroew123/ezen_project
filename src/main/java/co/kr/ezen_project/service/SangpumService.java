@@ -61,4 +61,6 @@ public interface SangpumService {
 	List<SangCateVO> getSC_cateType(SangCateVO vo);
 	
 	List<SangpumVO> getSP_sangName(SearchVO vo);
+
+	SangCodeSpecVO getSCSremStock(SangCodeSpecVO scsvo);
 }

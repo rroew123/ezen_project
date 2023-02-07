@@ -149,4 +149,9 @@ public class SangpumServiceImpl implements SangpumService {
 		return dao.getSP_sangName(vo);
 	}
 
+	@Override
+	public SangCodeSpecVO getSCSremStock(SangCodeSpecVO scsvo) {
+		return dao.getSCSremStock(scsvo);
+	}
+
 }

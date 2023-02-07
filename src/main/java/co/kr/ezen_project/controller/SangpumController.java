@@ -26,57 +26,65 @@ public class SangpumController {
 	@Autowired
 	SangMemService sangmemService;
 
-	/*@RequestMapping("/payProc") // 장바구니에 추가
-	public String payProc(SangCodeSpecVO[] scsvoList, SangMemVO[] smvo, int cost, String memId, Model model) {
+	@RequestMapping("/payProc") // 장바구니에 추가
+	public String payProc(String[] orderNumList, String memId, Model model) {
 		home_top(model);
+		System.out.println(memId);
 		SangpumVO spvo = new SangpumVO();
-		PaymentVO payvo = new PaymentVO();
-		for (SangCodeSpecVO vo : scsvoList) {
-			if (sangpumService.getSCS(vo.getSangCode()).getRemStock() == 0) {
-				model.addAttribute("masege", "재고가없습니다");
-			} else {
-				vo.setRemStock(vo.getRemStock() - 1);
-				sangpumService.updSCS(vo);
-				spvo = sangpumService.getSang(vo.getSangCode());
-				spvo.setRemStock(spvo.getRemStock() - 1);
-				spvo.setSoldCnt(spvo.getSoldCnt() + 1);
-				sangpumService.updSang(spvo); // 상품코드스펙에서 재고 -1
-				sangpumService.updSCS(vo); // 상품에서 재고 -1 그리고 판매량 +1
-			};
-		}
+		SangMemVO smvo = new SangMemVO(); 
+		SangCodeSpecVO scsvo = new SangCodeSpecVO(); 
+		/*for (String orderNum : orderNumList) { smvo =
+		 * sangmemService.getSangMem(orderNum); scsvo.setSangCode(smvo.getSangCode());
+		 * scsvo.setSangColor(smvo.getSangColor());
+		 * scsvo.setSangSize(smvo.getSangSize()); if
+		 * (sangpumService.getSCSremStock(scsvo).getRemStock() == 0) {
+		 * model.addAttribute("masege", "재고가없습니다"); return "/member/paypage"; } }
+		 * 
+		 * payvo.setMemId(memId); sangmemService.addPayment(payvo); //페이 테이블 데이터 생성
+		 * 
+		 * int paynum = sangmemService.getPayNum(memId);
+		 */
 		
-		payvo.setMemId(memId);
-		payvo.setPayment(cost);
-		sangmemService.addPayment(payvo);	//페이 테이블 데이터 생성
-		
-		int paynum = sangmemService.getPayNum(memId);
-		for(SangMemVO vo : smvo) {			//상멤 애들에 오더스텟 2로 바꾸고 페이넘버 붙여두기
-			vo.setOrdStat(2);
-			vo.setPayNum(paynum);
-			sangmemService.updSangMem(vo);
+		for (String orderNum : orderNumList) {
+			smvo = sangmemService.getSangMem(orderNum);
+			/* scsvo.setSangCode(smvo.getSangCode());
+			 * scsvo.setSangColor(smvo.getSangColor());
+			 * scsvo.setSangSize(smvo.getSangSize());
+			 * 
+			 * scsvo.setRemStock(scsvo.getRemStock() - 1); sangpumService.updSCS(scsvo);
+			 * spvo = sangpumService.getSang(scsvo.getSangCode());
+			 * spvo.setRemStock(spvo.getRemStock() - 1); spvo.setSoldCnt(spvo.getSoldCnt() +
+			 * 1); sangpumService.updSang(spvo); // 상품코드스펙에서 재고 -1
+			 * sangpumService.updSCS(scsvo); // 상품에서 재고 -1 그리고 판매량 +1 smvo.setOrdStat(2);
+			 */
+			smvo.setOrdStat(2);
+			smvo.setOrdStat(2);
+			sangmemService.updSangMem(smvo);
 		}
-		return "/member/paypage";
-	}*/
+		return "redirect:/member/shoppingcart?memId="+memId;
+	}
 
 	@RequestMapping("/category")
 	public void category(String sangCode, String orby, Model model) {	//분류페이지로 이동
+		model.addAttribute("typeOne", sangCode.substring(1));
 		home_top(model);
 		SearchVO searchvo = new SearchVO();
-		if(orby != null) {						//order by 기본이 판매량 순
+		String searchCode = sangCode;
+		if(orby != null) {												//order by 기본이 판매량 순
 			searchvo.setOrby(orby);	
 		}else {
 			searchvo.setOrby("SOLDCNT desc");
 		}
 		if( sangCode.length() > 4 ) {					//sangCode 가 5자리 이상일 경우 뒤에 2자리를 자르고 아닌경우 그냥 사용
-			sangCode = sangCode.substring( 0 , sangCode.length() - 2);
+			searchCode = sangCode.substring( 0 , sangCode.length() - 2);
 		}
-		searchvo.setKeyword(sangCode);
+		searchvo.setKeyword(searchCode);
 		model.addAttribute("typeTwo", sangpumService.getSC_cateName(searchvo));
-		searchvo.setKeyword(sangCode + "__");
+		searchvo.setKeyword(searchCode + "__");
 		model.addAttribute("cateList", sangpumService.getSC_cateName(searchvo));
-		model.addAttribute("sangCode", sangCode);
+		model.addAttribute("sangCode", searchCode);
 		
-		if( sangCode.substring(0, 1).equals("1") ){
+		if( sangCode.substring(0, 1).equals("1") ){		//대분류가 1인지 아닌지를 판단
 			sangCode = "_" + sangCode.substring(1);
 			
 		}

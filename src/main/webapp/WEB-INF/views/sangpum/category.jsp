@@ -28,13 +28,12 @@
 
 /* =========================== nav ============================== */
 .Content {
-	border: 1px solid purple;
 	padding: 20px 40px 10px 200px;
 }
 
 .Cheader {
 	text-align: center;
-	margin-bottom: 100px;
+	margin-bottom: 30px;
 }
 
 .sangpum li {
@@ -72,31 +71,37 @@
 			<c:forEach var="typeTwo" items="${typeTwo}">
 				<h1>${typeTwo.cateName}</h1>
 			</c:forEach>
-			<a href="/sangpum/category?sangCode=${sangCode}">전체</a>
-			<a href="/sangpum/category?sangCode=${sangCode}">남자</a>
-			<a href="/sangpum/category?sangCode=${sangCode}">여자</a> <br>
-			<a href="/sangpum/category?sangCode=${sangCode}">전체</a>
+			<a href="/sangpum/category?sangCode=1${typeOne}">전체</a>&nbsp
+			<a href="/sangpum/category?sangCode=2${typeOne}">여자</a>&nbsp
+			<a href="/sangpum/category?sangCode=3${typeOne}">남자</a> <br>
+			<a href="/sangpum/category?sangCode=${sangCode}">전체</a>&nbsp
 			<c:forEach var="cateList" items="${cateList}">
-				<a href="/sangpum/category?sangCode=${cateList.sangCode}">${cateList.cateName}</a>
+				<a href="/sangpum/category?sangCode=${cateList.sangCode}">${cateList.cateName}</a>&nbsp
 			</c:forEach>
 			
 		</div>
-			<span class="btnLeft"> <i class="fa-solid fa-arrow-left"></i>
-			</span> <span class="btnRight"> <i class="fa-solid fa-arrow-right"></i>
-			</span>
-			<div class="sangpum">
-		<ul>
-			<c:forEach var="list" items="${sangList}">
-				<span class="sangpumList"><a href="/sangpum/sangpum?sangCode=${list.sangCode}"><img src="/resources/img/Ezen.png" alt="" style="height: 300px; width: 300px; border: 1px solid black;"/></a>
-					<br><span>${list.sangName}</span>
-					<br><span>${list.price}</span>
-					<!--사진이 들어갈 주소  /resource/sangpum/${list.typeOne}/${list.typeTwo}/${list.typeThree}/${list.sangCode}.img-->
-				</span>
-				
-			</c:forEach>
-		</ul>
+		<div class="Cheader">
+			<a href="/sangpum/category?sangCode=${sangCode}&orby=SOLDCNT desc">인기</a> &nbsp&nbsp
+			<a href="/sangpum/category?sangCode=${sangCode}&orby=regDate">신상</a> 	&nbsp&nbsp
+			<a href="/sangpum/category?sangCode=${sangCode}&orby=SALERAT">세일</a>	&nbsp&nbsp
+			<a href="/sangpum/category?sangCode=${sangCode}&orby=price">낮은 가격순</a>	&nbsp&nbsp
+			<a href="/sangpum/category?sangCode=${sangCode}&orby=price desc">높은가격순</a>&nbsp&nbsp
 		</div>
-
+		<div class="sangpum">
+			<ul>
+				<c:forEach var="list" items="${sangList}">
+					<span class="sangpumList">
+						<a href="/sangpum/sangpum?sangCode=${list.sangCode}">
+							<img src="/resources/img/Ezen.png" style="height: 300px; width: 300px; border: 1px solid black;"/>
+						</a>
+						<br><span>${list.sangName}</span>
+						<br><span>${list.price}</span>
+						<br><span>할인율 : ${list.saleRat}%</span>
+						<!--사진이 들어갈 주소  /resource/sangpum/${list.typeOne}/${list.typeTwo}/${list.typeThree}/${list.sangCode}.img-->
+					</span>
+				</c:forEach>
+			</ul>
+		</div>
 	</div>
 	<div class="Footer">
 		<img src="/resources/img/footer.png" alt="" />

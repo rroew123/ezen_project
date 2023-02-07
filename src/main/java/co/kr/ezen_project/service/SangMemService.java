@@ -86,4 +86,6 @@ public interface SangMemService {
 	List<PaymentVO> getRevenue();
 
 	int getPayNum(String memId);
+
+	List<SangMemVO> getSM_MemId_cart(String memId);
 }
