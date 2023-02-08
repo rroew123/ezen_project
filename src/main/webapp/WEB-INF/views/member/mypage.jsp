@@ -36,7 +36,7 @@ img{
 		<tr>
 			<th>상품</th>
 			<th>성함</th>
-
+			<th>상품이름</th>
 			<th>상품사이즈</th>
 			<th>상품색상</th>
 
@@ -49,7 +49,7 @@ img{
 
 			<td><a href="/sangpum/sangpum?sangCode=${His.sangCode}"><img src="../resources/img/Ezen.png" alt="" /></a></td>
 			<td>${His.memId}</td>
-
+			<td>${His.sangName}</td>
 			<td>${His.sangSize}</td>
 			<td>${His.sangColor}</td>
 
