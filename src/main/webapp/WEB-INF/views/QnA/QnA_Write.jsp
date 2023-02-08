@@ -30,15 +30,19 @@
 					<tr>
 						<td><input type="text" placeholder="글 제목" name="brdTitle" style=" width:300px;"/></td>
 					</tr>	
-						
-						<tr>
-						<td><textarea placeholder="게시물No." name="qnaNum" style="height:20px;  width:300px;"/></textarea></td>
+		
+					<tr>
+						<td><textarea placeholder="글쓴이" name="memId" style="height:20px;  width:300px;"/>${userInfo.memId}</textarea></td>
 					</tr>
-						<tr>
-						<td><textarea placeholder="글쓴이" name="memId" style="height:20px;  width:300px;"/></textarea></td>
-					</tr>
-						<tr>
-						<td><textarea placeholder="카테고리" name="qnaCat" style="height:20px;  width:300px;"/></textarea></td>
+					<tr>
+						<td>
+							<select name="qnaCat" id="">
+								<option name="qnaCat" id="">배송</option>
+								<option name="qnaCat" id="">반품</option>
+								<option name="qnaCat" id="">마일리지</option>
+								<option name="qnaCat" id="">쿠폰</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td><textarea placeholder="본문 내용" name="brdCntxt" style="height:100px;  width:300px;"/></textarea></td>
