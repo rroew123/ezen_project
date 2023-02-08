@@ -83,7 +83,7 @@
 		<div class="Cheader">
 			<a href="/sangpum/category?sangCode=${sangCode}&orby=SOLDCNT desc">인기</a> &nbsp&nbsp
 			<a href="/sangpum/category?sangCode=${sangCode}&orby=regDate">신상</a> 	&nbsp&nbsp
-			<a href="/sangpum/category?sangCode=${sangCode}&orby=SALERAT">세일</a>	&nbsp&nbsp
+			<a href="/sangpum/category?sangCode=${sangCode}&orby=SALERAT desc">세일</a>	&nbsp&nbsp
 			<a href="/sangpum/category?sangCode=${sangCode}&orby=price">낮은 가격순</a>	&nbsp&nbsp
 			<a href="/sangpum/category?sangCode=${sangCode}&orby=price desc">높은가격순</a>&nbsp&nbsp
 		</div>
