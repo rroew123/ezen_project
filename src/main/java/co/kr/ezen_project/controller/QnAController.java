@@ -44,7 +44,7 @@ public class QnAController {
 		home_top(model);
 		consumerService.addQnA(qvo1);
 		session.setAttribute("boardInfo", qvo1);
-		return "/QnA/QnA_Write";
+		return "redirect:/QnA/QnABoard";
 	}
 
 	@RequestMapping(value = "/UpdateProc", method = RequestMethod.POST)

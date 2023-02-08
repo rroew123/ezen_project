@@ -37,10 +37,11 @@
 					<tr>
 						<td>
 							<select name="qnaCat" id="">
-								<option name="qnaCat" id="">배송</option>
-								<option name="qnaCat" id="">반품</option>
-								<option name="qnaCat" id="">마일리지</option>
-								<option name="qnaCat" id="">쿠폰</option>
+								<option name="qnaCat" id="" value="1">배송</option>
+								<option name="qnaCat" id="" value="2">교환</option>
+								<option name="qnaCat" id="" value="3">반품</option>
+								<option name="qnaCat" id="" value="4">마일리지</option>
+								<option name="qnaCat" id="" value="5">쿠폰</option>
 							</select>
 						</td>
 					</tr>
