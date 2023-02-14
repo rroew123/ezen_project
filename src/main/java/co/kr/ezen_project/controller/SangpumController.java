@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -18,6 +19,9 @@ import co.kr.ezen_project.vo.SangMemVO;
 import co.kr.ezen_project.vo.SangpumVO;
 import co.kr.ezen_project.vo.SearchVO;
 
+import lombok.extern.java.Log;
+ 
+@Log
 @Controller
 @RequestMapping("/sangpum/")
 public class SangpumController {
@@ -25,7 +29,8 @@ public class SangpumController {
 	SangpumService sangpumService;
 	@Autowired
 	SangMemService sangmemService;
-
+	
+    
 	@RequestMapping("/payProc") // 장바구니에 추가
 	public String payProc(String[] orderNumList, String memId, Model model) {
 		home_top(model);
@@ -61,6 +66,7 @@ public class SangpumController {
 			smvo.setOrdStat(2);
 			sangmemService.updSangMem(smvo);
 		}
+	
 		return "redirect:/member/shoppingcart?memId="+memId;
 	}
 
